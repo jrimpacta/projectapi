@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "impactaapi-15704": {
+      "hosting": {
+        "ImpactaAPIGre": [
+          "impactaapi-15704"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "impactaapi-15704"
+  }
+}

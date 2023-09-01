@@ -1,0 +1,1 @@
+export { serieCorrelativo } from './series';

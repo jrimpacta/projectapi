@@ -1,0 +1,102 @@
+.title {
+	display: flex;
+	justify-content: center;
+	margin: 10px 0;
+}
+
+.dark-divider {
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+	//color:hsla(0,0%,100%,.9);
+
+	font-size:14px;
+	font-variant:tabular-nums;
+	line-height:1.5715;
+	list-style:none;
+	font-feature-settings:"tnum","tnum";
+	border-top:1px solid hsla(0,0%,100%,.12)
+}
+
+.dark-divider-horizontal{
+	display:flex;
+	clear:both;
+	width:100%;
+	min-width:100%;
+	margin:24px 0
+}
+
+.dark-divider-horizontal.dark-divider-with-text{
+	display:flex;
+	margin:16px 0;
+	color:hsla(0,0%,100%,.9);
+	font-weight:500;
+	font-size:16px;
+	white-space:nowrap;
+	text-align:center;
+	border-top:0;
+	border-top-color:rgba(0,0,0,0.15); // color
+}
+.dark-divider-horizontal.dark-divider-with-text:after,.dark-divider-horizontal.dark-divider-with-text:before{
+	position:relative;
+	top:50%;
+	width:50%;
+	border-top:1px solid transparent;
+	border-top-color:inherit;
+	border-bottom:0;
+	transform:translateY(50%);
+	content:""
+}
+.dark-divider-horizontal.dark-divider-with-text-left:before{
+	top:50%;
+	width:5%
+}
+.dark-divider-horizontal.dark-divider-with-text-left:after,.dark-divider-horizontal.dark-divider-with-text-right:before{
+	top:50%;
+	width:95%
+}
+.dark-divider-horizontal.dark-divider-with-text-right:after{
+	top:50%;
+	width:5%
+}
+.dark-divider-inner-text{
+	display:inline-block;
+	padding:0 1em
+}
+.dark-divider-dashed{
+	background:none;
+	border:dashed rgba(0,0,0,0.25);
+	border-width:1px 0 0;
+}
+.dark-divider-horizontal.dark-divider-with-text.dark-divider-dashed{
+	border-top:0;
+}
+.dark-divider-horizontal.dark-divider-with-text.dark-divider-dashed:after,.dark-divider-horizontal.dark-divider-with-text.dark-divider-dashed:before{
+	border-style:dashed none none;
+}
+.dark-divider-vertical.dark-divider-dashed{
+	border-width:0 0 0 1px;
+}
+.dark-divider-plain.dark-divider-with-text{
+	color:rgba(0,0,0,0.25);
+	font-weight:400;
+	font-size:14px
+}
+.dark-divider-rtl{
+	direction:rtl
+}
+.dark-divider-rtl.dark-divider-horizontal.dark-divider-with-text-left:before{
+	width:95%
+}
+.dark-divider-rtl.dark-divider-horizontal.dark-divider-with-text-left:after,.dark-divider-rtl.dark-divider-horizontal.dark-divider-with-text-right:before{
+	width:5%
+}
+.dark-divider-rtl.dark-divider-horizontal.dark-divider-with-text-right:after{
+	width:95%
+}
+
+.dark-divider-plain.dark-divider-with-text{
+	color:rgba(0,0,0,0.35);
+	font-weight:400;
+	font-size:14px
+}

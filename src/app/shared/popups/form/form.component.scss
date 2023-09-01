@@ -1,0 +1,23 @@
+@import "../../../../styles/colors";
+
+.form {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 1em;
+
+	&__header {
+		margin-bottom: 12px;
+
+	}
+
+	&__content {
+		flex-grow: 1;
+	}
+
+	&__footer {
+		display: inline-flex;
+		flex-direction: row-reverse;
+		margin-top: 12px;
+	}
+}

@@ -1,0 +1,13 @@
+<div class="ubicacion-range">
+	<form [formGroup]="form" novalidate>
+		<div class="ubicacion-range__items">
+			<app-select formControlName="departamento" (change)="departamentoChange()"
+						style="width: 400px"
+						[items]="emisores"></app-select>
+			<span class="ubicacion-range__dash">&mdash;</span>
+			<app-select formControlName="provincia" [items]="[]"></app-select>
+			<span class="ubicacion-range__dash">&mdash;</span>
+			<app-select formControlName="distrito" [items]="[]"></app-select>
+		</div>
+	</form>
+</div>

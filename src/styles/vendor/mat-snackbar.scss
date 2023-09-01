@@ -1,0 +1,18 @@
+.mat-snackbar {
+
+    &_error {
+        border-radius: 20px !important;
+        background: $error !important;
+        color: $on-error !important;
+    }
+
+    &_success {
+        background: $success;
+        color: $on-success;
+    }
+}
+
+::ng-deep mat-snackbar_success{
+    background: $success;
+    color: $on-success;
+}

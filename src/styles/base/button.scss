@@ -1,0 +1,33 @@
+.app-button {
+	padding: 5px 20px;
+	background: transparent;
+	border-radius: 10px;
+	border: 2px solid $primary;
+	transition: 0.25s;
+	margin: 0 4px;
+	color: $primary;
+	font-weight: 500;
+
+	&:hover, &:focus {
+		background: $primary;
+		border: 2px solid $primary;
+		color: $on-primary;
+	}
+}
+
+.app-button-error {
+	padding: 5px 20px;
+	background: transparent;
+	border-radius: 10px;
+	border: 2px solid $error;
+	transition: 0.25s;
+	margin: 0 4px;
+	color: $error;
+	font-weight: 500;
+
+	&:hover, &:focus {
+		background: $error;
+		border: 2px solid $error;
+		color: $on-primary;
+	}
+}

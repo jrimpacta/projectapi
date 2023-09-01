@@ -1,0 +1,52 @@
+<div class="form">
+	<div class="form-header">
+		<div class="title">
+			<h2>Agregar ítem</h2>
+
+		</div>
+	</div>
+	<div class="form-content">
+		<ng-content></ng-content>
+
+		<form [formGroup]="formItem" novalidate autocomplete="off">
+			<app-form-field label="Cantidad" class="row-items_inColumn"
+							[required]="true"
+							[control]="formItem.controls['quantity']"
+							[isInline]="false">
+				<app-input formControlName="quantity" type="number"
+						   placeholder="Ingrese la cantidad"></app-input>
+			</app-form-field>
+
+			<app-form-field label="Unidad de medida" class="row-items_inColumn"
+							[required]="true"
+							[control]="formItem.controls['unidadMedida']"
+							[isInline]="false">
+				<app-autocomplete placeholder="Ingrese la unidad de medida"
+								  formControlName="unidadMedidaTotal"
+								  [items]="unidadMedida"></app-autocomplete>
+			</app-form-field>
+
+			<app-form-field label="Código (UNSPSC)" class="row-items_inColumn"
+							[control]="formItem.controls['codeSunat']"
+							[isInline]="false">
+				<app-input formControlName="codeSunat"
+						   placeholder="Ingrese el código según SUNAT"></app-input>
+			</app-form-field>
+
+			<app-form-field label="Descripción" class="row-items_inColumn"
+							[required]="true"
+							[control]="formItem.controls['detail']"
+							[isInline]="false">
+				<app-input formControlName="detail"
+						   placeholder="Ingrese la descripción detallada de este producto"></app-input>
+			</app-form-field>
+
+			<div class="title">
+				<app-button type="submit">Agregar</app-button>
+			</div>
+		</form>
+	</div>
+	<div class="form-footer">
+
+	</div>
+</div>
