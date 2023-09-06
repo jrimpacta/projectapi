@@ -1,6 +1,6 @@
 export const environment = {
 	production: true,
-	name: 'default',
+	name: 'prod',
 	firebase: {
 		config: {
 			projectId: 'impactaapi-15704',

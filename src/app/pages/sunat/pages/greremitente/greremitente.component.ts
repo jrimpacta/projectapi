@@ -10,6 +10,11 @@ import {ThemePalette} from '@angular/material/core';
 import {departamentosBadWay} from "src/app/models/backend/ubigeo";
 import {LocationService} from "src/app/services/utils/location.service";
 
+import { doc, setDoc, Timestamp } from "firebase/firestore";
+import {initializeApp} from "@angular/fire/app";
+import {environment} from "../../../../../environments/environment";
+import {collection, getFirestore} from "@angular/fire/firestore";
+
 export interface ChipColor {
 	name: string;
 	color: ThemePalette;
@@ -330,9 +335,30 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			await new Promise((f: any) => setTimeout(f, 1000));
 			this.showSpinner = false;
 			console.log("Presionó el botón de submit");
+
+			await this.SaveAll();
 		}
 	}
-	ruc: string = "";
+	app = initializeApp(environment.firebase.config);
+	db = getFirestore(this.app);
+	userProfileCollection = collection(getFirestore(this.app), 'test');
+	SaveAll = async () => {
+		const docData = {
+			stringExample: "Hello world!",
+			booleanExample: true,
+			numberExample: 3.14159265,
+			dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
+			arrayExample: [5, true, "hello"],
+			nullExample: null,
+			objectExample: {
+				a: 5,
+				b: {
+					nested: "foo"
+				}
+			}
+		};
+		await setDoc(doc(this.db, "data", "one"), docData);
+	}
 
 	ngOnDestroy(): void {
 	}
