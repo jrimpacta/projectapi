@@ -72,7 +72,8 @@ export class SunatService {
 		const token:string = '50ea6d025fa1a12fd9ccbf3f355e5752';
 
 		const headers = new HttpHeaders({
-			'Content-Type': 'application/x-www-form-urlencoded'
+			'Content-Type': 'application/x-www-form-urlencoded',
+			'Access-Control-Allow-Origin': '*'
 		});
 
 		const body = new URLSearchParams();

@@ -11,8 +11,10 @@ export const catalogo06: Catalogo06 = {
 		{ value: '7', label: "Pasaporte" },
 		{ value: 'A', label: "Cédula diplomática" },
 		{ value: 'B', label: "Documento identidad país residencia-no.d" },
-		{ value: 'C', label: "Tax Identification Number - TIN – Doc Trib PP.NN" },
-		{ value: 'D', label: "Identification Number - IN – Doc Trib PP. JJ" },
+		{ value: 'C', label: "Tax Identification Number - TIN - Doc Trib PP.NN" },
+		{ value: 'D', label: "Identification Number - IN - Doc Trib PP. JJ" },
 		{ value: 'E', label: "TAM- Tarjeta Andina de Migración" },
+		{ value: 'F', label: "Permiso Temporal de Permanencia - PTP" },
+		{ value: 'G', label: "Salvoconducto" }
 	]
 };

@@ -1,4 +1,5 @@
 export interface catalogo {
-	codigo:string,
-	detalle:string
+    id?: number;
+    codigo: string;
+    descripcion: string;
 }

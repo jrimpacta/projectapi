@@ -24,6 +24,6 @@ export const catalogo20: Catalogo20 = {
 		{ value: '08', label: "Traslado por importación" },
 		{ value: '09', label: "Traslado por exportación" },
 		{ value: '19', label: "Traslado a zona primaria" },
-		{ value: '13', label: "Otros" },
+		{ value: '13', label: "Otros" }
 	]
 };

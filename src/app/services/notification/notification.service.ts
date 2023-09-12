@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {NotificationComponent} from './components';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {firstValueFrom} from "rxjs";
+import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationComponent } from './components';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { firstValueFrom } from "rxjs";
 
 @Injectable()
 export class NotificationService {
@@ -11,17 +11,17 @@ export class NotificationService {
 
 	error = (message: string): void => {
 		this.snackBar.openFromComponent(NotificationComponent, {
-			duration: 3000,
-			data: {message},
-			panelClass: ['mat-snackbar_error'] // Por arreglar
+			duration: 8000,
+			data: { message },
+			//panelClass: ['mat-snackbar_error'] // Por arreglar
 		});
 	}
 
 	success = (message: string): void => {
 		this.snackBar.openFromComponent(NotificationComponent, {
-			duration: 3000,
-			data: {message},
-			panelClass: ["mat-snackbar_success"]
+			duration: 6000,
+			data: { message },
+			//panelClass: ["mat-snackbar_success"]
 		});
 	}
 }

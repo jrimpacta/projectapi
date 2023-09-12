@@ -4,7 +4,7 @@ interface Catalogo65 {
 }
 
 /*
-* Catálogo No. 20: Códigos – Motivos de Traslado
+* Catálogo No. 65:
 * Campo:
 * ext: ...
 * Descripción:

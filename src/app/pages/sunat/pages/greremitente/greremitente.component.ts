@@ -1,19 +1,22 @@
-import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ControlItem} from "src/app/models/frontend";
-import {markFormGroupTouched, regex, regexErrors} from 'src/app/shared/utils';
-import {NotificationService, SunatService} from 'src/app/services';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ControlItem } from "src/app/models/frontend";
+import { markFormGroupTouched, regex, regexErrors } from 'src/app/shared/utils';
+import { NotificationService, SunatService, ContribuyenteService } from 'src/app/services';
 import { catalogo06, catalogo18, catalogo20, catalogo65 } from "src/app/models/backend/catalogos";
-import {emisores} from "src/app/models/backend/gobierno";
-import {serieCorrelativo} from "src/app/models/backend/documentos";
-import {ThemePalette} from '@angular/material/core';
-import {departamentosBadWay} from "src/app/models/backend/ubigeo";
-import {LocationService} from "src/app/services/utils/location.service";
+import { emisores } from "src/app/models/backend/gobierno";
+import { serieCorrelativo } from "src/app/models/backend/documentos";
+import { ThemePalette } from '@angular/material/core';
+import { departamentosBadWay } from "src/app/models/backend/ubigeo";
+
+import { LocationService } from "src/app/services/utils/location.service";
 
 import { doc, setDoc, Timestamp } from "firebase/firestore";
-import {initializeApp} from "@angular/fire/app";
-import {environment} from "../../../../../environments/environment";
-import {collection, getFirestore} from "@angular/fire/firestore";
+import { initializeApp } from "@angular/fire/app";
+import { environment } from "../../../../../environments/environment";
+import { collection, getFirestore } from "@angular/fire/firestore";
+
+import { ContribuyenteDTO } from 'src/app/models/backend/cpe/gre';
 
 export interface ChipColor {
 	name: string;
@@ -27,10 +30,10 @@ export interface ChipColor {
 })
 export class GreremitenteComponent implements OnInit, OnDestroy {
 	availableColors: ChipColor[] = [
-		{name: 'none', color: undefined},
-		{name: 'Primary', color: 'primary'},
-		{name: 'Accent', color: 'accent'},
-		{name: 'Warn', color: 'warn'},
+		{ name: 'none', color: undefined },
+		{ name: 'Primary', color: 'primary' },
+		{ name: 'Accent', color: 'accent' },
+		{ name: 'Warn', color: 'warn' },
 	];
 	form!: FormGroup;
 	isInline!: boolean;
@@ -55,8 +58,9 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	provinciasLlegada!: ControlItem[];
 	distritosLlegada!: ControlItem[];
 	sunatService: SunatService = inject(SunatService);
-	notificacion: NotificationService = inject(NotificationService);
+	notification: NotificationService = inject(NotificationService);
 	locationService: LocationService = inject(LocationService);
+	contribuyenteService: ContribuyenteService = inject(ContribuyenteService);
 
 	constructor(private fb: FormBuilder) {
 
@@ -72,14 +76,14 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		this.departamentosLlegada = departamentosBadWay.items;
 		// Por validar
 		this.retornos = [
-			{label: 'Retorno de Vehículo Vacío', value: 'r1'},
-			{label: 'Retorno con Envases Vacíos', value: 'r2'},
-			{label: 'Transbordo Programado', value: 'r3'}
+			{ label: 'Retorno de Vehículo Vacío', value: 'r1' },
+			{ label: 'Retorno con Envases Vacíos', value: 'r2' },
+			{ label: 'Transbordo Programado', value: 'r3' }
 		];
 		this.controlVehiculos = [
-			{label: 'Vehículos Categoría M1 o L', value: 'v1'},
-			{label: 'Traslado total (DAM o DS)', value: 'v2'},
-			{label: 'Datos del Transportista', value: 'v3'}
+			{ label: 'Vehículos Categoría M1 o L', value: 'v1' },
+			{ label: 'Traslado total (DAM o DS)', value: 'v2' },
+			{ label: 'Datos del Transportista', value: 'v3' }
 		];
 		// end por validar
 
@@ -246,9 +250,10 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		this.onPatchValue();
 	}
 	contribuyenteDetailsSignal = signal<any>({});
+	isLoadedDestinatarioSignal = signal<boolean>(true);
 	transportistaDetailsSignal = signal<any>({});
-	chipsContribuyente:boolean = false;
-	chipsTransportista:boolean = false;
+	chipsContribuyente: boolean = false;
+	chipsTransportista: boolean = false;
 
 	testingLugarLlegada = () => {
 		const value = this.form.get('ubicacionLlegada');
@@ -262,26 +267,96 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			inputFieldControl.valueChanges.subscribe(async (value) => {
 				//console.log("Se escribió : " + value);
 				if (value && value.length === 11) {
-					// Aquí puedes ejecutar la función cuando se ingresan 11 dígitos
-					// console.log('Se ingresaron 11 dígitos:', value);
-
+					
 					this.showSpinnerContribuyente = true;
-					const contribuyente = await this.sunatService.getRUCDataAsync(value);
-					this.contribuyenteDetailsSignal.set(contribuyente);
-					this.chipsContribuyente = true;
-					this.form.patchValue({
-						nomContribuyente: contribuyente.razon_social
+
+					const contribuyente = await this.sunatService.getRUCDataAsync(value)
+					.catch( (err) => {
+						console.error(`Detalle del error: ${err}`);
+						this.isLoadedDestinatarioSignal.set(false);
+						this.notification.error(`No se encontraron datos para: ${value}`);
+					})
+					.finally( () => {
+						this.showSpinnerContribuyente = false 
 					});
-
 					console.log(contribuyente);
-					this.showSpinnerContribuyente = false;
 
+					if(contribuyente != null) {
+						this.contribuyenteDetailsSignal.set(contribuyente);
+						this.chipsContribuyente = true;
+						this.form.patchValue({
+							nomContribuyente: contribuyente.razon_social
+						});
+						this.saveContribuyente(contribuyente);
+					} else {
+						console.log(`No se encontraron datos para ${value}`);
+					}
+
+					/*
+					contribuyente
+						.then(() => {
+							this.contribuyenteDetailsSignal.set(contribuyente);
+							this.chipsContribuyente = true;
+							this.form.patchValue({
+								nomContribuyente: contribuyente.razon_social
+							});
+
+							console.log(contribuyente);
+
+							this.saveContribuyente(contribuyente);
+						})
+						.catch((err:any) => {
+							console.error(`Detalle del error: ${err}`);
+							this.isLoadedDestinatarioSignal.set(false);
+							this.notification.error(`No se encontraron datos para: ${value}`);
+						}).finally( () => {
+							this.showSpinnerContribuyente = false;
+						});
+
+						
+					if(this.isLoadedDestinatarioSignal()) {
+						this.chipsContribuyente = true; // solo si encuentra
+						this.form.patchValue({
+							nomContribuyente: contribuyente.razon_social
+						});
+
+						this.saveContribuyente(this.contribuyenteDetailsSignal);
+					}
+					*/
 
 				} else {
 					this.chipsContribuyente = false;
 				}
 			});
+
 		}
+	}
+
+	saveContribuyente = async (contribuyente : any) : Promise<number> => {
+		const contribuyenteDTO: ContribuyenteDTO = {
+			codigoIdentificacion: contribuyente['ruc'],
+			tipoDocumentoIdentidad: {
+				id: 1,
+				codigo: "",
+				descripcion: ""
+			}, // solo para test
+			nombreComercial: contribuyente['razon_social'],
+			nombreLegal: contribuyente['razon_social'],
+			ubigeo: contribuyente['ubigeo'],
+			direccion: contribuyente['direccion'],
+			urbanizacion: "",
+			provincia: contribuyente['provincia'],
+			departamento: contribuyente['departamento'],
+			distrito: contribuyente['distrito'],
+			pais: "",
+			correoElectronico: "",
+			registroMTC: "",
+			licenciaConducir: ""
+		};
+
+		const response = await this.contribuyenteService.saveContribuyente(contribuyenteDTO);
+		console.log(`Id de destinatario es: ${contribuyenteDTO}`);
+		return response;
 	}
 
 	onTransportistaMatch = async () => {
@@ -317,8 +392,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			tipoSerie: "01",
 			docIdentidad: "6",
 			controlTipoTransporte: "02",
-			controlRetornos : "r1",
-			controlVehiculos : "v1",
+			controlRetornos: "r1",
+			controlVehiculos: "v1",
 			unidadMedidaTotal: "U",
 			controlDNIConductor: '1'
 			// TO DO
@@ -334,6 +409,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			this.showSpinner = true;
 			await new Promise((f: any) => setTimeout(f, 1000));
 			this.showSpinner = false;
+
+			console.log(this.form.value);
 			console.log("Presionó el botón de submit");
 
 			await this.SaveAll();
@@ -426,4 +503,6 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		const value = this.form.get('controlLlegadaProvincia');
 		this.distritosLlegada = this.locationService.getDistrito(value?.value);
 	}
+
+
 }

@@ -1,0 +1,15 @@
+@import "../../.../../../../../styles/colors.scss";
+
+.mat-snackbar {
+    color: white !important;;
+    &_error {
+        border-radius: 20px !important;
+        background: $error !important;
+        color: $on-error !important;
+    }
+
+    &_success {
+        background: $success;
+        color: $on-success;
+    }
+}
