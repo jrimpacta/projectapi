@@ -1,22 +1,22 @@
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ControlItem } from "src/app/models/frontend";
-import { markFormGroupTouched, regex, regexErrors } from 'src/app/shared/utils';
-import { NotificationService, SunatService, ContribuyenteService } from 'src/app/services';
-import { catalogo06, catalogo18, catalogo20, catalogo65 } from "src/app/models/backend/catalogos";
-import { emisores } from "src/app/models/backend/gobierno";
-import { serieCorrelativo } from "src/app/models/backend/documentos";
-import { ThemePalette } from '@angular/material/core';
-import { departamentosBadWay } from "src/app/models/backend/ubigeo";
+import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ControlItem} from "src/app/models/frontend";
+import {markFormGroupTouched, regex, regexErrors} from 'src/app/shared/utils';
+import {NotificationService, SunatService, ContribuyenteService} from 'src/app/services';
+import {catalogo06, catalogo18, catalogo20, catalogo65} from "src/app/models/backend/catalogos";
+import {emisores} from "src/app/models/backend/gobierno";
+import {serieCorrelativo} from "src/app/models/backend/documentos";
+import {ThemePalette} from '@angular/material/core';
+import {departamentosBadWay} from "src/app/models/backend/ubigeo";
 
-import { LocationService } from "src/app/services/utils/location.service";
+import {LocationService} from "src/app/services/utils/location.service";
 
-import { doc, setDoc, Timestamp } from "firebase/firestore";
-import { initializeApp } from "@angular/fire/app";
-import { environment } from "../../../../../environments/environment";
-import { collection, getFirestore } from "@angular/fire/firestore";
+import {doc, setDoc, Timestamp} from "firebase/firestore";
+import {initializeApp} from "@angular/fire/app";
+import {environment} from "../../../../../environments/environment";
+import {collection, getFirestore} from "@angular/fire/firestore";
 
-import { ContribuyenteDTO } from 'src/app/models/backend/cpe/gre';
+import {ContribuyenteDTO} from 'src/app/models/backend/cpe/gre';
 
 export interface ChipColor {
 	name: string;
@@ -30,10 +30,10 @@ export interface ChipColor {
 })
 export class GreremitenteComponent implements OnInit, OnDestroy {
 	availableColors: ChipColor[] = [
-		{ name: 'none', color: undefined },
-		{ name: 'Primary', color: 'primary' },
-		{ name: 'Accent', color: 'accent' },
-		{ name: 'Warn', color: 'warn' },
+		{name: 'none', color: undefined},
+		{name: 'Primary', color: 'primary'},
+		{name: 'Accent', color: 'accent'},
+		{name: 'Warn', color: 'warn'},
 	];
 	form!: FormGroup;
 	isInline!: boolean;
@@ -76,21 +76,21 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		this.departamentosLlegada = departamentosBadWay.items;
 		// Por validar
 		this.retornos = [
-			{ label: 'Retorno de Vehículo Vacío', value: 'r1' },
-			{ label: 'Retorno con Envases Vacíos', value: 'r2' },
-			{ label: 'Transbordo Programado', value: 'r3' }
+			{label: 'Retorno de Vehículo Vacío', value: 'r1'},
+			{label: 'Retorno con Envases Vacíos', value: 'r2'},
+			{label: 'Transbordo Programado', value: 'r3'}
 		];
 		this.controlVehiculos = [
-			{ label: 'Vehículos Categoría M1 o L', value: 'v1' },
-			{ label: 'Traslado total (DAM o DS)', value: 'v2' },
-			{ label: 'Datos del Transportista', value: 'v3' }
+			{label: 'Vehículos Categoría M1 o L', value: 'v1'},
+			{label: 'Traslado total (DAM o DS)', value: 'v2'},
+			{label: 'Datos del Transportista', value: 'v3'}
 		];
 		// end por validar
 
 		this.tipoTransporte = catalogo18.items;
 
-
 	}
+
 	ngOnInit(): void {
 		this.form = this.fb.group({
 			tipoSerie: [null, {
@@ -242,22 +242,26 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			}], unidadMedidaTotal: [null, {
 				updateOn: 'blur',
 				validators: []
-			}],
+			}], controlPesoBrutoTotal: [null, {
+				updateOn: 'blur',
+				validators: []
+			}]
 		});
 
 		this.onRUCMatch();
-		this.onTransportistaMatch();
+
+		this.onTransportistaMatch()
 		this.onPatchValue();
 	}
+
 	contribuyenteDetailsSignal = signal<any>({});
-	isLoadedDestinatarioSignal = signal<boolean>(true);
+	isLoadedDestinatarioSignal = signal<boolean>(false);
 	transportistaDetailsSignal = signal<any>({});
 	chipsContribuyente: boolean = false;
 	chipsTransportista: boolean = false;
 
 	testingLugarLlegada = () => {
 		const value = this.form.get('ubicacionLlegada');
-
 		console.log(value);
 	}
 
@@ -265,74 +269,54 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		const inputFieldControl = this.form.get('docContribuyente');
 		if (inputFieldControl) {
 			inputFieldControl.valueChanges.subscribe(async (value) => {
-				//console.log("Se escribió : " + value);
 				if (value && value.length === 11) {
-					
-					this.showSpinnerContribuyente = true;
 
-					const contribuyente = await this.sunatService.getRUCDataAsync(value)
-					.catch( (err) => {
+					try {
+						this.showSpinnerContribuyente = true;
+						const response: any = await this.sunatService.getRUCDataAsync(value);
+						this.isLoadedDestinatarioSignal.set(true);
+
+						console.log('La consulta terminó.');
+						this.contribuyenteDetailsSignal.set(JSON.stringify(response));
+
+						this.form.patchValue({
+							nomContribuyente: response.razon_social,
+							controlLlegadaPunto: response.direccion
+						});
+						//await this.saveContribuyente(response);
+					} catch (err) {
 						console.error(`Detalle del error: ${err}`);
 						this.isLoadedDestinatarioSignal.set(false);
 						this.notification.error(`No se encontraron datos para: ${value}`);
-					})
-					.finally( () => {
-						this.showSpinnerContribuyente = false 
-					});
-					console.log(contribuyente);
-
-					if(contribuyente != null) {
-						this.contribuyenteDetailsSignal.set(contribuyente);
-						this.chipsContribuyente = true;
-						this.form.patchValue({
-							nomContribuyente: contribuyente.razon_social
-						});
-						this.saveContribuyente(contribuyente);
-					} else {
-						console.log(`No se encontraron datos para ${value}`);
+					} finally {
+						this.showSpinnerContribuyente = false;
+						console.log('La consulta terminó por completo.');
 					}
-
-					/*
-					contribuyente
-						.then(() => {
-							this.contribuyenteDetailsSignal.set(contribuyente);
-							this.chipsContribuyente = true;
-							this.form.patchValue({
-								nomContribuyente: contribuyente.razon_social
-							});
-
-							console.log(contribuyente);
-
-							this.saveContribuyente(contribuyente);
-						})
-						.catch((err:any) => {
-							console.error(`Detalle del error: ${err}`);
-							this.isLoadedDestinatarioSignal.set(false);
-							this.notification.error(`No se encontraron datos para: ${value}`);
-						}).finally( () => {
-							this.showSpinnerContribuyente = false;
-						});
-
-						
-					if(this.isLoadedDestinatarioSignal()) {
-						this.chipsContribuyente = true; // solo si encuentra
-						this.form.patchValue({
-							nomContribuyente: contribuyente.razon_social
-						});
-
-						this.saveContribuyente(this.contribuyenteDetailsSignal);
-					}
-					*/
 
 				} else {
 					this.chipsContribuyente = false;
 				}
 			});
-
 		}
 	}
+	saveDestinatarioBlur = () => {
+		console.log("Ejecutándose desde el evento blur");
+	}
 
-	saveContribuyente = async (contribuyente : any) : Promise<number> => {
+	searchContribuyente = async (codigoIdentificacion: string) => {
+		const response = await this.contribuyenteService.search(codigoIdentificacion);
+
+		console.log(`RUC: ${codigoIdentificacion}`);
+		const contribuyente = JSON.stringify(response);
+
+
+		console.log(`Id de destinatario es: ${contribuyente}`);
+		console.log(`Id de destinatario es: ${response.CodigoIdentificacion}`);
+		console.log(`Id de destinatario es: ${response['CodigoIdentificacion']}`);
+		return response;
+	}
+
+	saveContribuyente = async (contribuyente: any) => {
 		const contribuyenteDTO: ContribuyenteDTO = {
 			codigoIdentificacion: contribuyente['ruc'],
 			tipoDocumentoIdentidad: {
@@ -354,9 +338,22 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			licenciaConducir: ""
 		};
 
-		const response = await this.contribuyenteService.saveContribuyente(contribuyenteDTO);
-		console.log(`Id de destinatario es: ${contribuyenteDTO}`);
-		return response;
+		const response = await this.contribuyenteService.add(contribuyenteDTO)
+			.then( () => {
+				this.chipsContribuyente = true;
+
+				this.form.patchValue({
+					nomContribuyente: contribuyente.nombreLegal,
+					controlLlegadaPunto: contribuyenteDTO.direccion
+				});
+				console.log("Se guardó con éxito!");
+			})
+			.catch( (err) => {
+					console.log(`Ocurrió un error al buscar el ruc. Detalle: ${err}`);
+				});
+
+			console.log(`Id de destinatario es: ${contribuyenteDTO.codigoIdentificacion}`);
+		return JSON.stringify(response);
 	}
 
 	onTransportistaMatch = async () => {
@@ -403,39 +400,33 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	}
 
 	onSubmit = async () => {
+		//if (this.form.valid) { just for test
 		if (!this.form.valid) {
 			markFormGroupTouched(this.form);
 
 			this.showSpinner = true;
-			await new Promise((f: any) => setTimeout(f, 1000));
+			await new Promise((f: any) => setTimeout(f, 350));
 			this.showSpinner = false;
 
 			console.log(this.form.value);
-			console.log("Presionó el botón de submit");
+			let fechaEmision = this.form.get('controlFechaEmision');
 
-			await this.SaveAll();
+			// Convierte la fecha en milisegundos a un objeto Date en TypeScript
+			const fechaEmisionFormated = new Date( fechaEmision?.value );
+
+			// Formatea la fecha en el formato ISO 8601
+			const fechaEmisionISO8601 = fechaEmisionFormated.toISOString();
+
+			console.log(fechaEmision?.value);
+
+			console.log(`Fecha en formato ISO: ${fechaEmisionISO8601}`);
+		} else {
+			this.notification.error(`Debe completar los campos requeridos antes de enviar.`);
 		}
 	}
 	app = initializeApp(environment.firebase.config);
 	db = getFirestore(this.app);
 	userProfileCollection = collection(getFirestore(this.app), 'test');
-	SaveAll = async () => {
-		const docData = {
-			stringExample: "Hello world!",
-			booleanExample: true,
-			numberExample: 3.14159265,
-			dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
-			arrayExample: [5, true, "hello"],
-			nullExample: null,
-			objectExample: {
-				a: 5,
-				b: {
-					nested: "foo"
-				}
-			}
-		};
-		await setDoc(doc(this.db, "data", "one"), docData);
-	}
 
 	ngOnDestroy(): void {
 	}
@@ -460,27 +451,6 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		const zeros = '0'.repeat(zerosToAdd);
 		return zeros + number;
 	}
-	/*
-	completeWithZeros = (number: string, total: number): string => {
-		let result = "";
-		if (number != null) {
-			const difference = total - number.length;
-			const zeros:string = "";
-			if (difference <= 0) {
-				result = `${'0'.repeat(difference)}${number}`;
-				console.log('difference: ' + difference);
-				console.log('number: ' + number);
-				console.log('result: ' + result);
-			} else {
-				result = number.slice(difference);
-				console.log('difference: ' + difference);
-				console.log('number: ' + number);
-				console.log('result: ' + result);
-			}
-		}
-
-		return result;
-	}*/
 
 	onChangeDepartamentoPartida = () => {
 		const value = this.form.get('controlPartidaDepartamento');
@@ -503,6 +473,4 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		const value = this.form.get('controlLlegadaProvincia');
 		this.distritosLlegada = this.locationService.getDistrito(value?.value);
 	}
-
-
 }

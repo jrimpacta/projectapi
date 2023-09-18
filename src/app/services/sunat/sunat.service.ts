@@ -9,18 +9,12 @@ import {ControlItem} from "../../models/frontend";
 	providedIn: 'root'
 })
 export class SunatService {
-	/*getLoggedInUser(auth_token): Observable<any> {
-		const headers = new Headers({
-			'Content-Type': 'application/json',
-			'Authorization': `Bearer ${auth_token}`
-		})
-		return this.http.get(apiUrl, { headers: headers })
-	}*/
-
+	// NO se usa
 	private API_RUC_URL:string = "https://api.apis.net.pe/v2/sunat/ruc?numero=";
 
-
-	private apiUrl = 'https://api.apifacturacion.com';
+	//private apiUrl = 'https://api.apifacturacion.com';
+	//private apiUrl = 'https://localhost:7026'; // apigre
+	private apiUrl = 'https://localhost:7058'; // northwind
 	private  httpClient = inject(HttpClient);
 	constructor() {
 	}
@@ -71,20 +65,13 @@ export class SunatService {
 	getRUCDataAsync = (ruc:string) => {
 		const token:string = '50ea6d025fa1a12fd9ccbf3f355e5752';
 
-		const headers = new HttpHeaders({
-			'Content-Type': 'application/x-www-form-urlencoded',
-			'Access-Control-Allow-Origin': '*'
-		});
-
 		const body = new URLSearchParams();
 		body.set('token', token);
 
-		const url = `${this.apiUrl}/ruc/${ruc}`;
+		const url = `${this.apiUrl}/sunat/ruc/${ruc}`;
 
 		return firstValueFrom(
-			this.httpClient.post<any>(
-				url, body.toString(), { headers }
-			)
+			this.httpClient.post<any>( url, body.toString())
 		);
 	}
 }

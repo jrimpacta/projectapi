@@ -15,7 +15,7 @@ export interface Contribuyente {
     pais: string;
     correoElectronico: string;
     registroMTC: string;
-    licenciaConducir: string; 
+    licenciaConducir: string;
 }
 
 export interface ContribuyenteDTO {
@@ -32,5 +32,5 @@ export interface ContribuyenteDTO {
     pais: string;
     correoElectronico: string;
     registroMTC: string;
-    licenciaConducir: string; 
+    licenciaConducir: string;
 }

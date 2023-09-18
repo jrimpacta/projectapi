@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {provideHttpClient} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, provideHttpClient} from '@angular/common/http';
 
 import { NotificationModule } from './services';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,6 +21,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // END FIREBASE
 
 import {MatNativeDateModule, MatDateFormats, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 const APP_DATE_FORMATS: MatDateFormats = {
 	parse: {
@@ -64,6 +65,10 @@ const APP_DATE_FORMATS: MatDateFormats = {
 		}, {
 			provide: MAT_DATE_FORMATS,
 			useValue: APP_DATE_FORMATS
+		}, {
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthInterceptor,
+			multi: true
 		}
 	],
 	bootstrap: [AppComponent]
