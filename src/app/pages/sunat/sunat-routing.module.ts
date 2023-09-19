@@ -24,9 +24,13 @@ const routes: Routes = [
 				loadChildren: () => import("./pages/greremitente/greremitente.module")
 					.then(m => m.GreremitenteModule)
 			}, {
-				path: "gretransportista",
-				loadChildren: () => import("./pages/gretransp/gretransp.module")
-					.then(m => m.GretranspModule)
+				path: "greremitente",
+				loadChildren: () => import("./pages/greremitente/greremitente.module")
+					.then(m => m.GreremitenteModule)
+			}, {
+				path: "remitentelist",
+				loadChildren: () => import("./pages/grelist/grelist.module")
+					.then(m => m.GrelistModule)
 			}
 		]
 	}

@@ -12,12 +12,12 @@ export class LocationService {
 	}
 
 	getProvincia = (key: string): ControlItem[] => {
-		//console.log(key);
 		return provincias[key];
 	}
 
 	getDistrito = (key: string): ControlItem[] => {
-		//console.log(key);
 		return distritos[key];
 	}
+
+
 }

@@ -298,9 +298,9 @@
                             </app-form-field>
 
                             <app-form-field class="row-items_inColumn-2"
-                                            [control]="form.controls['controlVehiculoAutorizacion']"
+                                            [control]="form.controls['controlVehiculoMarca']"
                                             [isInline]="isInline">
-                                <app-input formControlName="controlVehiculoAutorizacion"
+                                <app-input formControlName="controlVehiculoMarca"
                                            placeholder="Marca del vehículo"></app-input>
                             </app-form-field>
                         </div>
@@ -380,9 +380,9 @@
 
                             <div class="row-items_inColumn" style="margin-top: -15px;">
                                 <app-form-field
-                                        [control]="form.controls['controlVehiculoPlaca']"
+                                        [control]="form.controls['controlConductorLicencia']"
                                         [isInline]="isInline">
-                                    <app-input formControlName="controlVehiculoPlaca"
+                                    <app-input formControlName="controlConductorLicencia"
                                                placeholder="Número de licencia de conducir"></app-input>
                                 </app-form-field>
                             </div>
@@ -505,7 +505,7 @@
                 </div>
                 <app-form-field label="Peso Bruto Total" class="row-items_inColumn-2"
                                 [required]="true"
-                                [control]="form.controls['controlLlegadaPunto']"
+                                [control]="form.controls['controlPesoBrutoTotal']"
                                 [isInline]="isInline">
                     <app-input formControlName="controlPesoBrutoTotal"
                                placeholder="Ingrese el peso bruto total"></app-input>

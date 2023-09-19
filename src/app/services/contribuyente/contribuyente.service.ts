@@ -16,8 +16,8 @@ export class ContribuyenteService {
 
 	}
 
-	addC = (contribuyente: ContribuyenteDTO) => {
-		const body = JSON.stringify(contribuyente);
+	add = (guia: Order) => {
+		const body = JSON.stringify(guia);
 		const url = `${this.apiUrl}/create`;
 
 		return firstValueFrom(
@@ -25,12 +25,11 @@ export class ContribuyenteService {
 		);
 	}
 
-	add = (guia: Order) => {
-		const body = JSON.stringify(guia);
-		const url = `${this.apiUrl}/create`;
+	all = () => {
+		const url = `${this.apiUrl}/allFiltered`;
 
 		return firstValueFrom(
-			this.httpClient.post<any>( url, body, this.createHeaders())
+			this.httpClient.get<any>( url, this.createHeaders())
 		);
 	}
 

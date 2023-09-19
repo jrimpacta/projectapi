@@ -4,3 +4,5 @@ export * from "./sunat/sunat.service";
 export * from "./sunat/sunat.module";
 export * from "./contribuyente/contribuyente.service"
 export * from "./contribuyente/contribuyente.module";
+export * from "./utils/date.service"
+export * from "./utils/location.service"

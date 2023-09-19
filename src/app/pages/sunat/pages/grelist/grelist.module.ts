@@ -1,21 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {SunatRoutingModule} from './sunat-routing.module';
-import {SunatComponent} from './sunat.component';
+import {GrelistRoutingModule} from './grelist-routing.module';
+import {GrelistComponent} from './grelist.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
     declarations: [
-        SunatComponent
+        GrelistComponent
     ],
     imports: [
         CommonModule,
-        SunatRoutingModule,
+        GrelistRoutingModule,
         MatIconModule,
         MatTableModule
     ]
 })
-export class SunatModule {
+export class GrelistModule {
 }

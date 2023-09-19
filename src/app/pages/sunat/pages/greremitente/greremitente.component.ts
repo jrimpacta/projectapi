@@ -192,8 +192,13 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				validators: [
 					Validators.minLength(5), // Verificar
 					Validators.maxLength(20)
-				]
-			}], controlVehiculoEmisor: [null, {
+				] // controlVehiculoMarca
+			}],
+			controlVehiculoEmisor: [null, {
+				updateOn: 'change',
+				validators: []
+			}],
+			controlVehiculoMarca: [null, {
 				updateOn: 'change',
 				validators: []
 			}], dniNuevoTranspordtista: [null, {
@@ -209,6 +214,9 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				updateOn: 'change',
 				validators: []
 			}], controlNombreConductor: [null, {
+				updateOn: 'change',
+				validators: [] // controlConductorLicencia
+			}], controlConductorLicencia: [null, {
 				updateOn: 'change',
 				validators: []
 			}], ubicacionLlegada: [null, {
@@ -424,7 +432,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				firmaDigital : null,
 				remitente : {
 					codigoIdentificacion : "20474666876",
-                    tipoDocumentoIdentidadId: 2,
+                    tipoDocumentoIdentidadId: 4,
                     nombreComercial: "Asociación Civil Impacta Salud Y Educación",
                     nombreLegal: "ASOCIACION CIVIL IMPACTA SALUD Y EDUCACION",
                     ubigeoId: 1252,
@@ -441,36 +449,36 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
                 tipoDocumentoId : 2,
                 destinatario : destinatarioDTO,
                 transportista : {
-                    codigoIdentificacion : "",
-                    tipoDocumentoIdentidadId: 2,
+                    codigoIdentificacion : this.form.get('controlNomTransportista')?.value,
+                    tipoDocumentoIdentidadId: 4,
                     nombreComercial: "string",
                     nombreLegal: "string",
-                    ubigeoId: 55,
-                    direccion: "string",
+                    ubigeoId: 1,
+                    direccion: this.transportistaDetailsSignal().direccion,
                     urbanizacion: "string",
-                    provincia: "string",
-                    departamento: "string",
-                    distrito: "string",
-                    pais: "string",
+                    provincia: this.transportistaDetailsSignal().provincia,
+                    departamento: this.transportistaDetailsSignal().departamento,
+                    distrito: this.transportistaDetailsSignal().distrito,
+                    pais: this.transportistaDetailsSignal().ubigeo,
                     correoElectronico: "string",
                     registroMTC: "string",
                     licenciaConducir: "string"
 				},
                 serieCorrelativo: {
-                    fechaCreacion: "2023-09-18T06:21:54.785Z",
-                    serieCorrelativo: "string",
+                    fechaCreacion: new Date().toISOString(),
+                    serieCorrelativo: "T001",
                     serie: "string",
                     descripcion: "string",
                     contadorCorrelativo: 1,
                 },
-                unidadMedidaPesoBrutoId: 10,
-                pesoBrutoTotalCarga: 120,
-                numeroDAMoDS: "string",
-                numeroContenedor: "string",
-                numeroBultos: "string",
-                numeroPrecinto: "string",
+                unidadMedidaPesoBrutoId: 1,
+                pesoBrutoTotalCarga: Number(this.form.get('controlPesoBrutoTotal')?.value),
+                numeroDAMoDS: "",
+                numeroContenedor: "",
+                numeroBultos: "",
+                numeroPrecinto: "",
                 motivoTrasladoId: 8,
-                motivoTrasladoOtros: "string",
+                motivoTrasladoOtros: "",
                 indicadorTransbordoProgramado: false,
                 puntoPartida : {
                     departamento: "string",
@@ -481,12 +489,12 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
                     codigoEstablecimiento: "string",
 				},
                 puntoLlegada : {
-                    departamento: "string",
-                    provincia: "string",
-                    distrito: "string",
+                    departamento: "",
+                    provincia: "",
+                    distrito: "",
                     ubigeoId: 55,
-                    direccionCompleta: "string",
-                    codigoEstablecimiento: "string",
+                    direccionCompleta: this.form.get('controlLlegadaPunto')?.value,
+                    codigoEstablecimiento: "",
                 },
                 fechaInicioTraslado: _fechaInicioTraslado,
                 codigoPuertoOAeropuerto: null,
@@ -499,29 +507,29 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
                 ],
                 vehiculos: [
                     {
-                        nroPlacaVehiculo: "string",
-                        tuCoCHV: "string",
-                        autorizacionEspecial: "string",
-                        marcaVehiculo: "string",
-                        entidadEmisora: "string",
+                        nroPlacaVehiculo: this.form.get('controlVehiculoPlaca')?.value,
+                        tuCoCHV: this.form.get('controlVehiculoHabilitacion')?.value,
+                        autorizacionEspecial: this.form.get('controlVehiculoAutorizacion')?.value,
+                        marcaVehiculo: this.form.get('controlVehiculoMarca')?.value,
+                        entidadEmisora: this.form.get('controlVehiculoEmisor')?.value,
 					}
 				],
                 conductores: [
                     {
-                        codigoIdentificacion : "",
+                        codigoIdentificacion : this.form.get('controlDocConductor')?.value,
                         tipoDocumentoIdentidadId: 2,
-                        nombreComercial: "string",
-                        nombreLegal: "string",
-                        ubigeoId: 55,
-                        direccion: "string",
-                        urbanizacion: "string",
-                        provincia: "string",
-                        departamento: "string",
-                        distrito: "string",
-                        pais: "string",
-                        correoElectronico: "string",
-                        registroMTC: "string",
-                        licenciaConducir: "string"
+                        nombreComercial: "",
+                        nombreLegal: this.form.get('controlNombreConductor')?.value,
+                        ubigeoId: 1,
+                        direccion: "",
+                        urbanizacion: "",
+                        provincia: "",
+                        departamento: "",
+                        distrito: "",
+                        pais: "",
+                        correoElectronico: "",
+                        registroMTC: "",
+                        licenciaConducir: this.form.get('controlConductorLicencia')?.value
 					}
 				],
                 documentoRelacionado: null,

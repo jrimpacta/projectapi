@@ -29,7 +29,7 @@ export interface Order {
 	orderDetails: OrderDetails[]; // Ajusta esta definición según la estructura real
 	vehiculos: Vehiculo[];
 	conductores: Contribuyente[];
-	documentoRelacionado?: number | null; // Ajusta esta definición según la estructura real
+	documentoRelacionado?: number | null | undefined; // Ajusta esta definición según la estructura real
 	indicadorTrasladoVehículosCategoríaM1oL: boolean;
 	indRegistrarVehiculosConductoresDelTransportista: boolean;
 	indicadorTrasladoTotalMercanciasDAMoDS: boolean;
