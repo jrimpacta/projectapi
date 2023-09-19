@@ -74,4 +74,17 @@ export class SunatService {
 			this.httpClient.post<any>( url, body.toString())
 		);
 	}
+
+	getDNIDataAsync = (dni:string) => {
+		const token:string = '50ea6d025fa1a12fd9ccbf3f355e5752';
+
+		const body = new URLSearchParams();
+		body.set('token', token);
+
+		const url = `${this.apiUrl}/sunat/dni/${dni}`;
+
+		return firstValueFrom(
+			this.httpClient.post<any>( url, body.toString())
+		);
+	}
 }

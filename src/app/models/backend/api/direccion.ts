@@ -1,5 +1,4 @@
 export interface Direccion {
-	direccionId: number;
 	departamento: string;
 	provincia: string;
 	distrito: string;

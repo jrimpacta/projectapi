@@ -1,16 +1,16 @@
 export interface Contribuyente {
 	codigoIdentificacion: string;
 	tipoDocumentoIdentidadId: number;
-	nombreComercial: string;
+	nombreComercial?: string | null;
 	nombreLegal: string;
 	ubigeoId: number;
-	direccion: string;
-	urbanizacion: string;
-	provincia: string;
-	departamento: string;
-	distrito: string;
-	pais: string;
-	correoElectronico: string;
-	registroMTC: string;
-	licenciaConducir: string;
+	direccion?: string | null;
+	urbanizacion?: string | null;
+	provincia?: string | null;
+	departamento?: string | null;
+	distrito?: string | null;
+	pais?: string | null;
+	correoElectronico?: string | null;
+	registroMTC?: string | null;
+	licenciaConducir?: string | null;
 }

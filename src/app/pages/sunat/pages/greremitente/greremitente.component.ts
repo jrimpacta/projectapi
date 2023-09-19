@@ -11,12 +11,13 @@ import {departamentosBadWay} from "src/app/models/backend/ubigeo";
 
 import {LocationService} from "src/app/services/utils/location.service";
 
-import {doc, setDoc, Timestamp} from "firebase/firestore";
+//import {doc, setDoc, Timestamp} from "firebase/firestore";
 import {initializeApp} from "@angular/fire/app";
 import {environment} from "../../../../../environments/environment";
 import {collection, getFirestore} from "@angular/fire/firestore";
 
 import {ContribuyenteDTO} from 'src/app/models/backend/cpe/gre';
+import {Contribuyente, Order} from "src/app/models/backend/api";
 
 export interface ChipColor {
 	name: string;
@@ -41,6 +42,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	showSpinner = false;
 	showSpinnerRUC = false;
 	showSpinnerContribuyente = false;
+	showSpinnerTransportista = false;
+    showSpinnerConductor = false;
 
 	serieCorrelativo!: ControlItem[];
 	motivos!: ControlItem[];
@@ -61,6 +64,10 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	notification: NotificationService = inject(NotificationService);
 	locationService: LocationService = inject(LocationService);
 	contribuyenteService: ContribuyenteService = inject(ContribuyenteService);
+
+	// Variables de conductor y vehículo
+	agregarVehiculo : boolean = false;
+	agregarConductor : boolean = false;
 
 	constructor(private fb: FormBuilder) {
 
@@ -121,12 +128,12 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 					Validators.minLength(5), // Verificar
 					Validators.maxLength(50)
 				]
-			}], controlFechaEmision: [null, {
+			}], controlFechaEmision: [Date.now(), {
 				updateOn: 'change',
 				validators: [
 					Validators.required
 				]
-			}], controlEntregaTransportista: [null, { // Date
+			}], controlEntregaTransportista: [Date.now(), { // Date
 				updateOn: 'change',
 				validators: [
 					Validators.required
@@ -250,7 +257,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 		this.onRUCMatch();
 
-		this.onTransportistaMatch()
+		this.onTransportistaMatch();
+		this.onConductorMatch();
 		this.onPatchValue();
 	}
 
@@ -260,11 +268,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	chipsContribuyente: boolean = false;
 	chipsTransportista: boolean = false;
 
-	testingLugarLlegada = () => {
-		const value = this.form.get('ubicacionLlegada');
-		console.log(value);
-	}
-
+	// Para destinatario
 	onRUCMatch = async () => {
 		const inputFieldControl = this.form.get('docContribuyente');
 		if (inputFieldControl) {
@@ -276,14 +280,15 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 						const response: any = await this.sunatService.getRUCDataAsync(value);
 						this.isLoadedDestinatarioSignal.set(true);
 
-						console.log('La consulta terminó.');
-						this.contribuyenteDetailsSignal.set(JSON.stringify(response));
+						console.log('La consulta terminó. : ' + JSON.stringify(response));
+						this.contribuyenteDetailsSignal.set(response);
 
 						this.form.patchValue({
 							nomContribuyente: response.razon_social,
 							controlLlegadaPunto: response.direccion
 						});
-						//await this.saveContribuyente(response);
+                        this.chipsContribuyente = true;
+
 					} catch (err) {
 						console.error(`Detalle del error: ${err}`);
 						this.isLoadedDestinatarioSignal.set(false);
@@ -299,90 +304,70 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			});
 		}
 	}
-	saveDestinatarioBlur = () => {
-		console.log("Ejecutándose desde el evento blur");
-	}
 
-	searchContribuyente = async (codigoIdentificacion: string) => {
-		const response = await this.contribuyenteService.search(codigoIdentificacion);
+	// Para transportista
+    onTransportistaMatch = async () => {
+        const inputFieldControl = this.form.get('controlRUCTransportista');
+        if (inputFieldControl) {
+            inputFieldControl.valueChanges.subscribe(async (value) => {
+                if (value && value.length === 11) {
 
-		console.log(`RUC: ${codigoIdentificacion}`);
-		const contribuyente = JSON.stringify(response);
+                    try {
+                        this.showSpinnerTransportista = true;
+                        const response: any = await this.sunatService.getRUCDataAsync(value);
 
+                        console.log('La consulta terminó. : ' + JSON.stringify(response));
+                        this.transportistaDetailsSignal.set(response);
 
-		console.log(`Id de destinatario es: ${contribuyente}`);
-		console.log(`Id de destinatario es: ${response.CodigoIdentificacion}`);
-		console.log(`Id de destinatario es: ${response['CodigoIdentificacion']}`);
-		return response;
-	}
+                        this.form.patchValue({
+                            controlNomTransportista: response.razon_social
+                        });
+                        this.chipsTransportista = true;
 
-	saveContribuyente = async (contribuyente: any) => {
-		const contribuyenteDTO: ContribuyenteDTO = {
-			codigoIdentificacion: contribuyente['ruc'],
-			tipoDocumentoIdentidad: {
-				id: 1,
-				codigo: "",
-				descripcion: ""
-			}, // solo para test
-			nombreComercial: contribuyente['razon_social'],
-			nombreLegal: contribuyente['razon_social'],
-			ubigeo: contribuyente['ubigeo'],
-			direccion: contribuyente['direccion'],
-			urbanizacion: "",
-			provincia: contribuyente['provincia'],
-			departamento: contribuyente['departamento'],
-			distrito: contribuyente['distrito'],
-			pais: "",
-			correoElectronico: "",
-			registroMTC: "",
-			licenciaConducir: ""
-		};
+                    } catch (err) {
+                        console.error(`Detalle del error: ${err}`);
+                        this.isLoadedDestinatarioSignal.set(false);
+                        this.notification.error(`No se encontraron datos para: ${value}`);
+                    } finally {
+                        this.showSpinnerTransportista = false;
+                        console.log('La consulta terminó por completo.');
+                    }
 
-		const response = await this.contribuyenteService.add(contribuyenteDTO)
-			.then( () => {
-				this.chipsContribuyente = true;
+                } else {
+                    this.chipsContribuyente = false;
+                }
+            });
+        }
+    }
 
-				this.form.patchValue({
-					nomContribuyente: contribuyente.nombreLegal,
-					controlLlegadaPunto: contribuyenteDTO.direccion
-				});
-				console.log("Se guardó con éxito!");
-			})
-			.catch( (err) => {
-					console.log(`Ocurrió un error al buscar el ruc. Detalle: ${err}`);
-				});
+    onConductorMatch = async () => {
+        const inputFieldControl = this.form.get('controlDocConductor');
+        if (inputFieldControl) {
+            inputFieldControl.valueChanges.subscribe(async (value) => {
+                if (value && value.length === 8) {
 
-			console.log(`Id de destinatario es: ${contribuyenteDTO.codigoIdentificacion}`);
-		return JSON.stringify(response);
-	}
+                    try {
+                        this.showSpinnerConductor = true;
+                        const response: any = await this.sunatService.getDNIDataAsync(value);
 
-	onTransportistaMatch = async () => {
-		const inputFieldControl = this.form.get('controlRUCTransportista');
-		if (inputFieldControl) {
-			inputFieldControl.valueChanges.subscribe(async (value) => {
-				//console.log("Se escribió : " + value);
-				if (value && value.length === 11) {
-					// Aquí puedes ejecutar la función cuando se ingresan 11 dígitos
-					// console.log('Se ingresaron 11 dígitos:', value);
+                        this.form.patchValue({
+                            controlNombreConductor: response.cliente
+                        });
 
-					this.showSpinnerRUC = true;
-					const contribuyente = await this.sunatService.getRUCDataAsync(value);
-					this.transportistaDetailsSignal.set(contribuyente);
-					this.chipsTransportista = true;
-					this.form.patchValue({
-						controlNomTransportista: contribuyente.razon_social
-					});
+                    } catch (err) {
+                        console.error(`Detalle del error: ${err}`);
+                        this.notification.error(`No se encontraron datos para: ${value}`);
+                    } finally {
+                        this.showSpinnerConductor = false;
+                        console.log('La consulta terminó por completo.');
+                    }
 
-					console.log(contribuyente);
-					this.showSpinnerRUC = false;
-
-
-				} else {
-					this.chipsContribuyente = false;
-				}
-			});
-		}
-	}
+                } else {
+                    this.chipsContribuyente = false;
+                }
+            });
+        }
+    }
 
 	onPatchValue = (): void => {
 		this.form.patchValue({
@@ -409,17 +394,152 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			this.showSpinner = false;
 
 			console.log(this.form.value);
-			let fechaEmision = this.form.get('controlFechaEmision');
 
-			// Convierte la fecha en milisegundos a un objeto Date en TypeScript
-			const fechaEmisionFormated = new Date( fechaEmision?.value );
+			const _fechaEmision = new Date(this.form.get('controlFechaEmision')?.value).toISOString();
+			const _fechaInicioTraslado = new Date(this.form.get('controlEntregaTransportista')?.value).toISOString();
 
-			// Formatea la fecha en el formato ISO 8601
-			const fechaEmisionISO8601 = fechaEmisionFormated.toISOString();
+			// contribuyenteDetailsSignal
+			const destinatarioDTO : Contribuyente = {codigoIdentificacion: "", nombreLegal: "", tipoDocumentoIdentidadId: 1, ubigeoId: 1};
+			if (this.form.get('controlFechaEmision')?.value != null || this.form.get('controlFechaEmision')?.value != "")
+            {
+                destinatarioDTO.codigoIdentificacion = this.contribuyenteDetailsSignal().ruc;
+                destinatarioDTO.tipoDocumentoIdentidadId = 4;
+                destinatarioDTO.nombreComercial = null;
+                destinatarioDTO.nombreLegal = this.contribuyenteDetailsSignal().razon_social;
+                destinatarioDTO.ubigeoId = 1;
+                destinatarioDTO.direccion = this.contribuyenteDetailsSignal().direccion;
+                destinatarioDTO.urbanizacion = null;
+                destinatarioDTO.provincia = this.contribuyenteDetailsSignal().provincia;
+                destinatarioDTO.departamento = this.contribuyenteDetailsSignal().departamento;
+                destinatarioDTO.distrito = this.contribuyenteDetailsSignal().distrito;
+                destinatarioDTO.pais = this.contribuyenteDetailsSignal().ubigeo;
+                destinatarioDTO.correoElectronico = null;
+                destinatarioDTO.registroMTC = null;
+                destinatarioDTO.licenciaConducir = null
+			}
 
-			console.log(fechaEmision?.value);
+			const guia: Order = {
+				fechaEmision : _fechaEmision,
+				horaEmision : null,
+				firmaDigital : null,
+				remitente : {
+					codigoIdentificacion : "20474666876",
+                    tipoDocumentoIdentidadId: 2,
+                    nombreComercial: "Asociación Civil Impacta Salud Y Educación",
+                    nombreLegal: "ASOCIACION CIVIL IMPACTA SALUD Y EDUCACION",
+                    ubigeoId: 1252,
+                    direccion: "AV. GRAU ALMIRANTE MIGUEL NRO. 1010",
+                    urbanizacion: "string",
+                    provincia: "LIMA",
+                    departamento: "LIMA",
+                    distrito: "BARRANCO",
+                    pais: "PERU",
+                    correoElectronico: "string",
+                    registroMTC: "string",
+                    licenciaConducir: "string"
+				},
+                tipoDocumentoId : 2,
+                destinatario : destinatarioDTO,
+                transportista : {
+                    codigoIdentificacion : "",
+                    tipoDocumentoIdentidadId: 2,
+                    nombreComercial: "string",
+                    nombreLegal: "string",
+                    ubigeoId: 55,
+                    direccion: "string",
+                    urbanizacion: "string",
+                    provincia: "string",
+                    departamento: "string",
+                    distrito: "string",
+                    pais: "string",
+                    correoElectronico: "string",
+                    registroMTC: "string",
+                    licenciaConducir: "string"
+				},
+                serieCorrelativo: {
+                    fechaCreacion: "2023-09-18T06:21:54.785Z",
+                    serieCorrelativo: "string",
+                    serie: "string",
+                    descripcion: "string",
+                    contadorCorrelativo: 1,
+                },
+                unidadMedidaPesoBrutoId: 10,
+                pesoBrutoTotalCarga: 120,
+                numeroDAMoDS: "string",
+                numeroContenedor: "string",
+                numeroBultos: "string",
+                numeroPrecinto: "string",
+                motivoTrasladoId: 8,
+                motivoTrasladoOtros: "string",
+                indicadorTransbordoProgramado: false,
+                puntoPartida : {
+                    departamento: "string",
+                    provincia: "string",
+                    distrito: "string",
+                    ubigeoId: 55,
+                    direccionCompleta: "string",
+                    codigoEstablecimiento: "string",
+				},
+                puntoLlegada : {
+                    departamento: "string",
+                    provincia: "string",
+                    distrito: "string",
+                    ubigeoId: 55,
+                    direccionCompleta: "string",
+                    codigoEstablecimiento: "string",
+                },
+                fechaInicioTraslado: _fechaInicioTraslado,
+                codigoPuertoOAeropuerto: null,
+                orderDetails: [
+                    {
+                        productId: 0,
+                        unitPrice: 0,
+                        quantity: 0
+                    }
+                ],
+                vehiculos: [
+                    {
+                        nroPlacaVehiculo: "string",
+                        tuCoCHV: "string",
+                        autorizacionEspecial: "string",
+                        marcaVehiculo: "string",
+                        entidadEmisora: "string",
+					}
+				],
+                conductores: [
+                    {
+                        codigoIdentificacion : "",
+                        tipoDocumentoIdentidadId: 2,
+                        nombreComercial: "string",
+                        nombreLegal: "string",
+                        ubigeoId: 55,
+                        direccion: "string",
+                        urbanizacion: "string",
+                        provincia: "string",
+                        departamento: "string",
+                        distrito: "string",
+                        pais: "string",
+                        correoElectronico: "string",
+                        registroMTC: "string",
+                        licenciaConducir: "string"
+					}
+				],
+                documentoRelacionado: null,
+                indicadorTrasladoVehículosCategoríaM1oL: false,
+                indRegistrarVehiculosConductoresDelTransportista: false,
+                indicadorTrasladoTotalMercanciasDAMoDS: false,
+                transbordo: false,
+				observaciones: [
+                    {
+                        detalle: "Sin detalles"
+					}
+				]
+			};
 
-			console.log(`Fecha en formato ISO: ${fechaEmisionISO8601}`);
+			console.log(guia);
+			const response = this.contribuyenteService.add(guia);
+			console.log("resultado: " + JSON.stringify(response));
+
 		} else {
 			this.notification.error(`Debe completar los campos requeridos antes de enviar.`);
 		}
@@ -473,4 +593,12 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		const value = this.form.get('controlLlegadaProvincia');
 		this.distritosLlegada = this.locationService.getDistrito(value?.value);
 	}
+
+	onVehiculoAgreggate = () => {
+		this.agregarVehiculo = !this.agregarVehiculo;
+	}
+
+    onConductorAgreggate = () => {
+        this.agregarConductor = !this.agregarConductor;
+    }
 }

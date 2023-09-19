@@ -1,533 +1,542 @@
 <p class="h3">Emitir
-	<span class="h4">Guía de Remisión Remitente</span>
+    <span class="h4">Guía de Remisión Remitente</span>
 </p>
 
 <div class="wrapper">
-	<app-spinner *ngIf="showSpinner"></app-spinner>
+    <app-spinner *ngIf="showSpinner"></app-spinner>
 
-	<form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
-		<div class="cpe-header">
-			<div
-				class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
-				role="separator" style="margin-bottom: 1px;">
+    <form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
+        <div class="cpe-header">
+            <div
+                    class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
+                    role="separator" style="margin-bottom: 1px;">
 							<span class="dark-divider-inner-text">
 								<span class="dark-typography dark-typography-secondary">
 									<span role="img" class="anticon">
 										<svg width="1.15em" height="1em" fill="currentColor" viewBox="0 0 1024 1024"
-											 style="transform: rotate(180deg);">
+                                             style="transform: rotate(180deg);">
 											<path
-												d="M604.586667 213.333333a128.042667 128.042667 0 0 0 241.493333 0H853.333333v153.002667L750.336 469.333333H640v-85.333333a42.666667 42.666667 0 0 0-85.333333 0V512a42.666667 42.666667 0 0 0 42.666666 42.666667h170.666667a42.666667 42.666667 0 0 0 30.165333-12.501334l128-128A42.666667 42.666667 0 0 0 938.666667 384v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667h-49.92a128.042667 128.042667 0 0 0-241.493333 0H419.413333a128.042667 128.042667 0 0 0-241.493333 0H128a42.666667 42.666667 0 0 0-42.666667 42.666667V682.666667a42.666667 42.666667 0 0 0 42.666667 42.666666h469.333333a42.666667 42.666667 0 0 0 0-85.333333H170.666667v-426.666667h7.253333a128.042667 128.042667 0 0 0 241.493333 0h185.173334zM298.666667 128a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m426.666666 0a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z"></path>
+                                                    d="M604.586667 213.333333a128.042667 128.042667 0 0 0 241.493333 0H853.333333v153.002667L750.336 469.333333H640v-85.333333a42.666667 42.666667 0 0 0-85.333333 0V512a42.666667 42.666667 0 0 0 42.666666 42.666667h170.666667a42.666667 42.666667 0 0 0 30.165333-12.501334l128-128A42.666667 42.666667 0 0 0 938.666667 384v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667h-49.92a128.042667 128.042667 0 0 0-241.493333 0H419.413333a128.042667 128.042667 0 0 0-241.493333 0H128a42.666667 42.666667 0 0 0-42.666667 42.666667V682.666667a42.666667 42.666667 0 0 0 42.666667 42.666666h469.333333a42.666667 42.666667 0 0 0 0-85.333333H170.666667v-426.666667h7.253333a128.042667 128.042667 0 0 0 241.493333 0h185.173334zM298.666667 128a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m426.666666 0a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z"></path>
 										</svg>
 									</span> Cabecera
 								</span>
 							</span>
-			</div>
+            </div>
 
-			<div style="display: flex; align-items: center; align-content: center">
-				<div style="flex: 2;">
-					<img src="../../../../../assets/LogoImpacta.png" class="cpe-logo" style="max-width: 250px;"
-						 alt="Logo de empresa">
-				</div>
-				<div style="flex: 4;">
-					<div class="cpe-datos-contribuyente">
-						<h2>Impactaperu</h2>
-						<p>Asociación Civil Impacta Salud y Educación</p>
-						<p>Dirección #1010 - Lima - Barranco</p>
-						<span>impacta@impactaperu.org - Teléfono: (511) 206-7800</span>
-					</div>
-				</div>
-				<div style="flex: 5;">
-					<!-- Company Details section -->
-					<div
-						style="padding-left: 5px; padding-right: 5px;">
-						<div class="dark-row dark-row-center container">
-							<div style="padding-left: 6px; padding-right: 6px;">
-								<strong>R.U.C. N° 20474666876</strong>
-							</div>
-							<div style="padding-left: 6px; padding-right: 6px;">
-								<div>
-									<strong>GUÍA DE REMISIÓN REMITENTE ELECTRÓNICA</strong>
-								</div>
-							</div>
-							<div>
-								<div class="dark-row">
-									<div class="row-items">
-										<div class="row-items_inColumn">
-											<app-form-field label="Tipo de serie correlativo"
-															[control]="form.controls['tipoSerie']"
-															[isInline]="isInline">
-												<app-autocomplete placeholder="Ingrese el número de correlativo"
-																  formControlName="tipoSerie"
-																  [items]="serieCorrelativo"></app-autocomplete>
-											</app-form-field>
-										</div>
+            <div style="display: flex; align-items: center; align-content: center">
+                <div style="flex: 2;">
+                    <img src="../../../../../assets/LogoImpacta.png" class="cpe-logo" style="max-width: 250px;"
+                         alt="Logo de empresa">
+                </div>
+                <div style="flex: 4;">
+                    <div class="cpe-datos-contribuyente">
+                        <h2>Impactaperu</h2>
+                        <p>Asociación Civil Impacta Salud y Educación</p>
+                        <p>Dirección #1010 - Lima - Barranco</p>
+                        <span>impacta@impactaperu.org - Teléfono: (511) 206-7800</span>
+                    </div>
+                </div>
+                <div style="flex: 5;">
+                    <!-- Company Details section -->
+                    <div
+                            style="padding-left: 5px; padding-right: 5px;">
+                        <div class="dark-row dark-row-center container">
+                            <div style="padding-left: 6px; padding-right: 6px;">
+                                <strong>R.U.C. N° 20474666876</strong>
+                            </div>
+                            <div style="padding-left: 6px; padding-right: 6px;">
+                                <div>
+                                    <strong>GUÍA DE REMISIÓN REMITENTE ELECTRÓNICA</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="dark-row">
+                                    <div class="row-items">
+                                        <div class="row-items_inColumn">
+                                            <app-form-field label="Tipo de serie correlativo"
+                                                            [control]="form.controls['tipoSerie']"
+                                                            [isInline]="isInline">
+                                                <app-autocomplete placeholder="Ingrese el número de correlativo"
+                                                                  formControlName="tipoSerie"
+                                                                  [items]="serieCorrelativo"></app-autocomplete>
+                                            </app-form-field>
+                                        </div>
 
-										<div class="row-items_inColumn-2">
-											<app-form-field label="Serie correlativo"
-															[required]="true"
-															[control]="form.controls['numSerieCorrelativo']"
-															[isInline]="isInline">
-												<app-input formControlName="numSerieCorrelativo"
-														   (changed)="completeCorrelativo()"
-														   placeholder="Ingrese el número de correlativo"></app-input>
-											</app-form-field>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Company Details section -->
-				</div>
-			</div>
-		</div>
+                                        <div class="row-items_inColumn-2">
+                                            <app-form-field label="Serie correlativo"
+                                                            [required]="true"
+                                                            [control]="form.controls['numSerieCorrelativo']"
+                                                            [isInline]="isInline">
+                                                <app-input formControlName="numSerieCorrelativo"
+                                                           (changed)="completeCorrelativo()"
+                                                           placeholder="Ingrese el número de correlativo"></app-input>
+                                            </app-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Company Details section -->
+                </div>
+            </div>
+        </div>
 
 
-		<div class="cpe-form">
+        <div class="cpe-form">
 
-			<!-- <app-button (click)="onPatchValue()">Agregar texto</app-button> -->
+            <!-- <app-button (click)="onPatchValue()">Agregar texto</app-button> -->
 
-			<!-- Identidad RUC section -->
-			<div class="wrapper">
-				<app-spinner *ngIf="showSpinnerContribuyente"></app-spinner>
+            <!-- Identidad RUC section -->
+            <div class="wrapper">
+                <app-spinner *ngIf="showSpinnerContribuyente"></app-spinner>
 
-				<div class="row-items">
-					<app-form-field label="Nombre o Razón social" class="row-items_inColumn-2"
-									[required]="true"
-									[control]="form.controls['nomContribuyente']"
-									[isInline]="isInline">
-						<app-input formControlName="nomContribuyente"
-								   placeholder="Ingrese el Nombre o Razón social"></app-input>
-					</app-form-field>
+                <div class="row-items">
+                    <app-form-field label="Nombre o Razón social" class="row-items_inColumn-2"
+                                    [required]="true"
+                                    [control]="form.controls['nomContribuyente']"
+                                    [isInline]="isInline">
+                        <app-input formControlName="nomContribuyente"
+                                   placeholder="Ingrese el Nombre o Razón social"></app-input>
+                    </app-form-field>
 
-					<app-form-field label="Tipo de documento de identidad" class="row-items_inColumn"
-									[required]="true"
-									[control]="form.controls['docIdentidad']"
-									[isInline]="isInline">
-						<app-select formControlName="docIdentidad" [items]="documentosIdentidad"></app-select>
-					</app-form-field>
+                    <app-form-field label="Tipo de documento de identidad" class="row-items_inColumn"
+                                    [required]="true"
+                                    [control]="form.controls['docIdentidad']"
+                                    [isInline]="isInline">
+                        <app-select formControlName="docIdentidad" [items]="documentosIdentidad"></app-select>
+                    </app-form-field>
 
-					<app-form-field label="Documento de identidad" class="row-items_inColumn"
-									[required]="true"
-									[control]="form.controls['docContribuyente']"
-									[isInline]="isInline">
-						<app-input formControlName="docContribuyente"
-								   placeholder="Ingrese el documento de identidad"></app-input>
-					</app-form-field>
-				</div>
-				<mat-chip-listbox aria-label="Taxpayer status selection" *ngIf="chipsContribuyente">
-					<mat-chip color="primary">
-						<mat-icon matChipAvatar aria-hidden="false" aria-label="Example home icon"
-								  fontIcon="check"></mat-icon>
-						Estado: {{contribuyenteDetailsSignal().estado}}
-					</mat-chip>
-					<mat-chip color="primary">
-						<mat-icon matChipAvatar aria-hidden="false" aria-label="Example home icon"
-								  fontIcon="check"></mat-icon>
-						Condición: {{contribuyenteDetailsSignal().condicion}}
-					</mat-chip>
-				</mat-chip-listbox>
+                    <app-form-field label="Documento de identidad" class="row-items_inColumn"
+                                    [required]="true"
+                                    [control]="form.controls['docContribuyente']"
+                                    [isInline]="isInline">
+                        <app-input formControlName="docContribuyente"
+                                   placeholder="Ingrese el documento de identidad"></app-input>
+                    </app-form-field>
+                </div>
+                <mat-chip-listbox aria-label="Taxpayer status selection" *ngIf="chipsContribuyente">
+                    <mat-chip color="primary">
+                        <mat-icon matChipAvatar aria-hidden="false" aria-label="Example home icon"
+                                  fontIcon="check"></mat-icon>
+                        Estado: {{contribuyenteDetailsSignal().estado}}
+                    </mat-chip>
+                    <mat-chip color="primary">
+                        <mat-icon matChipAvatar aria-hidden="false" aria-label="Example home icon"
+                                  fontIcon="check"></mat-icon>
+                        Condición: {{contribuyenteDetailsSignal().condicion}}
+                    </mat-chip>
+                </mat-chip-listbox>
 
-			</div>
-			<!-- End Identidad RUC section -->
+            </div>
+            <!-- End Identidad RUC section -->
 
-			<div style="display: flex">
-				<div style="flex: 2;">
-					<!-- Fechas section -->
-					<div class="">
-						<app-form-field label="Fecha de Emisión"
-										[control]="form.controls['controlFechaEmision']"
-										[isInline]="true"
-										[required]="true">
-							<app-date formControlName="controlFechaEmision" placeholder="Fecha de emisión"></app-date>
-						</app-form-field>
+            <div style="display: flex">
+                <div style="flex: 2;">
+                    <!-- Fechas section -->
+                    <div class="">
+                        <app-form-field label="Fecha de Emisión"
+                                        [control]="form.controls['controlFechaEmision']"
+                                        [isInline]="true"
+                                        [required]="true">
+                            <app-date formControlName="controlFechaEmision" placeholder="Fecha de emisión"></app-date>
+                        </app-form-field>
 
-						<app-form-field label="Fecha de entrega a transportista"
-										[control]="form.controls['controlEntregaTransportista']"
-										[isInline]="true"
-										[required]="true">
-							<app-date formControlName="controlEntregaTransportista"
-									  placeholder="Fecha de entrega a transportista"></app-date>
-						</app-form-field>
-					</div>
-					<!-- End Fechas section -->
-				</div>
-				<div style="flex: 1;">
-					<app-form-field label=""
-									[required]="false"
-									[control]="form.controls['controlRetornos']"
-									[isInline]="isInline">
-						<app-radios formControlName="controlRetornos" [items]="retornos"></app-radios>
-					</app-form-field>
-				</div>
-				<div style="flex: 1;">
-					<app-form-field label=""
-									[required]="false"
-									[control]="form.controls['controlVehiculos']"
-									[isInline]="isInline">
-						<app-radios formControlName="controlVehiculos" [items]="controlVehiculos"></app-radios>
-					</app-form-field>
-				</div>
-			</div>
+                        <app-form-field label="Fecha de entrega a transportista"
+                                        [control]="form.controls['controlEntregaTransportista']"
+                                        [isInline]="true"
+                                        [required]="true">
+                            <app-date formControlName="controlEntregaTransportista"
+                                      placeholder="Fecha de entrega a transportista"></app-date>
+                        </app-form-field>
+                    </div>
+                    <!-- End Fechas section -->
+                </div>
+                <div style="flex: 1;">
+                    <app-form-field label=""
+                                    [required]="false"
+                                    [control]="form.controls['controlRetornos']"
+                                    [isInline]="isInline">
+                        <app-radios formControlName="controlRetornos" [items]="retornos"></app-radios>
+                    </app-form-field>
+                </div>
+                <div style="flex: 1;">
+                    <app-form-field label=""
+                                    [required]="false"
+                                    [control]="form.controls['controlVehiculos']"
+                                    [isInline]="isInline">
+                        <app-radios formControlName="controlVehiculos" [items]="controlVehiculos"></app-radios>
+                    </app-form-field>
+                </div>
+            </div>
 
-			<!-- Clasificación vehícular section -->
-			<!-- End Clasificación vehícular section -->
+            <!-- Clasificación vehícular section -->
+            <!-- End Clasificación vehícular section -->
 
-			<!-- Motivo del traslado section -->
-			<div class="row-items">
-				<app-form-field label="Motivo del traslado" class="row-items_inColumn-2"
-								[required]="true"
-								[control]="form.controls['controlMotivos']"
-								[isInline]="isInline">
-					<app-autocomplete placeholder="Ingrese el motivo del traslado" formControlName="controlMotivos"
-									  [items]="motivos"></app-autocomplete>
-				</app-form-field>
+            <!-- Motivo del traslado section -->
+            <div class="row-items">
+                <app-form-field label="Motivo del traslado" class="row-items_inColumn-2"
+                                [required]="true"
+                                [control]="form.controls['controlMotivos']"
+                                [isInline]="isInline">
+                    <app-autocomplete placeholder="Ingrese el motivo del traslado" formControlName="controlMotivos"
+                                      [items]="motivos"></app-autocomplete>
+                </app-form-field>
 
-				<app-form-field label="Tipo de transporte" class="row-items_inColumn"
-								[required]="true"
-								[control]="form.controls['controlTipoTransporte']"
-								[isInline]="isInline">
-					<app-autocomplete placeholder="Ingrese el tipo de transporte"
-									  formControlName="controlTipoTransporte"
-									  [items]="tipoTransporte"></app-autocomplete>
-				</app-form-field>
-			</div>
-			<!-- Motivo del traslado section -->
+                <app-form-field label="Tipo de transporte" class="row-items_inColumn"
+                                [required]="true"
+                                [control]="form.controls['controlTipoTransporte']"
+                                [isInline]="isInline">
+                    <app-autocomplete placeholder="Ingrese el tipo de transporte"
+                                      formControlName="controlTipoTransporte"
+                                      [items]="tipoTransporte"></app-autocomplete>
+                </app-form-field>
+            </div>
+            <!-- Motivo del traslado section -->
 
-			<!-- Transportista section -->
-			<div class="wrapper">
-				<app-spinner *ngIf="showSpinnerRUC"></app-spinner>
+            <!-- Transportista section -->
+            <div class="wrapper">
+                <app-spinner *ngIf="showSpinnerTransportista"></app-spinner>
 
-				<div
-					class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
-					role="separator" style="margin-bottom: 1px;">
+                <div
+                        class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
+                        role="separator" style="margin-bottom: 1px;">
 					<span class="dark-divider-inner-text">
 						<span class="dark-typography dark-typography-secondary">
 						<span role="img" class="anticon">
 						<svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024"
-							 style="transform: rotate(180deg);">
+                             style="transform: rotate(180deg);">
 							<path
-								d="M604.586667 213.333333a128.042667 128.042667 0 0 0 241.493333 0H853.333333v153.002667L750.336 469.333333H640v-85.333333a42.666667 42.666667 0 0 0-85.333333 0V512a42.666667 42.666667 0 0 0 42.666666 42.666667h170.666667a42.666667 42.666667 0 0 0 30.165333-12.501334l128-128A42.666667 42.666667 0 0 0 938.666667 384v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667h-49.92a128.042667 128.042667 0 0 0-241.493333 0H419.413333a128.042667 128.042667 0 0 0-241.493333 0H128a42.666667 42.666667 0 0 0-42.666667 42.666667V682.666667a42.666667 42.666667 0 0 0 42.666667 42.666666h469.333333a42.666667 42.666667 0 0 0 0-85.333333H170.666667v-426.666667h7.253333a128.042667 128.042667 0 0 0 241.493333 0h185.173334zM298.666667 128a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m426.666666 0a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z"></path></svg>
+                                    d="M604.586667 213.333333a128.042667 128.042667 0 0 0 241.493333 0H853.333333v153.002667L750.336 469.333333H640v-85.333333a42.666667 42.666667 0 0 0-85.333333 0V512a42.666667 42.666667 0 0 0 42.666666 42.666667h170.666667a42.666667 42.666667 0 0 0 30.165333-12.501334l128-128A42.666667 42.666667 0 0 0 938.666667 384v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667h-49.92a128.042667 128.042667 0 0 0-241.493333 0H419.413333a128.042667 128.042667 0 0 0-241.493333 0H128a42.666667 42.666667 0 0 0-42.666667 42.666667V682.666667a42.666667 42.666667 0 0 0 42.666667 42.666666h469.333333a42.666667 42.666667 0 0 0 0-85.333333H170.666667v-426.666667h7.253333a128.042667 128.042667 0 0 0 241.493333 0h185.173334zM298.666667 128a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m426.666666 0a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z"></path></svg>
 						</span> Datos del transportista</span></span>
-				</div>
+                </div>
+                <div class="row-items">
+                    <app-form-field label="Nombre del transportista" class="row-items_inColumn-2"
+                                    [required]="true"
+                                    [control]="form.controls['controlNomTransportista']"
+                                    [isInline]="isInline">
+                        <app-input formControlName="controlNomTransportista"
+                                   placeholder="Nombre del transportista"></app-input>
+                    </app-form-field>
 
-				<div class="row-items">
-					<app-form-field label="Nombre del transportista" class="row-items_inColumn-2"
-									[required]="true"
-									[control]="form.controls['controlNomTransportista']"
-									[isInline]="isInline">
-						<app-input formControlName="controlNomTransportista"
-								   placeholder="Nombre del transportista"></app-input>
-					</app-form-field>
+                    <app-form-field label="Registro MTC (Opcional)" class="row-items_inColumn"
+                                    [control]="form.controls['controlMTCTransportista']"
+                                    [isInline]="isInline">
+                        <app-input formControlName="controlMTCTransportista"
+                                   placeholder="Ingrese el Registro MTC"></app-input>
+                    </app-form-field>
 
-					<app-form-field label="Registro MTC (Opcional)" class="row-items_inColumn"
-									[control]="form.controls['controlMTCTransportista']"
-									[isInline]="isInline">
-						<app-input formControlName="controlMTCTransportista"
-								   placeholder="Ingrese el Registro MTC"></app-input>
-					</app-form-field>
+                    <app-form-field label="RUC del transportista" class="row-items_inColumn"
+                                    [required]="true"
+                                    [control]="form.controls['controlRUCTransportista']"
+                                    [isInline]="isInline">
+                        <app-input formControlName="controlRUCTransportista"
+                                   placeholder="Ingrese el RUC del transportista"></app-input>
+                    </app-form-field>
+                </div>
 
-					<app-form-field label="RUC del transportista" class="row-items_inColumn"
-									[required]="true"
-									[control]="form.controls['controlRUCTransportista']"
-									[isInline]="isInline">
-						<app-input formControlName="controlRUCTransportista"
-								   placeholder="Ingrese el RUC del transportista"></app-input>
-					</app-form-field>
-				</div>
+                <mat-chip-listbox *ngIf="chipsTransportista">
+                    <mat-chip color="primary">
+                        <mat-icon matChipAvatar aria-hidden="false" aria-label="Estado icono"
+                                  fontIcon="check"></mat-icon>
+                        Estado: {{transportistaDetailsSignal().estado}}
+                    </mat-chip>
+                    <mat-chip color="primary">
+                        <mat-icon matChipAvatar aria-hidden="false" aria-label="Condición icono"
+                                  fontIcon="check"></mat-icon>
+                        Condición: {{contribuyenteDetailsSignal().condicion}}
+                    </mat-chip>
+                </mat-chip-listbox>
+            </div>
+            <!-- End Transportista section-->
 
-				<mat-chip-listbox *ngIf="chipsTransportista">
-					<mat-chip color="primary">
-						<mat-icon matChipAvatar aria-hidden="false" aria-label="Estado icono"
-								  fontIcon="check"></mat-icon>
-						Estado: {{transportistaDetailsSignal().estado}}
-					</mat-chip>
-					<mat-chip color="primary">
-						<mat-icon matChipAvatar aria-hidden="false" aria-label="Condición icono"
-								  fontIcon="check"></mat-icon>
-						Condición: {{contribuyenteDetailsSignal().condicion}}
-					</mat-chip>
-				</mat-chip-listbox>
-			</div>
-			<!-- End Transportista section-->
-
-			<div class="row-items">
-				<div class="row-items_inColumn">
-					<div
-						class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
-						role="separator" style="margin-bottom: 1px;">
+            <div class="row-items">
+                <div class="row-items_inColumn">
+                    <div
+                            class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
+                            role="separator" style="margin-bottom: 1px;">
 						<span class="dark-divider-inner-text">
 						<span class="dark-typography dark-typography-secondary">
 							<span role="img" class="anticon">
 								<svg width="1.15em" height="1em" fill="currentColor" viewBox="0 0 1024 1024"
-									 style="transform: rotate(180deg);">
+                                     style="transform: rotate(180deg);">
 									<path
-										d="M604.586667 213.333333a128.042667 128.042667 0 0 0 241.493333 0H853.333333v153.002667L750.336 469.333333H640v-85.333333a42.666667 42.666667 0 0 0-85.333333 0V512a42.666667 42.666667 0 0 0 42.666666 42.666667h170.666667a42.666667 42.666667 0 0 0 30.165333-12.501334l128-128A42.666667 42.666667 0 0 0 938.666667 384v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667h-49.92a128.042667 128.042667 0 0 0-241.493333 0H419.413333a128.042667 128.042667 0 0 0-241.493333 0H128a42.666667 42.666667 0 0 0-42.666667 42.666667V682.666667a42.666667 42.666667 0 0 0 42.666667 42.666666h469.333333a42.666667 42.666667 0 0 0 0-85.333333H170.666667v-426.666667h7.253333a128.042667 128.042667 0 0 0 241.493333 0h185.173334zM298.666667 128a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m426.666666 0a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z"></path>
+                                            d="M604.586667 213.333333a128.042667 128.042667 0 0 0 241.493333 0H853.333333v153.002667L750.336 469.333333H640v-85.333333a42.666667 42.666667 0 0 0-85.333333 0V512a42.666667 42.666667 0 0 0 42.666666 42.666667h170.666667a42.666667 42.666667 0 0 0 30.165333-12.501334l128-128A42.666667 42.666667 0 0 0 938.666667 384v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667h-49.92a128.042667 128.042667 0 0 0-241.493333 0H419.413333a128.042667 128.042667 0 0 0-241.493333 0H128a42.666667 42.666667 0 0 0-42.666667 42.666667V682.666667a42.666667 42.666667 0 0 0 42.666667 42.666666h469.333333a42.666667 42.666667 0 0 0 0-85.333333H170.666667v-426.666667h7.253333a128.042667 128.042667 0 0 0 241.493333 0h185.173334zM298.666667 128a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m426.666666 0a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z"></path>
 								</svg>
 							</span> Vehículos
 						</span>
 						</span>
-					</div>
+                    </div>
 
-					<div class="container">
-						<div class="row-items">
-							<div class="row-items_inColumn">
-								<app-form-field
-									[control]="form.controls['controlVehiculoPlaca']"
-									[isInline]="isInline">
-									<app-input formControlName="controlVehiculoPlaca"
-											   placeholder="Placa"></app-input>
-								</app-form-field>
-							</div>
+                    <div class="container" *ngIf="agregarVehiculo">
+                        <div class="row-items">
+                            <div class="row-items_inColumn">
+                                <app-form-field
+                                        [control]="form.controls['controlVehiculoPlaca']"
+                                        [isInline]="isInline">
+                                    <app-input formControlName="controlVehiculoPlaca"
+                                               placeholder="Placa"></app-input>
+                                </app-form-field>
+                            </div>
 
-							<div class="row-items_inColumn-2">
-								<app-form-field
-									[control]="form.controls['controlVehiculoHabilitacion']"
-									[isInline]="isInline">
-									<app-input formControlName="controlVehiculoHabilitacion"
-											   placeholder="TUC / CHV"></app-input>
-								</app-form-field>
-							</div>
-						</div>
+                            <div class="row-items_inColumn-2">
+                                <app-form-field
+                                        [control]="form.controls['controlVehiculoHabilitacion']"
+                                        [isInline]="isInline">
+                                    <app-input formControlName="controlVehiculoHabilitacion"
+                                               placeholder="TUC / CHV"></app-input>
+                                </app-form-field>
+                            </div>
+                        </div>
 
-						<div class="row-items" style="margin-top: -15px;">
-							<app-form-field class="row-items_inColumn-2"
-											[control]="form.controls['controlVehiculoAutorizacion']"
-											[isInline]="isInline">
-								<app-input formControlName="controlVehiculoAutorizacion"
-										   placeholder="Número de autorización especial"></app-input>
-							</app-form-field>
+                        <div class="row-items" style="margin-top: -15px;">
+                            <app-form-field class="row-items_inColumn-2"
+                                            [control]="form.controls['controlVehiculoAutorizacion']"
+                                            [isInline]="isInline">
+                                <app-input formControlName="controlVehiculoAutorizacion"
+                                           placeholder="Número de autorización especial"></app-input>
+                            </app-form-field>
 
-							<app-form-field class="row-items_inColumn-2"
-											[control]="form.controls['controlVehiculoAutorizacion']"
-											[isInline]="isInline">
-								<app-input formControlName="controlVehiculoAutorizacion"
-										   placeholder="Marca del vehículo"></app-input>
-							</app-form-field>
-						</div>
+                            <app-form-field class="row-items_inColumn-2"
+                                            [control]="form.controls['controlVehiculoAutorizacion']"
+                                            [isInline]="isInline">
+                                <app-input formControlName="controlVehiculoAutorizacion"
+                                           placeholder="Marca del vehículo"></app-input>
+                            </app-form-field>
+                        </div>
 
-						<div class="row-items_inColumn" style="margin-top: -25px">
-							<app-form-field label="Entidad emisora" class="row-items_inColumn"
-											[control]="form.controls['controlVehiculoEmisor']"
-											[isInline]="isInline">
-								<app-select formControlName="controlVehiculoEmisor" [items]="emisores"></app-select>
-							</app-form-field>
-						</div>
+                        <div class="row-items_inColumn" style="margin-top: -25px">
+                            <app-form-field label="Entidad emisora" class="row-items_inColumn"
+                                            [control]="form.controls['controlVehiculoEmisor']"
+                                            [isInline]="isInline">
+                                <app-select formControlName="controlVehiculoEmisor" [items]="emisores"></app-select>
+                            </app-form-field>
+                        </div>
 
-						<div class="title">
-							<app-btn-error class="row-items_item app-button_error">Quitar Vehículo</app-btn-error>
-						</div>
-					</div>
+                        <div class="title">
+                            <app-btn-error class="row-items_item app-button_error" (click)="onVehiculoAgreggate()">
+                                Quitar Vehículo
+                            </app-btn-error>
+                        </div>
+                    </div>
 
-					<div class="title">
-						<app-button class="row-items_item">Agregar Vehículo</app-button>
-					</div>
-				</div>
+                    <div class="title">
+                        <app-button class="row-items_item" (click)="onVehiculoAgreggate()">Agregar Vehículo</app-button>
+                    </div>
+                </div>
 
-				<div class="row-items_inColumn">
-					<div
-						class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
-						role="separator" style="margin-bottom: 1px;">
+                <div class="row-items_inColumn">
+                    <div
+                            class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
+                            role="separator" style="margin-bottom: 1px;">
 						<span class="dark-divider-inner-text">
 							<span class="dark-typography dark-typography-secondary">
 								<span role="img" class="anticon">
 									<svg width="1em" height="1em" fill="currentColor" viewBox="-25 -25 1074 1074">
 										<path
-											d="M510.567164 474.746269c-137.552239 0-250.268657-106.029851-250.268657-237.850747S373.014925 0 510.567164 0s250.268657 106.029851 250.268657 237.850746-112.716418 236.895522-250.268657 236.895523z m0-72.597015c99.343284 0 178.626866-74.507463 178.626866-164.298508S609.910448 73.552239 510.567164 73.552239s-178.626866 74.507463-178.626865 164.298507 79.283582 164.298507 178.626865 164.298508z m250.268657 584.597015H689.19403C689.19403 885.492537 609.910448 804.298507 510.567164 804.298507s-178.626866 82.149254-178.626865 182.447762h-71.641792c0-141.373134 111.761194-256 250.268657-256s250.268657 114.626866 250.268657 256z"></path>
+                                                d="M510.567164 474.746269c-137.552239 0-250.268657-106.029851-250.268657-237.850747S373.014925 0 510.567164 0s250.268657 106.029851 250.268657 237.850746-112.716418 236.895522-250.268657 236.895523z m0-72.597015c99.343284 0 178.626866-74.507463 178.626866-164.298508S609.910448 73.552239 510.567164 73.552239s-178.626866 74.507463-178.626865 164.298507 79.283582 164.298507 178.626865 164.298508z m250.268657 584.597015H689.19403C689.19403 885.492537 609.910448 804.298507 510.567164 804.298507s-178.626866 82.149254-178.626865 182.447762h-71.641792c0-141.373134 111.761194-256 250.268657-256s250.268657 114.626866 250.268657 256z"></path>
 										<path
-											d="M339.58209 550.208955c-47.761194 0-91.701493 37.253731-118.447762 83.104478L116.059701 816.716418c-13.373134 23.880597-14.328358 54.447761-0.955223 78.328358 14.328358 26.746269 40.119403 53.492537 66.865671 53.492537h662.925373c25.791045 0 49.671642-25.791045 62.089553-51.582089 12.41791-24.835821 11.462687-55.402985-1.910448-79.283582L802.865672 635.223881c-26.746269-46.80597-71.641791-85.014925-119.402985-85.014926h-343.880597z m0-75.462686h343.880597C756.059701 474.746269 822.925373 517.731343 862.089552 588.41791l102.208955 182.447762c28.656716 50.626866 29.61194 116.537313 3.820896 169.074627-25.791045 51.58209-72.597015 84.059701-124.179104 84.059701H181.970149c-51.58209 0-99.343284-31.522388-127.044776-82.149254-28.656716-52.537313-27.701493-119.402985 1.910448-170.985074l105.074627-183.402985C202.029851 516.776119 268.895522 474.746269 339.58209 474.746269z"></path>
+                                                d="M339.58209 550.208955c-47.761194 0-91.701493 37.253731-118.447762 83.104478L116.059701 816.716418c-13.373134 23.880597-14.328358 54.447761-0.955223 78.328358 14.328358 26.746269 40.119403 53.492537 66.865671 53.492537h662.925373c25.791045 0 49.671642-25.791045 62.089553-51.582089 12.41791-24.835821 11.462687-55.402985-1.910448-79.283582L802.865672 635.223881c-26.746269-46.80597-71.641791-85.014925-119.402985-85.014926h-343.880597z m0-75.462686h343.880597C756.059701 474.746269 822.925373 517.731343 862.089552 588.41791l102.208955 182.447762c28.656716 50.626866 29.61194 116.537313 3.820896 169.074627-25.791045 51.58209-72.597015 84.059701-124.179104 84.059701H181.970149c-51.58209 0-99.343284-31.522388-127.044776-82.149254-28.656716-52.537313-27.701493-119.402985 1.910448-170.985074l105.074627-183.402985C202.029851 516.776119 268.895522 474.746269 339.58209 474.746269z"></path>
 										<path
-											d="M574.567164 796.656716l-64-45.850746 171.940299-246.447761 63.044776 45.850746z"></path>
+                                                d="M574.567164 796.656716l-64-45.850746 171.940299-246.447761 63.044776 45.850746z"></path>
 									</svg>
 								</span> Conductores
 							</span>
 						</span>
-					</div>
+                    </div>
 
-					<div class="container">
-						<div class="row-items">
-							<div class="row-items_inColumn-2">
-								<app-form-field label="Tipo de documento de identidad"
-												[required]="true"
-												[control]="form.controls['controlDNIConductor']"
-												[isInline]="isInline">
-									<app-select formControlName="controlDNIConductor"
-												[items]="documentosIdentidad"></app-select>
-								</app-form-field>
-							</div>
+                    <div class="wrapper">
+                        <app-spinner *ngIf="showSpinnerConductor"></app-spinner>
+                        <div class="container" *ngIf="agregarConductor">
+                            <div class="row-items">
+                                <div class="row-items_inColumn-2">
+                                    <app-form-field label="Tipo de documento de identidad"
+                                                    [required]="true"
+                                                    [control]="form.controls['controlDNIConductor']"
+                                                    [isInline]="isInline">
+                                        <app-select formControlName="controlDNIConductor"
+                                                    [items]="documentosIdentidad"></app-select>
+                                    </app-form-field>
+                                </div>
 
-							<div class="row-items_inColumn">
-								<app-form-field label="Número del documento del conductor"
-												[control]="form.controls['controlDocConductor']"
-												[isInline]="isInline">
-									<app-input formControlName="controlDocConductor"
-											   placeholder="Número del documento del conductor"></app-input>
-								</app-form-field>
-							</div>
-						</div>
+                                <div class="row-items_inColumn">
+                                    <app-form-field label="Número del documento del conductor"
+                                                    [control]="form.controls['controlDocConductor']"
+                                                    [isInline]="isInline">
+                                        <app-input formControlName="controlDocConductor"
+                                                   placeholder="Número del documento del conductor"></app-input>
+                                    </app-form-field>
+                                </div>
+                            </div>
 
-						<div class="row-items_inColumn-2">
-							<app-form-field
-								[control]="form.controls['controlNombreConductor']"
-								[isInline]="isInline">
-								<app-input formControlName="controlNombreConductor"
-										   placeholder="Nombre del conductor"></app-input>
-							</app-form-field>
-						</div>
+                            <div class="row-items_inColumn-2">
+                                <app-form-field
+                                        [control]="form.controls['controlNombreConductor']"
+                                        [isInline]="isInline">
+                                    <app-input formControlName="controlNombreConductor"
+                                               placeholder="Nombre del conductor"></app-input>
+                                </app-form-field>
+                            </div>
 
-						<div class="row-items_inColumn" style="margin-top: -15px;">
-							<app-form-field
-								[control]="form.controls['controlVehiculoPlaca']"
-								[isInline]="isInline">
-								<app-input formControlName="controlVehiculoPlaca"
-										   placeholder="Número de licencia de conducir"></app-input>
-							</app-form-field>
-						</div>
+                            <div class="row-items_inColumn" style="margin-top: -15px;">
+                                <app-form-field
+                                        [control]="form.controls['controlVehiculoPlaca']"
+                                        [isInline]="isInline">
+                                    <app-input formControlName="controlVehiculoPlaca"
+                                               placeholder="Número de licencia de conducir"></app-input>
+                                </app-form-field>
+                            </div>
 
-						<div class="title">
-							<app-btn-error class="row-items_item app-button_error">Quitar Conductor</app-btn-error>
-						</div>
-					</div>
-					<div class="title">
-						<app-button class="row-items_item">Agregar Conductor</app-button>
-					</div>
-				</div>
-			</div>
+                            <div class="title">
+                                <app-btn-error class="row-items_item app-button_error" (click)="onConductorAgreggate()">
+                                    Quitar Conductor
+                                </app-btn-error>
+                            </div>
+                        </div>
+                    </div>
 
-			<!-- Localization -->
-			<div
-				class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
-				role="separator" style="margin-bottom: 1px;"><span class="dark-divider-inner-text"><span
-				class="dark-typography dark-typography-secondary">
+
+                    <div class="title">
+                        <app-button class="row-items_item" (click)="onConductorAgreggate()">Agregar Conductor
+                        </app-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Localization -->
+            <div
+                    class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
+                    role="separator" style="margin-bottom: 1px;"><span class="dark-divider-inner-text"><span
+                    class="dark-typography dark-typography-secondary">
 				<span role="img" aria-label="environment" class="anticon anticon-environment">
 					<svg viewBox="64 64 896 896" focusable="false" data-icon="environment" width="1em" height="1em"
-						 fill="currentColor" aria-hidden="true">
+                         fill="currentColor" aria-hidden="true">
 						<path
-							d="M854.6 289.1a362.49 362.49 0 00-79.9-115.7 370.83 370.83 0 00-118.2-77.8C610.7 76.6 562.1 67 512 67c-50.1 0-98.7 9.6-144.5 28.5-44.3 18.3-84 44.5-118.2 77.8A363.6 363.6 0 00169.4 289c-19.5 45-29.4 92.8-29.4 142 0 70.6 16.9 140.9 50.1 208.7 26.7 54.5 64 107.6 111 158.1 80.3 86.2 164.5 138.9 188.4 153a43.9 43.9 0 0022.4 6.1c7.8 0 15.5-2 22.4-6.1 23.9-14.1 108.1-66.8 188.4-153 47-50.4 84.3-103.6 111-158.1C867.1 572 884 501.8 884 431.1c0-49.2-9.9-97-29.4-142zM512 880.2c-65.9-41.9-300-207.8-300-449.1 0-77.9 31.1-151.1 87.6-206.3C356.3 169.5 431.7 139 512 139s155.7 30.5 212.4 85.9C780.9 280 812 353.2 812 431.1c0 241.3-234.1 407.2-300 449.1zm0-617.2c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 551c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 439c0-29.9 11.7-58 32.8-79.2C454 338.6 482.1 327 512 327c29.9 0 58 11.6 79.2 32.8C612.4 381 624 409.1 624 439c0 29.9-11.6 58-32.8 79.2z"></path>
+                                d="M854.6 289.1a362.49 362.49 0 00-79.9-115.7 370.83 370.83 0 00-118.2-77.8C610.7 76.6 562.1 67 512 67c-50.1 0-98.7 9.6-144.5 28.5-44.3 18.3-84 44.5-118.2 77.8A363.6 363.6 0 00169.4 289c-19.5 45-29.4 92.8-29.4 142 0 70.6 16.9 140.9 50.1 208.7 26.7 54.5 64 107.6 111 158.1 80.3 86.2 164.5 138.9 188.4 153a43.9 43.9 0 0022.4 6.1c7.8 0 15.5-2 22.4-6.1 23.9-14.1 108.1-66.8 188.4-153 47-50.4 84.3-103.6 111-158.1C867.1 572 884 501.8 884 431.1c0-49.2-9.9-97-29.4-142zM512 880.2c-65.9-41.9-300-207.8-300-449.1 0-77.9 31.1-151.1 87.6-206.3C356.3 169.5 431.7 139 512 139s155.7 30.5 212.4 85.9C780.9 280 812 353.2 812 431.1c0 241.3-234.1 407.2-300 449.1zm0-617.2c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 551c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 439c0-29.9 11.7-58 32.8-79.2C454 338.6 482.1 327 512 327c29.9 0 58 11.6 79.2 32.8C612.4 381 624 409.1 624 439c0 29.9-11.6 58-32.8 79.2z"></path>
 					</svg>
 				</span> Punto de partida</span></span>
-			</div>
+            </div>
 
-			<div class="row-items">
-				<app-form-field label="Departamento" class="row-items_inColumn"
-								[required]="true"
-								[control]="form.controls['controlPartidaDepartamento']"
-								[isInline]="isInline">
-					<app-select formControlName="controlPartidaDepartamento" (changed)="onChangeDepartamentoPartida()"
-								[items]="departamentosPartida"></app-select>
-				</app-form-field>
+            <div class="row-items">
+                <app-form-field label="Departamento" class="row-items_inColumn"
+                                [required]="true"
+                                [control]="form.controls['controlPartidaDepartamento']"
+                                [isInline]="isInline">
+                    <app-select formControlName="controlPartidaDepartamento" (changed)="onChangeDepartamentoPartida()"
+                                [items]="departamentosPartida"></app-select>
+                </app-form-field>
 
-				<app-form-field label="Provincia" class="row-items_inColumn"
-								[required]="true"
-								[control]="form.controls['controlPartidaProvincia']"
-								[isInline]="isInline">
-					<app-select formControlName="controlPartidaProvincia" (changed)="onChangeProvinciaPartida()"
-								[items]="provinciasPartida"></app-select>
-				</app-form-field>
+                <app-form-field label="Provincia" class="row-items_inColumn"
+                                [required]="true"
+                                [control]="form.controls['controlPartidaProvincia']"
+                                [isInline]="isInline">
+                    <app-select formControlName="controlPartidaProvincia" (changed)="onChangeProvinciaPartida()"
+                                [items]="provinciasPartida"></app-select>
+                </app-form-field>
 
-				<app-form-field label="Distrito" class="row-items_inColumn"
-								[required]="true"
-								[control]="form.controls['controlPartidaDistrito']"
-								[isInline]="isInline">
-					<app-select formControlName="controlPartidaDistrito" [items]="distritosPartida"></app-select>
-				</app-form-field>
+                <app-form-field label="Distrito" class="row-items_inColumn"
+                                [required]="true"
+                                [control]="form.controls['controlPartidaDistrito']"
+                                [isInline]="isInline">
+                    <app-select formControlName="controlPartidaDistrito" [items]="distritosPartida"></app-select>
+                </app-form-field>
 
-				<app-form-field label="Partida" class="row-items_inColumn-2"
-								[required]="true"
-								[control]="form.controls['controlPartidaPunto']"
-								[isInline]="isInline">
-					<app-input formControlName="controlPartidaPunto"
-							   placeholder="Ingrese el punto de partida"></app-input>
-				</app-form-field>
+                <app-form-field label="Partida" class="row-items_inColumn-2"
+                                [required]="true"
+                                [control]="form.controls['controlPartidaPunto']"
+                                [isInline]="isInline">
+                    <app-input formControlName="controlPartidaPunto"
+                               placeholder="Ingrese el punto de partida"></app-input>
+                </app-form-field>
 
-			</div>
+            </div>
 
-			<div
-				class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
-				role="separator" style="margin-bottom: 1px;"><span class="dark-divider-inner-text"><span
-				class="dark-typography dark-typography-secondary">
+            <div
+                    class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
+                    role="separator" style="margin-bottom: 1px;"><span class="dark-divider-inner-text"><span
+                    class="dark-typography dark-typography-secondary">
 				<span role="img" aria-label="environment" class="anticon anticon-environment">
 					<svg viewBox="64 64 896 896" focusable="false" data-icon="environment" width="1em" height="1em"
-						 fill="currentColor" aria-hidden="true">
+                         fill="currentColor" aria-hidden="true">
 						<path
-							d="M854.6 289.1a362.49 362.49 0 00-79.9-115.7 370.83 370.83 0 00-118.2-77.8C610.7 76.6 562.1 67 512 67c-50.1 0-98.7 9.6-144.5 28.5-44.3 18.3-84 44.5-118.2 77.8A363.6 363.6 0 00169.4 289c-19.5 45-29.4 92.8-29.4 142 0 70.6 16.9 140.9 50.1 208.7 26.7 54.5 64 107.6 111 158.1 80.3 86.2 164.5 138.9 188.4 153a43.9 43.9 0 0022.4 6.1c7.8 0 15.5-2 22.4-6.1 23.9-14.1 108.1-66.8 188.4-153 47-50.4 84.3-103.6 111-158.1C867.1 572 884 501.8 884 431.1c0-49.2-9.9-97-29.4-142zM512 880.2c-65.9-41.9-300-207.8-300-449.1 0-77.9 31.1-151.1 87.6-206.3C356.3 169.5 431.7 139 512 139s155.7 30.5 212.4 85.9C780.9 280 812 353.2 812 431.1c0 241.3-234.1 407.2-300 449.1zm0-617.2c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 551c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 439c0-29.9 11.7-58 32.8-79.2C454 338.6 482.1 327 512 327c29.9 0 58 11.6 79.2 32.8C612.4 381 624 409.1 624 439c0 29.9-11.6 58-32.8 79.2z"></path>
+                                d="M854.6 289.1a362.49 362.49 0 00-79.9-115.7 370.83 370.83 0 00-118.2-77.8C610.7 76.6 562.1 67 512 67c-50.1 0-98.7 9.6-144.5 28.5-44.3 18.3-84 44.5-118.2 77.8A363.6 363.6 0 00169.4 289c-19.5 45-29.4 92.8-29.4 142 0 70.6 16.9 140.9 50.1 208.7 26.7 54.5 64 107.6 111 158.1 80.3 86.2 164.5 138.9 188.4 153a43.9 43.9 0 0022.4 6.1c7.8 0 15.5-2 22.4-6.1 23.9-14.1 108.1-66.8 188.4-153 47-50.4 84.3-103.6 111-158.1C867.1 572 884 501.8 884 431.1c0-49.2-9.9-97-29.4-142zM512 880.2c-65.9-41.9-300-207.8-300-449.1 0-77.9 31.1-151.1 87.6-206.3C356.3 169.5 431.7 139 512 139s155.7 30.5 212.4 85.9C780.9 280 812 353.2 812 431.1c0 241.3-234.1 407.2-300 449.1zm0-617.2c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 551c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 439c0-29.9 11.7-58 32.8-79.2C454 338.6 482.1 327 512 327c29.9 0 58 11.6 79.2 32.8C612.4 381 624 409.1 624 439c0 29.9-11.6 58-32.8 79.2z"></path>
 					</svg>
 				</span> Punto de llegada</span></span>
-			</div>
+            </div>
 
-			<div class="row-items">
-				<app-form-field label="Departamento" class="row-items_inColumn"
-								[required]="true"
-								[control]="form.controls['controlLlegadaDepartamento']"
-								[isInline]="isInline">
-					<app-select formControlName="controlLlegadaDepartamento" (changed)="onChangeDepartamentoLlegada()"
-								[items]="departamentosLlegada"></app-select>
-				</app-form-field>
+            <div class="row-items">
+                <app-form-field label="Departamento" class="row-items_inColumn"
+                                [required]="true"
+                                [control]="form.controls['controlLlegadaDepartamento']"
+                                [isInline]="isInline">
+                    <app-select formControlName="controlLlegadaDepartamento" (changed)="onChangeDepartamentoLlegada()"
+                                [items]="departamentosLlegada"></app-select>
+                </app-form-field>
 
-				<app-form-field label="Provincia" class="row-items_inColumn"
-								[required]="true"
-								[control]="form.controls['controlLlegadaProvincia']"
-								[isInline]="isInline">
-					<app-select formControlName="controlLlegadaProvincia" (changed)="onChangeProvinciaLlegada()"
-								[items]="provinciasLlegada"></app-select>
-				</app-form-field>
+                <app-form-field label="Provincia" class="row-items_inColumn"
+                                [required]="true"
+                                [control]="form.controls['controlLlegadaProvincia']"
+                                [isInline]="isInline">
+                    <app-select formControlName="controlLlegadaProvincia" (changed)="onChangeProvinciaLlegada()"
+                                [items]="provinciasLlegada"></app-select>
+                </app-form-field>
 
-				<app-form-field label="Distrito" class="row-items_inColumn"
-								[required]="true"
-								[control]="form.controls['controlLlegadaDistrito']"
-								[isInline]="isInline">
-					<app-select formControlName="controlLlegadaDistrito" [items]="distritosLlegada"></app-select>
-				</app-form-field>
+                <app-form-field label="Distrito" class="row-items_inColumn"
+                                [required]="true"
+                                [control]="form.controls['controlLlegadaDistrito']"
+                                [isInline]="isInline">
+                    <app-select formControlName="controlLlegadaDistrito" [items]="distritosLlegada"></app-select>
+                </app-form-field>
 
-				<app-form-field label="Llegada" class="row-items_inColumn-2"
-								[required]="true"
-								[control]="form.controls['controlLlegadaPunto']"
-								[isInline]="isInline">
-					<app-input formControlName="controlLlegadaPunto"
-							   placeholder="Ingrese el punto de llegada"></app-input>
-				</app-form-field>
-			</div>
-			<!-- End Localization -->
+                <app-form-field label="Llegada" class="row-items_inColumn-2"
+                                [required]="true"
+                                [control]="form.controls['controlLlegadaPunto']"
+                                [isInline]="isInline">
+                    <app-input formControlName="controlLlegadaPunto"
+                               placeholder="Ingrese el punto de llegada"></app-input>
+                </app-form-field>
+            </div>
+            <!-- End Localization -->
 
-			<!--Peso Bruto Total-->
-			<div class="row-items">
-				<div class="row-items_inColumn-2">
+            <!--Peso Bruto Total-->
+            <div class="row-items">
+                <div class="row-items_inColumn-2">
 
-				</div>
-				<app-form-field label="Peso Bruto Total" class="row-items_inColumn-2"
-								[required]="true"
-								[control]="form.controls['controlLlegadaPunto']"
-								[isInline]="isInline">
-					<app-input formControlName="controlPesoBrutoTotal"
-							   placeholder="Ingrese el peso bruto total"></app-input>
-				</app-form-field>
+                </div>
+                <app-form-field label="Peso Bruto Total" class="row-items_inColumn-2"
+                                [required]="true"
+                                [control]="form.controls['controlLlegadaPunto']"
+                                [isInline]="isInline">
+                    <app-input formControlName="controlPesoBrutoTotal"
+                               placeholder="Ingrese el peso bruto total"></app-input>
+                </app-form-field>
 
-				<app-form-field label="Unidad de medida" class="row-items_inColumn"
-								[control]="form.controls['unidadMedidaTotal']"
-								[isInline]="isInline">
-					<app-autocomplete placeholder="Ingrese el número de correlativo"
-									  formControlName="unidadMedidaTotal"
-									  [items]="unidadMedida"></app-autocomplete>
-				</app-form-field>
-			</div>
-			<!--Peso Bruto Total-->
+                <app-form-field label="Unidad de medida" class="row-items_inColumn"
+                                [control]="form.controls['unidadMedidaTotal']"
+                                [isInline]="isInline">
+                    <app-autocomplete placeholder="Ingrese el número de correlativo"
+                                      formControlName="unidadMedidaTotal"
+                                      [items]="unidadMedida"></app-autocomplete>
+                </app-form-field>
+            </div>
+            <!--Peso Bruto Total-->
 
-			<!-- Items -->
-			<div class="container">
-				<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-					<app-button appForm>Agregar ítem</app-button>
-				</div>
-			</div>
-			<br>
-			<!-- End Items -->
+            <!-- Items -->
+            <div class="container">
+                <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                    <app-button appForm>Agregar ítem</app-button>
+                </div>
+            </div>
+            <br>
+            <!-- End Items -->
 
-			<!-- Main Buttons -->
-			<div style="display: flex; justify-content: end;">
-				<app-button class="success" type="button">Guardar borrador</app-button>
-				<app-button class="success" type="submit">Emitir Guía de Remisión Remitente</app-button>
-			</div>
-			<!-- End Main Buttons -->
-		</div>
-	</form>
+            <!-- Main Buttons -->
+            <div style="display: flex; justify-content: end;">
+                <app-button class="success" type="button">Guardar borrador</app-button>
+                <app-button class="success" type="submit">Emitir Guía de Remisión Remitente</app-button>
+            </div>
+            <!-- End Main Buttons -->
+        </div>
+    </form>
 </div>
 

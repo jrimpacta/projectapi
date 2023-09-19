@@ -3,15 +3,16 @@ import {SerieCorrelativo} from "./serieCorrelativo";
 import {Direccion} from "./direccion";
 import {Vehiculo} from "./vehiculo";
 import {Observacion} from "./observacion";
+import {OrderDetails} from "./orderDetails";
 export interface Order {
 	fechaEmision: string;
-	horaEmision?: string;
-	firmaDigital?: string;
+	horaEmision?: string | null;
+	firmaDigital?: string | null;
 	remitente: Contribuyente;
 	tipoDocumentoId: number;
 	destinatario: Contribuyente;
 	transportista: Contribuyente;
-	serieCorrelativo?: SerieCorrelativo; // TO DO
+	serieCorrelativo?: SerieCorrelativo | null; // TO DO
 	unidadMedidaPesoBrutoId: number;
 	pesoBrutoTotalCarga: number;
 	numeroDAMoDS?: string;
@@ -24,11 +25,11 @@ export interface Order {
 	puntoPartida: Direccion;
 	puntoLlegada: Direccion;
 	fechaInicioTraslado: string;
-	codigoPuertoOAeropuerto?: string;
-	orderDetails: any[]; // Ajusta esta definición según la estructura real
+	codigoPuertoOAeropuerto?: string | null;
+	orderDetails: OrderDetails[]; // Ajusta esta definición según la estructura real
 	vehiculos: Vehiculo[];
 	conductores: Contribuyente[];
-	documentoRelacionado?: number; // Ajusta esta definición según la estructura real
+	documentoRelacionado?: number | null; // Ajusta esta definición según la estructura real
 	indicadorTrasladoVehículosCategoríaM1oL: boolean;
 	indRegistrarVehiculosConductoresDelTransportista: boolean;
 	indicadorTrasladoTotalMercanciasDAMoDS: boolean;
