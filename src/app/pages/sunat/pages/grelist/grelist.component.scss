@@ -1,0 +1,56 @@
+table {
+	width: 100%;
+}
+
+td,
+th {
+	width: 15%;
+}
+
+mat-form-field {
+	font-size: 14px;
+	width: 100%;
+}
+
+.download {
+	cursor: pointer;
+	color: #80ca6c
+}
+
+.delete {
+	cursor: pointer;
+	color: #E15639
+}
+
+.edit {
+	cursor: pointer;
+	color: #1878B0
+}
+
+.search {
+	cursor: pointer;
+	color: #42829b
+}
+
+.agregar {
+	font-size: 11px;
+	//line-height: 28px;
+}
+
+tr:hover {
+	background-color: #ccc;
+	color: white;
+	transition-duration: .5s;
+}
+
+:host-context(.mat-focused .mat-form-field-label) {
+	color: green !important;
+}
+
+:host-context(.mat-form-field-underline) {
+	background-color: green !important;
+}
+
+:host-context(.mat-form-field-ripple) {
+	background-color: green !important;
+}

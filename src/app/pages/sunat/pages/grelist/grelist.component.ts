@@ -1,9 +1,9 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import {AfterViewInit, Component, inject, OnInit, signal, ViewChild} from '@angular/core';
 import {ContribuyenteService, DateService} from "src/app/services";
-import {Order} from "src/app/models/backend/api";
-import {catalogo} from "src/app/models/backend/catalogos/catalogo";
-import {GreList} from "../../../../models/backend/cpe/gre/grelist";
+import {GreList} from "src/app/models/backend/cpe/gre/grelist";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatTableDataSource} from "@angular/material/table";
+import {MatSort} from "@angular/material/sort";
 
 export interface PeriodicElement {
     name: string;
@@ -12,85 +12,41 @@ export interface PeriodicElement {
     symbol: string;
 }
 
-const ELEMENT_DATA: GreList[] = [
-	{
-		"id": 1,
-		"fechaEmision": "2023-09-18T06:02:01.258",
-		"fechaInicioTraslado": "2023-09-18T06:21:54.785",
-		"destinatario": "string",
-		"transportista": "string",
-		"unidadMedida": "CAJA",
-		"pesoTotal": 100.12,
-		"motivo": "Venta sujeta a confirmación del comprador"
-	},
-	{
-		"id": 2,
-		"fechaEmision": "2023-09-18T06:02:01.258",
-		"fechaInicioTraslado": "2023-09-18T06:21:54.785",
-		"destinatario": "string",
-		"transportista": "string",
-		"unidadMedida": "CAJA",
-		"pesoTotal": 100.12,
-		"motivo": "Venta sujeta a confirmación del comprador"
-	},
-	{
-		"id": 3,
-		"fechaEmision": "2023-09-18T06:02:01.258",
-		"fechaInicioTraslado": "2023-09-18T06:21:54.785",
-		"destinatario": "string",
-		"transportista": "string",
-		"unidadMedida": "CAJA",
-		"pesoTotal": 100.12,
-		"motivo": "Venta sujeta a confirmación del comprador"
-	},
-	{
-		"id": 4,
-		"fechaEmision": "2023-09-18T06:02:01.258",
-		"fechaInicioTraslado": "2023-09-18T06:21:54.785",
-		"destinatario": "string",
-		"transportista": "string",
-		"unidadMedida": "CAJA",
-		"pesoTotal": 100.12,
-		"motivo": "Venta sujeta a confirmación del comprador"
-	},
-	{
-		"id": 5,
-		"fechaEmision": "2023-09-21T05:00:00",
-		"fechaInicioTraslado": "2023-09-21T05:00:00",
-		"destinatario": "CONECTA RETAIL S.A.",
-		"transportista": "string",
-		"unidadMedida": "DOCENA POR 10**6",
-		"pesoTotal": 10,
-		"motivo": "Traslado a zona primaria"
-	}
-]
-
 @Component({
     selector: 'app-grelist',
     templateUrl: './grelist.component.html',
     styleUrls: ['./grelist.component.scss']
 })
-export class GrelistComponent implements OnInit {
+export class GrelistComponent implements OnInit, AfterViewInit  {
 
-    displayedColumns: string[] = ['fechaEmision', 'fechaInicioTraslado', 'destinatario', 'transportista', 'unidadMedida', 'pesoTotal', 'motivo' ];
+    displayedColumns: string[] = ['fechaEmision', 'fechaTraslado', 'destinatario', 'transportista', 'unidadMedida', 'pesoTotal', 'motivo', 'acciones' ];
 
     contribuyenteServices = inject(ContribuyenteService);
 	dateServices = inject(DateService);
-    allGuiasSignal = signal<GreList[]>([]);
+	data! : GreList[];
 
-    load = async () => {
-		this.dataSource = await this.contribuyenteServices.all();
-    }
+	@ViewChild(MatPaginator) paginator!: MatPaginator;
+	@ViewChild(MatSort) sort!: MatSort;
 
     ngOnInit(): void {
-        this.load().then(r => console.log('se cargó la lista'));
-
-
-		const fechaISO = "2023-09-19T00:35:34.4778198";
-		console.log(this.dateServices.parseDateFromISO(fechaISO));
-
-
 	}
 
-	dataSource = this.allGuiasSignal();
+	async ngAfterViewInit() {
+		let response = await this.contribuyenteServices.all();
+		console.log("ng table");
+		this.dataSource = new MatTableDataSource<GreList>(response);
+		this.dataSource.paginator = this.paginator;
+		this.paginator._intl.itemsPerPageLabel = 'Ítems por página';
+		console.log(this.paginator);
+
+		this.dataSource.sort = this.sort;
+	}
+
+	applyFilter(event: Event) {
+		const filterValue = (event.target as HTMLInputElement).value;
+		this.dataSource.filter = filterValue.trim().toLowerCase();
+	}
+	dataSource =
+		new MatTableDataSource<GreList>(this.data);
+
 }

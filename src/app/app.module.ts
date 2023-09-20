@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, provideHttpClient} from '@angular/common/http';
 
@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
 
 // BEGIN FIREBASE
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
@@ -34,7 +37,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
 		monthYearA11yLabel: {year: 'numeric', month: 'long'}
 	}
 }
-
+registerLocaleData(es);
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -59,9 +62,12 @@ const APP_DATE_FORMATS: MatDateFormats = {
 		UserTrackingService,
 		provideHttpClient(),
 		{
+			provide: LOCALE_ID,
+			useValue: 'es-PE'
+		}, {
 			provide: MAT_DATE_LOCALE,
 			//useValue: 'en-GB'
-			useValue: 'es-MX'
+			useValue: 'es-PE'
 		}, {
 			provide: MAT_DATE_FORMATS,
 			useValue: APP_DATE_FORMATS

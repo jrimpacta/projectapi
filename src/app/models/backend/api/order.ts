@@ -4,6 +4,7 @@ import {Direccion} from "./direccion";
 import {Vehiculo} from "./vehiculo";
 import {Observacion} from "./observacion";
 import {OrderDetails} from "./orderDetails";
+import {EmisionSunat} from "./EmisionSunat";
 export interface Order {
 	fechaEmision: string;
 	horaEmision?: string | null;
@@ -34,5 +35,6 @@ export interface Order {
 	indRegistrarVehiculosConductoresDelTransportista: boolean;
 	indicadorTrasladoTotalMercanciasDAMoDS: boolean;
 	transbordo: boolean;
-	observaciones: Observacion[];
+	observaciones: Observacion[],
+ 	emisionSunat: EmisionSunat;
 }

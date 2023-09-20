@@ -449,10 +449,10 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
                 tipoDocumentoId : 2,
                 destinatario : destinatarioDTO,
                 transportista : {
-                    codigoIdentificacion : this.form.get('controlNomTransportista')?.value,
+                    codigoIdentificacion : this.form.get('controlRUCTransportista')?.value,
                     tipoDocumentoIdentidadId: 4,
                     nombreComercial: "string",
-                    nombreLegal: "string",
+                    nombreLegal: this.form.get('controlNomTransportista')?.value,
                     ubigeoId: 1,
                     direccion: this.transportistaDetailsSignal().direccion,
                     urbanizacion: "string",
@@ -541,7 +541,24 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
                     {
                         detalle: "Sin detalles"
 					}
-				]
+				],
+				emisionSunat: {
+					fechaEmisionSunat: null,
+					enviadoSunat: false,
+					borrador: null, // Depende del botón Guardar | Enviar
+					enviadoEmailAdmin: false,
+					enviadoEmailCliente: false,
+					estadoSunat: null,
+					cdrSunat: null,
+					eliminado: null,
+					anulado: null,
+					envioAutomatico: null,
+					comunicacionBaja: false,
+					motivoBaja: null,
+					numeroTicket: null,
+					xmlFirmado: null,
+					codigoQR: null
+				}
 			};
 
 			console.log(guia);
