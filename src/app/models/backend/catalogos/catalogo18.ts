@@ -15,7 +15,7 @@ interface Catalogo18 {
 * */
 export const catalogo18: Catalogo18 = {
 	items: [
-		{ value: '01', label: "Transporte público" },
-		{ value: '02', label: "Transporte privado" },
+		{ value: 2, label: "Transporte público" },
+		{ value: 1, label: "Transporte privado" },
 	]
 };

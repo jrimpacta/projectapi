@@ -5,13 +5,6 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 
-export interface PeriodicElement {
-    name: string;
-    position: number;
-    weight: number;
-    symbol: string;
-}
-
 @Component({
     selector: 'app-grelist',
     templateUrl: './grelist.component.html',
@@ -29,12 +22,13 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 	@ViewChild(MatSort) sort!: MatSort;
 
     ngOnInit(): void {
+		this.getData();
 	}
-
-	async ngAfterViewInit() {
-		let response = await this.contribuyenteServices.all();
+	ngAfterViewInit() {
+		//let response = await this.contribuyenteServices.all();
 		console.log("ng table");
-		this.dataSource = new MatTableDataSource<GreList>(response);
+		//this.dataSource = new MatTableDataSource<GreList>(response);
+		this.getData();
 		this.dataSource.paginator = this.paginator;
 		this.paginator._intl.itemsPerPageLabel = 'Ítems por página';
 		console.log(this.paginator);
@@ -48,5 +42,19 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 	}
 	dataSource =
 		new MatTableDataSource<GreList>(this.data);
+
+	getCpe = (id: number) => {
+		console.log(id);
+
+
+
+	}
+
+	getData = () => {
+		this.contribuyenteServices.getAllCont().subscribe(data => {
+			this.dataSource.data = data;
+		});
+	}
+
 
 }

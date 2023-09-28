@@ -15,15 +15,16 @@ interface Catalogo20 {
 * ingresar el tipo y el número del documento de identidad del remitente.
 * */
 export const catalogo20: Catalogo20 = {
+
 	items: [
-		{ value: '01', label: "Traslado por Venta" },
-		{ value: '14', label: "Venta sujeta a confirmación del comprador" },
-		{ value: '02', label: "Traslado por compra" },
-		{ value: '04', label: "Traslado entre establecimientos de la misma empresa" },
-		{ value: '18', label: "Traslado emisor itinerante CP" }, // El RUC o el DNI deben ser válidos. Campo lleno, excepto si motivo de traslado es "18"
-		{ value: '08', label: "Traslado por importación" },
-		{ value: '09', label: "Traslado por exportación" },
-		{ value: '19', label: "Traslado a zona primaria" },
-		{ value: '13', label: "Otros" }
+		{ value: 1, label: "Traslado por Venta" },
+		{ value: 2, label: "Venta sujeta a confirmación del comprador" },
+		{ value: 3, label: "Traslado por compra" },
+		{ value: 4, label: "Traslado entre establecimientos de la misma empresa" },
+		{ value: 5, label: "Traslado emisor itinerante CP" },
+		{ value: 6, label: "Traslado por importación" },
+		{ value: 7, label: "Traslado por exportación" },
+		{ value: 8, label: "Traslado a zona primaria" },
+		{ value: 9, label: "Otros" }
 	]
 };

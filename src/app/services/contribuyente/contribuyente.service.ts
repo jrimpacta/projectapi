@@ -1,8 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { firstValueFrom } from "rxjs";
+import {firstValueFrom, Observable} from "rxjs";
 import { ContribuyenteDTO } from '../../models/backend/cpe/gre';
 import {Order} from "../../models/backend/api";
+import {GreList} from "../../models/backend/cpe/gre/grelist";
 
 @Injectable({
 	providedIn: 'root'
@@ -31,6 +32,10 @@ export class ContribuyenteService {
 		return firstValueFrom(
 			this.httpClient.get<any>( url, this.createHeaders())
 		);
+	}
+
+	getAllCont(): Observable<GreList[]> {
+		return this.httpClient.get<GreList[]>(`${this.apiUrl}/allFiltered`);
 	}
 
 	search = (codigoIdentificacion : string) => {

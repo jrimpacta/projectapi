@@ -43,7 +43,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	showSpinnerRUC = false;
 	showSpinnerContribuyente = false;
 	showSpinnerTransportista = false;
-    showSpinnerConductor = false;
+	showSpinnerConductor = false;
 
 	serieCorrelativo!: ControlItem[];
 	motivos!: ControlItem[];
@@ -66,8 +66,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	contribuyenteService: ContribuyenteService = inject(ContribuyenteService);
 
 	// Variables de conductor y vehículo
-	agregarVehiculo : boolean = false;
-	agregarConductor : boolean = false;
+	agregarVehiculo: boolean = false;
+	agregarConductor: boolean = false;
 
 	constructor(private fb: FormBuilder) {
 
@@ -295,7 +295,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 							nomContribuyente: response.razon_social,
 							controlLlegadaPunto: response.direccion
 						});
-                        this.chipsContribuyente = true;
+						this.chipsContribuyente = true;
 
 					} catch (err) {
 						console.error(`Detalle del error: ${err}`);
@@ -314,78 +314,78 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	}
 
 	// Para transportista
-    onTransportistaMatch = async () => {
-        const inputFieldControl = this.form.get('controlRUCTransportista');
-        if (inputFieldControl) {
-            inputFieldControl.valueChanges.subscribe(async (value) => {
-                if (value && value.length === 11) {
+	onTransportistaMatch = async () => {
+		const inputFieldControl = this.form.get('controlRUCTransportista');
+		if (inputFieldControl) {
+			inputFieldControl.valueChanges.subscribe(async (value) => {
+				if (value && value.length === 11) {
 
-                    try {
-                        this.showSpinnerTransportista = true;
-                        const response: any = await this.sunatService.getRUCDataAsync(value);
+					try {
+						this.showSpinnerTransportista = true;
+						const response: any = await this.sunatService.getRUCDataAsync(value);
 
-                        console.log('La consulta terminó. : ' + JSON.stringify(response));
-                        this.transportistaDetailsSignal.set(response);
+						console.log('La consulta terminó. : ' + JSON.stringify(response));
+						this.transportistaDetailsSignal.set(response);
 
-                        this.form.patchValue({
-                            controlNomTransportista: response.razon_social
-                        });
-                        this.chipsTransportista = true;
+						this.form.patchValue({
+							controlNomTransportista: response.razon_social
+						});
+						this.chipsTransportista = true;
 
-                    } catch (err) {
-                        console.error(`Detalle del error: ${err}`);
-                        this.isLoadedDestinatarioSignal.set(false);
-                        this.notification.error(`No se encontraron datos para: ${value}`);
-                    } finally {
-                        this.showSpinnerTransportista = false;
-                        console.log('La consulta terminó por completo.');
-                    }
+					} catch (err) {
+						console.error(`Detalle del error: ${err}`);
+						this.isLoadedDestinatarioSignal.set(false);
+						this.notification.error(`No se encontraron datos para: ${value}`);
+					} finally {
+						this.showSpinnerTransportista = false;
+						console.log('La consulta terminó por completo.');
+					}
 
-                } else {
-                    this.chipsContribuyente = false;
-                }
-            });
-        }
-    }
+				} else {
+					this.chipsContribuyente = false;
+				}
+			});
+		}
+	}
 
-    onConductorMatch = async () => {
-        const inputFieldControl = this.form.get('controlDocConductor');
-        if (inputFieldControl) {
-            inputFieldControl.valueChanges.subscribe(async (value) => {
-                if (value && value.length === 8) {
+	onConductorMatch = async () => {
+		const inputFieldControl = this.form.get('controlDocConductor');
+		if (inputFieldControl) {
+			inputFieldControl.valueChanges.subscribe(async (value) => {
+				if (value && value.length === 8) {
 
-                    try {
-                        this.showSpinnerConductor = true;
-                        const response: any = await this.sunatService.getDNIDataAsync(value);
+					try {
+						this.showSpinnerConductor = true;
+						const response: any = await this.sunatService.getDNIDataAsync(value);
 
-                        this.form.patchValue({
-                            controlNombreConductor: response.cliente
-                        });
+						this.form.patchValue({
+							controlNombreConductor: response.cliente
+						});
 
-                    } catch (err) {
-                        console.error(`Detalle del error: ${err}`);
-                        this.notification.error(`No se encontraron datos para: ${value}`);
-                    } finally {
-                        this.showSpinnerConductor = false;
-                        console.log('La consulta terminó por completo.');
-                    }
+					} catch (err) {
+						console.error(`Detalle del error: ${err}`);
+						this.notification.error(`No se encontraron datos para: ${value}`);
+					} finally {
+						this.showSpinnerConductor = false;
+						console.log('La consulta terminó por completo.');
+					}
 
-                } else {
-                    this.chipsContribuyente = false;
-                }
-            });
-        }
-    }
+				} else {
+					this.chipsContribuyente = false;
+				}
+			});
+		}
+	}
 
 	onPatchValue = (): void => {
 		this.form.patchValue({
 			tipoSerie: "01",
-			docIdentidad: "6",
-			controlTipoTransporte: "02",
+			docIdentidad: 4,
+			controlTipoTransporte: 1,
 			controlRetornos: "r1",
 			controlVehiculos: "v1",
 			unidadMedidaTotal: "U",
-			controlDNIConductor: '1'
+			controlDNIConductor: 2
 			// TO DO
 			//controlPartidaDepartamento: '3926',
 			//controlLlegadaDepartamento: '3926'
@@ -393,7 +393,6 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	}
 
 	onSubmit = async () => {
-		//if (this.form.valid) { just for test
 		if (!this.form.valid) {
 			markFormGroupTouched(this.form);
 
@@ -405,141 +404,156 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 			const _fechaEmision = new Date(this.form.get('controlFechaEmision')?.value).toISOString();
 			const _fechaInicioTraslado = new Date(this.form.get('controlEntregaTransportista')?.value).toISOString();
+			let retornos = [];
 
-			// contribuyenteDetailsSignal
-			const destinatarioDTO : Contribuyente = {codigoIdentificacion: "", nombreLegal: "", tipoDocumentoIdentidadId: 1, ubigeoId: 1};
-			if (this.form.get('controlFechaEmision')?.value != null || this.form.get('controlFechaEmision')?.value != "")
-            {
-                destinatarioDTO.codigoIdentificacion = this.contribuyenteDetailsSignal().ruc;
-                destinatarioDTO.tipoDocumentoIdentidadId = 4;
-                destinatarioDTO.nombreComercial = null;
-                destinatarioDTO.nombreLegal = this.contribuyenteDetailsSignal().razon_social;
-                destinatarioDTO.ubigeoId = 1;
-                destinatarioDTO.direccion = this.contribuyenteDetailsSignal().direccion;
-                destinatarioDTO.urbanizacion = null;
-                destinatarioDTO.provincia = this.contribuyenteDetailsSignal().provincia;
-                destinatarioDTO.departamento = this.contribuyenteDetailsSignal().departamento;
-                destinatarioDTO.distrito = this.contribuyenteDetailsSignal().distrito;
-                destinatarioDTO.pais = this.contribuyenteDetailsSignal().ubigeo;
-                destinatarioDTO.correoElectronico = null;
-                destinatarioDTO.registroMTC = null;
-                destinatarioDTO.licenciaConducir = null
+			switch (this.form.get('controlFechaEmision')?.value) {
+				case "r1": { // Retorno de Vehículo Vacío
+					retornos = [true, false, false]
+					break;
+				}
+				case "r2": { // Retorno con Envases Vacíos
+					retornos = [false, true, false]
+					break;
+				}
+				case "r3": { // Transbordo Programado
+					retornos = [false, false, true]
+					break;
+				}
+				default: {
+					retornos = [false, false, false];
+					break;
+				}
 			}
 
 			const guia: Order = {
-				fechaEmision : _fechaEmision,
-				horaEmision : null,
-				firmaDigital : null,
-				remitente : {
-					codigoIdentificacion : "20474666876",
-                    tipoDocumentoIdentidadId: 4,
-                    nombreComercial: "Asociación Civil Impacta Salud Y Educación",
-                    nombreLegal: "ASOCIACION CIVIL IMPACTA SALUD Y EDUCACION",
-                    ubigeoId: 1252,
-                    direccion: "AV. GRAU ALMIRANTE MIGUEL NRO. 1010",
-                    urbanizacion: "string",
-                    provincia: "LIMA",
-                    departamento: "LIMA",
-                    distrito: "BARRANCO",
-                    pais: "PERU",
-                    correoElectronico: "string",
-                    registroMTC: "string",
-                    licenciaConducir: "string"
+				fechaEmision: _fechaEmision,
+				horaEmision: null,
+				firmaDigital: null,
+				remitente: {
+					codigoIdentificacion: "20474666876",
+					tipoDocumentoIdentidadId: 4,
+					nombreComercial: "Asociación Civil Impacta Salud Y Educación",
+					nombreLegal: "ASOCIACION CIVIL IMPACTA SALUD Y EDUCACION",
+					ubigeoId: 1252,
+					direccion: "AV. GRAU ALMIRANTE MIGUEL NRO. 1010",
+					urbanizacion: "",
+					provincia: "LIMA",
+					departamento: "LIMA",
+					distrito: "BARRANCO",
+					pais: "PERU",
+					correoElectronico: "",
+					registroMTC: "",
+					licenciaConducir: ""
 				},
-                tipoDocumentoId : 2,
-                destinatario : destinatarioDTO,
-                transportista : {
-                    codigoIdentificacion : this.form.get('controlRUCTransportista')?.value,
-                    tipoDocumentoIdentidadId: 4,
-                    nombreComercial: "string",
-                    nombreLegal: this.form.get('controlNomTransportista')?.value,
-                    ubigeoId: 1,
-                    direccion: this.transportistaDetailsSignal().direccion,
-                    urbanizacion: "string",
-                    provincia: this.transportistaDetailsSignal().provincia,
-                    departamento: this.transportistaDetailsSignal().departamento,
-                    distrito: this.transportistaDetailsSignal().distrito,
-                    pais: this.transportistaDetailsSignal().ubigeo,
-                    correoElectronico: "string",
-                    registroMTC: "string",
-                    licenciaConducir: "string"
+				tipoDocumentoId: 2,
+				destinatario: {
+					codigoIdentificacion: this.form.get('docContribuyente')?.value,
+					tipoDocumentoIdentidadId: Number(this.form.get('docIdentidad')?.value),
+					nombreComercial: "",
+					nombreLegal: this.form.get('nomContribuyente')?.value,
+					ubigeoId: 1,
+					direccion: this.contribuyenteDetailsSignal().direccion,
+					urbanizacion: "",
+					provincia: this.contribuyenteDetailsSignal().provincia,
+					departamento: this.contribuyenteDetailsSignal().departamento,
+					distrito: this.contribuyenteDetailsSignal().distrito,
+					pais: this.contribuyenteDetailsSignal().ubigeo,
+					correoElectronico: "",
+					registroMTC: "",
+					licenciaConducir: ""
 				},
-                serieCorrelativo: {
-                    fechaCreacion: new Date().toISOString(),
-                    serieCorrelativo: "T001",
-                    serie: "string",
-                    descripcion: "string",
-                    contadorCorrelativo: 1,
-                },
-                unidadMedidaPesoBrutoId: 1,
-                pesoBrutoTotalCarga: Number(this.form.get('controlPesoBrutoTotal')?.value),
-                numeroDAMoDS: "",
-                numeroContenedor: "",
-                numeroBultos: "",
-                numeroPrecinto: "",
-                motivoTrasladoId: 8,
-                motivoTrasladoOtros: "",
-                indicadorTransbordoProgramado: false,
-                puntoPartida : {
-                    departamento: "string",
-                    provincia: "string",
-                    distrito: "string",
-                    ubigeoId: 55,
-                    direccionCompleta: "string",
-                    codigoEstablecimiento: "string",
+				transportista: {
+					codigoIdentificacion: this.form.get('controlRUCTransportista')?.value,
+					tipoDocumentoIdentidadId: 4,
+					nombreComercial: "",
+					nombreLegal: this.form.get('controlNomTransportista')?.value,
+					ubigeoId: 1,
+					direccion: this.transportistaDetailsSignal().direccion,
+					urbanizacion: "",
+					provincia: this.transportistaDetailsSignal().provincia,
+					departamento: this.transportistaDetailsSignal().departamento,
+					distrito: this.transportistaDetailsSignal().distrito,
+					pais: this.transportistaDetailsSignal().ubigeo,
+					correoElectronico: "",
+					registroMTC: "",
+					licenciaConducir: ""
 				},
-                puntoLlegada : {
-                    departamento: "",
-                    provincia: "",
-                    distrito: "",
-                    ubigeoId: 55,
-                    direccionCompleta: this.form.get('controlLlegadaPunto')?.value,
-                    codigoEstablecimiento: "",
-                },
-                fechaInicioTraslado: _fechaInicioTraslado,
-                codigoPuertoOAeropuerto: null,
-                orderDetails: [
-                    {
-                        productId: 0,
-                        unitPrice: 0,
-                        quantity: 0
-                    }
-                ],
-                vehiculos: [
-                    {
-                        nroPlacaVehiculo: this.form.get('controlVehiculoPlaca')?.value,
-                        tuCoCHV: this.form.get('controlVehiculoHabilitacion')?.value,
-                        autorizacionEspecial: this.form.get('controlVehiculoAutorizacion')?.value,
-                        marcaVehiculo: this.form.get('controlVehiculoMarca')?.value,
-                        entidadEmisora: this.form.get('controlVehiculoEmisor')?.value,
+				serieCorrelativo: {
+					fechaCreacion: new Date().toISOString(),
+					serieCorrelativo: "",
+					serie: "",
+					descripcion: "",
+					contadorCorrelativo: 1,
+				},
+				unidadMedidaPesoBrutoId: Number(this.form.get('unidadMedidaTotal')?.value),
+				pesoBrutoTotalCarga: Number(this.form.get('controlPesoBrutoTotal')?.value),
+				numeroDAMoDS: "",
+				numeroContenedor: "",
+				numeroBultos: "",
+				numeroPrecinto: "",
+				motivoTrasladoId: 8,
+				motivoTrasladoOtros: "",
+				indicadorTransbordoProgramado: false,
+				puntoPartida: {
+					departamento: "",
+					provincia: "",
+					distrito: "",
+					ubigeoId: 55,
+					direccionCompleta: this.form.get('controlPartidaPunto')?.value,
+					codigoEstablecimiento: "",
+				},
+				puntoLlegada: {
+					departamento: "",
+					provincia: "",
+					distrito: "",
+					ubigeoId: 55,
+					direccionCompleta: this.form.get('controlLlegadaPunto')?.value,
+					codigoEstablecimiento: "",
+				},
+				fechaInicioTraslado: _fechaInicioTraslado,
+				codigoPuertoOAeropuerto: null,
+				orderDetails: [
+					{
+						productId: 0,
+						unitPrice: 0,
+						quantity: 0
 					}
 				],
-                conductores: [
-                    {
-                        codigoIdentificacion : this.form.get('controlDocConductor')?.value,
-                        tipoDocumentoIdentidadId: 2,
-                        nombreComercial: "",
-                        nombreLegal: this.form.get('controlNombreConductor')?.value,
-                        ubigeoId: 1,
-                        direccion: "",
-                        urbanizacion: "",
-                        provincia: "",
-                        departamento: "",
-                        distrito: "",
-                        pais: "",
-                        correoElectronico: "",
-                        registroMTC: "",
-                        licenciaConducir: this.form.get('controlConductorLicencia')?.value
+				vehiculos: [
+					{
+						nroPlacaVehiculo: this.form.get('controlVehiculoPlaca')?.value,
+						tuCoCHV: this.form.get('controlVehiculoHabilitacion')?.value,
+						autorizacionEspecial: this.form.get('controlVehiculoAutorizacion')?.value,
+						marcaVehiculo: this.form.get('controlVehiculoMarca')?.value,
+						entidadEmisora: this.form.get('controlVehiculoEmisor')?.value,
 					}
 				],
-                documentoRelacionado: null,
-                indicadorTrasladoVehículosCategoríaM1oL: false,
-                indRegistrarVehiculosConductoresDelTransportista: false,
-                indicadorTrasladoTotalMercanciasDAMoDS: false,
-                transbordo: false,
+				conductores: [
+					{
+						codigoIdentificacion: this.form.get('controlDocConductor')?.value,
+						tipoDocumentoIdentidadId: 2,
+						nombreComercial: "",
+						nombreLegal: this.form.get('controlNombreConductor')?.value,
+						ubigeoId: 1,
+						direccion: "",
+						urbanizacion: "",
+						provincia: "",
+						departamento: "",
+						distrito: "",
+						pais: "",
+						correoElectronico: "",
+						registroMTC: "",
+						licenciaConducir: this.form.get('controlConductorLicencia')?.value
+					}
+				],
+				documentoRelacionado: null,
+				indicadorTrasladoVehículosCategoríaM1oL: false,
+				indRegistrarVehiculosConductoresDelTransportista: false,
+				indicadorTrasladoTotalMercanciasDAMoDS: false,
+				transbordo: false,
 				observaciones: [
-                    {
-                        detalle: "Sin detalles"
+					{
+						detalle: "Sin detalles"
 					}
 				],
 				emisionSunat: {
@@ -623,7 +637,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		this.agregarVehiculo = !this.agregarVehiculo;
 	}
 
-    onConductorAgreggate = () => {
-        this.agregarConductor = !this.agregarConductor;
-    }
+	onConductorAgreggate = () => {
+		this.agregarConductor = !this.agregarConductor;
+	}
 }

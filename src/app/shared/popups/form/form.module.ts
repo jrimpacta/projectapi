@@ -6,8 +6,6 @@ import {FormDirective} from './form.directive';
 import {AutocompleteModule, FormFieldModule, InputModule} from "../../controls";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ButtonModule} from "../../buttons";
-
-
 @NgModule({
 	declarations: [
 		FormComponent,

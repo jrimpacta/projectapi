@@ -4,13 +4,14 @@
 		<input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input autocomplete="off">
 	</mat-form-field>
 <table mat-table [dataSource]="dataSource">
+
     <ng-container matColumnDef="fechaEmision">
         <th mat-header-cell *matHeaderCellDef> Fecha de emisión </th>
         <td mat-cell *matCellDef="let element"> {{element.fechaEmision}} </td>
     </ng-container>
 
     <ng-container matColumnDef="fechaTraslado">
-        <th mat-header-cell *matHeaderCellDef> Fecha inicio traslado </th>
+        <th mat-header-cell *matHeaderCellDef> Inicio traslado </th>
         <td mat-cell *matCellDef="let element"> {{element.fechaTraslado}} </td>
     </ng-container>
 
@@ -44,10 +45,12 @@
 			<app-button [routerLink]="['../greremitente']">Nuevo</app-button>
 		</th>
 		<td mat-cell *matCellDef="let element">
-			<mat-icon routerLink="/download/{{ element.id }}" matTooltip="Descargar representación impresa" class="download" fontIcon="download"></mat-icon>
-			<mat-icon routerLink="/watch/{{ element.id }}" matTooltip="Ver" class="search" fontIcon="search"></mat-icon>
+			<mat-icon
+					  matTooltip="Ver"
+					  class="search" appModal
+					  fontIcon="search" (click)="getCpe(element.id)"></mat-icon>
 			<mat-icon routerLink="/edit/{{ element.id }}" matTooltip="Editar" class="edit" fontIcon="edit"></mat-icon>
-			<mat-icon matTooltip="delete" class="delete" fontIcon="delete"></mat-icon>
+			<mat-icon matTooltip="Borrar" class="delete" fontIcon="delete"></mat-icon>
 		</td>
 	</ng-container>
 

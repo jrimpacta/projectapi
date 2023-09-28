@@ -13,7 +13,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSortModule} from "@angular/material/sort";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ButtonsModule, ControlsModule} from "../../../../shared";
+import {ButtonsModule, ControlsModule, PopupsModule} from "../../../../shared";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 
@@ -35,6 +35,7 @@ registerLocaleData(es);
 		ControlsModule,
 		ReactiveFormsModule,
 		MatInputModule,
+		PopupsModule
 	],
 	providers: [
 		{

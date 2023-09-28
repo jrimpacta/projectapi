@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FilesUploadModule} from "./files-upload/files-upload.module";
 import {FormModule} from "./form/form.module";
+import {ModalModule} from "./modal/modal.module";
 
 
 @NgModule({
@@ -9,11 +10,13 @@ import {FormModule} from "./form/form.module";
 	imports: [
 		CommonModule,
 		FilesUploadModule,
-		FormModule
+		FormModule,
+		ModalModule
 	],
 	exports: [
 		FilesUploadModule,
-		FormModule
+		FormModule,
+		ModalModule
 	]
 })
 export class PopupsModule {
