@@ -30,12 +30,8 @@ export interface ChipColor {
 	styleUrls: ['./greremitente.component.scss']
 })
 export class GreremitenteComponent implements OnInit, OnDestroy {
-	availableColors: ChipColor[] = [
-		{name: 'none', color: undefined},
-		{name: 'Primary', color: 'primary'},
-		{name: 'Accent', color: 'accent'},
-		{name: 'Warn', color: 'warn'},
-	];
+
+
 	form!: FormGroup;
 	isInline!: boolean;
 	regexErrors = regexErrors;
@@ -588,6 +584,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	userProfileCollection = collection(getFirestore(this.app), 'test');
 
 	ngOnDestroy(): void {
+
+
 	}
 
 	completeCorrelativo = (): void => {

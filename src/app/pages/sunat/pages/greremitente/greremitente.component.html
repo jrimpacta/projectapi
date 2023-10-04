@@ -30,21 +30,24 @@
 				</div>
 				<div style="flex: 4;">
 					<div class="cpe-datos-contribuyente">
-						<br><br>
+						<br>
 						<h2 style="line-height: 0">Asociación Civil Impacta Salud y Educación</h2>
-						<span style="font-weight: bold">Barranco:</span><br>
-						<span>Av. Almirante Miguel Grau N°1010, Código postal 15063; Lima - Perú.</span><br>
-						<span>Telf.: (511) 2067800</span><br>
-						<span>Jr. Centenario N°170, Código postal 15063; Lima - Perú</span><br>
+						<span style="font-weight: bold">Barranco:</span>
+						<p style="line-height: 1">
+							Av. Almirante Miguel Grau N°1010, Código postal 15063; Lima - Perú. <br>
+							Telf.: (511) 2067800 <br>
+							Jr. Centenario N°170, Código postal 15063; Lima - Perú
+						</p>
 
-						<span style="font-weight: bold">San Miguel:</span><br>
-						<span>Cal. Putumayo N°177 Urb. Pando, Código postal 15088; Lima - Perú.</span><br>
-						<span>Telf.: (511) 5621600</span><br>
-						<span>Cal. Putumayo N°173 Urb. Pando, Código postal 15088; Lima - Perú</span><br><br>
-
+						<span style="font-weight: bold">San Miguel:</span>
+						<p style="line-height: 1">
+							Cal. Putumayo N°177 Urb. Pando, Código postal 15088; Lima - Perú. <br>
+							Telf.: (511) 5621600 <br>
+							Cal. Putumayo N°173 Urb. Pando, Código postal 15088; Lima - Perú
+						</p>
 					</div>
 				</div>
-				<div style="flex: 5;">
+				<div style="flex: 4;">
 					<!-- Company Details section -->
 					<div
 						style="padding-left: 5px; padding-right: 5px;">
@@ -259,8 +262,8 @@
 			</div>
 			<!-- End Transportista section-->
 
-			<div class="row-items">
-				<div class="row-items_inColumn">
+			<div class="row-items" >
+				<div class="row-items_inColumn" style="max-width: 45em;">
 					<div
 						class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
 						role="separator" style="margin-bottom: 1px;">
@@ -277,7 +280,7 @@
 						</span>
 					</div>
 
-					<div class="container" *ngIf="agregarVehiculo">
+					<div class="container" *ngIf="agregarVehiculo" >
 						<div class="row-items">
 							<div class="row-items_inColumn">
 								<app-form-field
@@ -334,7 +337,7 @@
 					</div>
 				</div>
 
-				<div class="row-items_inColumn">
+				<div class="row-items_inColumn" style="max-width: 45em; align-content: end; align-self: end; align-items: end; alignment-baseline: en">
 					<div
 						class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
 						role="separator" style="margin-bottom: 1px;">
@@ -354,10 +357,10 @@
 						</span>
 					</div>
 
-					<div class="wrapper">
+					<div class="wrapper" >
 						<app-spinner *ngIf="showSpinnerConductor"></app-spinner>
-						<div class="container" *ngIf="agregarConductor">
-							<div class="row-items">
+						<div class="container" *ngIf="agregarConductor" >
+							<div class="row-items" >
 								<div class="row-items_inColumn-2">
 									<app-form-field label="Tipo de documento de identidad"
 													[required]="true"
@@ -535,6 +538,8 @@
 				<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
 					<app-button appForm>Agregar ítem</app-button>
 				</div>
+
+				<app-producto></app-producto>
 			</div>
 			<br>
 			<!-- End Items -->

@@ -18,7 +18,6 @@ export class FilesUploadComponent implements OnInit {
 	isError!: boolean;
 	filesURLs : string[] = [];
 
-
 	constructor(
 		private dialogRef: MatDialogRef<FilesUploadComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: DialogData

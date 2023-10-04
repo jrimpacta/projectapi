@@ -10,26 +10,28 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
+import {SunatModule} from "../../sunat.module";
 
 
 @NgModule({
 	declarations: [
 		GreremitenteComponent
 	],
-	imports: [
-		CommonModule,
-		GreremitenteRoutingModule,
-		ButtonsModule,
-		ControlsModule,
-		ReactiveFormsModule,
-		IndicatorsModule,
-		MatGridListModule,
-		MatFormFieldModule,
-		MatInputModule,
-		MatChipsModule,
-		MatIconModule,
-		PopupsModule
-	]
+    imports: [
+        CommonModule,
+        GreremitenteRoutingModule,
+        ButtonsModule,
+        ControlsModule,
+        ReactiveFormsModule,
+        IndicatorsModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatChipsModule,
+        MatIconModule,
+        PopupsModule,
+        SunatModule
+    ]
 })
 export class GreremitenteModule {
 }

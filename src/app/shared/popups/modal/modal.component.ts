@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, forwardRef, inject, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR} from "@angular/forms";
-import PSPDFKit from "pspdfkit";
+import {DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
+import {ModalService} from "./modal.service";
 @Component({
 	selector: 'app-modal',
 	templateUrl: './modal.component.html',
@@ -11,38 +12,25 @@ import PSPDFKit from "pspdfkit";
 		multi: true
 	}]
 })
-export class ModalComponent implements OnInit, ControlValueAccessor,AfterViewInit {
+export class ModalComponent implements OnInit, ControlValueAccessor {
 
-	@Input() idCpe!:string;
+	@Input() idCpe!:number;
 	@Output() register = new EventEmitter<any>();
+	modalService = inject(ModalService);
 
-
-
-
-	ngAfterViewInit() {
-		PSPDFKit.load({
-			// Use the assets directory URL as a base URL. PSPDFKit will download its library assets from here.
-			baseUrl: location.protocol + '//' + location.host + '/assets/',
-			// Replace [YOUR-DOCUMENT] with your document's name
-			document: '/assets/20123456789-09-T001-123.pdf',
-			container: '#pspdfkit-container',
-			licenseKey: "YOUR_LICENSE_KEY_GOES_HERE",
-		}).then((instance) => {
-			// For the sake of this demo, store the PSPDFKit for Web instance
-			// on the global object so that you can open the dev tools and
-			// play with the PSPDFKit API.
-			(<any>window).instance = instance;
-		});
+	pdf64! : string;
+	safeUrl!:SafeResourceUrl;
+	ngOnInit(): void {
+	}
+	constructor(private sanitizer: DomSanitizer) {
+		const response:any = this.modalService.getPdf(this.idCpe)
+		this.pdf64 = response as string;
+		this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl("data:application/pdf;base64," + this.pdf64);
 	}
 
-
-
-
-
-
-	constructor(private fb: FormBuilder) {
+	getData = (Id:number) => {
+		return this.modalService.getPdf(3);
 	}
-	ngOnInit(): void {}
 	private propagateChanged:any = ():void => {}
 	private propagateTouched:any = ():void => {}
 	registerOnChange(fn: any): void {

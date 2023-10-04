@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, inject, OnInit, signal, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, inject, OnInit, Output, signal, ViewChild} from '@angular/core';
 import {ContribuyenteService, DateService} from "src/app/services";
 import {GreList} from "src/app/models/backend/cpe/gre/grelist";
 import {MatPaginator} from "@angular/material/paginator";
@@ -17,6 +17,8 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
     contribuyenteServices = inject(ContribuyenteService);
 	dateServices = inject(DateService);
 	data! : GreList[];
+
+	@Output() idCpe!:number;
 
 	@ViewChild(MatPaginator) paginator!: MatPaginator;
 	@ViewChild(MatSort) sort!: MatSort;

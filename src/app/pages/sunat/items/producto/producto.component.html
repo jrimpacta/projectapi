@@ -1,0 +1,36 @@
+<table class="styled-table">
+	<thead>
+		<tr>
+			<!-- <th>Producto</th> -->
+			<th>Descripción detallada</th>
+			<th>Cantidad</th>
+			<th>Unidad Medida</th>
+			<th>GTIN</th>
+			<th>Bien Normalizado</th>
+			<th>Código SUNAT</th>
+			<th>Partida Arancelaria</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let item of items">
+			<!-- <td>{{item.ProductoId}}</td> -->
+			<td>{{item.DescripcionDetallada}}</td>
+			<td>{{item.CantidadItem}}</td>
+			<td>{{item.UnidadMedidaId}}</td>
+			<td>{{item.CodigoGTIN}}</td>
+			<td>{{item.IndicadorBienNormalizado}}</td>
+			<td>{{item.CodigoProductoSUNAT}}</td>
+			<td>{{item.CodigoPartidaArancelaria}}</td>
+			<td>
+				<div class="icon-background">
+					<mat-icon matTooltip="Borrar"
+							  class="delete"
+								(click)="delete(item.DescripcionDetallada)"
+							  fontIcon="delete"
+					></mat-icon>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>

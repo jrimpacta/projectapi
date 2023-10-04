@@ -30,4 +30,8 @@ export class FormDirective {
 			this.changed.emit(result || null);
 		});
 	}
+
+	private closeDialog = ():void => {
+		this.dialog.closeAll();
+	}
 }

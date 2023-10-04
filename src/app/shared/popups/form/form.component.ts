@@ -1,15 +1,13 @@
-import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
-import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output, inject} from '@angular/core';
+import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
 import {ControlItem} from "../../../models/frontend";
 import {catalogo65} from "../../../models/backend/catalogos";
-
-interface Quantity {
+import {ProductoService} from "../../../pages/sunat/services/producto.service";
+import {ProductoItem} from "../../../models/backend/api/productoItem";
+interface Item {
+	quantity: number,
 	value: number;
 	UnitCode: string;
-}
-
-interface Item {
-	quantity: Quantity,
 	codeSUNAT: string,
 	detail: string
 }
@@ -25,6 +23,7 @@ interface Item {
 	}]
 })
 export class FormComponent implements OnInit, ControlValueAccessor {
+	itemsService = inject(ProductoService);
 
 	formItem!: FormGroup;
 	@Input() idCpe!:string;
@@ -37,19 +36,36 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 
 	ngOnInit(): void {
 		this.formItem = this.fb.group({
-			quantity: [null, {
+			DescripcionDetallada: [null, {
+				updateOn: 'blur',
+				validators: [
+					Validators.required,
+					Validators.minLength(5),
+					Validators.maxLength(100)
+				]
+			}], CantidadItem: [null, {
+				updateOn: 'blur',
+				validators: [
+					Validators.required
+				]
+			}], unidadMedidaItem: [null, {
+				updateOn: 'blur',
+				validators: [
+					Validators.required
+				]
+			}], IndicadorBienNormalizado: [null, {
 				updateOn: 'blur',
 				validators: []
-			}], unidadMedida: [null, {
+			}], CodigoProductoSUNAT: [null, {
 				updateOn: 'blur',
 				validators: []
-			}], codeSunat: [null, {
+			}], CodigoPartidaArancelaria: [null, {
 				updateOn: 'blur',
 				validators: []
-			}], detail: [null, {
+			}], CodigoGTIN: [null, {
 				updateOn: 'blur',
 				validators: []
-			}]
+			}],
 		});
 
 		this.onPatchValue();
@@ -57,24 +73,44 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 
 	onPatchValue = (): void => {
 		this.formItem.patchValue({
-			quantity: "0.00",
+
 			// TO DO
 			//controlPartidaDepartamento: '3926',
 			//controlLlegadaDepartamento: '3926'
 		});
 	}
-
+	item!: ProductoItem;
 	onSubmit = async () => {
-		if (!this.formItem.valid) {
+
+
+		if (this.formItem.valid) {
 			const value = {...this.formItem.value};
 			this.propagateChanged(value);
 			this.register.emit(value);
+
+			this.item = {
+				ProductoId : Math.random(),
+				UnidadMedidaId : this.formItem.get("unidadMedidaItem")?.value,
+				CantidadItem : this.formItem.get("CantidadItem")?.value,
+				DescripcionDetallada : this.formItem.get("DescripcionDetallada")?.value,
+				IndicadorBienNormalizado : this.formItem.get("IndicadorBienNormalizado")?.value,
+				CodigoProductoSUNAT : this.formItem.get("CodigoProductoSUNAT")?.value,
+				CodigoPartidaArancelaria : this.formItem.get("CodigoPartidaArancelaria")?.value,
+				CodigoGTIN : this.formItem.get("CodigoGTIN")?.value,
+				lineaCounter : 0,
+			};
+
+			this.itemsService.addItem(this.item);
+
+			//this.register.emit(value);
 			//markFormGroupTouched(this.form);
 			console.log("Form enviado!!");
 			//this.showSpinner = true;
 			//await new Promise((f: any) => setTimeout(f, 1000));
 			//this.showSpinner = false;
 			console.log("Presionó el botón de submit");
+
+
 		}
 	}
 	private propagateChanged:any = ():void => {}
