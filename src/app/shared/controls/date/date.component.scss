@@ -1,7 +1,8 @@
 @import "../../../../styles/colors";
 
 .date {
-	display: inline-flex;
+	//display: inline-flex;
+	//align-items: baseline;
 }
 
 :host-context(.form-field_error) {

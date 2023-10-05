@@ -378,8 +378,6 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			tipoSerie: "01",
 			docIdentidad: 4,
 			controlTipoTransporte: 1,
-			controlRetornos: "r1",
-			controlVehiculos: "v1",
 			unidadMedidaTotal: "U",
 			controlDNIConductor: 2
 			// TO DO

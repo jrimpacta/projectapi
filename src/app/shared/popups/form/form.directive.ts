@@ -21,8 +21,8 @@ export class FormDirective {
 	private openDialog = (): void => {
 		const dialogRef = this.dialog.open(
 			FormComponent, {
-				width: '550px',
-				height: '500px'
+				width: '50em',
+				height: '30em'
 			}
 		);
 

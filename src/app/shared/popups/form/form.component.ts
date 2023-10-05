@@ -4,6 +4,7 @@ import {ControlItem} from "../../../models/frontend";
 import {catalogo65} from "../../../models/backend/catalogos";
 import {ProductoService} from "../../../pages/sunat/services/producto.service";
 import {ProductoItem} from "../../../models/backend/api/productoItem";
+import {regex, regexErrors} from "../../utils";
 interface Item {
 	quantity: number,
 	value: number;
@@ -37,19 +38,20 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 	ngOnInit(): void {
 		this.formItem = this.fb.group({
 			DescripcionDetallada: [null, {
-				updateOn: 'blur',
+				updateOn: 'change',
 				validators: [
 					Validators.required,
 					Validators.minLength(5),
 					Validators.maxLength(100)
 				]
 			}], CantidadItem: [null, {
-				updateOn: 'blur',
+				updateOn: 'change',
 				validators: [
-					Validators.required
+					Validators.required,
+					Validators.pattern(regex.number)
 				]
 			}], unidadMedidaItem: [null, {
-				updateOn: 'blur',
+				updateOn: 'change',
 				validators: [
 					Validators.required
 				]
@@ -136,4 +138,5 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 	}
 
 
+	protected readonly regexErrors = regexErrors;
 }

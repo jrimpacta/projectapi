@@ -94,7 +94,7 @@ export class SharedComponent implements OnInit  {
 	}
 
 	onSubmit = ():void => {
-		
+
 		if (!this.form.valid) {
 			console.log("Presionó el botón de submit");
 			markFormGroupTouched(this.form)
