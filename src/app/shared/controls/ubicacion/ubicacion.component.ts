@@ -1,7 +1,6 @@
 import {Component, EventEmitter, forwardRef, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlItem, Value} from "../../../models/frontend";
-import {Departamento} from "src/app/models/backend/ubigeo";
 import {Placeholder} from "../date-range/date-range.component";
 
 import {emisores} from "src/app/models/backend/gobierno";
@@ -25,7 +24,7 @@ export class UbicacionComponent implements OnInit, OnDestroy, ControlValueAccess
 
 	emisores!: ControlItem[];
 	constructor(private fb: FormBuilder) {
-		this.emisores = emisores.items;
+		this.emisores = emisores;
 
 		this.form = this.fb.group({
 			departamento: [null,

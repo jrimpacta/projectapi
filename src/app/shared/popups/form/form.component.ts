@@ -42,8 +42,10 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 				validators: [
 					Validators.required,
 					Validators.minLength(5),
-					Validators.maxLength(100)
+					Validators.maxLength(500)
 				]
+			}], CodigoProducto: [null, {
+				updateOn: 'change'
 			}], CantidadItem: [null, {
 				updateOn: 'change',
 				validators: [
@@ -91,7 +93,8 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 			this.register.emit(value);
 
 			this.item = {
-				ProductoId : Math.random(),
+				ProductoId : Math.floor(Math.random() * 25),
+				CodigoProducto : this.formItem.get("CodigoProducto")?.value,
 				UnidadMedidaId : this.formItem.get("unidadMedidaItem")?.value,
 				CantidadItem : this.formItem.get("CantidadItem")?.value,
 				DescripcionDetallada : this.formItem.get("DescripcionDetallada")?.value,

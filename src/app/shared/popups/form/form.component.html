@@ -1,27 +1,25 @@
 <div class="form">
-	<div class="form-header">
-		<div class="title">
-			<h2>Agregar ítem</h2>
-
+	<div class="modal-header border-bottom">
+		<div class="modal-title">
+			<p class="h3 font-weight-bold">Agregar ítem</p>
 		</div>
 	</div>
 	<div class="form-content">
-		<ng-content></ng-content>
-
+		<br>
 		<form [formGroup]="formItem" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 col-5">
 					<app-form-field label="Cantidad"
 									[required]="true"
 									[control]="formItem.controls['CantidadItem']"
 									[patterError]="regexErrors.number"
 									[isInline]="false">
-						<app-input formControlName="CantidadItem" type="number"
+						<app-input formControlName="CantidadItem"
 								   placeholder="Ingrese la cantidad"></app-input>
 					</app-form-field>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-md-4 col-7">
 					<app-form-field label="Unidad de medida"
 									[required]="true"
 									[control]="formItem.controls['unidadMedidaItem']"
@@ -32,76 +30,96 @@
 					</app-form-field>
 				</div>
 
-				<div class="col-md-4">
-					<app-form-field label="GTIN (Opcional)"
-									[control]="formItem.controls['CodigoGTIN']"
+				<div class="col-md-4 col-12">
+					<app-form-field label="Código de producto (Opcional)"
+									[control]="formItem.controls['CodigoProducto']"
 									[isInline]="false">
-						<app-input formControlName="CodigoGTIN"
-								   placeholder="Indicar el código GTIN"></app-input>
+						<app-input formControlName="CodigoProducto"
+								   placeholder="Ingrese el código del producto"></app-input>
 					</app-form-field>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md-12">
-					<app-form-field label="Descripción detallada" class="row-items_inColumn"
-									[required]="true"
-									[control]="formItem.controls['DescripcionDetallada']"
-									[isInline]="false">
-						<app-input formControlName="DescripcionDetallada"
-								   placeholder="Ingrese la descripción detallada"></app-input>
-					</app-form-field>
-				</div>
+				<app-form-field label="Descripción detallada"
+								[required]="true"
+								[control]="formItem.controls['DescripcionDetallada']"
+								[isInline]="false">
+					<app-input formControlName="DescripcionDetallada"
+							   placeholder="Ingrese la descripción detallada"></app-input>
+				</app-form-field>
 			</div>
 
-			<div class="row">
-				<div class="col-md-4">
-					<app-form-field label="Indicador de bien Normalizado (Opcional)" class="row-items_inColumn"
-									[control]="formItem.controls['IndicadorBienNormalizado']"
-									[isInline]="false">
-						<app-input formControlName="IndicadorBienNormalizado"
-								   placeholder="Indicar si el bien esta normalizado"></app-input>
-					</app-form-field>
-				</div>
+			<div class="accordion" id="accordionExample">
+				<div class="accordion-item">
+					<div class="accordion-header" id="headingOne">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Ver mas opciones
+						</button>
+					</div>
+					<div class="container accordion-collapse collapse" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+						<br>
+						<div class="row" >
+							<div class="col-6">
+								<app-form-field label="Indicador de bien Normalizado (Opcional)"
+												class="row-items_inColumn"
+												[control]="formItem.controls['IndicadorBienNormalizado']"
+												[isInline]="false">
+									<app-input formControlName="IndicadorBienNormalizado"
+											   placeholder="Indicar si el bien esta normalizado"></app-input>
+								</app-form-field>
+							</div>
 
-				<div class="col-md-4">
-					<app-form-field label="Código de producto SUNAT (Opcional)" class="row-items_inColumn"
-									[control]="formItem.controls['CodigoProductoSUNAT']"
-									[isInline]="false">
-						<app-input formControlName="CodigoProductoSUNAT"
-								   placeholder="Indicar el código SUNAT"></app-input>
-					</app-form-field>
-				</div>
+							<div class="col-6">
+								<app-form-field label="GTIN (Opcional)"
+												[control]="formItem.controls['CodigoGTIN']"
+												[isInline]="false">
+									<app-input formControlName="CodigoGTIN"
+											   placeholder="Indicar el código GTIN"></app-input>
+								</app-form-field>
+							</div>
+						</div>
 
-				<div class="col-md-4">
-					<app-form-field label="Código de partida arancelaria (Opcional)" class="row-items_inColumn"
-									[control]="formItem.controls['CodigoPartidaArancelaria']"
-									[isInline]="false">
-						<app-input formControlName="CodigoPartidaArancelaria"
-								   placeholder="Indicar la partida arancelaria"></app-input>
-					</app-form-field>
+						<div class="row">
+							<div class="col-6">
+								<app-form-field label="Código de producto SUNAT (Opcional)" class="row-items_inColumn"
+												[control]="formItem.controls['CodigoProductoSUNAT']"
+												[isInline]="false">
+									<app-input formControlName="CodigoProductoSUNAT"
+											   placeholder="Indicar el código SUNAT"></app-input>
+								</app-form-field>
+							</div>
+
+							<div class="col-6">
+								<app-form-field label="Código de partida arancelaria (Opcional)"
+												class="row-items_inColumn"
+												[control]="formItem.controls['CodigoPartidaArancelaria']"
+												[isInline]="false">
+									<app-input formControlName="CodigoPartidaArancelaria"
+											   placeholder="Indicar la partida arancelaria"></app-input>
+								</app-form-field>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-
+			<br>
 			<!--mat-dialog-close-->
 			<div class="row">
-
 				<div class="col">
 					<div class="d-grid gap-2">
-						<button class="btn btn-secondary" type="button" mat-dialog-close>Cerrar</button>
-
+						<button class="btn btn-secondary btn-sm" type="button" mat-dialog-close>Cerrar</button>
 					</div>
-
 				</div>
 
 				<div class="col">
 					<div class="d-grid gap-2">
-						<button class="btn btn-primary" type="submit">Agregar</button>
+						<button class="btn btn-primary btn-sm" type="submit">Agregar</button>
 					</div>
-
 				</div>
 			</div>
-
+			<br>
 		</form>
 	</div>
 	<div class="form-footer">

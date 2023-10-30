@@ -4,7726 +4,1888 @@ interface distritoControlItem { // Bad way
 	[key: string]: ControlItem[];
 }
 
-export const distritos:distritoControlItem =
+interface Distrito {
+	id: string,
+	name: string,
+	province_id: string,
+	department_id: string
+}
+
+export const Distritos: Distrito[] = [
+	{id: "010101", name: "Chachapoyas", province_id: "0101", department_id: "01"},
+	{id: "010102", name: "Asunci\u00f3n", province_id: "0101", department_id: "01"},
+	{id: "010103", name: "Balsas", province_id: "0101", department_id: "01"},
+	{id: "010104", name: "Cheto", province_id: "0101", department_id: "01"},
+	{id: "010105", name: "Chiliquin", province_id: "0101", department_id: "01"},
+	{id: "010106", name: "Chuquibamba", province_id: "0101", department_id: "01"},
+	{id: "010107", name: "Granada", province_id: "0101", department_id: "01"},
+	{id: "010108", name: "Huancas", province_id: "0101", department_id: "01"},
+	{id: "010109", name: "La Jalca", province_id: "0101", department_id: "01"},
+	{id: "010110", name: "Leimebamba", province_id: "0101", department_id: "01"},
+	{id: "010111", name: "Levanto", province_id: "0101", department_id: "01"},
+	{id: "010112", name: "Magdalena", province_id: "0101", department_id: "01"},
+	{id: "010113", name: "Mariscal Castilla", province_id: "0101", department_id: "01"},
+	{id: "010114", name: "Molinopampa", province_id: "0101", department_id: "01"},
+	{id: "010115", name: "Montevideo", province_id: "0101", department_id: "01"},
+	{id: "010116", name: "Olleros", province_id: "0101", department_id: "01"},
+	{id: "010117", name: "Quinjalca", province_id: "0101", department_id: "01"},
+	{id: "010118", name: "San Francisco de Daguas", province_id: "0101", department_id: "01"},
+	{id: "010119", name: "San Isidro de Maino", province_id: "0101", department_id: "01"},
+	{id: "010120", name: "Soloco", province_id: "0101", department_id: "01"},
+	{id: "010121", name: "Sonche", province_id: "0101", department_id: "01"},
+	{id: "010201", name: "Bagua", province_id: "0102", department_id: "01"},
+	{id: "010202", name: "Aramango", province_id: "0102", department_id: "01"},
+	{id: "010203", name: "Copallin", province_id: "0102", department_id: "01"},
+	{id: "010204", name: "El Parco", province_id: "0102", department_id: "01"},
+	{id: "010205", name: "Imaza", province_id: "0102", department_id: "01"},
+	{id: "010206", name: "La Peca", province_id: "0102", department_id: "01"},
+	{id: "010301", name: "Jumbilla", province_id: "0103", department_id: "01"},
+	{id: "010302", name: "Chisquilla", province_id: "0103", department_id: "01"},
+	{id: "010303", name: "Churuja", province_id: "0103", department_id: "01"},
+	{id: "010304", name: "Corosha", province_id: "0103", department_id: "01"},
+	{id: "010305", name: "Cuispes", province_id: "0103", department_id: "01"},
+	{id: "010306", name: "Florida", province_id: "0103", department_id: "01"},
+	{id: "010307", name: "Jazan", province_id: "0103", department_id: "01"},
+	{id: "010308", name: "Recta", province_id: "0103", department_id: "01"},
+	{id: "010309", name: "San Carlos", province_id: "0103", department_id: "01"},
+	{id: "010310", name: "Shipasbamba", province_id: "0103", department_id: "01"},
+	{id: "010311", name: "Valera", province_id: "0103", department_id: "01"},
+	{id: "010312", name: "Yambrasbamba", province_id: "0103", department_id: "01"},
+	{id: "010401", name: "Nieva", province_id: "0104", department_id: "01"},
+	{id: "010402", name: "El Cenepa", province_id: "0104", department_id: "01"},
+	{id: "010403", name: "R\u00edo Santiago", province_id: "0104", department_id: "01"},
+	{id: "010501", name: "Lamud", province_id: "0105", department_id: "01"},
+	{id: "010502", name: "Camporredondo", province_id: "0105", department_id: "01"},
+	{id: "010503", name: "Cocabamba", province_id: "0105", department_id: "01"},
+	{id: "010504", name: "Colcamar", province_id: "0105", department_id: "01"},
+	{id: "010505", name: "Conila", province_id: "0105", department_id: "01"},
+	{id: "010506", name: "Inguilpata", province_id: "0105", department_id: "01"},
+	{id: "010507", name: "Longuita", province_id: "0105", department_id: "01"},
+	{id: "010508", name: "Lonya Chico", province_id: "0105", department_id: "01"},
+	{id: "010509", name: "Luya", province_id: "0105", department_id: "01"},
+	{id: "010510", name: "Luya Viejo", province_id: "0105", department_id: "01"},
+	{id: "010511", name: "Mar\u00eda", province_id: "0105", department_id: "01"},
+	{id: "010512", name: "Ocalli", province_id: "0105", department_id: "01"},
+	{id: "010513", name: "Ocumal", province_id: "0105", department_id: "01"},
+	{id: "010514", name: "Pisuquia", province_id: "0105", department_id: "01"},
+	{id: "010515", name: "Providencia", province_id: "0105", department_id: "01"},
+	{id: "010516", name: "San Crist\u00f3bal", province_id: "0105", department_id: "01"},
+	{id: "010517", name: "San Francisco de Yeso", province_id: "0105", department_id: "01"},
+	{id: "010518", name: "San Jer\u00f3nimo", province_id: "0105", department_id: "01"},
+	{id: "010519", name: "San Juan de Lopecancha", province_id: "0105", department_id: "01"},
+	{id: "010520", name: "Santa Catalina", province_id: "0105", department_id: "01"},
+	{id: "010521", name: "Santo Tomas", province_id: "0105", department_id: "01"},
+	{id: "010522", name: "Tingo", province_id: "0105", department_id: "01"},
+	{id: "010523", name: "Trita", province_id: "0105", department_id: "01"},
+	{id: "010601", name: "San Nicol\u00e1s", province_id: "0106", department_id: "01"},
+	{id: "010602", name: "Chirimoto", province_id: "0106", department_id: "01"},
+	{id: "010603", name: "Cochamal", province_id: "0106", department_id: "01"},
+	{id: "010604", name: "Huambo", province_id: "0106", department_id: "01"},
+	{id: "010605", name: "Limabamba", province_id: "0106", department_id: "01"},
+	{id: "010606", name: "Longar", province_id: "0106", department_id: "01"},
+	{id: "010607", name: "Mariscal Benavides", province_id: "0106", department_id: "01"},
+	{id: "010608", name: "Milpuc", province_id: "0106", department_id: "01"},
+	{id: "010609", name: "Omia", province_id: "0106", department_id: "01"},
+	{id: "010610", name: "Santa Rosa", province_id: "0106", department_id: "01"},
+	{id: "010611", name: "Totora", province_id: "0106", department_id: "01"},
+	{id: "010612", name: "Vista Alegre", province_id: "0106", department_id: "01"},
+	{id: "010701", name: "Bagua Grande", province_id: "0107", department_id: "01"},
+	{id: "010702", name: "Cajaruro", province_id: "0107", department_id: "01"},
+	{id: "010703", name: "Cumba", province_id: "0107", department_id: "01"},
+	{id: "010704", name: "El Milagro", province_id: "0107", department_id: "01"},
+	{id: "010705", name: "Jamalca", province_id: "0107", department_id: "01"},
+	{id: "010706", name: "Lonya Grande", province_id: "0107", department_id: "01"},
+	{id: "010707", name: "Yamon", province_id: "0107", department_id: "01"},
+	{id: "020101", name: "Huaraz", province_id: "0201", department_id: "02"},
+	{id: "020102", name: "Cochabamba", province_id: "0201", department_id: "02"},
+	{id: "020103", name: "Colcabamba", province_id: "0201", department_id: "02"},
+	{id: "020104", name: "Huanchay", province_id: "0201", department_id: "02"},
+	{id: "020105", name: "Independencia", province_id: "0201", department_id: "02"},
+	{id: "020106", name: "Jangas", province_id: "0201", department_id: "02"},
+	{id: "020107", name: "La Libertad", province_id: "0201", department_id: "02"},
+	{id: "020108", name: "Olleros", province_id: "0201", department_id: "02"},
+	{id: "020109", name: "Pampas Grande", province_id: "0201", department_id: "02"},
+	{id: "020110", name: "Pariacoto", province_id: "0201", department_id: "02"},
+	{id: "020111", name: "Pira", province_id: "0201", department_id: "02"},
+	{id: "020112", name: "Tarica", province_id: "0201", department_id: "02"},
+	{id: "020201", name: "Aija", province_id: "0202", department_id: "02"},
+	{id: "020202", name: "Coris", province_id: "0202", department_id: "02"},
+	{id: "020203", name: "Huacllan", province_id: "0202", department_id: "02"},
+	{id: "020204", name: "La Merced", province_id: "0202", department_id: "02"},
+	{id: "020205", name: "Succha", province_id: "0202", department_id: "02"},
+	{id: "020301", name: "Llamellin", province_id: "0203", department_id: "02"},
+	{id: "020302", name: "Aczo", province_id: "0203", department_id: "02"},
+	{id: "020303", name: "Chaccho", province_id: "0203", department_id: "02"},
+	{id: "020304", name: "Chingas", province_id: "0203", department_id: "02"},
+	{id: "020305", name: "Mirgas", province_id: "0203", department_id: "02"},
+	{id: "020306", name: "San Juan de Rontoy", province_id: "0203", department_id: "02"},
+	{id: "020401", name: "Chacas", province_id: "0204", department_id: "02"},
+	{id: "020402", name: "Acochaca", province_id: "0204", department_id: "02"},
+	{id: "020501", name: "Chiquian", province_id: "0205", department_id: "02"},
+	{id: "020502", name: "Abelardo Pardo Lezameta", province_id: "0205", department_id: "02"},
+	{id: "020503", name: "Antonio Raymondi", province_id: "0205", department_id: "02"},
+	{id: "020504", name: "Aquia", province_id: "0205", department_id: "02"},
+	{id: "020505", name: "Cajacay", province_id: "0205", department_id: "02"},
+	{id: "020506", name: "Canis", province_id: "0205", department_id: "02"},
+	{id: "020507", name: "Colquioc", province_id: "0205", department_id: "02"},
+	{id: "020508", name: "Huallanca", province_id: "0205", department_id: "02"},
+	{id: "020509", name: "Huasta", province_id: "0205", department_id: "02"},
+	{id: "020510", name: "Huayllacayan", province_id: "0205", department_id: "02"},
+	{id: "020511", name: "La Primavera", province_id: "0205", department_id: "02"},
+	{id: "020512", name: "Mangas", province_id: "0205", department_id: "02"},
+	{id: "020513", name: "Pacllon", province_id: "0205", department_id: "02"},
+	{id: "020514", name: "San Miguel de Corpanqui", province_id: "0205", department_id: "02"},
+	{id: "020515", name: "Ticllos", province_id: "0205", department_id: "02"},
+	{id: "020601", name: "Carhuaz", province_id: "0206", department_id: "02"},
+	{id: "020602", name: "Acopampa", province_id: "0206", department_id: "02"},
+	{id: "020603", name: "Amashca", province_id: "0206", department_id: "02"},
+	{id: "020604", name: "Anta", province_id: "0206", department_id: "02"},
+	{id: "020605", name: "Ataquero", province_id: "0206", department_id: "02"},
+	{id: "020606", name: "Marcara", province_id: "0206", department_id: "02"},
+	{id: "020607", name: "Pariahuanca", province_id: "0206", department_id: "02"},
+	{id: "020608", name: "San Miguel de Aco", province_id: "0206", department_id: "02"},
+	{id: "020609", name: "Shilla", province_id: "0206", department_id: "02"},
+	{id: "020610", name: "Tinco", province_id: "0206", department_id: "02"},
+	{id: "020611", name: "Yungar", province_id: "0206", department_id: "02"},
+	{id: "020701", name: "San Luis", province_id: "0207", department_id: "02"},
+	{id: "020702", name: "San Nicol\u00e1s", province_id: "0207", department_id: "02"},
+	{id: "020703", name: "Yauya", province_id: "0207", department_id: "02"},
+	{id: "020801", name: "Casma", province_id: "0208", department_id: "02"},
+	{id: "020802", name: "Buena Vista Alta", province_id: "0208", department_id: "02"},
+	{id: "020803", name: "Comandante Noel", province_id: "0208", department_id: "02"},
+	{id: "020804", name: "Yautan", province_id: "0208", department_id: "02"},
+	{id: "020901", name: "Corongo", province_id: "0209", department_id: "02"},
+	{id: "020902", name: "Aco", province_id: "0209", department_id: "02"},
+	{id: "020903", name: "Bambas", province_id: "0209", department_id: "02"},
+	{id: "020904", name: "Cusca", province_id: "0209", department_id: "02"},
+	{id: "020905", name: "La Pampa", province_id: "0209", department_id: "02"},
+	{id: "020906", name: "Yanac", province_id: "0209", department_id: "02"},
+	{id: "020907", name: "Yupan", province_id: "0209", department_id: "02"},
+	{id: "021001", name: "Huari", province_id: "0210", department_id: "02"},
+	{id: "021002", name: "Anra", province_id: "0210", department_id: "02"},
+	{id: "021003", name: "Cajay", province_id: "0210", department_id: "02"},
+	{id: "021004", name: "Chavin de Huantar", province_id: "0210", department_id: "02"},
+	{id: "021005", name: "Huacachi", province_id: "0210", department_id: "02"},
+	{id: "021006", name: "Huacchis", province_id: "0210", department_id: "02"},
+	{id: "021007", name: "Huachis", province_id: "0210", department_id: "02"},
+	{id: "021008", name: "Huantar", province_id: "0210", department_id: "02"},
+	{id: "021009", name: "Masin", province_id: "0210", department_id: "02"},
+	{id: "021010", name: "Paucas", province_id: "0210", department_id: "02"},
+	{id: "021011", name: "Ponto", province_id: "0210", department_id: "02"},
+	{id: "021012", name: "Rahuapampa", province_id: "0210", department_id: "02"},
+	{id: "021013", name: "Rapayan", province_id: "0210", department_id: "02"},
+	{id: "021014", name: "San Marcos", province_id: "0210", department_id: "02"},
+	{id: "021015", name: "San Pedro de Chana", province_id: "0210", department_id: "02"},
+	{id: "021016", name: "Uco", province_id: "0210", department_id: "02"},
+	{id: "021101", name: "Huarmey", province_id: "0211", department_id: "02"},
+	{id: "021102", name: "Cochapeti", province_id: "0211", department_id: "02"},
+	{id: "021103", name: "Culebras", province_id: "0211", department_id: "02"},
+	{id: "021104", name: "Huayan", province_id: "0211", department_id: "02"},
+	{id: "021105", name: "Malvas", province_id: "0211", department_id: "02"},
+	{id: "021201", name: "Caraz", province_id: "0212", department_id: "02"},
+	{id: "021202", name: "Huallanca", province_id: "0212", department_id: "02"},
+	{id: "021203", name: "Huata", province_id: "0212", department_id: "02"},
+	{id: "021204", name: "Huaylas", province_id: "0212", department_id: "02"},
+	{id: "021205", name: "Mato", province_id: "0212", department_id: "02"},
+	{id: "021206", name: "Pamparomas", province_id: "0212", department_id: "02"},
+	{id: "021207", name: "Pueblo Libre", province_id: "0212", department_id: "02"},
+	{id: "021208", name: "Santa Cruz", province_id: "0212", department_id: "02"},
+	{id: "021209", name: "Santo Toribio", province_id: "0212", department_id: "02"},
+	{id: "021210", name: "Yuracmarca", province_id: "0212", department_id: "02"},
+	{id: "021301", name: "Piscobamba", province_id: "0213", department_id: "02"},
+	{id: "021302", name: "Casca", province_id: "0213", department_id: "02"},
+	{id: "021303", name: "Eleazar Guzm\u00e1n Barron", province_id: "0213", department_id: "02"},
+	{id: "021304", name: "Fidel Olivas Escudero", province_id: "0213", department_id: "02"},
+	{id: "021305", name: "Llama", province_id: "0213", department_id: "02"},
+	{id: "021306", name: "Llumpa", province_id: "0213", department_id: "02"},
+	{id: "021307", name: "Lucma", province_id: "0213", department_id: "02"},
+	{id: "021308", name: "Musga", province_id: "0213", department_id: "02"},
+	{id: "021401", name: "Ocros", province_id: "0214", department_id: "02"},
+	{id: "021402", name: "Acas", province_id: "0214", department_id: "02"},
+	{id: "021403", name: "Cajamarquilla", province_id: "0214", department_id: "02"},
+	{id: "021404", name: "Carhuapampa", province_id: "0214", department_id: "02"},
+	{id: "021405", name: "Cochas", province_id: "0214", department_id: "02"},
+	{id: "021406", name: "Congas", province_id: "0214", department_id: "02"},
+	{id: "021407", name: "Llipa", province_id: "0214", department_id: "02"},
+	{id: "021408", name: "San Crist\u00f3bal de Rajan", province_id: "0214", department_id: "02"},
+	{id: "021409", name: "San Pedro", province_id: "0214", department_id: "02"},
+	{id: "021410", name: "Santiago de Chilcas", province_id: "0214", department_id: "02"},
+	{id: "021501", name: "Cabana", province_id: "0215", department_id: "02"},
+	{id: "021502", name: "Bolognesi", province_id: "0215", department_id: "02"},
+	{id: "021503", name: "Conchucos", province_id: "0215", department_id: "02"},
+	{id: "021504", name: "Huacaschuque", province_id: "0215", department_id: "02"},
+	{id: "021505", name: "Huandoval", province_id: "0215", department_id: "02"},
+	{id: "021506", name: "Lacabamba", province_id: "0215", department_id: "02"},
+	{id: "021507", name: "Llapo", province_id: "0215", department_id: "02"},
+	{id: "021508", name: "Pallasca", province_id: "0215", department_id: "02"},
+	{id: "021509", name: "Pampas", province_id: "0215", department_id: "02"},
+	{id: "021510", name: "Santa Rosa", province_id: "0215", department_id: "02"},
+	{id: "021511", name: "Tauca", province_id: "0215", department_id: "02"},
+	{id: "021601", name: "Pomabamba", province_id: "0216", department_id: "02"},
+	{id: "021602", name: "Huayllan", province_id: "0216", department_id: "02"},
+	{id: "021603", name: "Parobamba", province_id: "0216", department_id: "02"},
+	{id: "021604", name: "Quinuabamba", province_id: "0216", department_id: "02"},
+	{id: "021701", name: "Recuay", province_id: "0217", department_id: "02"},
+	{id: "021702", name: "Catac", province_id: "0217", department_id: "02"},
+	{id: "021703", name: "Cotaparaco", province_id: "0217", department_id: "02"},
+	{id: "021704", name: "Huayllapampa", province_id: "0217", department_id: "02"},
+	{id: "021705", name: "Llacllin", province_id: "0217", department_id: "02"},
+	{id: "021706", name: "Marca", province_id: "0217", department_id: "02"},
+	{id: "021707", name: "Pampas Chico", province_id: "0217", department_id: "02"},
+	{id: "021708", name: "Pararin", province_id: "0217", department_id: "02"},
+	{id: "021709", name: "Tapacocha", province_id: "0217", department_id: "02"},
+	{id: "021710", name: "Ticapampa", province_id: "0217", department_id: "02"},
+	{id: "021801", name: "Chimbote", province_id: "0218", department_id: "02"},
+	{id: "021802", name: "C\u00e1ceres del Per\u00fa", province_id: "0218", department_id: "02"},
+	{id: "021803", name: "Coishco", province_id: "0218", department_id: "02"},
+	{id: "021804", name: "Macate", province_id: "0218", department_id: "02"},
+	{id: "021805", name: "Moro", province_id: "0218", department_id: "02"},
+	{id: "021806", name: "Nepe\u00f1a", province_id: "0218", department_id: "02"},
+	{id: "021807", name: "Samanco", province_id: "0218", department_id: "02"},
+	{id: "021808", name: "Santa", province_id: "0218", department_id: "02"},
+	{id: "021809", name: "Nuevo Chimbote", province_id: "0218", department_id: "02"},
+	{id: "021901", name: "Sihuas", province_id: "0219", department_id: "02"},
+	{id: "021902", name: "Acobamba", province_id: "0219", department_id: "02"},
+	{id: "021903", name: "Alfonso Ugarte", province_id: "0219", department_id: "02"},
+	{id: "021904", name: "Cashapampa", province_id: "0219", department_id: "02"},
+	{id: "021905", name: "Chingalpo", province_id: "0219", department_id: "02"},
+	{id: "021906", name: "Huayllabamba", province_id: "0219", department_id: "02"},
+	{id: "021907", name: "Quiches", province_id: "0219", department_id: "02"},
+	{id: "021908", name: "Ragash", province_id: "0219", department_id: "02"},
+	{id: "021909", name: "San Juan", province_id: "0219", department_id: "02"},
+	{id: "021910", name: "Sicsibamba", province_id: "0219", department_id: "02"},
+	{id: "022001", name: "Yungay", province_id: "0220", department_id: "02"},
+	{id: "022002", name: "Cascapara", province_id: "0220", department_id: "02"},
+	{id: "022003", name: "Mancos", province_id: "0220", department_id: "02"},
+	{id: "022004", name: "Matacoto", province_id: "0220", department_id: "02"},
+	{id: "022005", name: "Quillo", province_id: "0220", department_id: "02"},
+	{id: "022006", name: "Ranrahirca", province_id: "0220", department_id: "02"},
+	{id: "022007", name: "Shupluy", province_id: "0220", department_id: "02"},
+	{id: "022008", name: "Yanama", province_id: "0220", department_id: "02"},
+	{id: "030101", name: "Abancay", province_id: "0301", department_id: "03"},
+	{id: "030102", name: "Chacoche", province_id: "0301", department_id: "03"},
+	{id: "030103", name: "Circa", province_id: "0301", department_id: "03"},
+	{id: "030104", name: "Curahuasi", province_id: "0301", department_id: "03"},
+	{id: "030105", name: "Huanipaca", province_id: "0301", department_id: "03"},
+	{id: "030106", name: "Lambrama", province_id: "0301", department_id: "03"},
+	{id: "030107", name: "Pichirhua", province_id: "0301", department_id: "03"},
+	{id: "030108", name: "San Pedro de Cachora", province_id: "0301", department_id: "03"},
+	{id: "030109", name: "Tamburco", province_id: "0301", department_id: "03"},
+	{id: "030201", name: "Andahuaylas", province_id: "0302", department_id: "03"},
+	{id: "030202", name: "Andarapa", province_id: "0302", department_id: "03"},
+	{id: "030203", name: "Chiara", province_id: "0302", department_id: "03"},
+	{id: "030204", name: "Huancarama", province_id: "0302", department_id: "03"},
+	{id: "030205", name: "Huancaray", province_id: "0302", department_id: "03"},
+	{id: "030206", name: "Huayana", province_id: "0302", department_id: "03"},
+	{id: "030207", name: "Kishuara", province_id: "0302", department_id: "03"},
+	{id: "030208", name: "Pacobamba", province_id: "0302", department_id: "03"},
+	{id: "030209", name: "Pacucha", province_id: "0302", department_id: "03"},
+	{id: "030210", name: "Pampachiri", province_id: "0302", department_id: "03"},
+	{id: "030211", name: "Pomacocha", province_id: "0302", department_id: "03"},
+	{id: "030212", name: "San Antonio de Cachi", province_id: "0302", department_id: "03"},
+	{id: "030213", name: "San Jer\u00f3nimo", province_id: "0302", department_id: "03"},
+	{id: "030214", name: "San Miguel de Chaccrampa", province_id: "0302", department_id: "03"},
+	{id: "030215", name: "Santa Mar\u00eda de Chicmo", province_id: "0302", department_id: "03"},
+	{id: "030216", name: "Talavera", province_id: "0302", department_id: "03"},
+	{id: "030217", name: "Tumay Huaraca", province_id: "0302", department_id: "03"},
+	{id: "030218", name: "Turpo", province_id: "0302", department_id: "03"},
+	{id: "030219", name: "Kaquiabamba", province_id: "0302", department_id: "03"},
+	{id: "030220", name: "Jos\u00e9 Mar\u00eda Arguedas", province_id: "0302", department_id: "03"},
+	{id: "030301", name: "Antabamba", province_id: "0303", department_id: "03"},
+	{id: "030302", name: "El Oro", province_id: "0303", department_id: "03"},
+	{id: "030303", name: "Huaquirca", province_id: "0303", department_id: "03"},
+	{id: "030304", name: "Juan Espinoza Medrano", province_id: "0303", department_id: "03"},
+	{id: "030305", name: "Oropesa", province_id: "0303", department_id: "03"},
+	{id: "030306", name: "Pachaconas", province_id: "0303", department_id: "03"},
+	{id: "030307", name: "Sabaino", province_id: "0303", department_id: "03"},
+	{id: "030401", name: "Chalhuanca", province_id: "0304", department_id: "03"},
+	{id: "030402", name: "Capaya", province_id: "0304", department_id: "03"},
+	{id: "030403", name: "Caraybamba", province_id: "0304", department_id: "03"},
+	{id: "030404", name: "Chapimarca", province_id: "0304", department_id: "03"},
+	{id: "030405", name: "Colcabamba", province_id: "0304", department_id: "03"},
+	{id: "030406", name: "Cotaruse", province_id: "0304", department_id: "03"},
+	{id: "030407", name: "Ihuayllo", province_id: "0304", department_id: "03"},
+	{id: "030408", name: "Justo Apu Sahuaraura", province_id: "0304", department_id: "03"},
+	{id: "030409", name: "Lucre", province_id: "0304", department_id: "03"},
+	{id: "030410", name: "Pocohuanca", province_id: "0304", department_id: "03"},
+	{id: "030411", name: "San Juan de Chac\u00f1a", province_id: "0304", department_id: "03"},
+	{id: "030412", name: "Sa\u00f1ayca", province_id: "0304", department_id: "03"},
+	{id: "030413", name: "Soraya", province_id: "0304", department_id: "03"},
+	{id: "030414", name: "Tapairihua", province_id: "0304", department_id: "03"},
+	{id: "030415", name: "Tintay", province_id: "0304", department_id: "03"},
+	{id: "030416", name: "Toraya", province_id: "0304", department_id: "03"},
+	{id: "030417", name: "Yanaca", province_id: "0304", department_id: "03"},
+	{id: "030501", name: "Tambobamba", province_id: "0305", department_id: "03"},
+	{id: "030502", name: "Cotabambas", province_id: "0305", department_id: "03"},
+	{id: "030503", name: "Coyllurqui", province_id: "0305", department_id: "03"},
+	{id: "030504", name: "Haquira", province_id: "0305", department_id: "03"},
+	{id: "030505", name: "Mara", province_id: "0305", department_id: "03"},
+	{id: "030506", name: "Challhuahuacho", province_id: "0305", department_id: "03"},
+	{id: "030601", name: "Chincheros", province_id: "0306", department_id: "03"},
+	{id: "030602", name: "Anco_Huallo", province_id: "0306", department_id: "03"},
+	{id: "030603", name: "Cocharcas", province_id: "0306", department_id: "03"},
+	{id: "030604", name: "Huaccana", province_id: "0306", department_id: "03"},
+	{id: "030605", name: "Ocobamba", province_id: "0306", department_id: "03"},
+	{id: "030606", name: "Ongoy", province_id: "0306", department_id: "03"},
+	{id: "030607", name: "Uranmarca", province_id: "0306", department_id: "03"},
+	{id: "030608", name: "Ranracancha", province_id: "0306", department_id: "03"},
+	{id: "030609", name: "Rocchacc", province_id: "0306", department_id: "03"},
+	{id: "030610", name: "El Porvenir", province_id: "0306", department_id: "03"},
+	{id: "030611", name: "Los Chankas", province_id: "0306", department_id: "03"},
+	{id: "030701", name: "Chuquibambilla", province_id: "0307", department_id: "03"},
+	{id: "030702", name: "Curpahuasi", province_id: "0307", department_id: "03"},
+	{id: "030703", name: "Gamarra", province_id: "0307", department_id: "03"},
+	{id: "030704", name: "Huayllati", province_id: "0307", department_id: "03"},
+	{id: "030705", name: "Mamara", province_id: "0307", department_id: "03"},
+	{id: "030706", name: "Micaela Bastidas", province_id: "0307", department_id: "03"},
+	{id: "030707", name: "Pataypampa", province_id: "0307", department_id: "03"},
+	{id: "030708", name: "Progreso", province_id: "0307", department_id: "03"},
+	{id: "030709", name: "San Antonio", province_id: "0307", department_id: "03"},
+	{id: "030710", name: "Santa Rosa", province_id: "0307", department_id: "03"},
+	{id: "030711", name: "Turpay", province_id: "0307", department_id: "03"},
+	{id: "030712", name: "Vilcabamba", province_id: "0307", department_id: "03"},
+	{id: "030713", name: "Virundo", province_id: "0307", department_id: "03"},
+	{id: "030714", name: "Curasco", province_id: "0307", department_id: "03"},
+	{id: "040101", name: "Arequipa", province_id: "0401", department_id: "04"},
+	{id: "040102", name: "Alto Selva Alegre", province_id: "0401", department_id: "04"},
+	{id: "040103", name: "Cayma", province_id: "0401", department_id: "04"},
+	{id: "040104", name: "Cerro Colorado", province_id: "0401", department_id: "04"},
+	{id: "040105", name: "Characato", province_id: "0401", department_id: "04"},
+	{id: "040106", name: "Chiguata", province_id: "0401", department_id: "04"},
+	{id: "040107", name: "Jacobo Hunter", province_id: "0401", department_id: "04"},
+	{id: "040108", name: "La Joya", province_id: "0401", department_id: "04"},
+	{id: "040109", name: "Mariano Melgar", province_id: "0401", department_id: "04"},
+	{id: "040110", name: "Miraflores", province_id: "0401", department_id: "04"},
+	{id: "040111", name: "Mollebaya", province_id: "0401", department_id: "04"},
+	{id: "040112", name: "Paucarpata", province_id: "0401", department_id: "04"},
+	{id: "040113", name: "Pocsi", province_id: "0401", department_id: "04"},
+	{id: "040114", name: "Polobaya", province_id: "0401", department_id: "04"},
+	{id: "040115", name: "Queque\u00f1a", province_id: "0401", department_id: "04"},
+	{id: "040116", name: "Sabandia", province_id: "0401", department_id: "04"},
+	{id: "040117", name: "Sachaca", province_id: "0401", department_id: "04"},
+	{id: "040118", name: "San Juan de Siguas", province_id: "0401", department_id: "04"},
+	{id: "040119", name: "San Juan de Tarucani", province_id: "0401", department_id: "04"},
+	{id: "040120", name: "Santa Isabel de Siguas", province_id: "0401", department_id: "04"},
+	{id: "040121", name: "Santa Rita de Siguas", province_id: "0401", department_id: "04"},
+	{id: "040122", name: "Socabaya", province_id: "0401", department_id: "04"},
+	{id: "040123", name: "Tiabaya", province_id: "0401", department_id: "04"},
+	{id: "040124", name: "Uchumayo", province_id: "0401", department_id: "04"},
+	{id: "040125", name: "Vitor", province_id: "0401", department_id: "04"},
+	{id: "040126", name: "Yanahuara", province_id: "0401", department_id: "04"},
+	{id: "040127", name: "Yarabamba", province_id: "0401", department_id: "04"},
+	{id: "040128", name: "Yura", province_id: "0401", department_id: "04"},
+	{id: "040129", name: "Jos\u00e9 Luis Bustamante Y Rivero", province_id: "0401", department_id: "04"},
+	{id: "040201", name: "Caman\u00e1", province_id: "0402", department_id: "04"},
+	{id: "040202", name: "Jos\u00e9 Mar\u00eda Quimper", province_id: "0402", department_id: "04"},
+	{id: "040203", name: "Mariano Nicol\u00e1s Valc\u00e1rcel", province_id: "0402", department_id: "04"},
+	{id: "040204", name: "Mariscal C\u00e1ceres", province_id: "0402", department_id: "04"},
+	{id: "040205", name: "Nicol\u00e1s de Pierola", province_id: "0402", department_id: "04"},
+	{id: "040206", name: "Oco\u00f1a", province_id: "0402", department_id: "04"},
+	{id: "040207", name: "Quilca", province_id: "0402", department_id: "04"},
+	{id: "040208", name: "Samuel Pastor", province_id: "0402", department_id: "04"},
+	{id: "040301", name: "Caravel\u00ed", province_id: "0403", department_id: "04"},
+	{id: "040302", name: "Acar\u00ed", province_id: "0403", department_id: "04"},
+	{id: "040303", name: "Atico", province_id: "0403", department_id: "04"},
+	{id: "040304", name: "Atiquipa", province_id: "0403", department_id: "04"},
+	{id: "040305", name: "Bella Uni\u00f3n", province_id: "0403", department_id: "04"},
+	{id: "040306", name: "Cahuacho", province_id: "0403", department_id: "04"},
+	{id: "040307", name: "Chala", province_id: "0403", department_id: "04"},
+	{id: "040308", name: "Chaparra", province_id: "0403", department_id: "04"},
+	{id: "040309", name: "Huanuhuanu", province_id: "0403", department_id: "04"},
+	{id: "040310", name: "Jaqui", province_id: "0403", department_id: "04"},
+	{id: "040311", name: "Lomas", province_id: "0403", department_id: "04"},
+	{id: "040312", name: "Quicacha", province_id: "0403", department_id: "04"},
+	{id: "040313", name: "Yauca", province_id: "0403", department_id: "04"},
+	{id: "040401", name: "Aplao", province_id: "0404", department_id: "04"},
+	{id: "040402", name: "Andagua", province_id: "0404", department_id: "04"},
+	{id: "040403", name: "Ayo", province_id: "0404", department_id: "04"},
+	{id: "040404", name: "Chachas", province_id: "0404", department_id: "04"},
+	{id: "040405", name: "Chilcaymarca", province_id: "0404", department_id: "04"},
+	{id: "040406", name: "Choco", province_id: "0404", department_id: "04"},
+	{id: "040407", name: "Huancarqui", province_id: "0404", department_id: "04"},
+	{id: "040408", name: "Machaguay", province_id: "0404", department_id: "04"},
+	{id: "040409", name: "Orcopampa", province_id: "0404", department_id: "04"},
+	{id: "040410", name: "Pampacolca", province_id: "0404", department_id: "04"},
+	{id: "040411", name: "Tipan", province_id: "0404", department_id: "04"},
+	{id: "040412", name: "U\u00f1on", province_id: "0404", department_id: "04"},
+	{id: "040413", name: "Uraca", province_id: "0404", department_id: "04"},
+	{id: "040414", name: "Viraco", province_id: "0404", department_id: "04"},
+	{id: "040501", name: "Chivay", province_id: "0405", department_id: "04"},
+	{id: "040502", name: "Achoma", province_id: "0405", department_id: "04"},
+	{id: "040503", name: "Cabanaconde", province_id: "0405", department_id: "04"},
+	{id: "040504", name: "Callalli", province_id: "0405", department_id: "04"},
+	{id: "040505", name: "Caylloma", province_id: "0405", department_id: "04"},
+	{id: "040506", name: "Coporaque", province_id: "0405", department_id: "04"},
+	{id: "040507", name: "Huambo", province_id: "0405", department_id: "04"},
+	{id: "040508", name: "Huanca", province_id: "0405", department_id: "04"},
+	{id: "040509", name: "Ichupampa", province_id: "0405", department_id: "04"},
+	{id: "040510", name: "Lari", province_id: "0405", department_id: "04"},
+	{id: "040511", name: "Lluta", province_id: "0405", department_id: "04"},
+	{id: "040512", name: "Maca", province_id: "0405", department_id: "04"},
+	{id: "040513", name: "Madrigal", province_id: "0405", department_id: "04"},
+	{id: "040514", name: "San Antonio de Chuca", province_id: "0405", department_id: "04"},
+	{id: "040515", name: "Sibayo", province_id: "0405", department_id: "04"},
+	{id: "040516", name: "Tapay", province_id: "0405", department_id: "04"},
+	{id: "040517", name: "Tisco", province_id: "0405", department_id: "04"},
+	{id: "040518", name: "Tuti", province_id: "0405", department_id: "04"},
+	{id: "040519", name: "Yanque", province_id: "0405", department_id: "04"},
+	{id: "040520", name: "Majes", province_id: "0405", department_id: "04"},
+	{id: "040601", name: "Chuquibamba", province_id: "0406", department_id: "04"},
+	{id: "040602", name: "Andaray", province_id: "0406", department_id: "04"},
+	{id: "040603", name: "Cayarani", province_id: "0406", department_id: "04"},
+	{id: "040604", name: "Chichas", province_id: "0406", department_id: "04"},
+	{id: "040605", name: "Iray", province_id: "0406", department_id: "04"},
+	{id: "040606", name: "R\u00edo Grande", province_id: "0406", department_id: "04"},
+	{id: "040607", name: "Salamanca", province_id: "0406", department_id: "04"},
+	{id: "040608", name: "Yanaquihua", province_id: "0406", department_id: "04"},
+	{id: "040701", name: "Mollendo", province_id: "0407", department_id: "04"},
+	{id: "040702", name: "Cocachacra", province_id: "0407", department_id: "04"},
+	{id: "040703", name: "Dean Valdivia", province_id: "0407", department_id: "04"},
+	{id: "040704", name: "Islay", province_id: "0407", department_id: "04"},
+	{id: "040705", name: "Mejia", province_id: "0407", department_id: "04"},
+	{id: "040706", name: "Punta de Bomb\u00f3n", province_id: "0407", department_id: "04"},
+	{id: "040801", name: "Cotahuasi", province_id: "0408", department_id: "04"},
+	{id: "040802", name: "Alca", province_id: "0408", department_id: "04"},
+	{id: "040803", name: "Charcana", province_id: "0408", department_id: "04"},
+	{id: "040804", name: "Huaynacotas", province_id: "0408", department_id: "04"},
+	{id: "040805", name: "Pampamarca", province_id: "0408", department_id: "04"},
+	{id: "040806", name: "Puyca", province_id: "0408", department_id: "04"},
+	{id: "040807", name: "Quechualla", province_id: "0408", department_id: "04"},
+	{id: "040808", name: "Sayla", province_id: "0408", department_id: "04"},
+	{id: "040809", name: "Tauria", province_id: "0408", department_id: "04"},
+	{id: "040810", name: "Tomepampa", province_id: "0408", department_id: "04"},
+	{id: "040811", name: "Toro", province_id: "0408", department_id: "04"},
+	{id: "050101", name: "Ayacucho", province_id: "0501", department_id: "05"},
+	{id: "050102", name: "Acocro", province_id: "0501", department_id: "05"},
+	{id: "050103", name: "Acos Vinchos", province_id: "0501", department_id: "05"},
+	{id: "050104", name: "Carmen Alto", province_id: "0501", department_id: "05"},
+	{id: "050105", name: "Chiara", province_id: "0501", department_id: "05"},
+	{id: "050106", name: "Ocros", province_id: "0501", department_id: "05"},
+	{id: "050107", name: "Pacaycasa", province_id: "0501", department_id: "05"},
+	{id: "050108", name: "Quinua", province_id: "0501", department_id: "05"},
+	{id: "050109", name: "San Jos\u00e9 de Ticllas", province_id: "0501", department_id: "05"},
+	{id: "050110", name: "San Juan Bautista", province_id: "0501", department_id: "05"},
+	{id: "050111", name: "Santiago de Pischa", province_id: "0501", department_id: "05"},
+	{id: "050112", name: "Socos", province_id: "0501", department_id: "05"},
+	{id: "050113", name: "Tambillo", province_id: "0501", department_id: "05"},
+	{id: "050114", name: "Vinchos", province_id: "0501", department_id: "05"},
+	{id: "050115", name: "Jes\u00fas Nazareno", province_id: "0501", department_id: "05"},
+	{id: "050116", name: "Andr\u00e9s Avelino C\u00e1ceres Dorregaray", province_id: "0501", department_id: "05"},
+	{id: "050201", name: "Cangallo", province_id: "0502", department_id: "05"},
+	{id: "050202", name: "Chuschi", province_id: "0502", department_id: "05"},
+	{id: "050203", name: "Los Morochucos", province_id: "0502", department_id: "05"},
+	{id: "050204", name: "Mar\u00eda Parado de Bellido", province_id: "0502", department_id: "05"},
+	{id: "050205", name: "Paras", province_id: "0502", department_id: "05"},
+	{id: "050206", name: "Totos", province_id: "0502", department_id: "05"},
+	{id: "050301", name: "Sancos", province_id: "0503", department_id: "05"},
+	{id: "050302", name: "Carapo", province_id: "0503", department_id: "05"},
+	{id: "050303", name: "Sacsamarca", province_id: "0503", department_id: "05"},
+	{id: "050304", name: "Santiago de Lucanamarca", province_id: "0503", department_id: "05"},
+	{id: "050401", name: "Huanta", province_id: "0504", department_id: "05"},
+	{id: "050402", name: "Ayahuanco", province_id: "0504", department_id: "05"},
+	{id: "050403", name: "Huamanguilla", province_id: "0504", department_id: "05"},
+	{id: "050404", name: "Iguain", province_id: "0504", department_id: "05"},
+	{id: "050405", name: "Luricocha", province_id: "0504", department_id: "05"},
+	{id: "050406", name: "Santillana", province_id: "0504", department_id: "05"},
+	{id: "050407", name: "Sivia", province_id: "0504", department_id: "05"},
+	{id: "050408", name: "Llochegua", province_id: "0504", department_id: "05"},
+	{id: "050409", name: "Canayre", province_id: "0504", department_id: "05"},
+	{id: "050410", name: "Uchuraccay", province_id: "0504", department_id: "05"},
+	{id: "050411", name: "Pucacolpa", province_id: "0504", department_id: "05"},
+	{id: "050412", name: "Chaca", province_id: "0504", department_id: "05"},
+	{id: "050501", name: "San Miguel", province_id: "0505", department_id: "05"},
+	{id: "050502", name: "Anco", province_id: "0505", department_id: "05"},
+	{id: "050503", name: "Ayna", province_id: "0505", department_id: "05"},
+	{id: "050504", name: "Chilcas", province_id: "0505", department_id: "05"},
+	{id: "050505", name: "Chungui", province_id: "0505", department_id: "05"},
+	{id: "050506", name: "Luis Carranza", province_id: "0505", department_id: "05"},
+	{id: "050507", name: "Santa Rosa", province_id: "0505", department_id: "05"},
+	{id: "050508", name: "Tambo", province_id: "0505", department_id: "05"},
+	{id: "050509", name: "Samugari", province_id: "0505", department_id: "05"},
+	{id: "050510", name: "Anchihuay", province_id: "0505", department_id: "05"},
+	{id: "050511", name: "Oronccoy", province_id: "0505", department_id: "05"},
+	{id: "050601", name: "Puquio", province_id: "0506", department_id: "05"},
+	{id: "050602", name: "Aucara", province_id: "0506", department_id: "05"},
+	{id: "050603", name: "Cabana", province_id: "0506", department_id: "05"},
+	{id: "050604", name: "Carmen Salcedo", province_id: "0506", department_id: "05"},
+	{id: "050605", name: "Chavi\u00f1a", province_id: "0506", department_id: "05"},
+	{id: "050606", name: "Chipao", province_id: "0506", department_id: "05"},
+	{id: "050607", name: "Huac-Huas", province_id: "0506", department_id: "05"},
+	{id: "050608", name: "Laramate", province_id: "0506", department_id: "05"},
+	{id: "050609", name: "Leoncio Prado", province_id: "0506", department_id: "05"},
+	{id: "050610", name: "Llauta", province_id: "0506", department_id: "05"},
+	{id: "050611", name: "Lucanas", province_id: "0506", department_id: "05"},
+	{id: "050612", name: "Oca\u00f1a", province_id: "0506", department_id: "05"},
+	{id: "050613", name: "Otoca", province_id: "0506", department_id: "05"},
+	{id: "050614", name: "Saisa", province_id: "0506", department_id: "05"},
+	{id: "050615", name: "San Crist\u00f3bal", province_id: "0506", department_id: "05"},
+	{id: "050616", name: "San Juan", province_id: "0506", department_id: "05"},
+	{id: "050617", name: "San Pedro", province_id: "0506", department_id: "05"},
+	{id: "050618", name: "San Pedro de Palco", province_id: "0506", department_id: "05"},
+	{id: "050619", name: "Sancos", province_id: "0506", department_id: "05"},
+	{id: "050620", name: "Santa Ana de Huaycahuacho", province_id: "0506", department_id: "05"},
+	{id: "050621", name: "Santa Lucia", province_id: "0506", department_id: "05"},
+	{id: "050701", name: "Coracora", province_id: "0507", department_id: "05"},
+	{id: "050702", name: "Chumpi", province_id: "0507", department_id: "05"},
+	{id: "050703", name: "Coronel Casta\u00f1eda", province_id: "0507", department_id: "05"},
+	{id: "050704", name: "Pacapausa", province_id: "0507", department_id: "05"},
+	{id: "050705", name: "Pullo", province_id: "0507", department_id: "05"},
+	{id: "050706", name: "Puyusca", province_id: "0507", department_id: "05"},
+	{id: "050707", name: "San Francisco de Ravacayco", province_id: "0507", department_id: "05"},
+	{id: "050708", name: "Upahuacho", province_id: "0507", department_id: "05"},
+	{id: "050801", name: "Pausa", province_id: "0508", department_id: "05"},
+	{id: "050802", name: "Colta", province_id: "0508", department_id: "05"},
+	{id: "050803", name: "Corculla", province_id: "0508", department_id: "05"},
+	{id: "050804", name: "Lampa", province_id: "0508", department_id: "05"},
+	{id: "050805", name: "Marcabamba", province_id: "0508", department_id: "05"},
+	{id: "050806", name: "Oyolo", province_id: "0508", department_id: "05"},
+	{id: "050807", name: "Pararca", province_id: "0508", department_id: "05"},
+	{id: "050808", name: "San Javier de Alpabamba", province_id: "0508", department_id: "05"},
+	{id: "050809", name: "San Jos\u00e9 de Ushua", province_id: "0508", department_id: "05"},
+	{id: "050810", name: "Sara Sara", province_id: "0508", department_id: "05"},
+	{id: "050901", name: "Querobamba", province_id: "0509", department_id: "05"},
+	{id: "050902", name: "Bel\u00e9n", province_id: "0509", department_id: "05"},
+	{id: "050903", name: "Chalcos", province_id: "0509", department_id: "05"},
+	{id: "050904", name: "Chilcayoc", province_id: "0509", department_id: "05"},
+	{id: "050905", name: "Huaca\u00f1a", province_id: "0509", department_id: "05"},
+	{id: "050906", name: "Morcolla", province_id: "0509", department_id: "05"},
+	{id: "050907", name: "Paico", province_id: "0509", department_id: "05"},
+	{id: "050908", name: "San Pedro de Larcay", province_id: "0509", department_id: "05"},
+	{id: "050909", name: "San Salvador de Quije", province_id: "0509", department_id: "05"},
+	{id: "050910", name: "Santiago de Paucaray", province_id: "0509", department_id: "05"},
+	{id: "050911", name: "Soras", province_id: "0509", department_id: "05"},
+	{id: "051001", name: "Huancapi", province_id: "0510", department_id: "05"},
+	{id: "051002", name: "Alcamenca", province_id: "0510", department_id: "05"},
+	{id: "051003", name: "Apongo", province_id: "0510", department_id: "05"},
+	{id: "051004", name: "Asquipata", province_id: "0510", department_id: "05"},
+	{id: "051005", name: "Canaria", province_id: "0510", department_id: "05"},
+	{id: "051006", name: "Cayara", province_id: "0510", department_id: "05"},
+	{id: "051007", name: "Colca", province_id: "0510", department_id: "05"},
+	{id: "051008", name: "Huamanquiquia", province_id: "0510", department_id: "05"},
+	{id: "051009", name: "Huancaraylla", province_id: "0510", department_id: "05"},
+	{id: "051010", name: "Hualla", province_id: "0510", department_id: "05"},
+	{id: "051011", name: "Sarhua", province_id: "0510", department_id: "05"},
+	{id: "051012", name: "Vilcanchos", province_id: "0510", department_id: "05"},
+	{id: "051101", name: "Vilcas Huaman", province_id: "0511", department_id: "05"},
+	{id: "051102", name: "Accomarca", province_id: "0511", department_id: "05"},
+	{id: "051103", name: "Carhuanca", province_id: "0511", department_id: "05"},
+	{id: "051104", name: "Concepci\u00f3n", province_id: "0511", department_id: "05"},
+	{id: "051105", name: "Huambalpa", province_id: "0511", department_id: "05"},
+	{id: "051106", name: "Independencia", province_id: "0511", department_id: "05"},
+	{id: "051107", name: "Saurama", province_id: "0511", department_id: "05"},
+	{id: "051108", name: "Vischongo", province_id: "0511", department_id: "05"},
+	{id: "060101", name: "Cajamarca", province_id: "0601", department_id: "06"},
+	{id: "060102", name: "Asunci\u00f3n", province_id: "0601", department_id: "06"},
+	{id: "060103", name: "Chetilla", province_id: "0601", department_id: "06"},
+	{id: "060104", name: "Cospan", province_id: "0601", department_id: "06"},
+	{id: "060105", name: "Enca\u00f1ada", province_id: "0601", department_id: "06"},
+	{id: "060106", name: "Jes\u00fas", province_id: "0601", department_id: "06"},
+	{id: "060107", name: "Llacanora", province_id: "0601", department_id: "06"},
+	{id: "060108", name: "Los Ba\u00f1os del Inca", province_id: "0601", department_id: "06"},
+	{id: "060109", name: "Magdalena", province_id: "0601", department_id: "06"},
+	{id: "060110", name: "Matara", province_id: "0601", department_id: "06"},
+	{id: "060111", name: "Namora", province_id: "0601", department_id: "06"},
+	{id: "060112", name: "San Juan", province_id: "0601", department_id: "06"},
+	{id: "060201", name: "Cajabamba", province_id: "0602", department_id: "06"},
+	{id: "060202", name: "Cachachi", province_id: "0602", department_id: "06"},
+	{id: "060203", name: "Condebamba", province_id: "0602", department_id: "06"},
+	{id: "060204", name: "Sitacocha", province_id: "0602", department_id: "06"},
+	{id: "060301", name: "Celend\u00edn", province_id: "0603", department_id: "06"},
+	{id: "060302", name: "Chumuch", province_id: "0603", department_id: "06"},
+	{id: "060303", name: "Cortegana", province_id: "0603", department_id: "06"},
+	{id: "060304", name: "Huasmin", province_id: "0603", department_id: "06"},
+	{id: "060305", name: "Jorge Ch\u00e1vez", province_id: "0603", department_id: "06"},
+	{id: "060306", name: "Jos\u00e9 G\u00e1lvez", province_id: "0603", department_id: "06"},
+	{id: "060307", name: "Miguel Iglesias", province_id: "0603", department_id: "06"},
+	{id: "060308", name: "Oxamarca", province_id: "0603", department_id: "06"},
+	{id: "060309", name: "Sorochuco", province_id: "0603", department_id: "06"},
+	{id: "060310", name: "Sucre", province_id: "0603", department_id: "06"},
+	{id: "060311", name: "Utco", province_id: "0603", department_id: "06"},
+	{id: "060312", name: "La Libertad de Pallan", province_id: "0603", department_id: "06"},
+	{id: "060401", name: "Chota", province_id: "0604", department_id: "06"},
+	{id: "060402", name: "Anguia", province_id: "0604", department_id: "06"},
+	{id: "060403", name: "Chadin", province_id: "0604", department_id: "06"},
+	{id: "060404", name: "Chiguirip", province_id: "0604", department_id: "06"},
+	{id: "060405", name: "Chimban", province_id: "0604", department_id: "06"},
+	{id: "060406", name: "Choropampa", province_id: "0604", department_id: "06"},
+	{id: "060407", name: "Cochabamba", province_id: "0604", department_id: "06"},
+	{id: "060408", name: "Conchan", province_id: "0604", department_id: "06"},
+	{id: "060409", name: "Huambos", province_id: "0604", department_id: "06"},
+	{id: "060410", name: "Lajas", province_id: "0604", department_id: "06"},
+	{id: "060411", name: "Llama", province_id: "0604", department_id: "06"},
+	{id: "060412", name: "Miracosta", province_id: "0604", department_id: "06"},
+	{id: "060413", name: "Paccha", province_id: "0604", department_id: "06"},
+	{id: "060414", name: "Pion", province_id: "0604", department_id: "06"},
+	{id: "060415", name: "Querocoto", province_id: "0604", department_id: "06"},
+	{id: "060416", name: "San Juan de Licupis", province_id: "0604", department_id: "06"},
+	{id: "060417", name: "Tacabamba", province_id: "0604", department_id: "06"},
+	{id: "060418", name: "Tocmoche", province_id: "0604", department_id: "06"},
+	{id: "060419", name: "Chalamarca", province_id: "0604", department_id: "06"},
+	{id: "060501", name: "Contumaza", province_id: "0605", department_id: "06"},
+	{id: "060502", name: "Chilete", province_id: "0605", department_id: "06"},
+	{id: "060503", name: "Cupisnique", province_id: "0605", department_id: "06"},
+	{id: "060504", name: "Guzmango", province_id: "0605", department_id: "06"},
+	{id: "060505", name: "San Benito", province_id: "0605", department_id: "06"},
+	{id: "060506", name: "Santa Cruz de Toledo", province_id: "0605", department_id: "06"},
+	{id: "060507", name: "Tantarica", province_id: "0605", department_id: "06"},
+	{id: "060508", name: "Yonan", province_id: "0605", department_id: "06"},
+	{id: "060601", name: "Cutervo", province_id: "0606", department_id: "06"},
+	{id: "060602", name: "Callayuc", province_id: "0606", department_id: "06"},
+	{id: "060603", name: "Choros", province_id: "0606", department_id: "06"},
+	{id: "060604", name: "Cujillo", province_id: "0606", department_id: "06"},
+	{id: "060605", name: "La Ramada", province_id: "0606", department_id: "06"},
+	{id: "060606", name: "Pimpingos", province_id: "0606", department_id: "06"},
+	{id: "060607", name: "Querocotillo", province_id: "0606", department_id: "06"},
+	{id: "060608", name: "San Andr\u00e9s de Cutervo", province_id: "0606", department_id: "06"},
+	{id: "060609", name: "San Juan de Cutervo", province_id: "0606", department_id: "06"},
+	{id: "060610", name: "San Luis de Lucma", province_id: "0606", department_id: "06"},
+	{id: "060611", name: "Santa Cruz", province_id: "0606", department_id: "06"},
+	{id: "060612", name: "Santo Domingo de la Capilla", province_id: "0606", department_id: "06"},
+	{id: "060613", name: "Santo Tomas", province_id: "0606", department_id: "06"},
+	{id: "060614", name: "Socota", province_id: "0606", department_id: "06"},
+	{id: "060615", name: "Toribio Casanova", province_id: "0606", department_id: "06"},
+	{id: "060701", name: "Bambamarca", province_id: "0607", department_id: "06"},
+	{id: "060702", name: "Chugur", province_id: "0607", department_id: "06"},
+	{id: "060703", name: "Hualgayoc", province_id: "0607", department_id: "06"},
+	{id: "060801", name: "Ja\u00e9n", province_id: "0608", department_id: "06"},
+	{id: "060802", name: "Bellavista", province_id: "0608", department_id: "06"},
+	{id: "060803", name: "Chontali", province_id: "0608", department_id: "06"},
+	{id: "060804", name: "Colasay", province_id: "0608", department_id: "06"},
+	{id: "060805", name: "Huabal", province_id: "0608", department_id: "06"},
+	{id: "060806", name: "Las Pirias", province_id: "0608", department_id: "06"},
+	{id: "060807", name: "Pomahuaca", province_id: "0608", department_id: "06"},
+	{id: "060808", name: "Pucara", province_id: "0608", department_id: "06"},
+	{id: "060809", name: "Sallique", province_id: "0608", department_id: "06"},
+	{id: "060810", name: "San Felipe", province_id: "0608", department_id: "06"},
+	{id: "060811", name: "San Jos\u00e9 del Alto", province_id: "0608", department_id: "06"},
+	{id: "060812", name: "Santa Rosa", province_id: "0608", department_id: "06"},
+	{id: "060901", name: "San Ignacio", province_id: "0609", department_id: "06"},
+	{id: "060902", name: "Chirinos", province_id: "0609", department_id: "06"},
+	{id: "060903", name: "Huarango", province_id: "0609", department_id: "06"},
+	{id: "060904", name: "La Coipa", province_id: "0609", department_id: "06"},
+	{id: "060905", name: "Namballe", province_id: "0609", department_id: "06"},
+	{id: "060906", name: "San Jos\u00e9 de Lourdes", province_id: "0609", department_id: "06"},
+	{id: "060907", name: "Tabaconas", province_id: "0609", department_id: "06"},
+	{id: "061001", name: "Pedro G\u00e1lvez", province_id: "0610", department_id: "06"},
+	{id: "061002", name: "Chancay", province_id: "0610", department_id: "06"},
+	{id: "061003", name: "Eduardo Villanueva", province_id: "0610", department_id: "06"},
+	{id: "061004", name: "Gregorio Pita", province_id: "0610", department_id: "06"},
+	{id: "061005", name: "Ichocan", province_id: "0610", department_id: "06"},
+	{id: "061006", name: "Jos\u00e9 Manuel Quiroz", province_id: "0610", department_id: "06"},
+	{id: "061007", name: "Jos\u00e9 Sabogal", province_id: "0610", department_id: "06"},
+	{id: "061101", name: "San Miguel", province_id: "0611", department_id: "06"},
+	{id: "061102", name: "Bol\u00edvar", province_id: "0611", department_id: "06"},
+	{id: "061103", name: "Calquis", province_id: "0611", department_id: "06"},
+	{id: "061104", name: "Catilluc", province_id: "0611", department_id: "06"},
+	{id: "061105", name: "El Prado", province_id: "0611", department_id: "06"},
+	{id: "061106", name: "La Florida", province_id: "0611", department_id: "06"},
+	{id: "061107", name: "Llapa", province_id: "0611", department_id: "06"},
+	{id: "061108", name: "Nanchoc", province_id: "0611", department_id: "06"},
+	{id: "061109", name: "Niepos", province_id: "0611", department_id: "06"},
+	{id: "061110", name: "San Gregorio", province_id: "0611", department_id: "06"},
+	{id: "061111", name: "San Silvestre de Cochan", province_id: "0611", department_id: "06"},
+	{id: "061112", name: "Tongod", province_id: "0611", department_id: "06"},
+	{id: "061113", name: "Uni\u00f3n Agua Blanca", province_id: "0611", department_id: "06"},
+	{id: "061201", name: "San Pablo", province_id: "0612", department_id: "06"},
+	{id: "061202", name: "San Bernardino", province_id: "0612", department_id: "06"},
+	{id: "061203", name: "San Luis", province_id: "0612", department_id: "06"},
+	{id: "061204", name: "Tumbaden", province_id: "0612", department_id: "06"},
+	{id: "061301", name: "Santa Cruz", province_id: "0613", department_id: "06"},
+	{id: "061302", name: "Andabamba", province_id: "0613", department_id: "06"},
+	{id: "061303", name: "Catache", province_id: "0613", department_id: "06"},
+	{id: "061304", name: "Chancayba\u00f1os", province_id: "0613", department_id: "06"},
+	{id: "061305", name: "La Esperanza", province_id: "0613", department_id: "06"},
+	{id: "061306", name: "Ninabamba", province_id: "0613", department_id: "06"},
+	{id: "061307", name: "Pulan", province_id: "0613", department_id: "06"},
+	{id: "061308", name: "Saucepampa", province_id: "0613", department_id: "06"},
+	{id: "061309", name: "Sexi", province_id: "0613", department_id: "06"},
+	{id: "061310", name: "Uticyacu", province_id: "0613", department_id: "06"},
+	{id: "061311", name: "Yauyucan", province_id: "0613", department_id: "06"},
+	{id: "070101", name: "Callao", province_id: "0701", department_id: "07"},
+	{id: "070102", name: "Bellavista", province_id: "0701", department_id: "07"},
+	{id: "070103", name: "Carmen de la Legua Reynoso", province_id: "0701", department_id: "07"},
+	{id: "070104", name: "La Perla", province_id: "0701", department_id: "07"},
+	{id: "070105", name: "La Punta", province_id: "0701", department_id: "07"},
+	{id: "070106", name: "Ventanilla", province_id: "0701", department_id: "07"},
+	{id: "070107", name: "Mi Per\u00fa", province_id: "0701", department_id: "07"},
+	{id: "080101", name: "Cusco", province_id: "0801", department_id: "08"},
+	{id: "080102", name: "Ccorca", province_id: "0801", department_id: "08"},
+	{id: "080103", name: "Poroy", province_id: "0801", department_id: "08"},
+	{id: "080104", name: "San Jer\u00f3nimo", province_id: "0801", department_id: "08"},
+	{id: "080105", name: "San Sebastian", province_id: "0801", department_id: "08"},
+	{id: "080106", name: "Santiago", province_id: "0801", department_id: "08"},
+	{id: "080107", name: "Saylla", province_id: "0801", department_id: "08"},
+	{id: "080108", name: "Wanchaq", province_id: "0801", department_id: "08"},
+	{id: "080201", name: "Acomayo", province_id: "0802", department_id: "08"},
+	{id: "080202", name: "Acopia", province_id: "0802", department_id: "08"},
+	{id: "080203", name: "Acos", province_id: "0802", department_id: "08"},
+	{id: "080204", name: "Mosoc Llacta", province_id: "0802", department_id: "08"},
+	{id: "080205", name: "Pomacanchi", province_id: "0802", department_id: "08"},
+	{id: "080206", name: "Rondocan", province_id: "0802", department_id: "08"},
+	{id: "080207", name: "Sangarara", province_id: "0802", department_id: "08"},
+	{id: "080301", name: "Anta", province_id: "0803", department_id: "08"},
+	{id: "080302", name: "Ancahuasi", province_id: "0803", department_id: "08"},
+	{id: "080303", name: "Cachimayo", province_id: "0803", department_id: "08"},
+	{id: "080304", name: "Chinchaypujio", province_id: "0803", department_id: "08"},
+	{id: "080305", name: "Huarocondo", province_id: "0803", department_id: "08"},
+	{id: "080306", name: "Limatambo", province_id: "0803", department_id: "08"},
+	{id: "080307", name: "Mollepata", province_id: "0803", department_id: "08"},
+	{id: "080308", name: "Pucyura", province_id: "0803", department_id: "08"},
+	{id: "080309", name: "Zurite", province_id: "0803", department_id: "08"},
+	{id: "080401", name: "Calca", province_id: "0804", department_id: "08"},
+	{id: "080402", name: "Coya", province_id: "0804", department_id: "08"},
+	{id: "080403", name: "Lamay", province_id: "0804", department_id: "08"},
+	{id: "080404", name: "Lares", province_id: "0804", department_id: "08"},
+	{id: "080405", name: "Pisac", province_id: "0804", department_id: "08"},
+	{id: "080406", name: "San Salvador", province_id: "0804", department_id: "08"},
+	{id: "080407", name: "Taray", province_id: "0804", department_id: "08"},
+	{id: "080408", name: "Yanatile", province_id: "0804", department_id: "08"},
+	{id: "080501", name: "Yanaoca", province_id: "0805", department_id: "08"},
+	{id: "080502", name: "Checca", province_id: "0805", department_id: "08"},
+	{id: "080503", name: "Kunturkanki", province_id: "0805", department_id: "08"},
+	{id: "080504", name: "Langui", province_id: "0805", department_id: "08"},
+	{id: "080505", name: "Layo", province_id: "0805", department_id: "08"},
+	{id: "080506", name: "Pampamarca", province_id: "0805", department_id: "08"},
+	{id: "080507", name: "Quehue", province_id: "0805", department_id: "08"},
+	{id: "080508", name: "Tupac Amaru", province_id: "0805", department_id: "08"},
+	{id: "080601", name: "Sicuani", province_id: "0806", department_id: "08"},
+	{id: "080602", name: "Checacupe", province_id: "0806", department_id: "08"},
+	{id: "080603", name: "Combapata", province_id: "0806", department_id: "08"},
+	{id: "080604", name: "Marangani", province_id: "0806", department_id: "08"},
+	{id: "080605", name: "Pitumarca", province_id: "0806", department_id: "08"},
+	{id: "080606", name: "San Pablo", province_id: "0806", department_id: "08"},
+	{id: "080607", name: "San Pedro", province_id: "0806", department_id: "08"},
+	{id: "080608", name: "Tinta", province_id: "0806", department_id: "08"},
+	{id: "080701", name: "Santo Tomas", province_id: "0807", department_id: "08"},
+	{id: "080702", name: "Capacmarca", province_id: "0807", department_id: "08"},
+	{id: "080703", name: "Chamaca", province_id: "0807", department_id: "08"},
+	{id: "080704", name: "Colquemarca", province_id: "0807", department_id: "08"},
+	{id: "080705", name: "Livitaca", province_id: "0807", department_id: "08"},
+	{id: "080706", name: "Llusco", province_id: "0807", department_id: "08"},
+	{id: "080707", name: "Qui\u00f1ota", province_id: "0807", department_id: "08"},
+	{id: "080708", name: "Velille", province_id: "0807", department_id: "08"},
+	{id: "080801", name: "Espinar", province_id: "0808", department_id: "08"},
+	{id: "080802", name: "Condoroma", province_id: "0808", department_id: "08"},
+	{id: "080803", name: "Coporaque", province_id: "0808", department_id: "08"},
+	{id: "080804", name: "Ocoruro", province_id: "0808", department_id: "08"},
+	{id: "080805", name: "Pallpata", province_id: "0808", department_id: "08"},
+	{id: "080806", name: "Pichigua", province_id: "0808", department_id: "08"},
+	{id: "080807", name: "Suyckutambo", province_id: "0808", department_id: "08"},
+	{id: "080808", name: "Alto Pichigua", province_id: "0808", department_id: "08"},
+	{id: "080901", name: "Santa Ana", province_id: "0809", department_id: "08"},
+	{id: "080902", name: "Echarate", province_id: "0809", department_id: "08"},
+	{id: "080903", name: "Huayopata", province_id: "0809", department_id: "08"},
+	{id: "080904", name: "Maranura", province_id: "0809", department_id: "08"},
+	{id: "080905", name: "Ocobamba", province_id: "0809", department_id: "08"},
+	{id: "080906", name: "Quellouno", province_id: "0809", department_id: "08"},
+	{id: "080907", name: "Kimbiri", province_id: "0809", department_id: "08"},
+	{id: "080908", name: "Santa Teresa", province_id: "0809", department_id: "08"},
+	{id: "080909", name: "Vilcabamba", province_id: "0809", department_id: "08"},
+	{id: "080910", name: "Pichari", province_id: "0809", department_id: "08"},
+	{id: "080911", name: "Inkawasi", province_id: "0809", department_id: "08"},
+	{id: "080912", name: "Villa Virgen", province_id: "0809", department_id: "08"},
+	{id: "080913", name: "Villa Kintiarina", province_id: "0809", department_id: "08"},
+	{id: "080914", name: "Megantoni", province_id: "0809", department_id: "08"},
+	{id: "081001", name: "Paruro", province_id: "0810", department_id: "08"},
+	{id: "081002", name: "Accha", province_id: "0810", department_id: "08"},
+	{id: "081003", name: "Ccapi", province_id: "0810", department_id: "08"},
+	{id: "081004", name: "Colcha", province_id: "0810", department_id: "08"},
+	{id: "081005", name: "Huanoquite", province_id: "0810", department_id: "08"},
+	{id: "081006", name: "Omacha\u00e7", province_id: "0810", department_id: "08"},
+	{id: "081007", name: "Paccaritambo", province_id: "0810", department_id: "08"},
+	{id: "081008", name: "Pillpinto", province_id: "0810", department_id: "08"},
+	{id: "081009", name: "Yaurisque", province_id: "0810", department_id: "08"},
+	{id: "081101", name: "Paucartambo", province_id: "0811", department_id: "08"},
+	{id: "081102", name: "Caicay", province_id: "0811", department_id: "08"},
+	{id: "081103", name: "Challabamba", province_id: "0811", department_id: "08"},
+	{id: "081104", name: "Colquepata", province_id: "0811", department_id: "08"},
+	{id: "081105", name: "Huancarani", province_id: "0811", department_id: "08"},
+	{id: "081106", name: "Kos\u00f1ipata", province_id: "0811", department_id: "08"},
+	{id: "081201", name: "Urcos", province_id: "0812", department_id: "08"},
+	{id: "081202", name: "Andahuaylillas", province_id: "0812", department_id: "08"},
+	{id: "081203", name: "Camanti", province_id: "0812", department_id: "08"},
+	{id: "081204", name: "Ccarhuayo", province_id: "0812", department_id: "08"},
+	{id: "081205", name: "Ccatca", province_id: "0812", department_id: "08"},
+	{id: "081206", name: "Cusipata", province_id: "0812", department_id: "08"},
+	{id: "081207", name: "Huaro", province_id: "0812", department_id: "08"},
+	{id: "081208", name: "Lucre", province_id: "0812", department_id: "08"},
+	{id: "081209", name: "Marcapata", province_id: "0812", department_id: "08"},
+	{id: "081210", name: "Ocongate", province_id: "0812", department_id: "08"},
+	{id: "081211", name: "Oropesa", province_id: "0812", department_id: "08"},
+	{id: "081212", name: "Quiquijana", province_id: "0812", department_id: "08"},
+	{id: "081301", name: "Urubamba", province_id: "0813", department_id: "08"},
+	{id: "081302", name: "Chinchero", province_id: "0813", department_id: "08"},
+	{id: "081303", name: "Huayllabamba", province_id: "0813", department_id: "08"},
+	{id: "081304", name: "Machupicchu", province_id: "0813", department_id: "08"},
+	{id: "081305", name: "Maras", province_id: "0813", department_id: "08"},
+	{id: "081306", name: "Ollantaytambo", province_id: "0813", department_id: "08"},
+	{id: "081307", name: "Yucay", province_id: "0813", department_id: "08"},
+	{id: "090101", name: "Huancavelica", province_id: "0901", department_id: "09"},
+	{id: "090102", name: "Acobambilla", province_id: "0901", department_id: "09"},
+	{id: "090103", name: "Acoria", province_id: "0901", department_id: "09"},
+	{id: "090104", name: "Conayca", province_id: "0901", department_id: "09"},
+	{id: "090105", name: "Cuenca", province_id: "0901", department_id: "09"},
+	{id: "090106", name: "Huachocolpa", province_id: "0901", department_id: "09"},
+	{id: "090107", name: "Huayllahuara", province_id: "0901", department_id: "09"},
+	{id: "090108", name: "Izcuchaca", province_id: "0901", department_id: "09"},
+	{id: "090109", name: "Laria", province_id: "0901", department_id: "09"},
+	{id: "090110", name: "Manta", province_id: "0901", department_id: "09"},
+	{id: "090111", name: "Mariscal C\u00e1ceres", province_id: "0901", department_id: "09"},
+	{id: "090112", name: "Moya", province_id: "0901", department_id: "09"},
+	{id: "090113", name: "Nuevo Occoro", province_id: "0901", department_id: "09"},
+	{id: "090114", name: "Palca", province_id: "0901", department_id: "09"},
+	{id: "090115", name: "Pilchaca", province_id: "0901", department_id: "09"},
+	{id: "090116", name: "Vilca", province_id: "0901", department_id: "09"},
+	{id: "090117", name: "Yauli", province_id: "0901", department_id: "09"},
+	{id: "090118", name: "Ascensi\u00f3n", province_id: "0901", department_id: "09"},
+	{id: "090119", name: "Huando", province_id: "0901", department_id: "09"},
+	{id: "090201", name: "Acobamba", province_id: "0902", department_id: "09"},
+	{id: "090202", name: "Andabamba", province_id: "0902", department_id: "09"},
+	{id: "090203", name: "Anta", province_id: "0902", department_id: "09"},
+	{id: "090204", name: "Caja", province_id: "0902", department_id: "09"},
+	{id: "090205", name: "Marcas", province_id: "0902", department_id: "09"},
+	{id: "090206", name: "Paucara", province_id: "0902", department_id: "09"},
+	{id: "090207", name: "Pomacocha", province_id: "0902", department_id: "09"},
+	{id: "090208", name: "Rosario", province_id: "0902", department_id: "09"},
+	{id: "090301", name: "Lircay", province_id: "0903", department_id: "09"},
+	{id: "090302", name: "Anchonga", province_id: "0903", department_id: "09"},
+	{id: "090303", name: "Callanmarca", province_id: "0903", department_id: "09"},
+	{id: "090304", name: "Ccochaccasa", province_id: "0903", department_id: "09"},
+	{id: "090305", name: "Chincho", province_id: "0903", department_id: "09"},
+	{id: "090306", name: "Congalla", province_id: "0903", department_id: "09"},
+	{id: "090307", name: "Huanca-Huanca", province_id: "0903", department_id: "09"},
+	{id: "090308", name: "Huayllay Grande", province_id: "0903", department_id: "09"},
+	{id: "090309", name: "Julcamarca", province_id: "0903", department_id: "09"},
+	{id: "090310", name: "San Antonio de Antaparco", province_id: "0903", department_id: "09"},
+	{id: "090311", name: "Santo Tomas de Pata", province_id: "0903", department_id: "09"},
+	{id: "090312", name: "Secclla", province_id: "0903", department_id: "09"},
+	{id: "090401", name: "Castrovirreyna", province_id: "0904", department_id: "09"},
+	{id: "090402", name: "Arma", province_id: "0904", department_id: "09"},
+	{id: "090403", name: "Aurahua", province_id: "0904", department_id: "09"},
+	{id: "090404", name: "Capillas", province_id: "0904", department_id: "09"},
+	{id: "090405", name: "Chupamarca", province_id: "0904", department_id: "09"},
+	{id: "090406", name: "Cocas", province_id: "0904", department_id: "09"},
+	{id: "090407", name: "Huachos", province_id: "0904", department_id: "09"},
+	{id: "090408", name: "Huamatambo", province_id: "0904", department_id: "09"},
+	{id: "090409", name: "Mollepampa", province_id: "0904", department_id: "09"},
+	{id: "090410", name: "San Juan", province_id: "0904", department_id: "09"},
+	{id: "090411", name: "Santa Ana", province_id: "0904", department_id: "09"},
+	{id: "090412", name: "Tantara", province_id: "0904", department_id: "09"},
+	{id: "090413", name: "Ticrapo", province_id: "0904", department_id: "09"},
+	{id: "090501", name: "Churcampa", province_id: "0905", department_id: "09"},
+	{id: "090502", name: "Anco", province_id: "0905", department_id: "09"},
+	{id: "090503", name: "Chinchihuasi", province_id: "0905", department_id: "09"},
+	{id: "090504", name: "El Carmen", province_id: "0905", department_id: "09"},
+	{id: "090505", name: "La Merced", province_id: "0905", department_id: "09"},
+	{id: "090506", name: "Locroja", province_id: "0905", department_id: "09"},
+	{id: "090507", name: "Paucarbamba", province_id: "0905", department_id: "09"},
+	{id: "090508", name: "San Miguel de Mayocc", province_id: "0905", department_id: "09"},
+	{id: "090509", name: "San Pedro de Coris", province_id: "0905", department_id: "09"},
+	{id: "090510", name: "Pachamarca", province_id: "0905", department_id: "09"},
+	{id: "090511", name: "Cosme", province_id: "0905", department_id: "09"},
+	{id: "090601", name: "Huaytara", province_id: "0906", department_id: "09"},
+	{id: "090602", name: "Ayavi", province_id: "0906", department_id: "09"},
+	{id: "090603", name: "C\u00f3rdova", province_id: "0906", department_id: "09"},
+	{id: "090604", name: "Huayacundo Arma", province_id: "0906", department_id: "09"},
+	{id: "090605", name: "Laramarca", province_id: "0906", department_id: "09"},
+	{id: "090606", name: "Ocoyo", province_id: "0906", department_id: "09"},
+	{id: "090607", name: "Pilpichaca", province_id: "0906", department_id: "09"},
+	{id: "090608", name: "Querco", province_id: "0906", department_id: "09"},
+	{id: "090609", name: "Quito-Arma", province_id: "0906", department_id: "09"},
+	{id: "090610", name: "San Antonio de Cusicancha", province_id: "0906", department_id: "09"},
+	{id: "090611", name: "San Francisco de Sangayaico", province_id: "0906", department_id: "09"},
+	{id: "090612", name: "San Isidro", province_id: "0906", department_id: "09"},
+	{id: "090613", name: "Santiago de Chocorvos", province_id: "0906", department_id: "09"},
+	{id: "090614", name: "Santiago de Quirahuara", province_id: "0906", department_id: "09"},
+	{id: "090615", name: "Santo Domingo de Capillas", province_id: "0906", department_id: "09"},
+	{id: "090616", name: "Tambo", province_id: "0906", department_id: "09"},
+	{id: "090701", name: "Pampas", province_id: "0907", department_id: "09"},
+	{id: "090702", name: "Acostambo", province_id: "0907", department_id: "09"},
+	{id: "090703", name: "Acraquia", province_id: "0907", department_id: "09"},
+	{id: "090704", name: "Ahuaycha", province_id: "0907", department_id: "09"},
+	{id: "090705", name: "Colcabamba", province_id: "0907", department_id: "09"},
+	{id: "090706", name: "Daniel Hern\u00e1ndez", province_id: "0907", department_id: "09"},
+	{id: "090707", name: "Huachocolpa", province_id: "0907", department_id: "09"},
+	{id: "090709", name: "Huaribamba", province_id: "0907", department_id: "09"},
+	{id: "090710", name: "\u00d1ahuimpuquio", province_id: "0907", department_id: "09"},
+	{id: "090711", name: "Pazos", province_id: "0907", department_id: "09"},
+	{id: "090713", name: "Quishuar", province_id: "0907", department_id: "09"},
+	{id: "090714", name: "Salcabamba", province_id: "0907", department_id: "09"},
+	{id: "090715", name: "Salcahuasi", province_id: "0907", department_id: "09"},
+	{id: "090716", name: "San Marcos de Rocchac", province_id: "0907", department_id: "09"},
+	{id: "090717", name: "Surcubamba", province_id: "0907", department_id: "09"},
+	{id: "090718", name: "Tintay Puncu", province_id: "0907", department_id: "09"},
+	{id: "090719", name: "Quichuas", province_id: "0907", department_id: "09"},
+	{id: "090720", name: "Andaymarca", province_id: "0907", department_id: "09"},
+	{id: "090721", name: "Roble", province_id: "0907", department_id: "09"},
+	{id: "090722", name: "Pichos", province_id: "0907", department_id: "09"},
+	{id: "090723", name: "Santiago de Tucuma", province_id: "0907", department_id: "09"},
+	{id: "100101", name: "Huanuco", province_id: "1001", department_id: "10"},
+	{id: "100102", name: "Amarilis", province_id: "1001", department_id: "10"},
+	{id: "100103", name: "Chinchao", province_id: "1001", department_id: "10"},
+	{id: "100104", name: "Churubamba", province_id: "1001", department_id: "10"},
+	{id: "100105", name: "Margos", province_id: "1001", department_id: "10"},
+	{id: "100106", name: "Quisqui (Kichki)", province_id: "1001", department_id: "10"},
+	{id: "100107", name: "San Francisco de Cayran", province_id: "1001", department_id: "10"},
+	{id: "100108", name: "San Pedro de Chaulan", province_id: "1001", department_id: "10"},
+	{id: "100109", name: "Santa Mar\u00eda del Valle", province_id: "1001", department_id: "10"},
+	{id: "100110", name: "Yarumayo", province_id: "1001", department_id: "10"},
+	{id: "100111", name: "Pillco Marca", province_id: "1001", department_id: "10"},
+	{id: "100112", name: "Yacus", province_id: "1001", department_id: "10"},
+	{id: "100113", name: "San Pablo de Pillao", province_id: "1001", department_id: "10"},
+	{id: "100201", name: "Ambo", province_id: "1002", department_id: "10"},
+	{id: "100202", name: "Cayna", province_id: "1002", department_id: "10"},
+	{id: "100203", name: "Colpas", province_id: "1002", department_id: "10"},
+	{id: "100204", name: "Conchamarca", province_id: "1002", department_id: "10"},
+	{id: "100205", name: "Huacar", province_id: "1002", department_id: "10"},
+	{id: "100206", name: "San Francisco", province_id: "1002", department_id: "10"},
+	{id: "100207", name: "San Rafael", province_id: "1002", department_id: "10"},
+	{id: "100208", name: "Tomay Kichwa", province_id: "1002", department_id: "10"},
+	{id: "100301", name: "La Uni\u00f3n", province_id: "1003", department_id: "10"},
+	{id: "100307", name: "Chuquis", province_id: "1003", department_id: "10"},
+	{id: "100311", name: "Mar\u00edas", province_id: "1003", department_id: "10"},
+	{id: "100313", name: "Pachas", province_id: "1003", department_id: "10"},
+	{id: "100316", name: "Quivilla", province_id: "1003", department_id: "10"},
+	{id: "100317", name: "Ripan", province_id: "1003", department_id: "10"},
+	{id: "100321", name: "Shunqui", province_id: "1003", department_id: "10"},
+	{id: "100322", name: "Sillapata", province_id: "1003", department_id: "10"},
+	{id: "100323", name: "Yanas", province_id: "1003", department_id: "10"},
+	{id: "100401", name: "Huacaybamba", province_id: "1004", department_id: "10"},
+	{id: "100402", name: "Canchabamba", province_id: "1004", department_id: "10"},
+	{id: "100403", name: "Cochabamba", province_id: "1004", department_id: "10"},
+	{id: "100404", name: "Pinra", province_id: "1004", department_id: "10"},
+	{id: "100501", name: "Llata", province_id: "1005", department_id: "10"},
+	{id: "100502", name: "Arancay", province_id: "1005", department_id: "10"},
+	{id: "100503", name: "Chav\u00edn de Pariarca", province_id: "1005", department_id: "10"},
+	{id: "100504", name: "Jacas Grande", province_id: "1005", department_id: "10"},
+	{id: "100505", name: "Jircan", province_id: "1005", department_id: "10"},
+	{id: "100506", name: "Miraflores", province_id: "1005", department_id: "10"},
+	{id: "100507", name: "Monz\u00f3n", province_id: "1005", department_id: "10"},
+	{id: "100508", name: "Punchao", province_id: "1005", department_id: "10"},
+	{id: "100509", name: "Pu\u00f1os", province_id: "1005", department_id: "10"},
+	{id: "100510", name: "Singa", province_id: "1005", department_id: "10"},
+	{id: "100511", name: "Tantamayo", province_id: "1005", department_id: "10"},
+	{id: "100601", name: "Rupa-Rupa", province_id: "1006", department_id: "10"},
+	{id: "100602", name: "Daniel Alom\u00eda Robles", province_id: "1006", department_id: "10"},
+	{id: "100603", name: "Herm\u00edlio Valdizan", province_id: "1006", department_id: "10"},
+	{id: "100604", name: "Jos\u00e9 Crespo y Castillo", province_id: "1006", department_id: "10"},
+	{id: "100605", name: "Luyando", province_id: "1006", department_id: "10"},
+	{id: "100606", name: "Mariano Damaso Beraun", province_id: "1006", department_id: "10"},
+	{id: "100607", name: "Pucayacu", province_id: "1006", department_id: "10"},
+	{id: "100608", name: "Castillo Grande", province_id: "1006", department_id: "10"},
+	{id: "100609", name: "Pueblo Nuevo", province_id: "1006", department_id: "10"},
+	{id: "100610", name: "Santo Domingo de Anda", province_id: "1006", department_id: "10"},
+	{id: "100701", name: "Huacrachuco", province_id: "1007", department_id: "10"},
+	{id: "100702", name: "Cholon", province_id: "1007", department_id: "10"},
+	{id: "100703", name: "San Buenaventura", province_id: "1007", department_id: "10"},
+	{id: "100704", name: "La Morada", province_id: "1007", department_id: "10"},
+	{id: "100705", name: "Santa Rosa de Alto Yanajanca", province_id: "1007", department_id: "10"},
+	{id: "100801", name: "Panao", province_id: "1008", department_id: "10"},
+	{id: "100802", name: "Chaglla", province_id: "1008", department_id: "10"},
+	{id: "100803", name: "Molino", province_id: "1008", department_id: "10"},
+	{id: "100804", name: "Umari", province_id: "1008", department_id: "10"},
+	{id: "100901", name: "Puerto Inca", province_id: "1009", department_id: "10"},
+	{id: "100902", name: "Codo del Pozuzo", province_id: "1009", department_id: "10"},
+	{id: "100903", name: "Honoria", province_id: "1009", department_id: "10"},
+	{id: "100904", name: "Tournavista", province_id: "1009", department_id: "10"},
+	{id: "100905", name: "Yuyapichis", province_id: "1009", department_id: "10"},
+	{id: "101001", name: "Jes\u00fas", province_id: "1010", department_id: "10"},
+	{id: "101002", name: "Ba\u00f1os", province_id: "1010", department_id: "10"},
+	{id: "101003", name: "Jivia", province_id: "1010", department_id: "10"},
+	{id: "101004", name: "Queropalca", province_id: "1010", department_id: "10"},
+	{id: "101005", name: "Rondos", province_id: "1010", department_id: "10"},
+	{id: "101006", name: "San Francisco de As\u00eds", province_id: "1010", department_id: "10"},
+	{id: "101007", name: "San Miguel de Cauri", province_id: "1010", department_id: "10"},
+	{id: "101101", name: "Chavinillo", province_id: "1011", department_id: "10"},
+	{id: "101102", name: "Cahuac", province_id: "1011", department_id: "10"},
+	{id: "101103", name: "Chacabamba", province_id: "1011", department_id: "10"},
+	{id: "101104", name: "Aparicio Pomares", province_id: "1011", department_id: "10"},
+	{id: "101105", name: "Jacas Chico", province_id: "1011", department_id: "10"},
+	{id: "101106", name: "Obas", province_id: "1011", department_id: "10"},
+	{id: "101107", name: "Pampamarca", province_id: "1011", department_id: "10"},
+	{id: "101108", name: "Choras", province_id: "1011", department_id: "10"},
+	{id: "110101", name: "Ica", province_id: "1101", department_id: "11"},
+	{id: "110102", name: "La Tingui\u00f1a", province_id: "1101", department_id: "11"},
+	{id: "110103", name: "Los Aquijes", province_id: "1101", department_id: "11"},
+	{id: "110104", name: "Ocucaje", province_id: "1101", department_id: "11"},
+	{id: "110105", name: "Pachacutec", province_id: "1101", department_id: "11"},
+	{id: "110106", name: "Parcona", province_id: "1101", department_id: "11"},
+	{id: "110107", name: "Pueblo Nuevo", province_id: "1101", department_id: "11"},
+	{id: "110108", name: "Salas", province_id: "1101", department_id: "11"},
+	{id: "110109", name: "San Jos\u00e9 de Los Molinos", province_id: "1101", department_id: "11"},
+	{id: "110110", name: "San Juan Bautista", province_id: "1101", department_id: "11"},
+	{id: "110111", name: "Santiago", province_id: "1101", department_id: "11"},
+	{id: "110112", name: "Subtanjalla", province_id: "1101", department_id: "11"},
+	{id: "110113", name: "Tate", province_id: "1101", department_id: "11"},
+	{id: "110114", name: "Yauca del Rosario", province_id: "1101", department_id: "11"},
+	{id: "110201", name: "Chincha Alta", province_id: "1102", department_id: "11"},
+	{id: "110202", name: "Alto Laran", province_id: "1102", department_id: "11"},
+	{id: "110203", name: "Chavin", province_id: "1102", department_id: "11"},
+	{id: "110204", name: "Chincha Baja", province_id: "1102", department_id: "11"},
+	{id: "110205", name: "El Carmen", province_id: "1102", department_id: "11"},
+	{id: "110206", name: "Grocio Prado", province_id: "1102", department_id: "11"},
+	{id: "110207", name: "Pueblo Nuevo", province_id: "1102", department_id: "11"},
+	{id: "110208", name: "San Juan de Yanac", province_id: "1102", department_id: "11"},
+	{id: "110209", name: "San Pedro de Huacarpana", province_id: "1102", department_id: "11"},
+	{id: "110210", name: "Sunampe", province_id: "1102", department_id: "11"},
+	{id: "110211", name: "Tambo de Mora", province_id: "1102", department_id: "11"},
+	{id: "110301", name: "Nasca", province_id: "1103", department_id: "11"},
+	{id: "110302", name: "Changuillo", province_id: "1103", department_id: "11"},
+	{id: "110303", name: "El Ingenio", province_id: "1103", department_id: "11"},
+	{id: "110304", name: "Marcona", province_id: "1103", department_id: "11"},
+	{id: "110305", name: "Vista Alegre", province_id: "1103", department_id: "11"},
+	{id: "110401", name: "Palpa", province_id: "1104", department_id: "11"},
+	{id: "110402", name: "Llipata", province_id: "1104", department_id: "11"},
+	{id: "110403", name: "R\u00edo Grande", province_id: "1104", department_id: "11"},
+	{id: "110404", name: "Santa Cruz", province_id: "1104", department_id: "11"},
+	{id: "110405", name: "Tibillo", province_id: "1104", department_id: "11"},
+	{id: "110501", name: "Pisco", province_id: "1105", department_id: "11"},
+	{id: "110502", name: "Huancano", province_id: "1105", department_id: "11"},
+	{id: "110503", name: "Humay", province_id: "1105", department_id: "11"},
+	{id: "110504", name: "Independencia", province_id: "1105", department_id: "11"},
+	{id: "110505", name: "Paracas", province_id: "1105", department_id: "11"},
+	{id: "110506", name: "San Andr\u00e9s", province_id: "1105", department_id: "11"},
+	{id: "110507", name: "San Clemente", province_id: "1105", department_id: "11"},
+	{id: "110508", name: "Tupac Amaru Inca", province_id: "1105", department_id: "11"},
+	{id: "120101", name: "Huancayo", province_id: "1201", department_id: "12"},
+	{id: "120104", name: "Carhuacallanga", province_id: "1201", department_id: "12"},
+	{id: "120105", name: "Chacapampa", province_id: "1201", department_id: "12"},
+	{id: "120106", name: "Chicche", province_id: "1201", department_id: "12"},
+	{id: "120107", name: "Chilca", province_id: "1201", department_id: "12"},
+	{id: "120108", name: "Chongos Alto", province_id: "1201", department_id: "12"},
+	{id: "120111", name: "Chupuro", province_id: "1201", department_id: "12"},
+	{id: "120112", name: "Colca", province_id: "1201", department_id: "12"},
+	{id: "120113", name: "Cullhuas", province_id: "1201", department_id: "12"},
+	{id: "120114", name: "El Tambo", province_id: "1201", department_id: "12"},
+	{id: "120116", name: "Huacrapuquio", province_id: "1201", department_id: "12"},
+	{id: "120117", name: "Hualhuas", province_id: "1201", department_id: "12"},
+	{id: "120119", name: "Huancan", province_id: "1201", department_id: "12"},
+	{id: "120120", name: "Huasicancha", province_id: "1201", department_id: "12"},
+	{id: "120121", name: "Huayucachi", province_id: "1201", department_id: "12"},
+	{id: "120122", name: "Ingenio", province_id: "1201", department_id: "12"},
+	{id: "120124", name: "Pariahuanca", province_id: "1201", department_id: "12"},
+	{id: "120125", name: "Pilcomayo", province_id: "1201", department_id: "12"},
+	{id: "120126", name: "Pucara", province_id: "1201", department_id: "12"},
+	{id: "120127", name: "Quichuay", province_id: "1201", department_id: "12"},
+	{id: "120128", name: "Quilcas", province_id: "1201", department_id: "12"},
+	{id: "120129", name: "San Agust\u00edn", province_id: "1201", department_id: "12"},
+	{id: "120130", name: "San Jer\u00f3nimo de Tunan", province_id: "1201", department_id: "12"},
+	{id: "120132", name: "Sa\u00f1o", province_id: "1201", department_id: "12"},
+	{id: "120133", name: "Sapallanga", province_id: "1201", department_id: "12"},
+	{id: "120134", name: "Sicaya", province_id: "1201", department_id: "12"},
+	{id: "120135", name: "Santo Domingo de Acobamba", province_id: "1201", department_id: "12"},
+	{id: "120136", name: "Viques", province_id: "1201", department_id: "12"},
+	{id: "120201", name: "Concepci\u00f3n", province_id: "1202", department_id: "12"},
+	{id: "120202", name: "Aco", province_id: "1202", department_id: "12"},
+	{id: "120203", name: "Andamarca", province_id: "1202", department_id: "12"},
+	{id: "120204", name: "Chambara", province_id: "1202", department_id: "12"},
+	{id: "120205", name: "Cochas", province_id: "1202", department_id: "12"},
+	{id: "120206", name: "Comas", province_id: "1202", department_id: "12"},
+	{id: "120207", name: "Hero\u00ednas Toledo", province_id: "1202", department_id: "12"},
+	{id: "120208", name: "Manzanares", province_id: "1202", department_id: "12"},
+	{id: "120209", name: "Mariscal Castilla", province_id: "1202", department_id: "12"},
+	{id: "120210", name: "Matahuasi", province_id: "1202", department_id: "12"},
+	{id: "120211", name: "Mito", province_id: "1202", department_id: "12"},
+	{id: "120212", name: "Nueve de Julio", province_id: "1202", department_id: "12"},
+	{id: "120213", name: "Orcotuna", province_id: "1202", department_id: "12"},
+	{id: "120214", name: "San Jos\u00e9 de Quero", province_id: "1202", department_id: "12"},
+	{id: "120215", name: "Santa Rosa de Ocopa", province_id: "1202", department_id: "12"},
+	{id: "120301", name: "Chanchamayo", province_id: "1203", department_id: "12"},
+	{id: "120302", name: "Perene", province_id: "1203", department_id: "12"},
+	{id: "120303", name: "Pichanaqui", province_id: "1203", department_id: "12"},
+	{id: "120304", name: "San Luis de Shuaro", province_id: "1203", department_id: "12"},
+	{id: "120305", name: "San Ram\u00f3n", province_id: "1203", department_id: "12"},
+	{id: "120306", name: "Vitoc", province_id: "1203", department_id: "12"},
+	{id: "120401", name: "Jauja", province_id: "1204", department_id: "12"},
+	{id: "120402", name: "Acolla", province_id: "1204", department_id: "12"},
+	{id: "120403", name: "Apata", province_id: "1204", department_id: "12"},
+	{id: "120404", name: "Ataura", province_id: "1204", department_id: "12"},
+	{id: "120405", name: "Canchayllo", province_id: "1204", department_id: "12"},
+	{id: "120406", name: "Curicaca", province_id: "1204", department_id: "12"},
+	{id: "120407", name: "El Mantaro", province_id: "1204", department_id: "12"},
+	{id: "120408", name: "Huamali", province_id: "1204", department_id: "12"},
+	{id: "120409", name: "Huaripampa", province_id: "1204", department_id: "12"},
+	{id: "120410", name: "Huertas", province_id: "1204", department_id: "12"},
+	{id: "120411", name: "Janjaillo", province_id: "1204", department_id: "12"},
+	{id: "120412", name: "Julc\u00e1n", province_id: "1204", department_id: "12"},
+	{id: "120413", name: "Leonor Ord\u00f3\u00f1ez", province_id: "1204", department_id: "12"},
+	{id: "120414", name: "Llocllapampa", province_id: "1204", department_id: "12"},
+	{id: "120415", name: "Marco", province_id: "1204", department_id: "12"},
+	{id: "120416", name: "Masma", province_id: "1204", department_id: "12"},
+	{id: "120417", name: "Masma Chicche", province_id: "1204", department_id: "12"},
+	{id: "120418", name: "Molinos", province_id: "1204", department_id: "12"},
+	{id: "120419", name: "Monobamba", province_id: "1204", department_id: "12"},
+	{id: "120420", name: "Muqui", province_id: "1204", department_id: "12"},
+	{id: "120421", name: "Muquiyauyo", province_id: "1204", department_id: "12"},
+	{id: "120422", name: "Paca", province_id: "1204", department_id: "12"},
+	{id: "120423", name: "Paccha", province_id: "1204", department_id: "12"},
+	{id: "120424", name: "Pancan", province_id: "1204", department_id: "12"},
+	{id: "120425", name: "Parco", province_id: "1204", department_id: "12"},
+	{id: "120426", name: "Pomacancha", province_id: "1204", department_id: "12"},
+	{id: "120427", name: "Ricran", province_id: "1204", department_id: "12"},
+	{id: "120428", name: "San Lorenzo", province_id: "1204", department_id: "12"},
+	{id: "120429", name: "San Pedro de Chunan", province_id: "1204", department_id: "12"},
+	{id: "120430", name: "Sausa", province_id: "1204", department_id: "12"},
+	{id: "120431", name: "Sincos", province_id: "1204", department_id: "12"},
+	{id: "120432", name: "Tunan Marca", province_id: "1204", department_id: "12"},
+	{id: "120433", name: "Yauli", province_id: "1204", department_id: "12"},
+	{id: "120434", name: "Yauyos", province_id: "1204", department_id: "12"},
+	{id: "120501", name: "Junin", province_id: "1205", department_id: "12"},
+	{id: "120502", name: "Carhuamayo", province_id: "1205", department_id: "12"},
+	{id: "120503", name: "Ondores", province_id: "1205", department_id: "12"},
+	{id: "120504", name: "Ulcumayo", province_id: "1205", department_id: "12"},
+	{id: "120601", name: "Satipo", province_id: "1206", department_id: "12"},
+	{id: "120602", name: "Coviriali", province_id: "1206", department_id: "12"},
+	{id: "120603", name: "Llaylla", province_id: "1206", department_id: "12"},
+	{id: "120604", name: "Mazamari", province_id: "1206", department_id: "12"},
+	{id: "120605", name: "Pampa Hermosa", province_id: "1206", department_id: "12"},
+	{id: "120606", name: "Pangoa", province_id: "1206", department_id: "12"},
+	{id: "120607", name: "R\u00edo Negro", province_id: "1206", department_id: "12"},
+	{id: "120608", name: "R\u00edo Tambo", province_id: "1206", department_id: "12"},
+	{id: "120609", name: "Vizcatan del Ene", province_id: "1206", department_id: "12"},
+	{id: "120701", name: "Tarma", province_id: "1207", department_id: "12"},
+	{id: "120702", name: "Acobamba", province_id: "1207", department_id: "12"},
+	{id: "120703", name: "Huaricolca", province_id: "1207", department_id: "12"},
+	{id: "120704", name: "Huasahuasi", province_id: "1207", department_id: "12"},
+	{id: "120705", name: "La Uni\u00f3n", province_id: "1207", department_id: "12"},
+	{id: "120706", name: "Palca", province_id: "1207", department_id: "12"},
+	{id: "120707", name: "Palcamayo", province_id: "1207", department_id: "12"},
+	{id: "120708", name: "San Pedro de Cajas", province_id: "1207", department_id: "12"},
+	{id: "120709", name: "Tapo", province_id: "1207", department_id: "12"},
+	{id: "120801", name: "La Oroya", province_id: "1208", department_id: "12"},
+	{id: "120802", name: "Chacapalpa", province_id: "1208", department_id: "12"},
+	{id: "120803", name: "Huay-Huay", province_id: "1208", department_id: "12"},
+	{id: "120804", name: "Marcapomacocha", province_id: "1208", department_id: "12"},
+	{id: "120805", name: "Morococha", province_id: "1208", department_id: "12"},
+	{id: "120806", name: "Paccha", province_id: "1208", department_id: "12"},
+	{id: "120807", name: "Santa B\u00e1rbara de Carhuacayan", province_id: "1208", department_id: "12"},
+	{id: "120808", name: "Santa Rosa de Sacco", province_id: "1208", department_id: "12"},
+	{id: "120809", name: "Suitucancha", province_id: "1208", department_id: "12"},
+	{id: "120810", name: "Yauli", province_id: "1208", department_id: "12"},
+	{id: "120901", name: "Chupaca", province_id: "1209", department_id: "12"},
+	{id: "120902", name: "Ahuac", province_id: "1209", department_id: "12"},
+	{id: "120903", name: "Chongos Bajo", province_id: "1209", department_id: "12"},
+	{id: "120904", name: "Huachac", province_id: "1209", department_id: "12"},
+	{id: "120905", name: "Huamancaca Chico", province_id: "1209", department_id: "12"},
+	{id: "120906", name: "San Juan de Iscos", province_id: "1209", department_id: "12"},
+	{id: "120907", name: "San Juan de Jarpa", province_id: "1209", department_id: "12"},
+	{id: "120908", name: "Tres de Diciembre", province_id: "1209", department_id: "12"},
+	{id: "120909", name: "Yanacancha", province_id: "1209", department_id: "12"},
+	{id: "130101", name: "Trujillo", province_id: "1301", department_id: "13"},
+	{id: "130102", name: "El Porvenir", province_id: "1301", department_id: "13"},
+	{id: "130103", name: "Florencia de Mora", province_id: "1301", department_id: "13"},
+	{id: "130104", name: "Huanchaco", province_id: "1301", department_id: "13"},
+	{id: "130105", name: "La Esperanza", province_id: "1301", department_id: "13"},
+	{id: "130106", name: "Laredo", province_id: "1301", department_id: "13"},
+	{id: "130107", name: "Moche", province_id: "1301", department_id: "13"},
+	{id: "130108", name: "Poroto", province_id: "1301", department_id: "13"},
+	{id: "130109", name: "Salaverry", province_id: "1301", department_id: "13"},
+	{id: "130110", name: "Simbal", province_id: "1301", department_id: "13"},
+	{id: "130111", name: "Victor Larco Herrera", province_id: "1301", department_id: "13"},
+	{id: "130201", name: "Ascope", province_id: "1302", department_id: "13"},
+	{id: "130202", name: "Chicama", province_id: "1302", department_id: "13"},
+	{id: "130203", name: "Chocope", province_id: "1302", department_id: "13"},
+	{id: "130204", name: "Magdalena de Cao", province_id: "1302", department_id: "13"},
+	{id: "130205", name: "Paijan", province_id: "1302", department_id: "13"},
+	{id: "130206", name: "R\u00e1zuri", province_id: "1302", department_id: "13"},
+	{id: "130207", name: "Santiago de Cao", province_id: "1302", department_id: "13"},
+	{id: "130208", name: "Casa Grande", province_id: "1302", department_id: "13"},
+	{id: "130301", name: "Bol\u00edvar", province_id: "1303", department_id: "13"},
+	{id: "130302", name: "Bambamarca", province_id: "1303", department_id: "13"},
+	{id: "130303", name: "Condormarca", province_id: "1303", department_id: "13"},
+	{id: "130304", name: "Longotea", province_id: "1303", department_id: "13"},
+	{id: "130305", name: "Uchumarca", province_id: "1303", department_id: "13"},
+	{id: "130306", name: "Ucuncha", province_id: "1303", department_id: "13"},
+	{id: "130401", name: "Chepen", province_id: "1304", department_id: "13"},
+	{id: "130402", name: "Pacanga", province_id: "1304", department_id: "13"},
+	{id: "130403", name: "Pueblo Nuevo", province_id: "1304", department_id: "13"},
+	{id: "130501", name: "Julcan", province_id: "1305", department_id: "13"},
+	{id: "130502", name: "Calamarca", province_id: "1305", department_id: "13"},
+	{id: "130503", name: "Carabamba", province_id: "1305", department_id: "13"},
+	{id: "130504", name: "Huaso", province_id: "1305", department_id: "13"},
+	{id: "130601", name: "Otuzco", province_id: "1306", department_id: "13"},
+	{id: "130602", name: "Agallpampa", province_id: "1306", department_id: "13"},
+	{id: "130604", name: "Charat", province_id: "1306", department_id: "13"},
+	{id: "130605", name: "Huaranchal", province_id: "1306", department_id: "13"},
+	{id: "130606", name: "La Cuesta", province_id: "1306", department_id: "13"},
+	{id: "130608", name: "Mache", province_id: "1306", department_id: "13"},
+	{id: "130610", name: "Paranday", province_id: "1306", department_id: "13"},
+	{id: "130611", name: "Salpo", province_id: "1306", department_id: "13"},
+	{id: "130613", name: "Sinsicap", province_id: "1306", department_id: "13"},
+	{id: "130614", name: "Usquil", province_id: "1306", department_id: "13"},
+	{id: "130701", name: "San Pedro de Lloc", province_id: "1307", department_id: "13"},
+	{id: "130702", name: "Guadalupe", province_id: "1307", department_id: "13"},
+	{id: "130703", name: "Jequetepeque", province_id: "1307", department_id: "13"},
+	{id: "130704", name: "Pacasmayo", province_id: "1307", department_id: "13"},
+	{id: "130705", name: "San Jos\u00e9", province_id: "1307", department_id: "13"},
+	{id: "130801", name: "Tayabamba", province_id: "1308", department_id: "13"},
+	{id: "130802", name: "Buldibuyo", province_id: "1308", department_id: "13"},
+	{id: "130803", name: "Chillia", province_id: "1308", department_id: "13"},
+	{id: "130804", name: "Huancaspata", province_id: "1308", department_id: "13"},
+	{id: "130805", name: "Huaylillas", province_id: "1308", department_id: "13"},
+	{id: "130806", name: "Huayo", province_id: "1308", department_id: "13"},
+	{id: "130807", name: "Ongon", province_id: "1308", department_id: "13"},
+	{id: "130808", name: "Parcoy", province_id: "1308", department_id: "13"},
+	{id: "130809", name: "Pataz", province_id: "1308", department_id: "13"},
+	{id: "130810", name: "Pias", province_id: "1308", department_id: "13"},
+	{id: "130811", name: "Santiago de Challas", province_id: "1308", department_id: "13"},
+	{id: "130812", name: "Taurija", province_id: "1308", department_id: "13"},
+	{id: "130813", name: "Urpay", province_id: "1308", department_id: "13"},
+	{id: "130901", name: "Huamachuco", province_id: "1309", department_id: "13"},
+	{id: "130902", name: "Chugay", province_id: "1309", department_id: "13"},
+	{id: "130903", name: "Cochorco", province_id: "1309", department_id: "13"},
+	{id: "130904", name: "Curgos", province_id: "1309", department_id: "13"},
+	{id: "130905", name: "Marcabal", province_id: "1309", department_id: "13"},
+	{id: "130906", name: "Sanagoran", province_id: "1309", department_id: "13"},
+	{id: "130907", name: "Sarin", province_id: "1309", department_id: "13"},
+	{id: "130908", name: "Sartimbamba", province_id: "1309", department_id: "13"},
+	{id: "131001", name: "Santiago de Chuco", province_id: "1310", department_id: "13"},
+	{id: "131002", name: "Angasmarca", province_id: "1310", department_id: "13"},
+	{id: "131003", name: "Cachicadan", province_id: "1310", department_id: "13"},
+	{id: "131004", name: "Mollebamba", province_id: "1310", department_id: "13"},
+	{id: "131005", name: "Mollepata", province_id: "1310", department_id: "13"},
+	{id: "131006", name: "Quiruvilca", province_id: "1310", department_id: "13"},
+	{id: "131007", name: "Santa Cruz de Chuca", province_id: "1310", department_id: "13"},
+	{id: "131008", name: "Sitabamba", province_id: "1310", department_id: "13"},
+	{id: "131101", name: "Cascas", province_id: "1311", department_id: "13"},
+	{id: "131102", name: "Lucma", province_id: "1311", department_id: "13"},
+	{id: "131103", name: "Marmot", province_id: "1311", department_id: "13"},
+	{id: "131104", name: "Sayapullo", province_id: "1311", department_id: "13"},
+	{id: "131201", name: "Viru", province_id: "1312", department_id: "13"},
+	{id: "131202", name: "Chao", province_id: "1312", department_id: "13"},
+	{id: "131203", name: "Guadalupito", province_id: "1312", department_id: "13"},
+	{id: "140101", name: "Chiclayo", province_id: "1401", department_id: "14"},
+	{id: "140102", name: "Chongoyape", province_id: "1401", department_id: "14"},
+	{id: "140103", name: "Eten", province_id: "1401", department_id: "14"},
+	{id: "140104", name: "Eten Puerto", province_id: "1401", department_id: "14"},
+	{id: "140105", name: "Jos\u00e9 Leonardo Ortiz", province_id: "1401", department_id: "14"},
+	{id: "140106", name: "La Victoria", province_id: "1401", department_id: "14"},
+	{id: "140107", name: "Lagunas", province_id: "1401", department_id: "14"},
+	{id: "140108", name: "Monsefu", province_id: "1401", department_id: "14"},
+	{id: "140109", name: "Nueva Arica", province_id: "1401", department_id: "14"},
+	{id: "140110", name: "Oyotun", province_id: "1401", department_id: "14"},
+	{id: "140111", name: "Picsi", province_id: "1401", department_id: "14"},
+	{id: "140112", name: "Pimentel", province_id: "1401", department_id: "14"},
+	{id: "140113", name: "Reque", province_id: "1401", department_id: "14"},
+	{id: "140114", name: "Santa Rosa", province_id: "1401", department_id: "14"},
+	{id: "140115", name: "Sa\u00f1a", province_id: "1401", department_id: "14"},
+	{id: "140116", name: "Cayalti", province_id: "1401", department_id: "14"},
+	{id: "140117", name: "Patapo", province_id: "1401", department_id: "14"},
+	{id: "140118", name: "Pomalca", province_id: "1401", department_id: "14"},
+	{id: "140119", name: "Pucala", province_id: "1401", department_id: "14"},
+	{id: "140120", name: "Tuman", province_id: "1401", department_id: "14"},
+	{id: "140201", name: "Ferre\u00f1afe", province_id: "1402", department_id: "14"},
+	{id: "140202", name: "Ca\u00f1aris", province_id: "1402", department_id: "14"},
+	{id: "140203", name: "Incahuasi", province_id: "1402", department_id: "14"},
+	{id: "140204", name: "Manuel Antonio Mesones Muro", province_id: "1402", department_id: "14"},
+	{id: "140205", name: "Pitipo", province_id: "1402", department_id: "14"},
+	{id: "140206", name: "Pueblo Nuevo", province_id: "1402", department_id: "14"},
+	{id: "140301", name: "Lambayeque", province_id: "1403", department_id: "14"},
+	{id: "140302", name: "Chochope", province_id: "1403", department_id: "14"},
+	{id: "140303", name: "Illimo", province_id: "1403", department_id: "14"},
+	{id: "140304", name: "Jayanca", province_id: "1403", department_id: "14"},
+	{id: "140305", name: "Mochumi", province_id: "1403", department_id: "14"},
+	{id: "140306", name: "Morrope", province_id: "1403", department_id: "14"},
+	{id: "140307", name: "Motupe", province_id: "1403", department_id: "14"},
+	{id: "140308", name: "Olmos", province_id: "1403", department_id: "14"},
+	{id: "140309", name: "Pacora", province_id: "1403", department_id: "14"},
+	{id: "140310", name: "Salas", province_id: "1403", department_id: "14"},
+	{id: "140311", name: "San Jos\u00e9", province_id: "1403", department_id: "14"},
+	{id: "140312", name: "Tucume", province_id: "1403", department_id: "14"},
+	{id: "150101", name: "Lima", province_id: "1501", department_id: "15"},
+	{id: "150102", name: "Anc\u00f3n", province_id: "1501", department_id: "15"},
+	{id: "150103", name: "Ate", province_id: "1501", department_id: "15"},
+	{id: "150104", name: "Barranco", province_id: "1501", department_id: "15"},
+	{id: "150105", name: "Bre\u00f1a", province_id: "1501", department_id: "15"},
+	{id: "150106", name: "Carabayllo", province_id: "1501", department_id: "15"},
+	{id: "150107", name: "Chaclacayo", province_id: "1501", department_id: "15"},
+	{id: "150108", name: "Chorrillos", province_id: "1501", department_id: "15"},
+	{id: "150109", name: "Cieneguilla", province_id: "1501", department_id: "15"},
+	{id: "150110", name: "Comas", province_id: "1501", department_id: "15"},
+	{id: "150111", name: "El Agustino", province_id: "1501", department_id: "15"},
+	{id: "150112", name: "Independencia", province_id: "1501", department_id: "15"},
+	{id: "150113", name: "Jes\u00fas Mar\u00eda", province_id: "1501", department_id: "15"},
+	{id: "150114", name: "La Molina", province_id: "1501", department_id: "15"},
+	{id: "150115", name: "La Victoria", province_id: "1501", department_id: "15"},
+	{id: "150116", name: "Lince", province_id: "1501", department_id: "15"},
+	{id: "150117", name: "Los Olivos", province_id: "1501", department_id: "15"},
+	{id: "150118", name: "Lurigancho", province_id: "1501", department_id: "15"},
+	{id: "150119", name: "Lurin", province_id: "1501", department_id: "15"},
+	{id: "150120", name: "Magdalena del Mar", province_id: "1501", department_id: "15"},
+	{id: "150121", name: "Pueblo Libre", province_id: "1501", department_id: "15"},
+	{id: "150122", name: "Miraflores", province_id: "1501", department_id: "15"},
+	{id: "150123", name: "Pachacamac", province_id: "1501", department_id: "15"},
+	{id: "150124", name: "Pucusana", province_id: "1501", department_id: "15"},
+	{id: "150125", name: "Puente Piedra", province_id: "1501", department_id: "15"},
+	{id: "150126", name: "Punta Hermosa", province_id: "1501", department_id: "15"},
+	{id: "150127", name: "Punta Negra", province_id: "1501", department_id: "15"},
+	{id: "150128", name: "R\u00edmac", province_id: "1501", department_id: "15"},
+	{id: "150129", name: "San Bartolo", province_id: "1501", department_id: "15"},
+	{id: "150130", name: "San Borja", province_id: "1501", department_id: "15"},
+	{id: "150131", name: "San Isidro", province_id: "1501", department_id: "15"},
+	{id: "150132", name: "San Juan de Lurigancho", province_id: "1501", department_id: "15"},
+	{id: "150133", name: "San Juan de Miraflores", province_id: "1501", department_id: "15"},
+	{id: "150134", name: "San Luis", province_id: "1501", department_id: "15"},
+	{id: "150135", name: "San Mart\u00edn de Porres", province_id: "1501", department_id: "15"},
+	{id: "150136", name: "San Miguel", province_id: "1501", department_id: "15"},
+	{id: "150137", name: "Santa Anita", province_id: "1501", department_id: "15"},
+	{id: "150138", name: "Santa Mar\u00eda del Mar", province_id: "1501", department_id: "15"},
+	{id: "150139", name: "Santa Rosa", province_id: "1501", department_id: "15"},
+	{id: "150140", name: "Santiago de Surco", province_id: "1501", department_id: "15"},
+	{id: "150141", name: "Surquillo", province_id: "1501", department_id: "15"},
+	{id: "150142", name: "Villa El Salvador", province_id: "1501", department_id: "15"},
+	{id: "150143", name: "Villa Mar\u00eda del Triunfo", province_id: "1501", department_id: "15"},
+	{id: "150201", name: "Barranca", province_id: "1502", department_id: "15"},
+	{id: "150202", name: "Paramonga", province_id: "1502", department_id: "15"},
+	{id: "150203", name: "Pativilca", province_id: "1502", department_id: "15"},
+	{id: "150204", name: "Supe", province_id: "1502", department_id: "15"},
+	{id: "150205", name: "Supe Puerto", province_id: "1502", department_id: "15"},
+	{id: "150301", name: "Cajatambo", province_id: "1503", department_id: "15"},
+	{id: "150302", name: "Copa", province_id: "1503", department_id: "15"},
+	{id: "150303", name: "Gorgor", province_id: "1503", department_id: "15"},
+	{id: "150304", name: "Huancapon", province_id: "1503", department_id: "15"},
+	{id: "150305", name: "Manas", province_id: "1503", department_id: "15"},
+	{id: "150401", name: "Canta", province_id: "1504", department_id: "15"},
+	{id: "150402", name: "Arahuay", province_id: "1504", department_id: "15"},
+	{id: "150403", name: "Huamantanga", province_id: "1504", department_id: "15"},
+	{id: "150404", name: "Huaros", province_id: "1504", department_id: "15"},
+	{id: "150405", name: "Lachaqui", province_id: "1504", department_id: "15"},
+	{id: "150406", name: "San Buenaventura", province_id: "1504", department_id: "15"},
+	{id: "150407", name: "Santa Rosa de Quives", province_id: "1504", department_id: "15"},
+	{id: "150501", name: "San Vicente de Ca\u00f1ete", province_id: "1505", department_id: "15"},
+	{id: "150502", name: "Asia", province_id: "1505", department_id: "15"},
+	{id: "150503", name: "Calango", province_id: "1505", department_id: "15"},
+	{id: "150504", name: "Cerro Azul", province_id: "1505", department_id: "15"},
+	{id: "150505", name: "Chilca", province_id: "1505", department_id: "15"},
+	{id: "150506", name: "Coayllo", province_id: "1505", department_id: "15"},
+	{id: "150507", name: "Imperial", province_id: "1505", department_id: "15"},
+	{id: "150508", name: "Lunahuana", province_id: "1505", department_id: "15"},
+	{id: "150509", name: "Mala", province_id: "1505", department_id: "15"},
+	{id: "150510", name: "Nuevo Imperial", province_id: "1505", department_id: "15"},
+	{id: "150511", name: "Pacaran", province_id: "1505", department_id: "15"},
+	{id: "150512", name: "Quilmana", province_id: "1505", department_id: "15"},
+	{id: "150513", name: "San Antonio", province_id: "1505", department_id: "15"},
+	{id: "150514", name: "San Luis", province_id: "1505", department_id: "15"},
+	{id: "150515", name: "Santa Cruz de Flores", province_id: "1505", department_id: "15"},
+	{id: "150516", name: "Z\u00fa\u00f1iga", province_id: "1505", department_id: "15"},
+	{id: "150601", name: "Huaral", province_id: "1506", department_id: "15"},
+	{id: "150602", name: "Atavillos Alto", province_id: "1506", department_id: "15"},
+	{id: "150603", name: "Atavillos Bajo", province_id: "1506", department_id: "15"},
+	{id: "150604", name: "Aucallama", province_id: "1506", department_id: "15"},
+	{id: "150605", name: "Chancay", province_id: "1506", department_id: "15"},
+	{id: "150606", name: "Ihuari", province_id: "1506", department_id: "15"},
+	{id: "150607", name: "Lampian", province_id: "1506", department_id: "15"},
+	{id: "150608", name: "Pacaraos", province_id: "1506", department_id: "15"},
+	{id: "150609", name: "San Miguel de Acos", province_id: "1506", department_id: "15"},
+	{id: "150610", name: "Santa Cruz de Andamarca", province_id: "1506", department_id: "15"},
+	{id: "150611", name: "Sumbilca", province_id: "1506", department_id: "15"},
+	{id: "150612", name: "Veintisiete de Noviembre", province_id: "1506", department_id: "15"},
+	{id: "150701", name: "Matucana", province_id: "1507", department_id: "15"},
+	{id: "150702", name: "Antioquia", province_id: "1507", department_id: "15"},
+	{id: "150703", name: "Callahuanca", province_id: "1507", department_id: "15"},
+	{id: "150704", name: "Carampoma", province_id: "1507", department_id: "15"},
+	{id: "150705", name: "Chicla", province_id: "1507", department_id: "15"},
+	{id: "150706", name: "Cuenca", province_id: "1507", department_id: "15"},
+	{id: "150707", name: "Huachupampa", province_id: "1507", department_id: "15"},
+	{id: "150708", name: "Huanza", province_id: "1507", department_id: "15"},
+	{id: "150709", name: "Huarochiri", province_id: "1507", department_id: "15"},
+	{id: "150710", name: "Lahuaytambo", province_id: "1507", department_id: "15"},
+	{id: "150711", name: "Langa", province_id: "1507", department_id: "15"},
+	{id: "150712", name: "Laraos", province_id: "1507", department_id: "15"},
+	{id: "150713", name: "Mariatana", province_id: "1507", department_id: "15"},
+	{id: "150714", name: "Ricardo Palma", province_id: "1507", department_id: "15"},
+	{id: "150715", name: "San Andr\u00e9s de Tupicocha", province_id: "1507", department_id: "15"},
+	{id: "150716", name: "San Antonio", province_id: "1507", department_id: "15"},
+	{id: "150717", name: "San Bartolom\u00e9", province_id: "1507", department_id: "15"},
+	{id: "150718", name: "San Damian", province_id: "1507", department_id: "15"},
+	{id: "150719", name: "San Juan de Iris", province_id: "1507", department_id: "15"},
+	{id: "150720", name: "San Juan de Tantaranche", province_id: "1507", department_id: "15"},
+	{id: "150721", name: "San Lorenzo de Quinti", province_id: "1507", department_id: "15"},
+	{id: "150722", name: "San Mateo", province_id: "1507", department_id: "15"},
+	{id: "150723", name: "San Mateo de Otao", province_id: "1507", department_id: "15"},
+	{id: "150724", name: "San Pedro de Casta", province_id: "1507", department_id: "15"},
+	{id: "150725", name: "San Pedro de Huancayre", province_id: "1507", department_id: "15"},
+	{id: "150726", name: "Sangallaya", province_id: "1507", department_id: "15"},
+	{id: "150727", name: "Santa Cruz de Cocachacra", province_id: "1507", department_id: "15"},
+	{id: "150728", name: "Santa Eulalia", province_id: "1507", department_id: "15"},
+	{id: "150729", name: "Santiago de Anchucaya", province_id: "1507", department_id: "15"},
+	{id: "150730", name: "Santiago de Tuna", province_id: "1507", department_id: "15"},
+	{id: "150731", name: "Santo Domingo de Los Olleros", province_id: "1507", department_id: "15"},
+	{id: "150732", name: "Surco", province_id: "1507", department_id: "15"},
+	{id: "150801", name: "Huacho", province_id: "1508", department_id: "15"},
+	{id: "150802", name: "Ambar", province_id: "1508", department_id: "15"},
+	{id: "150803", name: "Caleta de Carquin", province_id: "1508", department_id: "15"},
+	{id: "150804", name: "Checras", province_id: "1508", department_id: "15"},
+	{id: "150805", name: "Hualmay", province_id: "1508", department_id: "15"},
+	{id: "150806", name: "Huaura", province_id: "1508", department_id: "15"},
+	{id: "150807", name: "Leoncio Prado", province_id: "1508", department_id: "15"},
+	{id: "150808", name: "Paccho", province_id: "1508", department_id: "15"},
+	{id: "150809", name: "Santa Leonor", province_id: "1508", department_id: "15"},
+	{id: "150810", name: "Santa Mar\u00eda", province_id: "1508", department_id: "15"},
+	{id: "150811", name: "Sayan", province_id: "1508", department_id: "15"},
+	{id: "150812", name: "Vegueta", province_id: "1508", department_id: "15"},
+	{id: "150901", name: "Oyon", province_id: "1509", department_id: "15"},
+	{id: "150902", name: "Andajes", province_id: "1509", department_id: "15"},
+	{id: "150903", name: "Caujul", province_id: "1509", department_id: "15"},
+	{id: "150904", name: "Cochamarca", province_id: "1509", department_id: "15"},
+	{id: "150905", name: "Navan", province_id: "1509", department_id: "15"},
+	{id: "150906", name: "Pachangara", province_id: "1509", department_id: "15"},
+	{id: "151001", name: "Yauyos", province_id: "1510", department_id: "15"},
+	{id: "151002", name: "Alis", province_id: "1510", department_id: "15"},
+	{id: "151003", name: "Allauca", province_id: "1510", department_id: "15"},
+	{id: "151004", name: "Ayaviri", province_id: "1510", department_id: "15"},
+	{id: "151005", name: "Az\u00e1ngaro", province_id: "1510", department_id: "15"},
+	{id: "151006", name: "Cacra", province_id: "1510", department_id: "15"},
+	{id: "151007", name: "Carania", province_id: "1510", department_id: "15"},
+	{id: "151008", name: "Catahuasi", province_id: "1510", department_id: "15"},
+	{id: "151009", name: "Chocos", province_id: "1510", department_id: "15"},
+	{id: "151010", name: "Cochas", province_id: "1510", department_id: "15"},
+	{id: "151011", name: "Colonia", province_id: "1510", department_id: "15"},
+	{id: "151012", name: "Hongos", province_id: "1510", department_id: "15"},
+	{id: "151013", name: "Huampara", province_id: "1510", department_id: "15"},
+	{id: "151014", name: "Huancaya", province_id: "1510", department_id: "15"},
+	{id: "151015", name: "Huangascar", province_id: "1510", department_id: "15"},
+	{id: "151016", name: "Huantan", province_id: "1510", department_id: "15"},
+	{id: "151017", name: "Hua\u00f1ec", province_id: "1510", department_id: "15"},
+	{id: "151018", name: "Laraos", province_id: "1510", department_id: "15"},
+	{id: "151019", name: "Lincha", province_id: "1510", department_id: "15"},
+	{id: "151020", name: "Madean", province_id: "1510", department_id: "15"},
+	{id: "151021", name: "Miraflores", province_id: "1510", department_id: "15"},
+	{id: "151022", name: "Omas", province_id: "1510", department_id: "15"},
+	{id: "151023", name: "Putinza", province_id: "1510", department_id: "15"},
+	{id: "151024", name: "Quinches", province_id: "1510", department_id: "15"},
+	{id: "151025", name: "Quinocay", province_id: "1510", department_id: "15"},
+	{id: "151026", name: "San Joaqu\u00edn", province_id: "1510", department_id: "15"},
+	{id: "151027", name: "San Pedro de Pilas", province_id: "1510", department_id: "15"},
+	{id: "151028", name: "Tanta", province_id: "1510", department_id: "15"},
+	{id: "151029", name: "Tauripampa", province_id: "1510", department_id: "15"},
+	{id: "151030", name: "Tomas", province_id: "1510", department_id: "15"},
+	{id: "151031", name: "Tupe", province_id: "1510", department_id: "15"},
+	{id: "151032", name: "Vi\u00f1ac", province_id: "1510", department_id: "15"},
+	{id: "151033", name: "Vitis", province_id: "1510", department_id: "15"},
+	{id: "160101", name: "Iquitos", province_id: "1601", department_id: "16"},
+	{id: "160102", name: "Alto Nanay", province_id: "1601", department_id: "16"},
+	{id: "160103", name: "Fernando Lores", province_id: "1601", department_id: "16"},
+	{id: "160104", name: "Indiana", province_id: "1601", department_id: "16"},
+	{id: "160105", name: "Las Amazonas", province_id: "1601", department_id: "16"},
+	{id: "160106", name: "Mazan", province_id: "1601", department_id: "16"},
+	{id: "160107", name: "Napo", province_id: "1601", department_id: "16"},
+	{id: "160108", name: "Punchana", province_id: "1601", department_id: "16"},
+	{id: "160110", name: "Torres Causana", province_id: "1601", department_id: "16"},
+	{id: "160112", name: "Bel\u00e9n", province_id: "1601", department_id: "16"},
+	{id: "160113", name: "San Juan Bautista", province_id: "1601", department_id: "16"},
+	{id: "160201", name: "Yurimaguas", province_id: "1602", department_id: "16"},
+	{id: "160202", name: "Balsapuerto", province_id: "1602", department_id: "16"},
+	{id: "160205", name: "Jeberos", province_id: "1602", department_id: "16"},
+	{id: "160206", name: "Lagunas", province_id: "1602", department_id: "16"},
+	{id: "160210", name: "Santa Cruz", province_id: "1602", department_id: "16"},
+	{id: "160211", name: "Teniente Cesar L\u00f3pez Rojas", province_id: "1602", department_id: "16"},
+	{id: "160301", name: "Nauta", province_id: "1603", department_id: "16"},
+	{id: "160302", name: "Parinari", province_id: "1603", department_id: "16"},
+	{id: "160303", name: "Tigre", province_id: "1603", department_id: "16"},
+	{id: "160304", name: "Trompeteros", province_id: "1603", department_id: "16"},
+	{id: "160305", name: "Urarinas", province_id: "1603", department_id: "16"},
+	{id: "160401", name: "Ram\u00f3n Castilla", province_id: "1604", department_id: "16"},
+	{id: "160402", name: "Pebas", province_id: "1604", department_id: "16"},
+	{id: "160403", name: "Yavari", province_id: "1604", department_id: "16"},
+	{id: "160404", name: "San Pablo", province_id: "1604", department_id: "16"},
+	{id: "160501", name: "Requena", province_id: "1605", department_id: "16"},
+	{id: "160502", name: "Alto Tapiche", province_id: "1605", department_id: "16"},
+	{id: "160503", name: "Capelo", province_id: "1605", department_id: "16"},
+	{id: "160504", name: "Emilio San Mart\u00edn", province_id: "1605", department_id: "16"},
+	{id: "160505", name: "Maquia", province_id: "1605", department_id: "16"},
+	{id: "160506", name: "Puinahua", province_id: "1605", department_id: "16"},
+	{id: "160507", name: "Saquena", province_id: "1605", department_id: "16"},
+	{id: "160508", name: "Soplin", province_id: "1605", department_id: "16"},
+	{id: "160509", name: "Tapiche", province_id: "1605", department_id: "16"},
+	{id: "160510", name: "Jenaro Herrera", province_id: "1605", department_id: "16"},
+	{id: "160511", name: "Yaquerana", province_id: "1605", department_id: "16"},
+	{id: "160601", name: "Contamana", province_id: "1606", department_id: "16"},
+	{id: "160602", name: "Inahuaya", province_id: "1606", department_id: "16"},
+	{id: "160603", name: "Padre M\u00e1rquez", province_id: "1606", department_id: "16"},
+	{id: "160604", name: "Pampa Hermosa", province_id: "1606", department_id: "16"},
+	{id: "160605", name: "Sarayacu", province_id: "1606", department_id: "16"},
+	{id: "160606", name: "Vargas Guerra", province_id: "1606", department_id: "16"},
+	{id: "160701", name: "Barranca", province_id: "1607", department_id: "16"},
+	{id: "160702", name: "Cahuapanas", province_id: "1607", department_id: "16"},
+	{id: "160703", name: "Manseriche", province_id: "1607", department_id: "16"},
+	{id: "160704", name: "Morona", province_id: "1607", department_id: "16"},
+	{id: "160705", name: "Pastaza", province_id: "1607", department_id: "16"},
+	{id: "160706", name: "Andoas", province_id: "1607", department_id: "16"},
+	{id: "160801", name: "Putumayo", province_id: "1608", department_id: "16"},
+	{id: "160802", name: "Rosa Panduro", province_id: "1608", department_id: "16"},
+	{id: "160803", name: "Teniente Manuel Clavero", province_id: "1608", department_id: "16"},
+	{id: "160804", name: "Yaguas", province_id: "1608", department_id: "16"},
+	{id: "170101", name: "Tambopata", province_id: "1701", department_id: "17"},
+	{id: "170102", name: "Inambari", province_id: "1701", department_id: "17"},
+	{id: "170103", name: "Las Piedras", province_id: "1701", department_id: "17"},
+	{id: "170104", name: "Laberinto", province_id: "1701", department_id: "17"},
+	{id: "170201", name: "Manu", province_id: "1702", department_id: "17"},
+	{id: "170202", name: "Fitzcarrald", province_id: "1702", department_id: "17"},
+	{id: "170203", name: "Madre de Dios", province_id: "1702", department_id: "17"},
+	{id: "170204", name: "Huepetuhe", province_id: "1702", department_id: "17"},
+	{id: "170301", name: "I\u00f1apari", province_id: "1703", department_id: "17"},
+	{id: "170302", name: "Iberia", province_id: "1703", department_id: "17"},
+	{id: "170303", name: "Tahuamanu", province_id: "1703", department_id: "17"},
+	{id: "180101", name: "Moquegua", province_id: "1801", department_id: "18"},
+	{id: "180102", name: "Carumas", province_id: "1801", department_id: "18"},
+	{id: "180103", name: "Cuchumbaya", province_id: "1801", department_id: "18"},
+	{id: "180104", name: "Samegua", province_id: "1801", department_id: "18"},
+	{id: "180105", name: "San Crist\u00f3bal", province_id: "1801", department_id: "18"},
+	{id: "180106", name: "Torata", province_id: "1801", department_id: "18"},
+	{id: "180201", name: "Omate", province_id: "1802", department_id: "18"},
+	{id: "180202", name: "Chojata", province_id: "1802", department_id: "18"},
+	{id: "180203", name: "Coalaque", province_id: "1802", department_id: "18"},
+	{id: "180204", name: "Ichu\u00f1a", province_id: "1802", department_id: "18"},
+	{id: "180205", name: "La Capilla", province_id: "1802", department_id: "18"},
+	{id: "180206", name: "Lloque", province_id: "1802", department_id: "18"},
+	{id: "180207", name: "Matalaque", province_id: "1802", department_id: "18"},
+	{id: "180208", name: "Puquina", province_id: "1802", department_id: "18"},
+	{id: "180209", name: "Quinistaquillas", province_id: "1802", department_id: "18"},
+	{id: "180210", name: "Ubinas", province_id: "1802", department_id: "18"},
+	{id: "180211", name: "Yunga", province_id: "1802", department_id: "18"},
+	{id: "180301", name: "Ilo", province_id: "1803", department_id: "18"},
+	{id: "180302", name: "El Algarrobal", province_id: "1803", department_id: "18"},
+	{id: "180303", name: "Pacocha", province_id: "1803", department_id: "18"},
+	{id: "190101", name: "Chaupimarca", province_id: "1901", department_id: "19"},
+	{id: "190102", name: "Huachon", province_id: "1901", department_id: "19"},
+	{id: "190103", name: "Huariaca", province_id: "1901", department_id: "19"},
+	{id: "190104", name: "Huayllay", province_id: "1901", department_id: "19"},
+	{id: "190105", name: "Ninacaca", province_id: "1901", department_id: "19"},
+	{id: "190106", name: "Pallanchacra", province_id: "1901", department_id: "19"},
+	{id: "190107", name: "Paucartambo", province_id: "1901", department_id: "19"},
+	{id: "190108", name: "San Francisco de As\u00eds de Yarusyacan", province_id: "1901", department_id: "19"},
+	{id: "190109", name: "Simon Bol\u00edvar", province_id: "1901", department_id: "19"},
+	{id: "190110", name: "Ticlacayan", province_id: "1901", department_id: "19"},
+	{id: "190111", name: "Tinyahuarco", province_id: "1901", department_id: "19"},
+	{id: "190112", name: "Vicco", province_id: "1901", department_id: "19"},
+	{id: "190113", name: "Yanacancha", province_id: "1901", department_id: "19"},
+	{id: "190201", name: "Yanahuanca", province_id: "1902", department_id: "19"},
+	{id: "190202", name: "Chacayan", province_id: "1902", department_id: "19"},
+	{id: "190203", name: "Goyllarisquizga", province_id: "1902", department_id: "19"},
+	{id: "190204", name: "Paucar", province_id: "1902", department_id: "19"},
+	{id: "190205", name: "San Pedro de Pillao", province_id: "1902", department_id: "19"},
+	{id: "190206", name: "Santa Ana de Tusi", province_id: "1902", department_id: "19"},
+	{id: "190207", name: "Tapuc", province_id: "1902", department_id: "19"},
+	{id: "190208", name: "Vilcabamba", province_id: "1902", department_id: "19"},
+	{id: "190301", name: "Oxapampa", province_id: "1903", department_id: "19"},
+	{id: "190302", name: "Chontabamba", province_id: "1903", department_id: "19"},
+	{id: "190303", name: "Huancabamba", province_id: "1903", department_id: "19"},
+	{id: "190304", name: "Palcazu", province_id: "1903", department_id: "19"},
+	{id: "190305", name: "Pozuzo", province_id: "1903", department_id: "19"},
+	{id: "190306", name: "Puerto Berm\u00fadez", province_id: "1903", department_id: "19"},
+	{id: "190307", name: "Villa Rica", province_id: "1903", department_id: "19"},
+	{id: "190308", name: "Constituci\u00f3n", province_id: "1903", department_id: "19"},
+	{id: "200101", name: "Piura", province_id: "2001", department_id: "20"},
+	{id: "200104", name: "Castilla", province_id: "2001", department_id: "20"},
+	{id: "200105", name: "Catacaos", province_id: "2001", department_id: "20"},
+	{id: "200107", name: "Cura Mori", province_id: "2001", department_id: "20"},
+	{id: "200108", name: "El Tallan", province_id: "2001", department_id: "20"},
+	{id: "200109", name: "La Arena", province_id: "2001", department_id: "20"},
+	{id: "200110", name: "La Uni\u00f3n", province_id: "2001", department_id: "20"},
+	{id: "200111", name: "Las Lomas", province_id: "2001", department_id: "20"},
+	{id: "200114", name: "Tambo Grande", province_id: "2001", department_id: "20"},
+	{id: "200115", name: "Veintiseis de Octubre", province_id: "2001", department_id: "20"},
+	{id: "200201", name: "Ayabaca", province_id: "2002", department_id: "20"},
+	{id: "200202", name: "Frias", province_id: "2002", department_id: "20"},
+	{id: "200203", name: "Jilili", province_id: "2002", department_id: "20"},
+	{id: "200204", name: "Lagunas", province_id: "2002", department_id: "20"},
+	{id: "200205", name: "Montero", province_id: "2002", department_id: "20"},
+	{id: "200206", name: "Pacaipampa", province_id: "2002", department_id: "20"},
+	{id: "200207", name: "Paimas", province_id: "2002", department_id: "20"},
+	{id: "200208", name: "Sapillica", province_id: "2002", department_id: "20"},
+	{id: "200209", name: "Sicchez", province_id: "2002", department_id: "20"},
+	{id: "200210", name: "Suyo", province_id: "2002", department_id: "20"},
+	{id: "200301", name: "Huancabamba", province_id: "2003", department_id: "20"},
+	{id: "200302", name: "Canchaque", province_id: "2003", department_id: "20"},
+	{id: "200303", name: "El Carmen de la Frontera", province_id: "2003", department_id: "20"},
+	{id: "200304", name: "Huarmaca", province_id: "2003", department_id: "20"},
+	{id: "200305", name: "Lalaquiz", province_id: "2003", department_id: "20"},
+	{id: "200306", name: "San Miguel de El Faique", province_id: "2003", department_id: "20"},
+	{id: "200307", name: "Sondor", province_id: "2003", department_id: "20"},
+	{id: "200308", name: "Sondorillo", province_id: "2003", department_id: "20"},
+	{id: "200401", name: "Chulucanas", province_id: "2004", department_id: "20"},
+	{id: "200402", name: "Buenos Aires", province_id: "2004", department_id: "20"},
+	{id: "200403", name: "Chalaco", province_id: "2004", department_id: "20"},
+	{id: "200404", name: "La Matanza", province_id: "2004", department_id: "20"},
+	{id: "200405", name: "Morropon", province_id: "2004", department_id: "20"},
+	{id: "200406", name: "Salitral", province_id: "2004", department_id: "20"},
+	{id: "200407", name: "San Juan de Bigote", province_id: "2004", department_id: "20"},
+	{id: "200408", name: "Santa Catalina de Mossa", province_id: "2004", department_id: "20"},
+	{id: "200409", name: "Santo Domingo", province_id: "2004", department_id: "20"},
+	{id: "200410", name: "Yamango", province_id: "2004", department_id: "20"},
+	{id: "200501", name: "Paita", province_id: "2005", department_id: "20"},
+	{id: "200502", name: "Amotape", province_id: "2005", department_id: "20"},
+	{id: "200503", name: "Arenal", province_id: "2005", department_id: "20"},
+	{id: "200504", name: "Colan", province_id: "2005", department_id: "20"},
+	{id: "200505", name: "La Huaca", province_id: "2005", department_id: "20"},
+	{id: "200506", name: "Tamarindo", province_id: "2005", department_id: "20"},
+	{id: "200507", name: "Vichayal", province_id: "2005", department_id: "20"},
+	{id: "200601", name: "Sullana", province_id: "2006", department_id: "20"},
+	{id: "200602", name: "Bellavista", province_id: "2006", department_id: "20"},
+	{id: "200603", name: "Ignacio Escudero", province_id: "2006", department_id: "20"},
+	{id: "200604", name: "Lancones", province_id: "2006", department_id: "20"},
+	{id: "200605", name: "Marcavelica", province_id: "2006", department_id: "20"},
+	{id: "200606", name: "Miguel Checa", province_id: "2006", department_id: "20"},
+	{id: "200607", name: "Querecotillo", province_id: "2006", department_id: "20"},
+	{id: "200608", name: "Salitral", province_id: "2006", department_id: "20"},
+	{id: "200701", name: "Pari\u00f1as", province_id: "2007", department_id: "20"},
+	{id: "200702", name: "El Alto", province_id: "2007", department_id: "20"},
+	{id: "200703", name: "La Brea", province_id: "2007", department_id: "20"},
+	{id: "200704", name: "Lobitos", province_id: "2007", department_id: "20"},
+	{id: "200705", name: "Los Organos", province_id: "2007", department_id: "20"},
+	{id: "200706", name: "Mancora", province_id: "2007", department_id: "20"},
+	{id: "200801", name: "Sechura", province_id: "2008", department_id: "20"},
+	{id: "200802", name: "Bellavista de la Uni\u00f3n", province_id: "2008", department_id: "20"},
+	{id: "200803", name: "Bernal", province_id: "2008", department_id: "20"},
+	{id: "200804", name: "Cristo Nos Valga", province_id: "2008", department_id: "20"},
+	{id: "200805", name: "Vice", province_id: "2008", department_id: "20"},
+	{id: "200806", name: "Rinconada Llicuar", province_id: "2008", department_id: "20"},
+	{id: "210101", name: "Puno", province_id: "2101", department_id: "21"},
+	{id: "210102", name: "Acora", province_id: "2101", department_id: "21"},
+	{id: "210103", name: "Amantani", province_id: "2101", department_id: "21"},
+	{id: "210104", name: "Atuncolla", province_id: "2101", department_id: "21"},
+	{id: "210105", name: "Capachica", province_id: "2101", department_id: "21"},
+	{id: "210106", name: "Chucuito", province_id: "2101", department_id: "21"},
+	{id: "210107", name: "Coata", province_id: "2101", department_id: "21"},
+	{id: "210108", name: "Huata", province_id: "2101", department_id: "21"},
+	{id: "210109", name: "Ma\u00f1azo", province_id: "2101", department_id: "21"},
+	{id: "210110", name: "Paucarcolla", province_id: "2101", department_id: "21"},
+	{id: "210111", name: "Pichacani", province_id: "2101", department_id: "21"},
+	{id: "210112", name: "Plateria", province_id: "2101", department_id: "21"},
+	{id: "210113", name: "San Antonio", province_id: "2101", department_id: "21"},
+	{id: "210114", name: "Tiquillaca", province_id: "2101", department_id: "21"},
+	{id: "210115", name: "Vilque", province_id: "2101", department_id: "21"},
+	{id: "210201", name: "Az\u00e1ngaro", province_id: "2102", department_id: "21"},
+	{id: "210202", name: "Achaya", province_id: "2102", department_id: "21"},
+	{id: "210203", name: "Arapa", province_id: "2102", department_id: "21"},
+	{id: "210204", name: "Asillo", province_id: "2102", department_id: "21"},
+	{id: "210205", name: "Caminaca", province_id: "2102", department_id: "21"},
+	{id: "210206", name: "Chupa", province_id: "2102", department_id: "21"},
+	{id: "210207", name: "Jos\u00e9 Domingo Choquehuanca", province_id: "2102", department_id: "21"},
+	{id: "210208", name: "Mu\u00f1ani", province_id: "2102", department_id: "21"},
+	{id: "210209", name: "Potoni", province_id: "2102", department_id: "21"},
+	{id: "210210", name: "Saman", province_id: "2102", department_id: "21"},
+	{id: "210211", name: "San Anton", province_id: "2102", department_id: "21"},
+	{id: "210212", name: "San Jos\u00e9", province_id: "2102", department_id: "21"},
+	{id: "210213", name: "San Juan de Salinas", province_id: "2102", department_id: "21"},
+	{id: "210214", name: "Santiago de Pupuja", province_id: "2102", department_id: "21"},
+	{id: "210215", name: "Tirapata", province_id: "2102", department_id: "21"},
+	{id: "210301", name: "Macusani", province_id: "2103", department_id: "21"},
+	{id: "210302", name: "Ajoyani", province_id: "2103", department_id: "21"},
+	{id: "210303", name: "Ayapata", province_id: "2103", department_id: "21"},
+	{id: "210304", name: "Coasa", province_id: "2103", department_id: "21"},
+	{id: "210305", name: "Corani", province_id: "2103", department_id: "21"},
+	{id: "210306", name: "Crucero", province_id: "2103", department_id: "21"},
+	{id: "210307", name: "Ituata", province_id: "2103", department_id: "21"},
+	{id: "210308", name: "Ollachea", province_id: "2103", department_id: "21"},
+	{id: "210309", name: "San Gaban", province_id: "2103", department_id: "21"},
+	{id: "210310", name: "Usicayos", province_id: "2103", department_id: "21"},
+	{id: "210401", name: "Juli", province_id: "2104", department_id: "21"},
+	{id: "210402", name: "Desaguadero", province_id: "2104", department_id: "21"},
+	{id: "210403", name: "Huacullani", province_id: "2104", department_id: "21"},
+	{id: "210404", name: "Kelluyo", province_id: "2104", department_id: "21"},
+	{id: "210405", name: "Pisacoma", province_id: "2104", department_id: "21"},
+	{id: "210406", name: "Pomata", province_id: "2104", department_id: "21"},
+	{id: "210407", name: "Zepita", province_id: "2104", department_id: "21"},
+	{id: "210501", name: "Ilave", province_id: "2105", department_id: "21"},
+	{id: "210502", name: "Capazo", province_id: "2105", department_id: "21"},
+	{id: "210503", name: "Pilcuyo", province_id: "2105", department_id: "21"},
+	{id: "210504", name: "Santa Rosa", province_id: "2105", department_id: "21"},
+	{id: "210505", name: "Conduriri", province_id: "2105", department_id: "21"},
+	{id: "210601", name: "Huancane", province_id: "2106", department_id: "21"},
+	{id: "210602", name: "Cojata", province_id: "2106", department_id: "21"},
+	{id: "210603", name: "Huatasani", province_id: "2106", department_id: "21"},
+	{id: "210604", name: "Inchupalla", province_id: "2106", department_id: "21"},
+	{id: "210605", name: "Pusi", province_id: "2106", department_id: "21"},
+	{id: "210606", name: "Rosaspata", province_id: "2106", department_id: "21"},
+	{id: "210607", name: "Taraco", province_id: "2106", department_id: "21"},
+	{id: "210608", name: "Vilque Chico", province_id: "2106", department_id: "21"},
+	{id: "210701", name: "Lampa", province_id: "2107", department_id: "21"},
+	{id: "210702", name: "Cabanilla", province_id: "2107", department_id: "21"},
+	{id: "210703", name: "Calapuja", province_id: "2107", department_id: "21"},
+	{id: "210704", name: "Nicasio", province_id: "2107", department_id: "21"},
+	{id: "210705", name: "Ocuviri", province_id: "2107", department_id: "21"},
+	{id: "210706", name: "Palca", province_id: "2107", department_id: "21"},
+	{id: "210707", name: "Paratia", province_id: "2107", department_id: "21"},
+	{id: "210708", name: "Pucara", province_id: "2107", department_id: "21"},
+	{id: "210709", name: "Santa Lucia", province_id: "2107", department_id: "21"},
+	{id: "210710", name: "Vilavila", province_id: "2107", department_id: "21"},
+	{id: "210801", name: "Ayaviri", province_id: "2108", department_id: "21"},
+	{id: "210802", name: "Antauta", province_id: "2108", department_id: "21"},
+	{id: "210803", name: "Cupi", province_id: "2108", department_id: "21"},
+	{id: "210804", name: "Llalli", province_id: "2108", department_id: "21"},
+	{id: "210805", name: "Macari", province_id: "2108", department_id: "21"},
+	{id: "210806", name: "Nu\u00f1oa", province_id: "2108", department_id: "21"},
+	{id: "210807", name: "Orurillo", province_id: "2108", department_id: "21"},
+	{id: "210808", name: "Santa Rosa", province_id: "2108", department_id: "21"},
+	{id: "210809", name: "Umachiri", province_id: "2108", department_id: "21"},
+	{id: "210901", name: "Moho", province_id: "2109", department_id: "21"},
+	{id: "210902", name: "Conima", province_id: "2109", department_id: "21"},
+	{id: "210903", name: "Huayrapata", province_id: "2109", department_id: "21"},
+	{id: "210904", name: "Tilali", province_id: "2109", department_id: "21"},
+	{id: "211001", name: "Putina", province_id: "2110", department_id: "21"},
+	{id: "211002", name: "Ananea", province_id: "2110", department_id: "21"},
+	{id: "211003", name: "Pedro Vilca Apaza", province_id: "2110", department_id: "21"},
+	{id: "211004", name: "Quilcapuncu", province_id: "2110", department_id: "21"},
+	{id: "211005", name: "Sina", province_id: "2110", department_id: "21"},
+	{id: "211101", name: "Juliaca", province_id: "2111", department_id: "21"},
+	{id: "211102", name: "Cabana", province_id: "2111", department_id: "21"},
+	{id: "211103", name: "Cabanillas", province_id: "2111", department_id: "21"},
+	{id: "211104", name: "Caracoto", province_id: "2111", department_id: "21"},
+	{id: "211105", name: "San Miguel", province_id: "2111", department_id: "21"},
+	{id: "211201", name: "Sandia", province_id: "2112", department_id: "21"},
+	{id: "211202", name: "Cuyocuyo", province_id: "2112", department_id: "21"},
+	{id: "211203", name: "Limbani", province_id: "2112", department_id: "21"},
+	{id: "211204", name: "Patambuco", province_id: "2112", department_id: "21"},
+	{id: "211205", name: "Phara", province_id: "2112", department_id: "21"},
+	{id: "211206", name: "Quiaca", province_id: "2112", department_id: "21"},
+	{id: "211207", name: "San Juan del Oro", province_id: "2112", department_id: "21"},
+	{id: "211208", name: "Yanahuaya", province_id: "2112", department_id: "21"},
+	{id: "211209", name: "Alto Inambari", province_id: "2112", department_id: "21"},
+	{id: "211210", name: "San Pedro de Putina Punco", province_id: "2112", department_id: "21"},
+	{id: "211301", name: "Yunguyo", province_id: "2113", department_id: "21"},
+	{id: "211302", name: "Anapia", province_id: "2113", department_id: "21"},
+	{id: "211303", name: "Copani", province_id: "2113", department_id: "21"},
+	{id: "211304", name: "Cuturapi", province_id: "2113", department_id: "21"},
+	{id: "211305", name: "Ollaraya", province_id: "2113", department_id: "21"},
+	{id: "211306", name: "Tinicachi", province_id: "2113", department_id: "21"},
+	{id: "211307", name: "Unicachi", province_id: "2113", department_id: "21"},
+	{id: "220101", name: "Moyobamba", province_id: "2201", department_id: "22"},
+	{id: "220102", name: "Calzada", province_id: "2201", department_id: "22"},
+	{id: "220103", name: "Habana", province_id: "2201", department_id: "22"},
+	{id: "220104", name: "Jepelacio", province_id: "2201", department_id: "22"},
+	{id: "220105", name: "Soritor", province_id: "2201", department_id: "22"},
+	{id: "220106", name: "Yantalo", province_id: "2201", department_id: "22"},
+	{id: "220201", name: "Bellavista", province_id: "2202", department_id: "22"},
+	{id: "220202", name: "Alto Biavo", province_id: "2202", department_id: "22"},
+	{id: "220203", name: "Bajo Biavo", province_id: "2202", department_id: "22"},
+	{id: "220204", name: "Huallaga", province_id: "2202", department_id: "22"},
+	{id: "220205", name: "San Pablo", province_id: "2202", department_id: "22"},
+	{id: "220206", name: "San Rafael", province_id: "2202", department_id: "22"},
+	{id: "220301", name: "San Jos\u00e9 de Sisa", province_id: "2203", department_id: "22"},
+	{id: "220302", name: "Agua Blanca", province_id: "2203", department_id: "22"},
+	{id: "220303", name: "San Mart\u00edn", province_id: "2203", department_id: "22"},
+	{id: "220304", name: "Santa Rosa", province_id: "2203", department_id: "22"},
+	{id: "220305", name: "Shatoja", province_id: "2203", department_id: "22"},
+	{id: "220401", name: "Saposoa", province_id: "2204", department_id: "22"},
+	{id: "220402", name: "Alto Saposoa", province_id: "2204", department_id: "22"},
+	{id: "220403", name: "El Eslab\u00f3n", province_id: "2204", department_id: "22"},
+	{id: "220404", name: "Piscoyacu", province_id: "2204", department_id: "22"},
+	{id: "220405", name: "Sacanche", province_id: "2204", department_id: "22"},
+	{id: "220406", name: "Tingo de Saposoa", province_id: "2204", department_id: "22"},
+	{id: "220501", name: "Lamas", province_id: "2205", department_id: "22"},
+	{id: "220502", name: "Alonso de Alvarado", province_id: "2205", department_id: "22"},
+	{id: "220503", name: "Barranquita", province_id: "2205", department_id: "22"},
+	{id: "220504", name: "Caynarachi", province_id: "2205", department_id: "22"},
+	{id: "220505", name: "Cu\u00f1umbuqui", province_id: "2205", department_id: "22"},
+	{id: "220506", name: "Pinto Recodo", province_id: "2205", department_id: "22"},
+	{id: "220507", name: "Rumisapa", province_id: "2205", department_id: "22"},
+	{id: "220508", name: "San Roque de Cumbaza", province_id: "2205", department_id: "22"},
+	{id: "220509", name: "Shanao", province_id: "2205", department_id: "22"},
+	{id: "220510", name: "Tabalosos", province_id: "2205", department_id: "22"},
+	{id: "220511", name: "Zapatero", province_id: "2205", department_id: "22"},
+	{id: "220601", name: "Juanju\u00ed", province_id: "2206", department_id: "22"},
+	{id: "220602", name: "Campanilla", province_id: "2206", department_id: "22"},
+	{id: "220603", name: "Huicungo", province_id: "2206", department_id: "22"},
+	{id: "220604", name: "Pachiza", province_id: "2206", department_id: "22"},
+	{id: "220605", name: "Pajarillo", province_id: "2206", department_id: "22"},
+	{id: "220701", name: "Picota", province_id: "2207", department_id: "22"},
+	{id: "220702", name: "Buenos Aires", province_id: "2207", department_id: "22"},
+	{id: "220703", name: "Caspisapa", province_id: "2207", department_id: "22"},
+	{id: "220704", name: "Pilluana", province_id: "2207", department_id: "22"},
+	{id: "220705", name: "Pucacaca", province_id: "2207", department_id: "22"},
+	{id: "220706", name: "San Crist\u00f3bal", province_id: "2207", department_id: "22"},
+	{id: "220707", name: "San Hilari\u00f3n", province_id: "2207", department_id: "22"},
+	{id: "220708", name: "Shamboyacu", province_id: "2207", department_id: "22"},
+	{id: "220709", name: "Tingo de Ponasa", province_id: "2207", department_id: "22"},
+	{id: "220710", name: "Tres Unidos", province_id: "2207", department_id: "22"},
+	{id: "220801", name: "Rioja", province_id: "2208", department_id: "22"},
+	{id: "220802", name: "Awajun", province_id: "2208", department_id: "22"},
+	{id: "220803", name: "El\u00edas Soplin Vargas", province_id: "2208", department_id: "22"},
+	{id: "220804", name: "Nueva Cajamarca", province_id: "2208", department_id: "22"},
+	{id: "220805", name: "Pardo Miguel", province_id: "2208", department_id: "22"},
+	{id: "220806", name: "Posic", province_id: "2208", department_id: "22"},
+	{id: "220807", name: "San Fernando", province_id: "2208", department_id: "22"},
+	{id: "220808", name: "Yorongos", province_id: "2208", department_id: "22"},
+	{id: "220809", name: "Yuracyacu", province_id: "2208", department_id: "22"},
+	{id: "220901", name: "Tarapoto", province_id: "2209", department_id: "22"},
+	{id: "220902", name: "Alberto Leveau", province_id: "2209", department_id: "22"},
+	{id: "220903", name: "Cacatachi", province_id: "2209", department_id: "22"},
+	{id: "220904", name: "Chazuta", province_id: "2209", department_id: "22"},
+	{id: "220905", name: "Chipurana", province_id: "2209", department_id: "22"},
+	{id: "220906", name: "El Porvenir", province_id: "2209", department_id: "22"},
+	{id: "220907", name: "Huimbayoc", province_id: "2209", department_id: "22"},
+	{id: "220908", name: "Juan Guerra", province_id: "2209", department_id: "22"},
+	{id: "220909", name: "La Banda de Shilcayo", province_id: "2209", department_id: "22"},
+	{id: "220910", name: "Morales", province_id: "2209", department_id: "22"},
+	{id: "220911", name: "Papaplaya", province_id: "2209", department_id: "22"},
+	{id: "220912", name: "San Antonio", province_id: "2209", department_id: "22"},
+	{id: "220913", name: "Sauce", province_id: "2209", department_id: "22"},
+	{id: "220914", name: "Shapaja", province_id: "2209", department_id: "22"},
+	{id: "221001", name: "Tocache", province_id: "2210", department_id: "22"},
+	{id: "221002", name: "Nuevo Progreso", province_id: "2210", department_id: "22"},
+	{id: "221003", name: "Polvora", province_id: "2210", department_id: "22"},
+	{id: "221004", name: "Shunte", province_id: "2210", department_id: "22"},
+	{id: "221005", name: "Uchiza", province_id: "2210", department_id: "22"},
+	{id: "230101", name: "Tacna", province_id: "2301", department_id: "23"},
+	{id: "230102", name: "Alto de la Alianza", province_id: "2301", department_id: "23"},
+	{id: "230103", name: "Calana", province_id: "2301", department_id: "23"},
+	{id: "230104", name: "Ciudad Nueva", province_id: "2301", department_id: "23"},
+	{id: "230105", name: "Inclan", province_id: "2301", department_id: "23"},
+	{id: "230106", name: "Pachia", province_id: "2301", department_id: "23"},
+	{id: "230107", name: "Palca", province_id: "2301", department_id: "23"},
+	{id: "230108", name: "Pocollay", province_id: "2301", department_id: "23"},
+	{id: "230109", name: "Sama", province_id: "2301", department_id: "23"},
+	{id: "230110", name: "Coronel Gregorio Albarrac\u00edn Lanchipa", province_id: "2301", department_id: "23"},
+	{id: "230111", name: "La Yarada los Palos", province_id: "2301", department_id: "23"},
+	{id: "230201", name: "Candarave", province_id: "2302", department_id: "23"},
+	{id: "230202", name: "Cairani", province_id: "2302", department_id: "23"},
+	{id: "230203", name: "Camilaca", province_id: "2302", department_id: "23"},
+	{id: "230204", name: "Curibaya", province_id: "2302", department_id: "23"},
+	{id: "230205", name: "Huanuara", province_id: "2302", department_id: "23"},
+	{id: "230206", name: "Quilahuani", province_id: "2302", department_id: "23"},
+	{id: "230301", name: "Locumba", province_id: "2303", department_id: "23"},
+	{id: "230302", name: "Ilabaya", province_id: "2303", department_id: "23"},
+	{id: "230303", name: "Ite", province_id: "2303", department_id: "23"},
+	{id: "230401", name: "Tarata", province_id: "2304", department_id: "23"},
+	{id: "230402", name: "H\u00e9roes Albarrac\u00edn", province_id: "2304", department_id: "23"},
+	{id: "230403", name: "Estique", province_id: "2304", department_id: "23"},
+	{id: "230404", name: "Estique-Pampa", province_id: "2304", department_id: "23"},
+	{id: "230405", name: "Sitajara", province_id: "2304", department_id: "23"},
+	{id: "230406", name: "Susapaya", province_id: "2304", department_id: "23"},
+	{id: "230407", name: "Tarucachi", province_id: "2304", department_id: "23"},
+	{id: "230408", name: "Ticaco", province_id: "2304", department_id: "23"},
+	{id: "240101", name: "Tumbes", province_id: "2401", department_id: "24"},
+	{id: "240102", name: "Corrales", province_id: "2401", department_id: "24"},
+	{id: "240103", name: "La Cruz", province_id: "2401", department_id: "24"},
+	{id: "240104", name: "Pampas de Hospital", province_id: "2401", department_id: "24"},
+	{id: "240105", name: "San Jacinto", province_id: "2401", department_id: "24"},
+	{id: "240106", name: "San Juan de la Virgen", province_id: "2401", department_id: "24"},
+	{id: "240201", name: "Zorritos", province_id: "2402", department_id: "24"},
+	{id: "240202", name: "Casitas", province_id: "2402", department_id: "24"},
+	{id: "240203", name: "Canoas de Punta Sal", province_id: "2402", department_id: "24"},
+	{id: "240301", name: "Zarumilla", province_id: "2403", department_id: "24"},
+	{id: "240302", name: "Aguas Verdes", province_id: "2403", department_id: "24"},
+	{id: "240303", name: "Matapalo", province_id: "2403", department_id: "24"},
+	{id: "240304", name: "Papayal", province_id: "2403", department_id: "24"},
+	{id: "250101", name: "Calleria", province_id: "2501", department_id: "25"},
+	{id: "250102", name: "Campoverde", province_id: "2501", department_id: "25"},
+	{id: "250103", name: "Iparia", province_id: "2501", department_id: "25"},
+	{id: "250104", name: "Masisea", province_id: "2501", department_id: "25"},
+	{id: "250105", name: "Yarinacocha", province_id: "2501", department_id: "25"},
+	{id: "250106", name: "Nueva Requena", province_id: "2501", department_id: "25"},
+	{id: "250107", name: "Manantay", province_id: "2501", department_id: "25"},
+	{id: "250201", name: "Raymondi", province_id: "2502", department_id: "25"},
+	{id: "250202", name: "Sepahua", province_id: "2502", department_id: "25"},
+	{id: "250203", name: "Tahuania", province_id: "2502", department_id: "25"},
+	{id: "250204", name: "Yurua", province_id: "2502", department_id: "25"},
+	{id: "250301", name: "Padre Abad", province_id: "2503", department_id: "25"},
+	{id: "250302", name: "Irazola", province_id: "2503", department_id: "25"},
+	{id: "250303", name: "Curimana", province_id: "2503", department_id: "25"},
+	{id: "250304", name: "Neshuya", province_id: "2503", department_id: "25"},
+	{id: "250305", name: "Alexander Von Humboldt", province_id: "2503", department_id: "25"},
 	{
-		"2557": [
-			{
-				value: "2559",
-				label: "Aramango"
-			},
-			{
-				value: "2560",
-				label: "Copallin"
-			},
-			{
-				value: "2561",
-				label: "El Parco"
-			},
-			{
-				value: "2562",
-				label: "Imaza"
-			},
-			{
-				value: "2558",
-				label: "La Peca"
-			}
-		],
-		"2563": [
-			{
-				value: "2567",
-				label: "Chisquilla"
-			},
-			{
-				value: "2568",
-				label: "Churuja"
-			},
-			{
-				value: "2565",
-				label: "Corosha"
-			},
-			{
-				value: "2566",
-				label: "Cuispes"
-			},
-			{
-				value: "2569",
-				label: "Florida"
-			},
-			{
-				value: "2575",
-				label: "Jazan"
-			},
-			{
-				value: "2564",
-				label: "Jumbilla"
-			},
-			{
-				value: "2570",
-				label: "Recta"
-			},
-			{
-				value: "2571",
-				label: "San Carlos"
-			},
-			{
-				value: "2572",
-				label: "Shipasbamba"
-			},
-			{
-				value: "2573",
-				label: "Valera"
-			},
-			{
-				value: "2574",
-				label: "Yambrasbamba"
-			}
-		],
-		"2535": [
-			{
-				value: "2537",
-				label: "Asuncion"
-			},
-			{
-				value: "2538",
-				label: "Balsas"
-			},
-			{
-				value: "2536",
-				label: "Chachapoyas"
-			},
-			{
-				value: "2539",
-				label: "Cheto"
-			},
-			{
-				value: "2540",
-				label: "Chiliquin"
-			},
-			{
-				value: "2541",
-				label: "Chuquibamba"
-			},
-			{
-				value: "2542",
-				label: "Granada"
-			},
-			{
-				value: "2543",
-				label: "Huancas"
-			},
-			{
-				value: "2544",
-				label: "La Jalca"
-			},
-			{
-				value: "2545",
-				label: "Leimebamba"
-			},
-			{
-				value: "2546",
-				label: "Levanto"
-			},
-			{
-				value: "2547",
-				label: "Magdalena"
-			},
-			{
-				value: "2548",
-				label: "Mariscal Castilla"
-			},
-			{
-				value: "2549",
-				label: "Molinopampa"
-			},
-			{
-				value: "2550",
-				label: "Montevideo"
-			},
-			{
-				value: "2551",
-				label: "Olleros"
-			},
-			{
-				value: "2552",
-				label: "Quinjalca"
-			},
-			{
-				value: "2553",
-				label: "San Francisco de Daguas"
-			},
-			{
-				value: "2554",
-				label: "San Isidro de Maino"
-			},
-			{
-				value: "2555",
-				label: "Soloco"
-			},
-			{
-				value: "2556",
-				label: "Sonche"
-			}
-		],
-		"2576": [
-			{
-				value: "2578",
-				label: "El Cenepa"
-			},
-			{
-				value: "2577",
-				label: "Nieva"
-			},
-			{
-				value: "2579",
-				label: "Rio Santiago"
-			}
-		],
-		"2580": [
-			{
-				value: "2582",
-				label: "Camporredondo"
-			},
-			{
-				value: "2583",
-				label: "Cocabamba"
-			},
-			{
-				value: "2584",
-				label: "Colcamar"
-			},
-			{
-				value: "2585",
-				label: "Conila"
-			},
-			{
-				value: "2586",
-				label: "Inguilpata"
-			},
-			{
-				value: "2581",
-				label: "Lamud"
-			},
-			{
-				value: "2587",
-				label: "Longuita"
-			},
-			{
-				value: "2588",
-				label: "Lonya Chico"
-			},
-			{
-				value: "2589",
-				label: "Luya"
-			},
-			{
-				value: "2590",
-				label: "Luya Viejo"
-			},
-			{
-				value: "2591",
-				label: "Maria"
-			},
-			{
-				value: "2592",
-				label: "Ocalli"
-			},
-			{
-				value: "2593",
-				label: "Ocumal"
-			},
-			{
-				value: "2594",
-				label: "Pisuquia"
-			},
-			{
-				value: "2595",
-				label: "Providencia"
-			},
-			{
-				value: "2596",
-				label: "San Cristobal"
-			},
-			{
-				value: "2597",
-				label: "San Francisco del Yeso"
-			},
-			{
-				value: "2598",
-				label: "San Jeronimo"
-			},
-			{
-				value: "2599",
-				label: "San Juan de Lopecancha"
-			},
-			{
-				value: "2600",
-				label: "Santa Catalina"
-			},
-			{
-				value: "2601",
-				label: "Santo Tomas"
-			},
-			{
-				value: "2602",
-				label: "Tingo"
-			},
-			{
-				value: "2603",
-				label: "Trita"
-			}
-		],
-		"2604": [
-			{
-				value: "2606",
-				label: "Chirimoto"
-			},
-			{
-				value: "2607",
-				label: "Cochamal"
-			},
-			{
-				value: "2608",
-				label: "Huambo"
-			},
-			{
-				value: "2609",
-				label: "Limabamba"
-			},
-			{
-				value: "2610",
-				label: "Longar"
-			},
-			{
-				value: "2611",
-				label: "Mariscal Benavides"
-			},
-			{
-				value: "2612",
-				label: "Milpuc"
-			},
-			{
-				value: "2613",
-				label: "Omia"
-			},
-			{
-				value: "2605",
-				label: "San Nicolas"
-			},
-			{
-				value: "2614",
-				label: "Santa Rosa"
-			},
-			{
-				value: "2615",
-				label: "Totora"
-			},
-			{
-				value: "2616",
-				label: "Vista Alegre"
-			}
-		],
-		"2617": [
-			{
-				value: "2618",
-				label: "Bagua Grande"
-			},
-			{
-				value: "2619",
-				label: "Cajaruro"
-			},
-			{
-				value: "2620",
-				label: "Cumba"
-			},
-			{
-				value: "2621",
-				label: "El Milagro"
-			},
-			{
-				value: "2622",
-				label: "Jamalca"
-			},
-			{
-				value: "2623",
-				label: "Lonya Grande"
-			},
-			{
-				value: "2624",
-				label: "Yamon"
-			}
-		],
-		"2639": [
-			{
-				value: "2640",
-				label: "Aija"
-			},
-			{
-				value: "2641",
-				label: "Coris"
-			},
-			{
-				value: "2642",
-				label: "Huacllan"
-			},
-			{
-				value: "2643",
-				label: "La Merced"
-			},
-			{
-				value: "2644",
-				label: "Succha"
-			}
-		],
-		"2645": [
-			{
-				value: "2647",
-				label: "Aczo"
-			},
-			{
-				value: "2648",
-				label: "Chaccho"
-			},
-			{
-				value: "2649",
-				label: "Chingas"
-			},
-			{
-				value: "2646",
-				label: "Llamellin"
-			},
-			{
-				value: "2650",
-				label: "Mirgas"
-			},
-			{
-				value: "2651",
-				label: "San Juan de Rontoy"
-			}
-		],
-		"2652": [
-			{
-				value: "2654",
-				label: "Acochaca"
-			},
-			{
-				value: "2653",
-				label: "Chacas"
-			}
-		],
-		"2655": [
-			{
-				value: "2657",
-				label: "Abelardo Pardo Lezameta"
-			},
-			{
-				value: "2658",
-				label: "Antonio Raymondi"
-			},
-			{
-				value: "2659",
-				label: "Aquia"
-			},
-			{
-				value: "2660",
-				label: "Cajacay"
-			},
-			{
-				value: "2661",
-				label: "Canis"
-			},
-			{
-				value: "2656",
-				label: "Chiquian"
-			},
-			{
-				value: "2662",
-				label: "Colquioc"
-			},
-			{
-				value: "2663",
-				label: "Huallanca"
-			},
-			{
-				value: "2664",
-				label: "Huasta"
-			},
-			{
-				value: "2665",
-				label: "Huayllacayan"
-			},
-			{
-				value: "2666",
-				label: "La Primavera"
-			},
-			{
-				value: "2667",
-				label: "Mangas"
-			},
-			{
-				value: "2668",
-				label: "Pacllon"
-			},
-			{
-				value: "2669",
-				label: "San Miguel de Corpanqui"
-			},
-			{
-				value: "2670",
-				label: "Ticllos"
-			}
-		],
-		"2671": [
-			{
-				value: "2673",
-				label: "Acopampa"
-			},
-			{
-				value: "2674",
-				label: "Amashca"
-			},
-			{
-				value: "2675",
-				label: "Anta"
-			},
-			{
-				value: "2676",
-				label: "Ataquero"
-			},
-			{
-				value: "2672",
-				label: "Carhuaz"
-			},
-			{
-				value: "2677",
-				label: "Marcara"
-			},
-			{
-				value: "2678",
-				label: "Pariahuanca"
-			},
-			{
-				value: "2679",
-				label: "San Miguel de Aco"
-			},
-			{
-				value: "2680",
-				label: "Shilla"
-			},
-			{
-				value: "2681",
-				label: "Tinco"
-			},
-			{
-				value: "2682",
-				label: "Yungar"
-			}
-		],
-		"2683": [
-			{
-				value: "2684",
-				label: "San Luis"
-			},
-			{
-				value: "2685",
-				label: "San Nicolas"
-			},
-			{
-				value: "2686",
-				label: "Yauya"
-			}
-		],
-		"2687": [
-			{
-				value: "2689",
-				label: "Buena Vista Alta"
-			},
-			{
-				value: "2688",
-				label: "Casma"
-			},
-			{
-				value: "2690",
-				label: "Comandante Noel"
-			},
-			{
-				value: "2691",
-				label: "Yautan"
-			}
-		],
-		"2692": [
-			{
-				value: "2694",
-				label: "Aco"
-			},
-			{
-				value: "2695",
-				label: "Bambas"
-			},
-			{
-				value: "2693",
-				label: "Corongo"
-			},
-			{
-				value: "2696",
-				label: "Cusca"
-			},
-			{
-				value: "2697",
-				label: "La Pampa"
-			},
-			{
-				value: "2698",
-				label: "Yanac"
-			},
-			{
-				value: "2699",
-				label: "Yupan"
-			}
-		],
-		"2626": [
-			{
-				value: "2628",
-				label: "Cochabamba"
-			},
-			{
-				value: "2629",
-				label: "Colcabamba"
-			},
-			{
-				value: "2630",
-				label: "Huanchay"
-			},
-			{
-				value: "2627",
-				label: "Huaraz"
-			},
-			{
-				value: "2631",
-				label: "Independencia"
-			},
-			{
-				value: "2632",
-				label: "Jangas"
-			},
-			{
-				value: "2633",
-				label: "La Libertad"
-			},
-			{
-				value: "2634",
-				label: "Olleros"
-			},
-			{
-				value: "2635",
-				label: "Pampas"
-			},
-			{
-				value: "2636",
-				label: "Pariacoto"
-			},
-			{
-				value: "2637",
-				label: "Pira"
-			},
-			{
-				value: "2638",
-				label: "Tarica"
-			}
-		],
-		"2700": [
-			{
-				value: "2702",
-				label: "Anra"
-			},
-			{
-				value: "2703",
-				label: "Cajay"
-			},
-			{
-				value: "2704",
-				label: "Chavin de Huantar"
-			},
-			{
-				value: "2705",
-				label: "Huacachi"
-			},
-			{
-				value: "2706",
-				label: "Huacchis"
-			},
-			{
-				value: "2707",
-				label: "Huachis"
-			},
-			{
-				value: "2708",
-				label: "Huantar"
-			},
-			{
-				value: "2701",
-				label: "Huari"
-			},
-			{
-				value: "2709",
-				label: "Masin"
-			},
-			{
-				value: "2710",
-				label: "Paucas"
-			},
-			{
-				value: "2711",
-				label: "Ponto"
-			},
-			{
-				value: "2712",
-				label: "Rahuapampa"
-			},
-			{
-				value: "2713",
-				label: "Rapayan"
-			},
-			{
-				value: "2714",
-				label: "San Marcos"
-			},
-			{
-				value: "2715",
-				label: "San Pedro de Chana"
-			},
-			{
-				value: "2716",
-				label: "Uco"
-			}
-		],
-		"2717": [
-			{
-				value: "2719",
-				label: "Cochapeti"
-			},
-			{
-				value: "2720",
-				label: "Culebras"
-			},
-			{
-				value: "2718",
-				label: "Huarmey"
-			},
-			{
-				value: "2721",
-				label: "Huayan"
-			},
-			{
-				value: "2722",
-				label: "Malvas"
-			}
-		],
-		"2723": [
-			{
-				value: "2724",
-				label: "Caraz"
-			},
-			{
-				value: "2725",
-				label: "Huallanca"
-			},
-			{
-				value: "2726",
-				label: "Huata"
-			},
-			{
-				value: "2727",
-				label: "Huaylas"
-			},
-			{
-				value: "2728",
-				label: "Mato"
-			},
-			{
-				value: "2729",
-				label: "Pamparomas"
-			},
-			{
-				value: "2730",
-				label: "Pueblo Libre"
-			},
-			{
-				value: "2731",
-				label: "Santa Cruz"
-			},
-			{
-				value: "2732",
-				label: "Santo Toribio"
-			},
-			{
-				value: "2733",
-				label: "Yuracmarca"
-			}
-		],
-		"2734": [
-			{
-				value: "2736",
-				label: "Casca"
-			},
-			{
-				value: "2737",
-				label: "Eleazar Guzman Barron"
-			},
-			{
-				value: "2738",
-				label: "Fidel Olivas Escudero"
-			},
-			{
-				value: "2739",
-				label: "Llama"
-			},
-			{
-				value: "2740",
-				label: "Llumpa"
-			},
-			{
-				value: "2741",
-				label: "Lucma"
-			},
-			{
-				value: "2742",
-				label: "Musga"
-			},
-			{
-				value: "2735",
-				label: "Piscobamba"
-			}
-		],
-		"2743": [
-			{
-				value: "2745",
-				label: "Acas"
-			},
-			{
-				value: "2746",
-				label: "Cajamarquilla"
-			},
-			{
-				value: "2747",
-				label: "Carhuapampa"
-			},
-			{
-				value: "2748",
-				label: "Cochas"
-			},
-			{
-				value: "2749",
-				label: "Congas"
-			},
-			{
-				value: "2750",
-				label: "Llipa"
-			},
-			{
-				value: "2744",
-				label: "Ocros"
-			},
-			{
-				value: "2751",
-				label: "San Cristobal de Rajan"
-			},
-			{
-				value: "2752",
-				label: "San Pedro"
-			},
-			{
-				value: "2753",
-				label: "Santiago de Chilcas"
-			}
-		],
-		"2754": [
-			{
-				value: "2756",
-				label: "Bolognesi"
-			},
-			{
-				value: "2755",
-				label: "Cabana"
-			},
-			{
-				value: "2757",
-				label: "Conchucos"
-			},
-			{
-				value: "2758",
-				label: "Huacaschuque"
-			},
-			{
-				value: "2759",
-				label: "Huandoval"
-			},
-			{
-				value: "2760",
-				label: "Lacabamba"
-			},
-			{
-				value: "2761",
-				label: "Llapo"
-			},
-			{
-				value: "2762",
-				label: "Pallasca"
-			},
-			{
-				value: "2763",
-				label: "Pampas"
-			},
-			{
-				value: "2764",
-				label: "Santa Rosa"
-			},
-			{
-				value: "2765",
-				label: "Tauca"
-			}
-		],
-		"2766": [
-			{
-				value: "2768",
-				label: "Huayllan"
-			},
-			{
-				value: "2769",
-				label: "Parobamba"
-			},
-			{
-				value: "2767",
-				label: "Pomabamba"
-			},
-			{
-				value: "2770",
-				label: "Quinuabamba"
-			}
-		],
-		"2771": [
-			{
-				value: "2773",
-				label: "Catac"
-			},
-			{
-				value: "2774",
-				label: "Cotaparaco"
-			},
-			{
-				value: "2775",
-				label: "Huayllapampa"
-			},
-			{
-				value: "2776",
-				label: "Llacllin"
-			},
-			{
-				value: "2777",
-				label: "Marca"
-			},
-			{
-				value: "2778",
-				label: "Pampas Chico"
-			},
-			{
-				value: "2779",
-				label: "Pararin"
-			},
-			{
-				value: "2772",
-				label: "Recuay"
-			},
-			{
-				value: "2780",
-				label: "Tapacocha"
-			},
-			{
-				value: "2781",
-				label: "Ticapampa"
-			}
-		],
-		"2782": [
-			{
-				value: "2784",
-				label: "Caceres del Peru"
-			},
-			{
-				value: "2783",
-				label: "Chimbote"
-			},
-			{
-				value: "2785",
-				label: "Coishco"
-			},
-			{
-				value: "2786",
-				label: "Macate"
-			},
-			{
-				value: "2787",
-				label: "Moro"
-			},
-			{
-				value: "2788",
-				label: "Nepeqa"
-			},
-			{
-				value: "2791",
-				label: "Nuevo Chimbote"
-			},
-			{
-				value: "2789",
-				label: "Samanco"
-			},
-			{
-				value: "2790",
-				label: "Santa"
-			}
-		],
-		"2792": [
-			{
-				value: "2794",
-				label: "Acobamba"
-			},
-			{
-				value: "2795",
-				label: "Alfonso Ugarte"
-			},
-			{
-				value: "2796",
-				label: "Cashapampa"
-			},
-			{
-				value: "2797",
-				label: "Chingalpo"
-			},
-			{
-				value: "2798",
-				label: "Huayllabamba"
-			},
-			{
-				value: "2799",
-				label: "Quiches"
-			},
-			{
-				value: "2800",
-				label: "Ragash"
-			},
-			{
-				value: "2801",
-				label: "San Juan"
-			},
-			{
-				value: "2802",
-				label: "Sicsibamba"
-			},
-			{
-				value: "2793",
-				label: "Sihuas"
-			}
-		],
-		"2803": [
-			{
-				value: "2805",
-				label: "Cascapara"
-			},
-			{
-				value: "2806",
-				label: "Mancos"
-			},
-			{
-				value: "2807",
-				label: "Matacoto"
-			},
-			{
-				value: "2808",
-				label: "Quillo"
-			},
-			{
-				value: "2809",
-				label: "Ranrahirca"
-			},
-			{
-				value: "2810",
-				label: "Shupluy"
-			},
-			{
-				value: "2811",
-				label: "Yanama"
-			},
-			{
-				value: "2804",
-				label: "Yungay"
-			}
-		],
-		"2813": [
-			{
-				value: "2814",
-				label: "Abancay"
-			},
-			{
-				value: "2815",
-				label: "Chacoche"
-			},
-			{
-				value: "2816",
-				label: "Circa"
-			},
-			{
-				value: "2817",
-				label: "Curahuasi"
-			},
-			{
-				value: "2818",
-				label: "Huanipaca"
-			},
-			{
-				value: "2819",
-				label: "Lambrama"
-			},
-			{
-				value: "2820",
-				label: "Pichirhua"
-			},
-			{
-				value: "2821",
-				label: "San Pedro de Cachora"
-			},
-			{
-				value: "2822",
-				label: "Tamburco"
-			}
-		],
-		"2823": [
-			{
-				value: "2824",
-				label: "Andahuaylas"
-			},
-			{
-				value: "2825",
-				label: "Andarapa"
-			},
-			{
-				value: "2826",
-				label: "Chiara"
-			},
-			{
-				value: "2827",
-				label: "Huancarama"
-			},
-			{
-				value: "2828",
-				label: "Huancaray"
-			},
-			{
-				value: "2829",
-				label: "Huayana"
-			},
-			{
-				value: "2842",
-				label: "Kaquiabamba"
-			},
-			{
-				value: "2830",
-				label: "Kishuara"
-			},
-			{
-				value: "2831",
-				label: "Pacobamba"
-			},
-			{
-				value: "2832",
-				label: "Pacucha"
-			},
-			{
-				value: "2833",
-				label: "Pampachiri"
-			},
-			{
-				value: "2834",
-				label: "Pomacocha"
-			},
-			{
-				value: "2835",
-				label: "San Antonio de Cachi"
-			},
-			{
-				value: "2836",
-				label: "San Jeronimo"
-			},
-			{
-				value: "2837",
-				label: "San Miguel de Chaccrampa"
-			},
-			{
-				value: "2838",
-				label: "Santa Maria de Chicmo"
-			},
-			{
-				value: "2839",
-				label: "Talavera"
-			},
-			{
-				value: "2840",
-				label: "Tumay Huaraca"
-			},
-			{
-				value: "2841",
-				label: "Turpo"
-			}
-		],
-		"2843": [
-			{
-				value: "2844",
-				label: "Antabamba"
-			},
-			{
-				value: "2845",
-				label: "El Oro"
-			},
-			{
-				value: "2846",
-				label: "Huaquirca"
-			},
-			{
-				value: "2847",
-				label: "Juan Espinoza Medrano"
-			},
-			{
-				value: "2848",
-				label: "Oropesa"
-			},
-			{
-				value: "2849",
-				label: "Pachaconas"
-			},
-			{
-				value: "2850",
-				label: "Sabaino"
-			}
-		],
-		"2851": [
-			{
-				value: "2853",
-				label: "Capaya"
-			},
-			{
-				value: "2854",
-				label: "Caraybamba"
-			},
-			{
-				value: "2852",
-				label: "Chalhuanca"
-			},
-			{
-				value: "2855",
-				label: "Chapimarca"
-			},
-			{
-				value: "2856",
-				label: "Colcabamba"
-			},
-			{
-				value: "2857",
-				label: "Cotaruse"
-			},
-			{
-				value: "2858",
-				label: "Huayllo"
-			},
-			{
-				value: "2859",
-				label: "Justo Apu Sahuaraura"
-			},
-			{
-				value: "2860",
-				label: "Lucre"
-			},
-			{
-				value: "2861",
-				label: "Pocohuanca"
-			},
-			{
-				value: "2862",
-				label: "San Juan de Chacqa"
-			},
-			{
-				value: "2863",
-				label: "Saqayca"
-			},
-			{
-				value: "2864",
-				label: "Soraya"
-			},
-			{
-				value: "2865",
-				label: "Tapairihua"
-			},
-			{
-				value: "2866",
-				label: "Tintay"
-			},
-			{
-				value: "2867",
-				label: "Toraya"
-			},
-			{
-				value: "2868",
-				label: "Yanaca"
-			}
-		],
-		"2876": [
-			{
-				value: "2878",
-				label: "Anco-Huallo"
-			},
-			{
-				value: "2877",
-				label: "Chincheros"
-			},
-			{
-				value: "2879",
-				label: "Cocharcas"
-			},
-			{
-				value: "2880",
-				label: "Huaccana"
-			},
-			{
-				value: "2881",
-				label: "Ocobamba"
-			},
-			{
-				value: "2882",
-				label: "Ongoy"
-			},
-			{
-				value: "2884",
-				label: "Ranracancha"
-			},
-			{
-				value: "2883",
-				label: "Uranmarca"
-			}
-		],
-		"2869": [
-			{
-				value: "2875",
-				label: "Challhuahuacho"
-			},
-			{
-				value: "2871",
-				label: "Cotabambas"
-			},
-			{
-				value: "2872",
-				label: "Coyllurqui"
-			},
-			{
-				value: "2873",
-				label: "Haquira"
-			},
-			{
-				value: "2874",
-				label: "Mara"
-			},
-			{
-				value: "2870",
-				label: "Tambobamba"
-			}
-		],
-		"2885": [
-			{
-				value: "2886",
-				label: "Chuquibambilla"
-			},
-			{
-				value: "2899",
-				label: "Curasco"
-			},
-			{
-				value: "2887",
-				label: "Curpahuasi"
-			},
-			{
-				value: "2888",
-				label: "Gamarra"
-			},
-			{
-				value: "2889",
-				label: "Huayllati"
-			},
-			{
-				value: "2890",
-				label: "Mamara"
-			},
-			{
-				value: "2891",
-				label: "Micaela Bastidas"
-			},
-			{
-				value: "2892",
-				label: "Pataypampa"
-			},
-			{
-				value: "2893",
-				label: "Progreso"
-			},
-			{
-				value: "2894",
-				label: "San Antonio"
-			},
-			{
-				value: "2895",
-				label: "Santa Rosa"
-			},
-			{
-				value: "2896",
-				label: "Turpay"
-			},
-			{
-				value: "2897",
-				label: "Vilcabamba"
-			},
-			{
-				value: "2898",
-				label: "Virundo"
-			}
-		],
-		"2901": [
-			{
-				value: "2903",
-				label: "Alto Selva Alegre"
-			},
-			{
-				value: "2902",
-				label: "Arequipa"
-			},
-			{
-				value: "2904",
-				label: "Cayma"
-			},
-			{
-				value: "2905",
-				label: "Cerro Colorado"
-			},
-			{
-				value: "2906",
-				label: "Characato"
-			},
-			{
-				value: "2907",
-				label: "Chiguata"
-			},
-			{
-				value: "2908",
-				label: "Jacobo Hunter"
-			},
-			{
-				value: "2930",
-				label: "Jose Luis Bustamante y Rivero"
-			},
-			{
-				value: "2909",
-				label: "La Joya"
-			},
-			{
-				value: "2910",
-				label: "Mariano Melgar"
-			},
-			{
-				value: "2911",
-				label: "Miraflores"
-			},
-			{
-				value: "2912",
-				label: "Mollebaya"
-			},
-			{
-				value: "2913",
-				label: "Paucarpata"
-			},
-			{
-				value: "2914",
-				label: "Pocsi"
-			},
-			{
-				value: "2915",
-				label: "Polobaya"
-			},
-			{
-				value: "2916",
-				label: "Quequeqa"
-			},
-			{
-				value: "2917",
-				label: "Sabandia"
-			},
-			{
-				value: "2918",
-				label: "Sachaca"
-			},
-			{
-				value: "2919",
-				label: "San Juan de Siguas"
-			},
-			{
-				value: "2920",
-				label: "San Juan de Tarucani"
-			},
-			{
-				value: "2921",
-				label: "Santa Isabel de Siguas"
-			},
-			{
-				value: "2922",
-				label: "Santa Rita de Siguas"
-			},
-			{
-				value: "2923",
-				label: "Socabaya"
-			},
-			{
-				value: "2924",
-				label: "Tiabaya"
-			},
-			{
-				value: "2925",
-				label: "Uchumayo"
-			},
-			{
-				value: "2926",
-				label: "Vitor"
-			},
-			{
-				value: "2927",
-				label: "Yanahuara"
-			},
-			{
-				value: "2928",
-				label: "Yarabamba"
-			},
-			{
-				value: "2929",
-				label: "Yura"
-			}
-		],
-		"2931": [
-			{
-				value: "2932",
-				label: "Camana"
-			},
-			{
-				value: "2933",
-				label: "Jose Maria Quimper"
-			},
-			{
-				value: "2934",
-				label: "Mariano Nicolas Valcarcel"
-			},
-			{
-				value: "2935",
-				label: "Mariscal Caceres"
-			},
-			{
-				value: "2936",
-				label: "Nicolas de Pierola"
-			},
-			{
-				value: "2937",
-				label: "Ocoqa"
-			},
-			{
-				value: "2938",
-				label: "Quilca"
-			},
-			{
-				value: "2939",
-				label: "Samuel Pastor"
-			}
-		],
-		"2940": [
-			{
-				value: "2942",
-				label: "Acari"
-			},
-			{
-				value: "2943",
-				label: "Atico"
-			},
-			{
-				value: "2944",
-				label: "Atiquipa"
-			},
-			{
-				value: "2945",
-				label: "Bella Union"
-			},
-			{
-				value: "2946",
-				label: "Cahuacho"
-			},
-			{
-				value: "2941",
-				label: "Caraveli"
-			},
-			{
-				value: "2947",
-				label: "Chala"
-			},
-			{
-				value: "2948",
-				label: "Chaparra"
-			},
-			{
-				value: "2949",
-				label: "Huanuhuanu"
-			},
-			{
-				value: "2950",
-				label: "Jaqui"
-			},
-			{
-				value: "2951",
-				label: "Lomas"
-			},
-			{
-				value: "2952",
-				label: "Quicacha"
-			},
-			{
-				value: "2953",
-				label: "Yauca"
-			}
-		],
-		"2954": [
-			{
-				value: "2956",
-				label: "Andagua"
-			},
-			{
-				value: "2955",
-				label: "Aplao"
-			},
-			{
-				value: "2957",
-				label: "Ayo"
-			},
-			{
-				value: "2958",
-				label: "Chachas"
-			},
-			{
-				value: "2959",
-				label: "Chilcaymarca"
-			},
-			{
-				value: "2960",
-				label: "Choco"
-			},
-			{
-				value: "2961",
-				label: "Huancarqui"
-			},
-			{
-				value: "2962",
-				label: "Machaguay"
-			},
-			{
-				value: "2970",
-				label: "Majes"
-			},
-			{
-				value: "2963",
-				label: "Orcopampa"
-			},
-			{
-				value: "2964",
-				label: "Pampacolca"
-			},
-			{
-				value: "2965",
-				label: "Tipan"
-			},
-			{
-				value: "2966",
-				label: "Uqon"
-			},
-			{
-				value: "2967",
-				label: "Uraca"
-			},
-			{
-				value: "2968",
-				label: "Viraco"
-			},
-			{
-				value: "2969",
-				label: "Yanque"
-			}
-		],
-		"2971": [
-			{
-				value: "2973",
-				label: "Achoma"
-			},
-			{
-				value: "2974",
-				label: "Cabanaconde"
-			},
-			{
-				value: "2975",
-				label: "Callalli"
-			},
-			{
-				value: "2976",
-				label: "Caylloma"
-			},
-			{
-				value: "2972",
-				label: "Chivay"
-			},
-			{
-				value: "2977",
-				label: "Coporaque"
-			},
-			{
-				value: "2978",
-				label: "Huambo"
-			},
-			{
-				value: "2979",
-				label: "Huanca"
-			},
-			{
-				value: "2980",
-				label: "Ichupampa"
-			},
-			{
-				value: "2981",
-				label: "Lari"
-			},
-			{
-				value: "2982",
-				label: "Lluta"
-			},
-			{
-				value: "2983",
-				label: "Maca"
-			},
-			{
-				value: "2984",
-				label: "Madrigal"
-			},
-			{
-				value: "2991",
-				label: "Majes"
-			},
-			{
-				value: "2985",
-				label: "San Antonio de Chuca"
-			},
-			{
-				value: "2986",
-				label: "Sibayo"
-			},
-			{
-				value: "2987",
-				label: "Tapay"
-			},
-			{
-				value: "2988",
-				label: "Tisco"
-			},
-			{
-				value: "2989",
-				label: "Tuti"
-			},
-			{
-				value: "2990",
-				label: "Yanque"
-			}
-		],
-		"2992": [
-			{
-				value: "2994",
-				label: "Andaray"
-			},
-			{
-				value: "2995",
-				label: "Cayarani"
-			},
-			{
-				value: "2996",
-				label: "Chichas"
-			},
-			{
-				value: "2993",
-				label: "Chuquibamba"
-			},
-			{
-				value: "2997",
-				label: "Iray"
-			},
-			{
-				value: "2998",
-				label: "Rio Grande"
-			},
-			{
-				value: "2999",
-				label: "Salamanca"
-			},
-			{
-				value: "3000",
-				label: "Yanaquihua"
-			}
-		],
-		"3001": [
-			{
-				value: "3003",
-				label: "Cocachacra"
-			},
-			{
-				value: "3004",
-				label: "Dean Valdivia"
-			},
-			{
-				value: "3005",
-				label: "Islay"
-			},
-			{
-				value: "3006",
-				label: "Mejia"
-			},
-			{
-				value: "3002",
-				label: "Mollendo"
-			},
-			{
-				value: "3007",
-				label: "Punta de Bombon"
-			}
-		],
-		"3008": [
-			{
-				value: "3010",
-				label: "Alca"
-			},
-			{
-				value: "3011",
-				label: "Charcana"
-			},
-			{
-				value: "3009",
-				label: "Cotahuasi"
-			},
-			{
-				value: "3012",
-				label: "Huaynacotas"
-			},
-			{
-				value: "3013",
-				label: "Pampamarca"
-			},
-			{
-				value: "3014",
-				label: "Puyca"
-			},
-			{
-				value: "3015",
-				label: "Quechualla"
-			},
-			{
-				value: "3016",
-				label: "Sayla"
-			},
-			{
-				value: "3017",
-				label: "Tauria"
-			},
-			{
-				value: "3018",
-				label: "Tomepampa"
-			},
-			{
-				value: "3019",
-				label: "Toro"
-			}
-		],
-		"3037": [
-			{
-				value: "3038",
-				label: "Cangallo"
-			},
-			{
-				value: "3039",
-				label: "Chuschi"
-			},
-			{
-				value: "3040",
-				label: "Los Morochucos"
-			},
-			{
-				value: "3041",
-				label: "Maria Parado de Bellido"
-			},
-			{
-				value: "3042",
-				label: "Paras"
-			},
-			{
-				value: "3043",
-				label: "Totos"
-			}
-		],
-		"3021": [
-			{
-				value: "3023",
-				label: "Acocro"
-			},
-			{
-				value: "3024",
-				label: "Acos Vinchos"
-			},
-			{
-				value: "3022",
-				label: "Ayacucho"
-			},
-			{
-				value: "3025",
-				label: "Carmen Alto"
-			},
-			{
-				value: "3026",
-				label: "Chiara"
-			},
-			{
-				value: "3036",
-				label: "Jes\u00fas Nazareno"
-			},
-			{
-				value: "3027",
-				label: "Ocros"
-			},
-			{
-				value: "3028",
-				label: "Pacaycasa"
-			},
-			{
-				value: "3029",
-				label: "Quinua"
-			},
-			{
-				value: "3030",
-				label: "San Jose de Ticllas"
-			},
-			{
-				value: "3031",
-				label: "San Juan Bautista"
-			},
-			{
-				value: "3032",
-				label: "Santiago de Pischa"
-			},
-			{
-				value: "3033",
-				label: "Socos"
-			},
-			{
-				value: "3034",
-				label: "Tambillo"
-			},
-			{
-				value: "3035",
-				label: "Vinchos"
-			}
-		],
-		"3044": [
-			{
-				value: "3046",
-				label: "Carapo"
-			},
-			{
-				value: "3047",
-				label: "Sacsamarca"
-			},
-			{
-				value: "3045",
-				label: "Sancos"
-			},
-			{
-				value: "3048",
-				label: "Santiago de Lucanamarca"
-			}
-		],
-		"3049": [
-			{
-				value: "3051",
-				label: "Ayahuanco"
-			},
-			{
-				value: "3052",
-				label: "Huamanguilla"
-			},
-			{
-				value: "3050",
-				label: "Huanta"
-			},
-			{
-				value: "3053",
-				label: "Iguain"
-			},
-			{
-				value: "3057",
-				label: "Llochegua"
-			},
-			{
-				value: "3054",
-				label: "Luricocha"
-			},
-			{
-				value: "3055",
-				label: "Santillana"
-			},
-			{
-				value: "3056",
-				label: "Sivia"
-			}
-		],
-		"3058": [
-			{
-				value: "3060",
-				label: "Anco"
-			},
-			{
-				value: "3061",
-				label: "Ayna"
-			},
-			{
-				value: "3062",
-				label: "Chilcas"
-			},
-			{
-				value: "3063",
-				label: "Chungui"
-			},
-			{
-				value: "3064",
-				label: "Luis Carranza"
-			},
-			{
-				value: "3059",
-				label: "San Miguel"
-			},
-			{
-				value: "3065",
-				label: "Santa Rosa"
-			},
-			{
-				value: "3066",
-				label: "Tambo"
-			}
-		],
-		"3067": [
-			{
-				value: "3069",
-				label: "Aucara"
-			},
-			{
-				value: "3070",
-				label: "Cabana"
-			},
-			{
-				value: "3071",
-				label: "Carmen Salcedo"
-			},
-			{
-				value: "3072",
-				label: "Chaviqa"
-			},
-			{
-				value: "3073",
-				label: "Chipao"
-			},
-			{
-				value: "3074",
-				label: "Huac-Huas"
-			},
-			{
-				value: "3075",
-				label: "Laramate"
-			},
-			{
-				value: "3076",
-				label: "Leoncio Prado"
-			},
-			{
-				value: "3077",
-				label: "Llauta"
-			},
-			{
-				value: "3078",
-				label: "Lucanas"
-			},
-			{
-				value: "3079",
-				label: "Ocaqa"
-			},
-			{
-				value: "3080",
-				label: "Otoca"
-			},
-			{
-				value: "3068",
-				label: "Puquio"
-			},
-			{
-				value: "3081",
-				label: "Saisa"
-			},
-			{
-				value: "3082",
-				label: "San Cristobal"
-			},
-			{
-				value: "3083",
-				label: "San Juan"
-			},
-			{
-				value: "3084",
-				label: "San Pedro"
-			},
-			{
-				value: "3085",
-				label: "San Pedro de Palco"
-			},
-			{
-				value: "3086",
-				label: "Sancos"
-			},
-			{
-				value: "3087",
-				label: "Santa Ana de Huaycahuacho"
-			},
-			{
-				value: "3088",
-				label: "Santa Lucia"
-			}
-		],
-		"3089": [
-			{
-				value: "3091",
-				label: "Chumpi"
-			},
-			{
-				value: "3090",
-				label: "Coracora"
-			},
-			{
-				value: "3092",
-				label: "Coronel Castaqeda"
-			},
-			{
-				value: "3093",
-				label: "Pacapausa"
-			},
-			{
-				value: "3094",
-				label: "Pullo"
-			},
-			{
-				value: "3095",
-				label: "Puyusca"
-			},
-			{
-				value: "3096",
-				label: "San Francisco de Ravacayco"
-			},
-			{
-				value: "3097",
-				label: "Upahuacho"
-			}
-		],
-		"3098": [
-			{
-				value: "3100",
-				label: "Colta"
-			},
-			{
-				value: "3101",
-				label: "Corculla"
-			},
-			{
-				value: "3102",
-				label: "Lampa"
-			},
-			{
-				value: "3103",
-				label: "Marcabamba"
-			},
-			{
-				value: "3104",
-				label: "Oyolo"
-			},
-			{
-				value: "3105",
-				label: "Pararca"
-			},
-			{
-				value: "3099",
-				label: "Pausa"
-			},
-			{
-				value: "3106",
-				label: "San Javier de Alpabamba"
-			},
-			{
-				value: "3107",
-				label: "San Jose de Ushua"
-			},
-			{
-				value: "3108",
-				label: "Sara Sara"
-			}
-		],
-		"3109": [
-			{
-				value: "3111",
-				label: "Belen"
-			},
-			{
-				value: "3112",
-				label: "Chalcos"
-			},
-			{
-				value: "3113",
-				label: "Chilcayoc"
-			},
-			{
-				value: "3114",
-				label: "Huacaqa"
-			},
-			{
-				value: "3115",
-				label: "Morcolla"
-			},
-			{
-				value: "3116",
-				label: "Paico"
-			},
-			{
-				value: "3110",
-				label: "Querobamba"
-			},
-			{
-				value: "3117",
-				label: "San Pedro de Larcay"
-			},
-			{
-				value: "3118",
-				label: "San Salvador de Quije"
-			},
-			{
-				value: "3119",
-				label: "Santiago de Paucaray"
-			},
-			{
-				value: "3120",
-				label: "Soras"
-			}
-		],
-		"3121": [
-			{
-				value: "3123",
-				label: "Alcamenca"
-			},
-			{
-				value: "3124",
-				label: "Apongo"
-			},
-			{
-				value: "3125",
-				label: "Asquipata"
-			},
-			{
-				value: "3126",
-				label: "Canaria"
-			},
-			{
-				value: "3127",
-				label: "Cayara"
-			},
-			{
-				value: "3128",
-				label: "Colca"
-			},
-			{
-				value: "3129",
-				label: "Huamanquiquia"
-			},
-			{
-				value: "3122",
-				label: "Huancapi"
-			},
-			{
-				value: "3130",
-				label: "Huancaraylla"
-			},
-			{
-				value: "3131",
-				label: "Huaya"
-			},
-			{
-				value: "3132",
-				label: "Sarhua"
-			},
-			{
-				value: "3133",
-				label: "Vilcanchos"
-			}
-		],
-		"3134": [
-			{
-				value: "3136",
-				label: "Accomarca"
-			},
-			{
-				value: "3137",
-				label: "Carhuanca"
-			},
-			{
-				value: "3138",
-				label: "Concepcion"
-			},
-			{
-				value: "3139",
-				label: "Huambalpa"
-			},
-			{
-				value: "3140",
-				label: "Independencia"
-			},
-			{
-				value: "3141",
-				label: "Saurama"
-			},
-			{
-				value: "3135",
-				label: "Vilcas Huaman"
-			},
-			{
-				value: "3142",
-				label: "Vischongo"
-			}
-		],
-		"3157": [
-			{
-				value: "3159",
-				label: "Cachachi"
-			},
-			{
-				value: "3158",
-				label: "Cajabamba"
-			},
-			{
-				value: "3160",
-				label: "Condebamba"
-			},
-			{
-				value: "3161",
-				label: "Sitacocha"
-			}
-		],
-		"3144": [
-			{
-				value: "3146",
-				label: "Asuncion"
-			},
-			{
-				value: "3145",
-				label: "Cajamarca"
-			},
-			{
-				value: "3147",
-				label: "Chetilla"
-			},
-			{
-				value: "3148",
-				label: "Cospan"
-			},
-			{
-				value: "3149",
-				label: "Encaqada"
-			},
-			{
-				value: "3150",
-				label: "Jesus"
-			},
-			{
-				value: "3151",
-				label: "Llacanora"
-			},
-			{
-				value: "3152",
-				label: "Los Baqos del Inca"
-			},
-			{
-				value: "3153",
-				label: "Magdalena"
-			},
-			{
-				value: "3154",
-				label: "Matara"
-			},
-			{
-				value: "3155",
-				label: "Namora"
-			},
-			{
-				value: "3156",
-				label: "San Juan"
-			}
-		],
-		"3162": [
-			{
-				value: "3163",
-				label: "Celendin"
-			},
-			{
-				value: "3164",
-				label: "Chumuch"
-			},
-			{
-				value: "3165",
-				label: "Cortegana"
-			},
-			{
-				value: "3166",
-				label: "Huasmin"
-			},
-			{
-				value: "3167",
-				label: "Jorge Chavez"
-			},
-			{
-				value: "3168",
-				label: "Jose Galvez"
-			},
-			{
-				value: "3174",
-				label: "La Libertad de Pallan"
-			},
-			{
-				value: "3169",
-				label: "Miguel Iglesias"
-			},
-			{
-				value: "3170",
-				label: "Oxamarca"
-			},
-			{
-				value: "3171",
-				label: "Sorochuco"
-			},
-			{
-				value: "3172",
-				label: "Sucre"
-			},
-			{
-				value: "3173",
-				label: "Utco"
-			}
-		],
-		"3175": [
-			{
-				value: "3177",
-				label: "Anguia"
-			},
-			{
-				value: "3178",
-				label: "Chadin"
-			},
-			{
-				value: "3194",
-				label: "Chalamarca"
-			},
-			{
-				value: "3179",
-				label: "Chiguirip"
-			},
-			{
-				value: "3180",
-				label: "Chimban"
-			},
-			{
-				value: "3181",
-				label: "Choropampa"
-			},
-			{
-				value: "3176",
-				label: "Chota"
-			},
-			{
-				value: "3182",
-				label: "Cochabamba"
-			},
-			{
-				value: "3183",
-				label: "Conchan"
-			},
-			{
-				value: "3184",
-				label: "Huambos"
-			},
-			{
-				value: "3185",
-				label: "Lajas"
-			},
-			{
-				value: "3186",
-				label: "Llama"
-			},
-			{
-				value: "3187",
-				label: "Miracosta"
-			},
-			{
-				value: "3188",
-				label: "Paccha"
-			},
-			{
-				value: "3189",
-				label: "Pion"
-			},
-			{
-				value: "3190",
-				label: "Querocoto"
-			},
-			{
-				value: "3191",
-				label: "San Juan de Licupis"
-			},
-			{
-				value: "3192",
-				label: "Tacabamba"
-			},
-			{
-				value: "3193",
-				label: "Tocmoche"
-			}
-		],
-		"3195": [
-			{
-				value: "3197",
-				label: "Chilete"
-			},
-			{
-				value: "3196",
-				label: "Contumaza"
-			},
-			{
-				value: "3198",
-				label: "Cupisnique"
-			},
-			{
-				value: "3199",
-				label: "Guzmango"
-			},
-			{
-				value: "3200",
-				label: "San Benito"
-			},
-			{
-				value: "3201",
-				label: "Santa Cruz de Toled"
-			},
-			{
-				value: "3202",
-				label: "Tantarica"
-			},
-			{
-				value: "3203",
-				label: "Yonan"
-			}
-		],
-		"3204": [
-			{
-				value: "3206",
-				label: "Callayuc"
-			},
-			{
-				value: "3207",
-				label: "Choros"
-			},
-			{
-				value: "3208",
-				label: "Cujillo"
-			},
-			{
-				value: "3205",
-				label: "Cutervo"
-			},
-			{
-				value: "3209",
-				label: "La Ramada"
-			},
-			{
-				value: "3210",
-				label: "Pimpingos"
-			},
-			{
-				value: "3211",
-				label: "Querocotillo"
-			},
-			{
-				value: "3212",
-				label: "San Andres de Cutervo"
-			},
-			{
-				value: "3213",
-				label: "San Juan de Cutervo"
-			},
-			{
-				value: "3214",
-				label: "San Luis de Lucma"
-			},
-			{
-				value: "3215",
-				label: "Santa Cruz"
-			},
-			{
-				value: "3216",
-				label: "Santo Domingo de la Capilla"
-			},
-			{
-				value: "3217",
-				label: "Santo Tomas"
-			},
-			{
-				value: "3218",
-				label: "Socota"
-			},
-			{
-				value: "3219",
-				label: "Toribio Casanova"
-			}
-		],
-		"3220": [
-			{
-				value: "3221",
-				label: "Bambamarca"
-			},
-			{
-				value: "3222",
-				label: "Chugur"
-			},
-			{
-				value: "3223",
-				label: "Hualgayoc"
-			}
-		],
-		"3224": [
-			{
-				value: "3226",
-				label: "Bellavista"
-			},
-			{
-				value: "3227",
-				label: "Chontali"
-			},
-			{
-				value: "3228",
-				label: "Colasay"
-			},
-			{
-				value: "3229",
-				label: "Huabal"
-			},
-			{
-				value: "3225",
-				label: "Jaen"
-			},
-			{
-				value: "3230",
-				label: "Las Pirias"
-			},
-			{
-				value: "3231",
-				label: "Pomahuaca"
-			},
-			{
-				value: "3232",
-				label: "Pucara"
-			},
-			{
-				value: "3233",
-				label: "Sallique"
-			},
-			{
-				value: "3234",
-				label: "San Felipe"
-			},
-			{
-				value: "3235",
-				label: "San Jose del Alto"
-			},
-			{
-				value: "3236",
-				label: "Santa Rosa"
-			}
-		],
-		"3237": [
-			{
-				value: "3239",
-				label: "Chirinos"
-			},
-			{
-				value: "3240",
-				label: "Huarango"
-			},
-			{
-				value: "3241",
-				label: "La Coipa"
-			},
-			{
-				value: "3242",
-				label: "Namballe"
-			},
-			{
-				value: "3238",
-				label: "San Ignacio"
-			},
-			{
-				value: "3243",
-				label: "San Jose de Lourdes"
-			},
-			{
-				value: "3244",
-				label: "Tabaconas"
-			}
-		],
-		"3245": [
-			{
-				value: "3247",
-				label: "Chancay"
-			},
-			{
-				value: "3248",
-				label: "Eduardo Villanueva"
-			},
-			{
-				value: "3249",
-				label: "Gregorio Pita"
-			},
-			{
-				value: "3250",
-				label: "Ichocan"
-			},
-			{
-				value: "3251",
-				label: "Jose Manuel Quiroz"
-			},
-			{
-				value: "3252",
-				label: "Jose Sabogal"
-			},
-			{
-				value: "3246",
-				label: "Pedro Galvez"
-			}
-		],
-		"3253": [
-			{
-				value: "3255",
-				label: "Bolivar"
-			},
-			{
-				value: "3256",
-				label: "Calquis"
-			},
-			{
-				value: "3257",
-				label: "Catilluc"
-			},
-			{
-				value: "3258",
-				label: "El Prado"
-			},
-			{
-				value: "3259",
-				label: "La Florida"
-			},
-			{
-				value: "3260",
-				label: "Llapa"
-			},
-			{
-				value: "3261",
-				label: "Nanchoc"
-			},
-			{
-				value: "3262",
-				label: "Niepos"
-			},
-			{
-				value: "3263",
-				label: "San Gregorio"
-			},
-			{
-				value: "3254",
-				label: "San Miguel"
-			},
-			{
-				value: "3264",
-				label: "San Silvestre de Cochan"
-			},
-			{
-				value: "3265",
-				label: "Tongod"
-			},
-			{
-				value: "3266",
-				label: "Union Agua Blanca"
-			}
-		],
-		"3267": [
-			{
-				value: "3269",
-				label: "San Bernardino"
-			},
-			{
-				value: "3270",
-				label: "San Luis"
-			},
-			{
-				value: "3268",
-				label: "San Pablo"
-			},
-			{
-				value: "3271",
-				label: "Tumbaden"
-			}
-		],
-		"3272": [
-			{
-				value: "3274",
-				label: "Andabamba"
-			},
-			{
-				value: "3275",
-				label: "Catache"
-			},
-			{
-				value: "3276",
-				label: "Chancaybaqos"
-			},
-			{
-				value: "3277",
-				label: "La Esperanza"
-			},
-			{
-				value: "3278",
-				label: "Ninabamba"
-			},
-			{
-				value: "3279",
-				label: "Pulan"
-			},
-			{
-				value: "3273",
-				label: "Santa Cruz"
-			},
-			{
-				value: "3280",
-				label: "Saucepampa"
-			},
-			{
-				value: "3281",
-				label: "Sexi"
-			},
-			{
-				value: "3282",
-				label: "Uticyacu"
-			},
-			{
-				value: "3283",
-				label: "Yauyucan"
-			}
-		],
-		"3302": [
-			{
-				value: "3303",
-				label: "Acomayo"
-			},
-			{
-				value: "3304",
-				label: "Acopia"
-			},
-			{
-				value: "3305",
-				label: "Acos"
-			},
-			{
-				value: "3306",
-				label: "Mosoc Llacta"
-			},
-			{
-				value: "3307",
-				label: "Pomacanchi"
-			},
-			{
-				value: "3308",
-				label: "Rondocan"
-			},
-			{
-				value: "3309",
-				label: "Sangarara"
-			}
-		],
-		"3310": [
-			{
-				value: "3312",
-				label: "Ancahuasi"
-			},
-			{
-				value: "3311",
-				label: "Anta"
-			},
-			{
-				value: "3313",
-				label: "Cachimayo"
-			},
-			{
-				value: "3314",
-				label: "Chinchaypujio"
-			},
-			{
-				value: "3315",
-				label: "Huarocondo"
-			},
-			{
-				value: "3316",
-				label: "Limatambo"
-			},
-			{
-				value: "3317",
-				label: "Mollepata"
-			},
-			{
-				value: "3318",
-				label: "Pucyura"
-			},
-			{
-				value: "3319",
-				label: "Zurite"
-			}
-		],
-		"3320": [
-			{
-				value: "3321",
-				label: "Calca"
-			},
-			{
-				value: "3322",
-				label: "Coya"
-			},
-			{
-				value: "3323",
-				label: "Lamay"
-			},
-			{
-				value: "3324",
-				label: "Lares"
-			},
-			{
-				value: "3325",
-				label: "Pisac"
-			},
-			{
-				value: "3326",
-				label: "San Salvador"
-			},
-			{
-				value: "3327",
-				label: "Taray"
-			},
-			{
-				value: "3328",
-				label: "Yanatile"
-			}
-		],
-		"3329": [
-			{
-				value: "3331",
-				label: "Checca"
-			},
-			{
-				value: "3332",
-				label: "Kunturkanki"
-			},
-			{
-				value: "3333",
-				label: "Langui"
-			},
-			{
-				value: "3334",
-				label: "Layo"
-			},
-			{
-				value: "3335",
-				label: "Pampamarca"
-			},
-			{
-				value: "3336",
-				label: "Quehue"
-			},
-			{
-				value: "3337",
-				label: "Tupac Amaru"
-			},
-			{
-				value: "3330",
-				label: "Yanaoca"
-			}
-		],
-		"3338": [
-			{
-				value: "3340",
-				label: "Checacupe"
-			},
-			{
-				value: "3341",
-				label: "Combapata"
-			},
-			{
-				value: "3342",
-				label: "Marangani"
-			},
-			{
-				value: "3343",
-				label: "Pitumarca"
-			},
-			{
-				value: "3344",
-				label: "San Pablo"
-			},
-			{
-				value: "3345",
-				label: "San Pedro"
-			},
-			{
-				value: "3339",
-				label: "Sicuani"
-			},
-			{
-				value: "3346",
-				label: "Tinta"
-			}
-		],
-		"3347": [
-			{
-				value: "3349",
-				label: "Capacmarca"
-			},
-			{
-				value: "3350",
-				label: "Chamaca"
-			},
-			{
-				value: "3351",
-				label: "Colquemarca"
-			},
-			{
-				value: "3352",
-				label: "Livitaca"
-			},
-			{
-				value: "3353",
-				label: "Llusco"
-			},
-			{
-				value: "3354",
-				label: "Quiqota"
-			},
-			{
-				value: "3348",
-				label: "Santo Tomas"
-			},
-			{
-				value: "3355",
-				label: "Velille"
-			}
-		],
-		"3293": [
-			{
-				value: "3295",
-				label: "Ccorca"
-			},
-			{
-				value: "3294",
-				label: "Cusco"
-			},
-			{
-				value: "3296",
-				label: "Poroy"
-			},
-			{
-				value: "3297",
-				label: "San Jeronimo"
-			},
-			{
-				value: "3298",
-				label: "San Sebastian"
-			},
-			{
-				value: "3299",
-				label: "Santiago"
-			},
-			{
-				value: "3300",
-				label: "Saylla"
-			},
-			{
-				value: "3301",
-				label: "Wanchaq"
-			}
-		],
-		"3356": [
-			{
-				value: "3364",
-				label: "Alto Pichigua"
-			},
-			{
-				value: "3358",
-				label: "Condoroma"
-			},
-			{
-				value: "3359",
-				label: "Coporaque"
-			},
-			{
-				value: "3357",
-				label: "Espinar"
-			},
-			{
-				value: "3360",
-				label: "Ocoruro"
-			},
-			{
-				value: "3361",
-				label: "Pallpata"
-			},
-			{
-				value: "3362",
-				label: "Pichigua"
-			},
-			{
-				value: "3363",
-				label: "Suyckutambo"
-			}
-		],
-		"3365": [
-			{
-				value: "3367",
-				label: "Echarate"
-			},
-			{
-				value: "3368",
-				label: "Huayopata"
-			},
-			{
-				value: "3369",
-				label: "Maranura"
-			},
-			{
-				value: "3370",
-				label: "Ocobamba"
-			},
-			{
-				value: "3375",
-				label: "Pichari"
-			},
-			{
-				value: "3371",
-				label: "Quellouno"
-			},
-			{
-				value: "3372",
-				label: "Quimbiri"
-			},
-			{
-				value: "3366",
-				label: "Santa Ana"
-			},
-			{
-				value: "3373",
-				label: "Santa Teresa"
-			},
-			{
-				value: "3374",
-				label: "Vilcabamba"
-			}
-		],
-		"3376": [
-			{
-				value: "3378",
-				label: "Accha"
-			},
-			{
-				value: "3379",
-				label: "Ccapi"
-			},
-			{
-				value: "3380",
-				label: "Colcha"
-			},
-			{
-				value: "3381",
-				label: "Huanoquite"
-			},
-			{
-				value: "3382",
-				label: "Omacha"
-			},
-			{
-				value: "3383",
-				label: "Paccaritambo"
-			},
-			{
-				value: "3377",
-				label: "Paruro"
-			},
-			{
-				value: "3384",
-				label: "Pillpinto"
-			},
-			{
-				value: "3385",
-				label: "Yaurisque"
-			}
-		],
-		"3386": [
-			{
-				value: "3388",
-				label: "Caicay"
-			},
-			{
-				value: "3389",
-				label: "Challabamba"
-			},
-			{
-				value: "3390",
-				label: "Colquepata"
-			},
-			{
-				value: "3391",
-				label: "Huancarani"
-			},
-			{
-				value: "3392",
-				label: "Kosqipata"
-			},
-			{
-				value: "3387",
-				label: "Paucartambo"
-			}
-		],
-		"3393": [
-			{
-				value: "3395",
-				label: "Andahuaylillas"
-			},
-			{
-				value: "3396",
-				label: "Camanti"
-			},
-			{
-				value: "3397",
-				label: "Ccarhuayo"
-			},
-			{
-				value: "3398",
-				label: "Ccatca"
-			},
-			{
-				value: "3399",
-				label: "Cusipata"
-			},
-			{
-				value: "3400",
-				label: "Huaro"
-			},
-			{
-				value: "3401",
-				label: "Lucre"
-			},
-			{
-				value: "3402",
-				label: "Marcapata"
-			},
-			{
-				value: "3403",
-				label: "Ocongate"
-			},
-			{
-				value: "3404",
-				label: "Oropesa"
-			},
-			{
-				value: "3405",
-				label: "Quiquijana"
-			},
-			{
-				value: "3394",
-				label: "Urcos"
-			}
-		],
-		"3406": [
-			{
-				value: "3408",
-				label: "Chinchero"
-			},
-			{
-				value: "3409",
-				label: "Huayllabamba"
-			},
-			{
-				value: "3410",
-				label: "Machupicchu"
-			},
-			{
-				value: "3411",
-				label: "Maras"
-			},
-			{
-				value: "3412",
-				label: "Ollantaytambo"
-			},
-			{
-				value: "3407",
-				label: "Urubamba"
-			},
-			{
-				value: "3413",
-				label: "Yucay"
-			}
-		],
-		"3435": [
-			{
-				value: "3436",
-				label: "Acobamba"
-			},
-			{
-				value: "3437",
-				label: "Andabamba"
-			},
-			{
-				value: "3438",
-				label: "Anta"
-			},
-			{
-				value: "3439",
-				label: "Caja"
-			},
-			{
-				value: "3440",
-				label: "Marcas"
-			},
-			{
-				value: "3441",
-				label: "Paucara"
-			},
-			{
-				value: "3442",
-				label: "Pomacocha"
-			},
-			{
-				value: "3443",
-				label: "Rosario"
-			}
-		],
-		"3444": [
-			{
-				value: "3446",
-				label: "Anchonga"
-			},
-			{
-				value: "3447",
-				label: "Callanmarca"
-			},
-			{
-				value: "3448",
-				label: "Ccochaccasa"
-			},
-			{
-				value: "3449",
-				label: "Chincho"
-			},
-			{
-				value: "3450",
-				label: "Congalla"
-			},
-			{
-				value: "3451",
-				label: "Huanca-Huanca"
-			},
-			{
-				value: "3452",
-				label: "Huayllay Grande"
-			},
-			{
-				value: "3453",
-				label: "Julcamarca"
-			},
-			{
-				value: "3445",
-				label: "Lircay"
-			},
-			{
-				value: "3454",
-				label: "San Antonio de Antaparco"
-			},
-			{
-				value: "3455",
-				label: "Santo Tomas de Pata"
-			},
-			{
-				value: "3456",
-				label: "Secclla"
-			}
-		],
-		"3457": [
-			{
-				value: "3459",
-				label: "Arma"
-			},
-			{
-				value: "3460",
-				label: "Aurahua"
-			},
-			{
-				value: "3461",
-				label: "Capillas"
-			},
-			{
-				value: "3458",
-				label: "Castrovirreyna"
-			},
-			{
-				value: "3462",
-				label: "Chupamarca"
-			},
-			{
-				value: "3463",
-				label: "Cocas"
-			},
-			{
-				value: "3464",
-				label: "Huachos"
-			},
-			{
-				value: "3465",
-				label: "Huamatambo"
-			},
-			{
-				value: "3466",
-				label: "Mollepampa"
-			},
-			{
-				value: "3467",
-				label: "San Juan"
-			},
-			{
-				value: "3468",
-				label: "Santa Ana"
-			},
-			{
-				value: "3469",
-				label: "Tantara"
-			},
-			{
-				value: "3470",
-				label: "Ticrapo"
-			}
-		],
-		"3471": [
-			{
-				value: "3473",
-				label: "Anco"
-			},
-			{
-				value: "3474",
-				label: "Chinchihuasi"
-			},
-			{
-				value: "3472",
-				label: "Churcampa"
-			},
-			{
-				value: "3475",
-				label: "El Carmen"
-			},
-			{
-				value: "3476",
-				label: "La Merced"
-			},
-			{
-				value: "3477",
-				label: "Locroja"
-			},
-			{
-				value: "3481",
-				label: "Pachamarca"
-			},
-			{
-				value: "3478",
-				label: "Paucarbamba"
-			},
-			{
-				value: "3479",
-				label: "San Miguel de Mayocc"
-			},
-			{
-				value: "3480",
-				label: "San Pedro de Coris"
-			}
-		],
-		"3415": [
-			{
-				value: "3417",
-				label: "Acobambilla"
-			},
-			{
-				value: "3418",
-				label: "Acoria"
-			},
-			{
-				value: "3433",
-				label: "Ascensi\u00f3n"
-			},
-			{
-				value: "3419",
-				label: "Conayca"
-			},
-			{
-				value: "3420",
-				label: "Cuenca"
-			},
-			{
-				value: "3421",
-				label: "Huachocolpa"
-			},
-			{
-				value: "3416",
-				label: "Huancavelica"
-			},
-			{
-				value: "3434",
-				label: "Huando"
-			},
-			{
-				value: "3422",
-				label: "Huayllahuara"
-			},
-			{
-				value: "3423",
-				label: "Izcuchaca"
-			},
-			{
-				value: "3424",
-				label: "Laria"
-			},
-			{
-				value: "3425",
-				label: "Manta"
-			},
-			{
-				value: "3426",
-				label: "Mariscal Caceres"
-			},
-			{
-				value: "3427",
-				label: "Moya"
-			},
-			{
-				value: "3428",
-				label: "Nuevo Occoro"
-			},
-			{
-				value: "3429",
-				label: "Palca"
-			},
-			{
-				value: "3430",
-				label: "Pilchaca"
-			},
-			{
-				value: "3431",
-				label: "Vilca"
-			},
-			{
-				value: "3432",
-				label: "Yauli"
-			}
-		],
-		"3482": [
-			{
-				value: "3484",
-				label: "Ayavi"
-			},
-			{
-				value: "3485",
-				label: "Cordova"
-			},
-			{
-				value: "3486",
-				label: "Huayacundo Arma"
-			},
-			{
-				value: "3483",
-				label: "Huaytara"
-			},
-			{
-				value: "3487",
-				label: "Laramarca"
-			},
-			{
-				value: "3488",
-				label: "Ocoyo"
-			},
-			{
-				value: "3489",
-				label: "Pilpichaca"
-			},
-			{
-				value: "3490",
-				label: "Querco"
-			},
-			{
-				value: "3491",
-				label: "Quito-Arma"
-			},
-			{
-				value: "3492",
-				label: "San Antonio de Cusicancha"
-			},
-			{
-				value: "3493",
-				label: "San Francisco de Sangayaico"
-			},
-			{
-				value: "3494",
-				label: "San Isidro"
-			},
-			{
-				value: "3495",
-				label: "Santiago de Chocorvos"
-			},
-			{
-				value: "3496",
-				label: "Santiago de Quirahuara"
-			},
-			{
-				value: "3497",
-				label: "Santo Domingo de Capillas"
-			},
-			{
-				value: "3498",
-				label: "Tambo"
-			}
-		],
-		"3499": [
-			{
-				value: "3501",
-				label: "Acostambo"
-			},
-			{
-				value: "3502",
-				label: "Acraquia"
-			},
-			{
-				value: "3503",
-				label: "Ahuaycha"
-			},
-			{
-				value: "3504",
-				label: "Colcabamba"
-			},
-			{
-				value: "3505",
-				label: "Daniel Hernandez"
-			},
-			{
-				value: "3506",
-				label: "Huachocolpa"
-			},
-			{
-				value: "3507",
-				label: "Huando"
-			},
-			{
-				value: "3508",
-				label: "Huaribamba"
-			},
-			{
-				value: "3511",
-				label: "Pachamarca"
-			},
-			{
-				value: "3500",
-				label: "Pampas"
-			},
-			{
-				value: "3510",
-				label: "Pazos"
-			},
-			{
-				value: "3509",
-				label: "Qahuimpuquio"
-			},
-			{
-				value: "3512",
-				label: "Quishuar"
-			},
-			{
-				value: "3513",
-				label: "Salcabamba"
-			},
-			{
-				value: "3514",
-				label: "Salcahuasi"
-			},
-			{
-				value: "3515",
-				label: "San Marcos de Rocchac"
-			},
-			{
-				value: "3516",
-				label: "Surcubamba"
-			},
-			{
-				value: "3517",
-				label: "Tintay Puncu"
-			}
-		],
-		"3531": [
-			{
-				value: "3532",
-				label: "Ambo"
-			},
-			{
-				value: "3533",
-				label: "Cayna"
-			},
-			{
-				value: "3534",
-				label: "Colpas"
-			},
-			{
-				value: "3535",
-				label: "Conchamarca"
-			},
-			{
-				value: "3536",
-				label: "Huacar"
-			},
-			{
-				value: "3537",
-				label: "San Francisco"
-			},
-			{
-				value: "3538",
-				label: "San Rafael"
-			},
-			{
-				value: "3539",
-				label: "Tomay Kichwa"
-			}
-		],
-		"3540": [
-			{
-				value: "3542",
-				label: "Chuquis"
-			},
-			{
-				value: "3541",
-				label: "La Union"
-			},
-			{
-				value: "3543",
-				label: "Marias"
-			},
-			{
-				value: "3544",
-				label: "Pachas"
-			},
-			{
-				value: "3545",
-				label: "Quivilla"
-			},
-			{
-				value: "3546",
-				label: "Ripan"
-			},
-			{
-				value: "3547",
-				label: "Shunqui"
-			},
-			{
-				value: "3548",
-				label: "Sillapata"
-			},
-			{
-				value: "3549",
-				label: "Yanas"
-			}
-		],
-		"3550": [
-			{
-				value: "3552",
-				label: "Canchabamba"
-			},
-			{
-				value: "3553",
-				label: "Cochabamba"
-			},
-			{
-				value: "3551",
-				label: "Huacaybamba"
-			},
-			{
-				value: "3554",
-				label: "Pinra"
-			}
-		],
-		"3555": [
-			{
-				value: "3557",
-				label: "Arancay"
-			},
-			{
-				value: "3558",
-				label: "Chavin de Pariarca"
-			},
-			{
-				value: "3559",
-				label: "Jacas Grande"
-			},
-			{
-				value: "3560",
-				label: "Jircan"
-			},
-			{
-				value: "3556",
-				label: "Llata"
-			},
-			{
-				value: "3561",
-				label: "Miraflores"
-			},
-			{
-				value: "3562",
-				label: "Monzon"
-			},
-			{
-				value: "3563",
-				label: "Punchao"
-			},
-			{
-				value: "3564",
-				label: "Puqos"
-			},
-			{
-				value: "3565",
-				label: "Singa"
-			},
-			{
-				value: "3566",
-				label: "Tantamayo"
-			}
-		],
-		"3519": [
-			{
-				value: "3521",
-				label: "Amarilis"
-			},
-			{
-				value: "3522",
-				label: "Chinchao"
-			},
-			{
-				value: "3523",
-				label: "Churubamba"
-			},
-			{
-				value: "3520",
-				label: "Huanuco"
-			},
-			{
-				value: "3524",
-				label: "Margos"
-			},
-			{
-				value: "3530",
-				label: "Pillcomarca"
-			},
-			{
-				value: "3525",
-				label: "Quisqui"
-			},
-			{
-				value: "3526",
-				label: "San Francisco de Cayran"
-			},
-			{
-				value: "3527",
-				label: "San Pedro de Chaulan"
-			},
-			{
-				value: "3528",
-				label: "Santa Maria del Valle"
-			},
-			{
-				value: "3529",
-				label: "Yarumayo"
-			}
-		],
-		"3589": [
-			{
-				value: "3591",
-				label: "Baqos"
-			},
-			{
-				value: "3590",
-				label: "Jesus"
-			},
-			{
-				value: "3592",
-				label: "Jivia"
-			},
-			{
-				value: "3593",
-				label: "Queropalca"
-			},
-			{
-				value: "3594",
-				label: "Rondos"
-			},
-			{
-				value: "3595",
-				label: "San Francisco de Asis"
-			},
-			{
-				value: "3596",
-				label: "San Miguel de Cauri"
-			}
-		],
-		"3567": [
-			{
-				value: "3569",
-				label: "Daniel Alomias Robles"
-			},
-			{
-				value: "3570",
-				label: "Hermilio Valdizan"
-			},
-			{
-				value: "3571",
-				label: "Jose Crespo y Castillo"
-			},
-			{
-				value: "3572",
-				label: "Luyando"
-			},
-			{
-				value: "3573",
-				label: "Mariano Damaso Beraun"
-			},
-			{
-				value: "3568",
-				label: "Rupa-Rupa"
-			}
-		],
-		"3574": [
-			{
-				value: "3576",
-				label: "Cholon"
-			},
-			{
-				value: "3575",
-				label: "Huacrachuco"
-			},
-			{
-				value: "3577",
-				label: "San Buenaventura"
-			}
-		],
-		"3578": [
-			{
-				value: "3580",
-				label: "Chaglla"
-			},
-			{
-				value: "3581",
-				label: "Molino"
-			},
-			{
-				value: "3579",
-				label: "Panao"
-			},
-			{
-				value: "3582",
-				label: "Umari"
-			}
-		],
-		"3583": [
-			{
-				value: "3585",
-				label: "Codo del Pozuzo"
-			},
-			{
-				value: "3586",
-				label: "Honoria"
-			},
-			{
-				value: "3584",
-				label: "Puerto Inca"
-			},
-			{
-				value: "3587",
-				label: "Tournavista"
-			},
-			{
-				value: "3588",
-				label: "Yuyapichis"
-			}
-		],
-		"3597": [
-			{
-				value: "3599",
-				label: "Cahuac"
-			},
-			{
-				value: "3600",
-				label: "Chacabamba"
-			},
-			{
-				value: "3598",
-				label: "Chavinillo"
-			},
-			{
-				value: "3605",
-				label: "Choras"
-			},
-			{
-				value: "3601",
-				label: "Chupan"
-			},
-			{
-				value: "3602",
-				label: "Jacas Chico"
-			},
-			{
-				value: "3603",
-				label: "Obas"
-			},
-			{
-				value: "3604",
-				label: "Pampamarca"
-			}
-		],
-		"3622": [
-			{
-				value: "3624",
-				label: "Alto Laran"
-			},
-			{
-				value: "3625",
-				label: "Chavin"
-			},
-			{
-				value: "3623",
-				label: "Chincha Alta"
-			},
-			{
-				value: "3626",
-				label: "Chincha Baja"
-			},
-			{
-				value: "3627",
-				label: "El Carmen"
-			},
-			{
-				value: "3628",
-				label: "Grocio Prado"
-			},
-			{
-				value: "3629",
-				label: "Pueblo Nuevo"
-			},
-			{
-				value: "3630",
-				label: "San Juan de Yanac"
-			},
-			{
-				value: "3631",
-				label: "San Pedro de Huacarpana"
-			},
-			{
-				value: "3632",
-				label: "Sunampe"
-			},
-			{
-				value: "3633",
-				label: "Tambo de Mora"
-			}
-		],
-		"3607": [
-			{
-				value: "3608",
-				label: "Ica"
-			},
-			{
-				value: "3609",
-				label: "La Tinguiqa"
-			},
-			{
-				value: "3610",
-				label: "Los Aquijes"
-			},
-			{
-				value: "3611",
-				label: "Ocucaje"
-			},
-			{
-				value: "3612",
-				label: "Pachacutec"
-			},
-			{
-				value: "3613",
-				label: "Parcona"
-			},
-			{
-				value: "3614",
-				label: "Pueblo Nuevo"
-			},
-			{
-				value: "3615",
-				label: "Salas"
-			},
-			{
-				value: "3616",
-				label: "San Jose de los Molinos"
-			},
-			{
-				value: "3617",
-				label: "San Juan Bautista"
-			},
-			{
-				value: "3618",
-				label: "Santiago"
-			},
-			{
-				value: "3619",
-				label: "Subtanjalla"
-			},
-			{
-				value: "3620",
-				label: "Tate"
-			},
-			{
-				value: "3621",
-				label: "Yauca del Rosario  1\/"
-			}
-		],
-		"3634": [
-			{
-				value: "3636",
-				label: "Changuillo"
-			},
-			{
-				value: "3637",
-				label: "El Ingenio"
-			},
-			{
-				value: "3638",
-				label: "Marcona"
-			},
-			{
-				value: "3635",
-				label: "Nazca"
-			},
-			{
-				value: "3639",
-				label: "Vista Alegre"
-			}
-		],
-		"3640": [
-			{
-				value: "3642",
-				label: "Llipata"
-			},
-			{
-				value: "3641",
-				label: "Palpa"
-			},
-			{
-				value: "3643",
-				label: "Rio Grande"
-			},
-			{
-				value: "3644",
-				label: "Santa Cruz"
-			},
-			{
-				value: "3645",
-				label: "Tibillo"
-			}
-		],
-		"3646": [
-			{
-				value: "3648",
-				label: "Huancano"
-			},
-			{
-				value: "3649",
-				label: "Humay"
-			},
-			{
-				value: "3650",
-				label: "Independencia"
-			},
-			{
-				value: "3651",
-				label: "Paracas"
-			},
-			{
-				value: "3647",
-				label: "Pisco"
-			},
-			{
-				value: "3652",
-				label: "San Andres"
-			},
-			{
-				value: "3653",
-				label: "San Clemente"
-			},
-			{
-				value: "3654",
-				label: "Tupac Amaru Inca"
-			}
-		],
-		"3701": [
-			{
-				value: "3702",
-				label: "Chanchamayo"
-			},
-			{
-				value: "3703",
-				label: "Perene"
-			},
-			{
-				value: "3704",
-				label: "Pichanaqui"
-			},
-			{
-				value: "3705",
-				label: "San Luis de Shuaro"
-			},
-			{
-				value: "3706",
-				label: "San Ramon"
-			},
-			{
-				value: "3707",
-				label: "Vitoc"
-			}
-		],
-		"3778": [
-			{
-				value: "3780",
-				label: "Ahuac"
-			},
-			{
-				value: "3781",
-				label: "Chongos Bajo"
-			},
-			{
-				value: "3779",
-				label: "Chupaca"
-			},
-			{
-				value: "3782",
-				label: "Huachac"
-			},
-			{
-				value: "3783",
-				label: "Huamancaca Chico"
-			},
-			{
-				value: "3784",
-				label: "San Juan de Iscos"
-			},
-			{
-				value: "3785",
-				label: "San Juan de Jarpa"
-			},
-			{
-				value: "3786",
-				label: "Tres de Diciembre"
-			},
-			{
-				value: "3787",
-				label: "Yanacancha"
-			}
-		],
-		"3685": [
-			{
-				value: "3687",
-				label: "Aco"
-			},
-			{
-				value: "3688",
-				label: "Andamarca"
-			},
-			{
-				value: "3689",
-				label: "Chambara"
-			},
-			{
-				value: "3690",
-				label: "Cochas"
-			},
-			{
-				value: "3691",
-				label: "Comas"
-			},
-			{
-				value: "3686",
-				label: "Concepcion"
-			},
-			{
-				value: "3692",
-				label: "Heroinas Toledo"
-			},
-			{
-				value: "3693",
-				label: "Manzanares"
-			},
-			{
-				value: "3694",
-				label: "Mariscal Castilla"
-			},
-			{
-				value: "3695",
-				label: "Matahuasi"
-			},
-			{
-				value: "3696",
-				label: "Mito"
-			},
-			{
-				value: "3697",
-				label: "Nueve de Julio"
-			},
-			{
-				value: "3698",
-				label: "Orcotuna"
-			},
-			{
-				value: "3699",
-				label: "San Jose de Quero"
-			},
-			{
-				value: "3700",
-				label: "Santa Rosa de Ocopa"
-			}
-		],
-		"3656": [
-			{
-				value: "3658",
-				label: "Carhuacallanga"
-			},
-			{
-				value: "3659",
-				label: "Chacapampa"
-			},
-			{
-				value: "3660",
-				label: "Chicche"
-			},
-			{
-				value: "3661",
-				label: "Chilca"
-			},
-			{
-				value: "3662",
-				label: "Chongos Alto"
-			},
-			{
-				value: "3663",
-				label: "Chupuro"
-			},
-			{
-				value: "3664",
-				label: "Colca"
-			},
-			{
-				value: "3665",
-				label: "Cullhuas"
-			},
-			{
-				value: "3666",
-				label: "El Tambo"
-			},
-			{
-				value: "3667",
-				label: "Huacrapuquio"
-			},
-			{
-				value: "3668",
-				label: "Hualhuas"
-			},
-			{
-				value: "3669",
-				label: "Huancan"
-			},
-			{
-				value: "3657",
-				label: "Huancayo"
-			},
-			{
-				value: "3670",
-				label: "Huasicancha"
-			},
-			{
-				value: "3671",
-				label: "Huayucachi"
-			},
-			{
-				value: "3672",
-				label: "Ingenio"
-			},
-			{
-				value: "3673",
-				label: "Pariahuanca"
-			},
-			{
-				value: "3674",
-				label: "Pilcomayo"
-			},
-			{
-				value: "3675",
-				label: "Pucara"
-			},
-			{
-				value: "3676",
-				label: "Quichuay"
-			},
-			{
-				value: "3677",
-				label: "Quilcas"
-			},
-			{
-				value: "3678",
-				label: "San Agustin"
-			},
-			{
-				value: "3679",
-				label: "San Jeronimo de Tunan"
-			},
-			{
-				value: "3683",
-				label: "Santo Domingo de Acobamba"
-			},
-			{
-				value: "3681",
-				label: "Sapallanga"
-			},
-			{
-				value: "3680",
-				label: "Saqo"
-			},
-			{
-				value: "3682",
-				label: "Sicaya"
-			},
-			{
-				value: "3684",
-				label: "Viques"
-			}
-		],
-		"3708": [
-			{
-				value: "3710",
-				label: "Acolla"
-			},
-			{
-				value: "3711",
-				label: "Apata"
-			},
-			{
-				value: "3712",
-				label: "Ataura"
-			},
-			{
-				value: "3713",
-				label: "Canchayllo"
-			},
-			{
-				value: "3714",
-				label: "Curicaca"
-			},
-			{
-				value: "3715",
-				label: "El Mantaro"
-			},
-			{
-				value: "3716",
-				label: "Huamali"
-			},
-			{
-				value: "3717",
-				label: "Huaripampa"
-			},
-			{
-				value: "3718",
-				label: "Huertas"
-			},
-			{
-				value: "3719",
-				label: "Janjaillo"
-			},
-			{
-				value: "3709",
-				label: "Jauja"
-			},
-			{
-				value: "3720",
-				label: "Julcan"
-			},
-			{
-				value: "3721",
-				label: "Leonor Ordoqez"
-			},
-			{
-				value: "3722",
-				label: "Llocllapampa"
-			},
-			{
-				value: "3723",
-				label: "Marco"
-			},
-			{
-				value: "3724",
-				label: "Masma"
-			},
-			{
-				value: "3725",
-				label: "Masma Chicche"
-			},
-			{
-				value: "3726",
-				label: "Molinos"
-			},
-			{
-				value: "3727",
-				label: "Monobamba"
-			},
-			{
-				value: "3728",
-				label: "Muqui"
-			},
-			{
-				value: "3729",
-				label: "Muquiyauyo"
-			},
-			{
-				value: "3730",
-				label: "Paca"
-			},
-			{
-				value: "3731",
-				label: "Paccha"
-			},
-			{
-				value: "3732",
-				label: "Pancan"
-			},
-			{
-				value: "3733",
-				label: "Parco"
-			},
-			{
-				value: "3734",
-				label: "Pomacancha"
-			},
-			{
-				value: "3735",
-				label: "Ricran"
-			},
-			{
-				value: "3736",
-				label: "San Lorenzo"
-			},
-			{
-				value: "3737",
-				label: "San Pedro de Chunan"
-			},
-			{
-				value: "3738",
-				label: "Sausa"
-			},
-			{
-				value: "3739",
-				label: "Sincos"
-			},
-			{
-				value: "3740",
-				label: "Tunan Marca"
-			},
-			{
-				value: "3741",
-				label: "Yauli"
-			},
-			{
-				value: "3742",
-				label: "Yauyos"
-			}
-		],
-		"3743": [
-			{
-				value: "3745",
-				label: "Carhuamayo"
-			},
-			{
-				value: "3744",
-				label: "Junin"
-			},
-			{
-				value: "3746",
-				label: "Ondores"
-			},
-			{
-				value: "3747",
-				label: "Ulcumayo"
-			}
-		],
-		"3748": [
-			{
-				value: "3750",
-				label: "Coviriali"
-			},
-			{
-				value: "3751",
-				label: "Llaylla"
-			},
-			{
-				value: "3752",
-				label: "Mazamari"
-			},
-			{
-				value: "3753",
-				label: "Pampa Hermosa"
-			},
-			{
-				value: "3754",
-				label: "Pangoa"
-			},
-			{
-				value: "3755",
-				label: "Rio Negro"
-			},
-			{
-				value: "3756",
-				label: "Rio Tambo"
-			},
-			{
-				value: "3749",
-				label: "Satipo"
-			}
-		],
-		"3757": [
-			{
-				value: "3759",
-				label: "Acobamba"
-			},
-			{
-				value: "3760",
-				label: "Huaricolca"
-			},
-			{
-				value: "3761",
-				label: "Huasahuasi"
-			},
-			{
-				value: "3762",
-				label: "La Union"
-			},
-			{
-				value: "3763",
-				label: "Palca"
-			},
-			{
-				value: "3764",
-				label: "Palcamayo"
-			},
-			{
-				value: "3765",
-				label: "San Pedro de Cajas"
-			},
-			{
-				value: "3766",
-				label: "Tapo"
-			},
-			{
-				value: "3758",
-				label: "Tarma"
-			}
-		],
-		"3767": [
-			{
-				value: "3769",
-				label: "Chacapalpa"
-			},
-			{
-				value: "3770",
-				label: "Huay-Huay"
-			},
-			{
-				value: "3768",
-				label: "La Oroya"
-			},
-			{
-				value: "3771",
-				label: "Marcapomacocha"
-			},
-			{
-				value: "3772",
-				label: "Morococha"
-			},
-			{
-				value: "3773",
-				label: "Paccha"
-			},
-			{
-				value: "3774",
-				label: "Santa Barbara de Carhuacayan"
-			},
-			{
-				value: "3775",
-				label: "Santa Rosa de Sacco"
-			},
-			{
-				value: "3776",
-				label: "Suitucancha"
-			},
-			{
-				value: "3777",
-				label: "Yauli"
-			}
-		],
-		"3801": [
-			{
-				value: "3802",
-				label: "Ascope"
-			},
-			{
-				value: "3809",
-				label: "Casa Grande"
-			},
-			{
-				value: "3803",
-				label: "Chicama"
-			},
-			{
-				value: "3804",
-				label: "Chocope"
-			},
-			{
-				value: "3805",
-				label: "Magdalena de Cao"
-			},
-			{
-				value: "3806",
-				label: "Paijan"
-			},
-			{
-				value: "3807",
-				label: "Razuri"
-			},
-			{
-				value: "3808",
-				label: "Santiago de Cao"
-			}
-		],
-		"3810": [
-			{
-				value: "3812",
-				label: "Bambamarca"
-			},
-			{
-				value: "3811",
-				label: "Bolivar"
-			},
-			{
-				value: "3813",
-				label: "Condormarca"
-			},
-			{
-				value: "3814",
-				label: "Longotea"
-			},
-			{
-				value: "3815",
-				label: "Uchumarca"
-			},
-			{
-				value: "3816",
-				label: "Ucuncha"
-			}
-		],
-		"3817": [
-			{
-				value: "3818",
-				label: "Chepen"
-			},
-			{
-				value: "3819",
-				label: "Pacanga"
-			},
-			{
-				value: "3820",
-				label: "Pueblo Nuevo"
-			}
-		],
-		"3875": [
-			{
-				value: "3876",
-				label: "Cascas"
-			},
-			{
-				value: "3877",
-				label: "Lucma"
-			},
-			{
-				value: "3878",
-				label: "Marmot"
-			},
-			{
-				value: "3879",
-				label: "Sayapullo"
-			}
-		],
-		"3821": [
-			{
-				value: "3823",
-				label: "Calamarca"
-			},
-			{
-				value: "3824",
-				label: "Carabamba"
-			},
-			{
-				value: "3825",
-				label: "Huaso"
-			},
-			{
-				value: "3822",
-				label: "Julcan"
-			}
-		],
-		"3826": [
-			{
-				value: "3828",
-				label: "Agallpampa"
-			},
-			{
-				value: "3829",
-				label: "Charat"
-			},
-			{
-				value: "3830",
-				label: "Huaranchal"
-			},
-			{
-				value: "3831",
-				label: "La Cuesta"
-			},
-			{
-				value: "3832",
-				label: "Mache"
-			},
-			{
-				value: "3827",
-				label: "Otuzco"
-			},
-			{
-				value: "3833",
-				label: "Paranday"
-			},
-			{
-				value: "3834",
-				label: "Salpo"
-			},
-			{
-				value: "3835",
-				label: "Sinsicap"
-			},
-			{
-				value: "3836",
-				label: "Usquil"
-			}
-		],
-		"3837": [
-			{
-				value: "3839",
-				label: "Guadalupe"
-			},
-			{
-				value: "3840",
-				label: "Jequetepeque"
-			},
-			{
-				value: "3841",
-				label: "Pacasmayo"
-			},
-			{
-				value: "3842",
-				label: "San Jose"
-			},
-			{
-				value: "3838",
-				label: "San Pedro de Lloc"
-			}
-		],
-		"3843": [
-			{
-				value: "3845",
-				label: "Buldibuyo"
-			},
-			{
-				value: "3846",
-				label: "Chillia"
-			},
-			{
-				value: "3847",
-				label: "Huancaspata"
-			},
-			{
-				value: "3848",
-				label: "Huaylillas"
-			},
-			{
-				value: "3849",
-				label: "Huayo"
-			},
-			{
-				value: "3850",
-				label: "Ongon"
-			},
-			{
-				value: "3851",
-				label: "Parcoy"
-			},
-			{
-				value: "3852",
-				label: "Pataz"
-			},
-			{
-				value: "3853",
-				label: "Pias"
-			},
-			{
-				value: "3854",
-				label: "Santiago de Challas"
-			},
-			{
-				value: "3855",
-				label: "Taurija"
-			},
-			{
-				value: "3844",
-				label: "Tayabamba"
-			},
-			{
-				value: "3856",
-				label: "Urpay"
-			}
-		],
-		"3857": [
-			{
-				value: "3859",
-				label: "Chugay"
-			},
-			{
-				value: "3860",
-				label: "Cochorco"
-			},
-			{
-				value: "3861",
-				label: "Curgos"
-			},
-			{
-				value: "3858",
-				label: "Huamachuco"
-			},
-			{
-				value: "3862",
-				label: "Marcabal"
-			},
-			{
-				value: "3863",
-				label: "Sanagoran"
-			},
-			{
-				value: "3864",
-				label: "Sarin"
-			},
-			{
-				value: "3865",
-				label: "Sartimbamba"
-			}
-		],
-		"3866": [
-			{
-				value: "3868",
-				label: "Angasmarca"
-			},
-			{
-				value: "3869",
-				label: "Cachicadan"
-			},
-			{
-				value: "3870",
-				label: "Mollebamba"
-			},
-			{
-				value: "3871",
-				label: "Mollepata"
-			},
-			{
-				value: "3872",
-				label: "Quiruvilca"
-			},
-			{
-				value: "3873",
-				label: "Santa Cruz de Chuca"
-			},
-			{
-				value: "3867",
-				label: "Santiago de Chuco"
-			},
-			{
-				value: "3874",
-				label: "Sitabamba"
-			}
-		],
-		"3789": [
-			{
-				value: "3791",
-				label: "El Porvenir"
-			},
-			{
-				value: "3792",
-				label: "Florencia de Mora"
-			},
-			{
-				value: "3793",
-				label: "Huanchaco"
-			},
-			{
-				value: "3794",
-				label: "La Esperanza"
-			},
-			{
-				value: "3795",
-				label: "Laredo"
-			},
-			{
-				value: "3796",
-				label: "Moche"
-			},
-			{
-				value: "3797",
-				label: "Poroto"
-			},
-			{
-				value: "3798",
-				label: "Salaverry"
-			},
-			{
-				value: "3799",
-				label: "Simbal"
-			},
-			{
-				value: "3790",
-				label: "Trujillo"
-			},
-			{
-				value: "3800",
-				label: "Victor Larco Herrera"
-			}
-		],
-		"3880": [
-			{
-				value: "3882",
-				label: "Chao"
-			},
-			{
-				value: "3883",
-				label: "Guadalupito"
-			},
-			{
-				value: "3881",
-				label: "Viru"
-			}
-		],
-		"3885": [
-			{
-				value: "3901",
-				label: "Cayalt\u00ed"
-			},
-			{
-				value: "3886",
-				label: "Chiclayo"
-			},
-			{
-				value: "3887",
-				label: "Chongoyape"
-			},
-			{
-				value: "3888",
-				label: "Eten"
-			},
-			{
-				value: "3889",
-				label: "Eten Puerto"
-			},
-			{
-				value: "3890",
-				label: "Jose Leonardo Ortiz"
-			},
-			{
-				value: "3891",
-				label: "La Victoria"
-			},
-			{
-				value: "3892",
-				label: "Lagunas"
-			},
-			{
-				value: "3893",
-				label: "Monsefu"
-			},
-			{
-				value: "3894",
-				label: "Nueva Arica"
-			},
-			{
-				value: "3895",
-				label: "Oyotun"
-			},
-			{
-				value: "3902",
-				label: "Patapo"
-			},
-			{
-				value: "3896",
-				label: "Picsi"
-			},
-			{
-				value: "3897",
-				label: "Pimentel"
-			},
-			{
-				value: "3903",
-				label: "Pomalca"
-			},
-			{
-				value: "3904",
-				label: "Pucal\u00e1"
-			},
-			{
-				value: "3898",
-				label: "Reque"
-			},
-			{
-				value: "3899",
-				label: "Santa Rosa"
-			},
-			{
-				value: "3900",
-				label: "Saqa"
-			},
-			{
-				value: "3905",
-				label: "Tum\u00e1n"
-			}
-		],
-		"3906": [
-			{
-				value: "3908",
-				label: "Caqaris"
-			},
-			{
-				value: "3907",
-				label: "Ferreqafe"
-			},
-			{
-				value: "3909",
-				label: "Incahuasi"
-			},
-			{
-				value: "3910",
-				label: "Manuel Antonio Mesones Muro"
-			},
-			{
-				value: "3911",
-				label: "Pitipo"
-			},
-			{
-				value: "3912",
-				label: "Pueblo Nuevo"
-			}
-		],
-		"3913": [
-			{
-				value: "3915",
-				label: "Chochope"
-			},
-			{
-				value: "3916",
-				label: "Illimo"
-			},
-			{
-				value: "3917",
-				label: "Jayanca"
-			},
-			{
-				value: "3914",
-				label: "Lambayeque"
-			},
-			{
-				value: "3918",
-				label: "Mochumi"
-			},
-			{
-				value: "3919",
-				label: "Morrope"
-			},
-			{
-				value: "3920",
-				label: "Motupe"
-			},
-			{
-				value: "3921",
-				label: "Olmos"
-			},
-			{
-				value: "3922",
-				label: "Pacora"
-			},
-			{
-				value: "3923",
-				label: "Salas"
-			},
-			{
-				value: "3924",
-				label: "San Jose"
-			},
-			{
-				value: "3925",
-				label: "Tucume"
-			}
-		],
-		"3971": [
-			{
-				value: "3972",
-				label: "Barranca"
-			},
-			{
-				value: "3973",
-				label: "Paramonga"
-			},
-			{
-				value: "3974",
-				label: "Pativilca"
-			},
-			{
-				value: "3975",
-				label: "Supe"
-			},
-			{
-				value: "3976",
-				label: "Supe Puerto"
-			}
-		],
-		"3977": [
-			{
-				value: "3978",
-				label: "Cajatambo"
-			},
-			{
-				value: "3979",
-				label: "Copa"
-			},
-			{
-				value: "3980",
-				label: "Gorgor"
-			},
-			{
-				value: "3981",
-				label: "Huancapon"
-			},
-			{
-				value: "3982",
-				label: "Manas"
-			}
-		],
-		"3285": [
-			{
-				value: "3287",
-				label: "Bellavista"
-			},
-			{
-				value: "3286",
-				label: "Callao"
-			},
-			{
-				value: "3288",
-				label: "Carmen de la Legua Reynoso"
-			},
-			{
-				value: "3289",
-				label: "La Perla"
-			},
-			{
-				value: "3290",
-				label: "La Punta"
-			},
-			{
-				value: "3291",
-				label: "Ventanilla"
-			}
-		],
-		"3991": [
-			{
-				value: "3993",
-				label: "Asia"
-			},
-			{
-				value: "3994",
-				label: "Calango"
-			},
-			{
-				value: "3995",
-				label: "Cerro Azul"
-			},
-			{
-				value: "3996",
-				label: "Chilca"
-			},
-			{
-				value: "3997",
-				label: "Coayllo"
-			},
-			{
-				value: "3998",
-				label: "Imperial"
-			},
-			{
-				value: "3999",
-				label: "Lunahuana"
-			},
-			{
-				value: "4000",
-				label: "Mala"
-			},
-			{
-				value: "4001",
-				label: "Nuevo Imperial"
-			},
-			{
-				value: "4002",
-				label: "Pacaran"
-			},
-			{
-				value: "4003",
-				label: "Quilmana"
-			},
-			{
-				value: "4004",
-				label: "San Antonio"
-			},
-			{
-				value: "4005",
-				label: "San Luis"
-			},
-			{
-				value: "3992",
-				label: "San Vicente de Ca\u00f1ete"
-			},
-			{
-				value: "4006",
-				label: "Santa Cruz de Flores"
-			},
-			{
-				value: "4007",
-				label: "Zuqiga"
-			}
-		],
-		"3983": [
-			{
-				value: "3985",
-				label: "Arahuay"
-			},
-			{
-				value: "3984",
-				label: "Canta"
-			},
-			{
-				value: "3986",
-				label: "Huamantanga"
-			},
-			{
-				value: "3987",
-				label: "Huaros"
-			},
-			{
-				value: "3988",
-				label: "Lachaqui"
-			},
-			{
-				value: "3989",
-				label: "San Buenaventura"
-			},
-			{
-				value: "3990",
-				label: "Santa Rosa de Quives"
-			}
-		],
-		"4008": [
-			{
-				value: "4010",
-				label: "Atavillos Alto"
-			},
-			{
-				value: "4011",
-				label: "Atavillos Bajo"
-			},
-			{
-				value: "4012",
-				label: "Aucallama"
-			},
-			{
-				value: "4013",
-				label: "Chancay"
-			},
-			{
-				value: "4009",
-				label: "Huaral"
-			},
-			{
-				value: "4014",
-				label: "Ihuari"
-			},
-			{
-				value: "4015",
-				label: "Lampian"
-			},
-			{
-				value: "4016",
-				label: "Pacaraos"
-			},
-			{
-				value: "4017",
-				label: "San Miguel de Acos"
-			},
-			{
-				value: "4018",
-				label: "Santa Cruz de Andamarca"
-			},
-			{
-				value: "4019",
-				label: "Sumbilca"
-			},
-			{
-				value: "4020",
-				label: "Veintisiete de Noviembre"
-			}
-		],
-		"4021": [
-			{
-				value: "4023",
-				label: "Antioquia"
-			},
-			{
-				value: "4024",
-				label: "Callahuanca"
-			},
-			{
-				value: "4025",
-				label: "Carampoma"
-			},
-			{
-				value: "4026",
-				label: "Chicla"
-			},
-			{
-				value: "4027",
-				label: "Cuenca"
-			},
-			{
-				value: "4028",
-				label: "Huachupampa"
-			},
-			{
-				value: "4029",
-				label: "Huanza"
-			},
-			{
-				value: "4030",
-				label: "Huarochiri"
-			},
-			{
-				value: "4031",
-				label: "Lahuaytambo"
-			},
-			{
-				value: "4032",
-				label: "Langa"
-			},
-			{
-				value: "4033",
-				label: "Laraos"
-			},
-			{
-				value: "4034",
-				label: "Mariatana"
-			},
-			{
-				value: "4022",
-				label: "Matucana"
-			},
-			{
-				value: "4035",
-				label: "Ricardo Palma"
-			},
-			{
-				value: "4036",
-				label: "San Andres de Tupicocha"
-			},
-			{
-				value: "4037",
-				label: "San Antonio"
-			},
-			{
-				value: "4038",
-				label: "San Bartolome"
-			},
-			{
-				value: "4039",
-				label: "San Damian"
-			},
-			{
-				value: "4040",
-				label: "San Juan de Iris"
-			},
-			{
-				value: "4041",
-				label: "San Juan de Tantaranche"
-			},
-			{
-				value: "4042",
-				label: "San Lorenzo de Quinti"
-			},
-			{
-				value: "4043",
-				label: "San Mateo"
-			},
-			{
-				value: "4044",
-				label: "San Mateo de Otao"
-			},
-			{
-				value: "4045",
-				label: "San Pedro de Casta"
-			},
-			{
-				value: "4046",
-				label: "San Pedro de Huancayre"
-			},
-			{
-				value: "4047",
-				label: "Sangallaya"
-			},
-			{
-				value: "4048",
-				label: "Santa Cruz de Cocachacra"
-			},
-			{
-				value: "4049",
-				label: "Santa Eulalia"
-			},
-			{
-				value: "4050",
-				label: "Santiago de Anchucaya"
-			},
-			{
-				value: "4051",
-				label: "Santiago de Tuna"
-			},
-			{
-				value: "4052",
-				label: "Santo Domingo de los Olleros"
-			},
-			{
-				value: "4053",
-				label: "Surco"
-			}
-		],
-		"4054": [
-			{
-				value: "4056",
-				label: "Ambar"
-			},
-			{
-				value: "4057",
-				label: "Caleta de Carquin"
-			},
-			{
-				value: "4058",
-				label: "Checras"
-			},
-			{
-				value: "4055",
-				label: "Huacho"
-			},
-			{
-				value: "4059",
-				label: "Hualmay"
-			},
-			{
-				value: "4060",
-				label: "Huaura"
-			},
-			{
-				value: "4061",
-				label: "Leoncio Prado"
-			},
-			{
-				value: "4062",
-				label: "Paccho"
-			},
-			{
-				value: "4063",
-				label: "Santa Leonor"
-			},
-			{
-				value: "4064",
-				label: "Santa Maria"
-			},
-			{
-				value: "4065",
-				label: "Sayan"
-			},
-			{
-				value: "4066",
-				label: "Vegueta"
-			}
-		],
-		"3927": [
-			{
-				value: "3929",
-				label: "Ancon"
-			},
-			{
-				value: "3930",
-				label: "Ate"
-			},
-			{
-				value: "3931",
-				label: "Barranco"
-			},
-			{
-				value: "3932",
-				label: "Bre\u00f1a"
-			},
-			{
-				value: "3933",
-				label: "Carabayllo"
-			},
-			{
-				value: "3928",
-				label: "Cercado de Lima"
-			},
-			{
-				value: "3934",
-				label: "Chaclacayo"
-			},
-			{
-				value: "3935",
-				label: "Chorrillos"
-			},
-			{
-				value: "3936",
-				label: "Cieneguilla"
-			},
-			{
-				value: "3937",
-				label: "Comas"
-			},
-			{
-				value: "3938",
-				label: "El Agustino"
-			},
-			{
-				value: "3939",
-				label: "Independencia"
-			},
-			{
-				value: "3940",
-				label: "Jesus Maria"
-			},
-			{
-				value: "3941",
-				label: "La Molina"
-			},
-			{
-				value: "3942",
-				label: "La Victoria"
-			},
-			{
-				value: "3943",
-				label: "Lince"
-			},
-			{
-				value: "3944",
-				label: "Los Olivos"
-			},
-			{
-				value: "3945",
-				label: "Lurigancho"
-			},
-			{
-				value: "3946",
-				label: "Lurin"
-			},
-			{
-				value: "3947",
-				label: "Magdalena del Mar"
-			},
-			{
-				value: "3949",
-				label: "Miraflores"
-			},
-			{
-				value: "3950",
-				label: "Pachacamac"
-			},
-			{
-				value: "3951",
-				label: "Pucusana"
-			},
-			{
-				value: "3948",
-				label: "Pueblo Libre"
-			},
-			{
-				value: "3952",
-				label: "Puente Piedra"
-			},
-			{
-				value: "3953",
-				label: "Punta Hermosa"
-			},
-			{
-				value: "3954",
-				label: "Punta Negra"
-			},
-			{
-				value: "3955",
-				label: "Rimac"
-			},
-			{
-				value: "3956",
-				label: "San Bartolo"
-			},
-			{
-				value: "3957",
-				label: "San Borja"
-			},
-			{
-				value: "3958",
-				label: "San Isidro"
-			},
-			{
-				value: "3959",
-				label: "San Juan de Lurigancho"
-			},
-			{
-				value: "3960",
-				label: "San Juan de Miraflores"
-			},
-			{
-				value: "3961",
-				label: "San Luis"
-			},
-			{
-				value: "3962",
-				label: "San Martin de Porres"
-			},
-			{
-				value: "3963",
-				label: "San Miguel"
-			},
-			{
-				value: "3964",
-				label: "Santa Anita"
-			},
-			{
-				value: "3965",
-				label: "Santa Maria del Mar"
-			},
-			{
-				value: "3966",
-				label: "Santa Rosa"
-			},
-			{
-				value: "3967",
-				label: "Santiago de Surco"
-			},
-			{
-				value: "3968",
-				label: "Surquillo"
-			},
-			{
-				value: "3969",
-				label: "Villa El Salvador"
-			},
-			{
-				value: "3970",
-				label: "Villa Maria del Triunfo"
-			}
-		],
-		"4067": [
-			{
-				value: "4069",
-				label: "Andajes"
-			},
-			{
-				value: "4070",
-				label: "Caujul"
-			},
-			{
-				value: "4071",
-				label: "Cochamarca"
-			},
-			{
-				value: "4072",
-				label: "Navan"
-			},
-			{
-				value: "4068",
-				label: "Oyon"
-			},
-			{
-				value: "4073",
-				label: "Pachangara"
-			}
-		],
-		"4074": [
-			{
-				value: "4076",
-				label: "Alis"
-			},
-			{
-				value: "4077",
-				label: "Ayauca"
-			},
-			{
-				value: "4078",
-				label: "Ayaviri"
-			},
-			{
-				value: "4079",
-				label: "Azangaro"
-			},
-			{
-				value: "4080",
-				label: "Cacra"
-			},
-			{
-				value: "4081",
-				label: "Carania"
-			},
-			{
-				value: "4082",
-				label: "Catahuasi"
-			},
-			{
-				value: "4083",
-				label: "Chocos"
-			},
-			{
-				value: "4084",
-				label: "Cochas"
-			},
-			{
-				value: "4085",
-				label: "Colonia"
-			},
-			{
-				value: "4086",
-				label: "Hongos"
-			},
-			{
-				value: "4087",
-				label: "Huampara"
-			},
-			{
-				value: "4088",
-				label: "Huancaya"
-			},
-			{
-				value: "4089",
-				label: "Huangascar"
-			},
-			{
-				value: "4090",
-				label: "Huantan"
-			},
-			{
-				value: "4091",
-				label: "Huaqec"
-			},
-			{
-				value: "4092",
-				label: "Laraos"
-			},
-			{
-				value: "4093",
-				label: "Lincha"
-			},
-			{
-				value: "4094",
-				label: "Madean"
-			},
-			{
-				value: "4095",
-				label: "Miraflores"
-			},
-			{
-				value: "4096",
-				label: "Omas"
-			},
-			{
-				value: "4097",
-				label: "Putinza"
-			},
-			{
-				value: "4098",
-				label: "Quinches"
-			},
-			{
-				value: "4099",
-				label: "Quinocay"
-			},
-			{
-				value: "4100",
-				label: "San Joaquin"
-			},
-			{
-				value: "4101",
-				label: "San Pedro de Pilas"
-			},
-			{
-				value: "4102",
-				label: "Tanta"
-			},
-			{
-				value: "4103",
-				label: "Tauripampa"
-			},
-			{
-				value: "4104",
-				label: "Tomas"
-			},
-			{
-				value: "4105",
-				label: "Tupe"
-			},
-			{
-				value: "4106",
-				label: "Viqac"
-			},
-			{
-				value: "4107",
-				label: "Vitis"
-			},
-			{
-				value: "4075",
-				label: "Yauyos"
-			}
-		],
-		"4123": [
-			{
-				value: "4125",
-				label: "Balsapuerto"
-			},
-			{
-				value: "4126",
-				label: "Barranca"
-			},
-			{
-				value: "4127",
-				label: "Cahuapanas"
-			},
-			{
-				value: "4128",
-				label: "Jeberos"
-			},
-			{
-				value: "4129",
-				label: "Lagunas"
-			},
-			{
-				value: "4130",
-				label: "Manseriche"
-			},
-			{
-				value: "4131",
-				label: "Morona"
-			},
-			{
-				value: "4132",
-				label: "Pastaza"
-			},
-			{
-				value: "4133",
-				label: "Santa Cruz"
-			},
-			{
-				value: "4134",
-				label: "Teniente Cesar Lopez Rojas"
-			},
-			{
-				value: "4124",
-				label: "Yurimaguas"
-			}
-		],
-		"4135": [
-			{
-				value: "4136",
-				label: "Nauta"
-			},
-			{
-				value: "4137",
-				label: "Parinari"
-			},
-			{
-				value: "4138",
-				label: "Tigre"
-			},
-			{
-				value: "4139",
-				label: "Trompeteros"
-			},
-			{
-				value: "4140",
-				label: "Urarinas"
-			}
-		],
-		"4141": [
-			{
-				value: "4143",
-				label: "Pebas"
-			},
-			{
-				value: "4142",
-				label: "Ramon Castilla"
-			},
-			{
-				value: "4145",
-				label: "San Pablo"
-			},
-			{
-				value: "4144",
-				label: "Yavari"
-			}
-		],
-		"4109": [
-			{
-				value: "4111",
-				label: "Alto Nanay"
-			},
-			{
-				value: "4121",
-				label: "Bel\u00e9n"
-			},
-			{
-				value: "4112",
-				label: "Fernando Lores"
-			},
-			{
-				value: "4113",
-				label: "Indiana"
-			},
-			{
-				value: "4110",
-				label: "Iquitos"
-			},
-			{
-				value: "4114",
-				label: "Las Amazonas"
-			},
-			{
-				value: "4115",
-				label: "Mazan"
-			},
-			{
-				value: "4116",
-				label: "Napo"
-			},
-			{
-				value: "4117",
-				label: "Punchana"
-			},
-			{
-				value: "4118",
-				label: "Putumayo"
-			},
-			{
-				value: "4122",
-				label: "San Juan Bautista"
-			},
-			{
-				value: "4119",
-				label: "Torres Causana"
-			},
-			{
-				value: "4120",
-				label: "Yaquerana"
-			}
-		],
-		"4146": [
-			{
-				value: "4148",
-				label: "Alto Tapiche"
-			},
-			{
-				value: "4149",
-				label: "Capelo"
-			},
-			{
-				value: "4150",
-				label: "Emilio San Martin"
-			},
-			{
-				value: "4156",
-				label: "Jenaro Herrera"
-			},
-			{
-				value: "4151",
-				label: "Maquia"
-			},
-			{
-				value: "4152",
-				label: "Puinahua"
-			},
-			{
-				value: "4147",
-				label: "Requena"
-			},
-			{
-				value: "4153",
-				label: "Saquena"
-			},
-			{
-				value: "4154",
-				label: "Soplin"
-			},
-			{
-				value: "4155",
-				label: "Tapiche"
-			},
-			{
-				value: "4157",
-				label: "Yaquerana"
-			}
-		],
-		"4158": [
-			{
-				value: "4159",
-				label: "Contamana"
-			},
-			{
-				value: "4160",
-				label: "Inahuaya"
-			},
-			{
-				value: "4161",
-				label: "Padre Marquez"
-			},
-			{
-				value: "4162",
-				label: "Pampa Hermosa"
-			},
-			{
-				value: "4163",
-				label: "Sarayacu"
-			},
-			{
-				value: "4164",
-				label: "Vargas Guerra"
-			}
-		],
-		"4171": [
-			{
-				value: "4173",
-				label: "Fitzcarrald"
-			},
-			{
-				value: "4175",
-				label: "Huepetuhe"
-			},
-			{
-				value: "4174",
-				label: "Madre de Dios"
-			},
-			{
-				value: "4172",
-				label: "Manu"
-			}
-		],
-		"4176": [
-			{
-				value: "4178",
-				label: "Iberia"
-			},
-			{
-				value: "4177",
-				label: "Iqapari"
-			},
-			{
-				value: "4179",
-				label: "Tahuamanu"
-			}
-		],
-		"4166": [
-			{
-				value: "4168",
-				label: "Inambari"
-			},
-			{
-				value: "4170",
-				label: "Laberinto"
-			},
-			{
-				value: "4169",
-				label: "Las Piedras"
-			},
-			{
-				value: "4167",
-				label: "Tambopata"
-			}
-		],
-		"4188": [
-			{
-				value: "4190",
-				label: "Chojata"
-			},
-			{
-				value: "4191",
-				label: "Coalaque"
-			},
-			{
-				value: "4192",
-				label: "Ichuqa"
-			},
-			{
-				value: "4193",
-				label: "La Capilla"
-			},
-			{
-				value: "4194",
-				label: "Lloque"
-			},
-			{
-				value: "4195",
-				label: "Matalaque"
-			},
-			{
-				value: "4189",
-				label: "Omate"
-			},
-			{
-				value: "4196",
-				label: "Puquina"
-			},
-			{
-				value: "4197",
-				label: "Quinistaquillas"
-			},
-			{
-				value: "4198",
-				label: "Ubinas"
-			},
-			{
-				value: "4199",
-				label: "Yunga"
-			}
-		],
-		"4200": [
-			{
-				value: "4202",
-				label: "El Algarrobal"
-			},
-			{
-				value: "4201",
-				label: "Ilo"
-			},
-			{
-				value: "4203",
-				label: "Pacocha"
-			}
-		],
-		"4181": [
-			{
-				value: "4183",
-				label: "Carumas"
-			},
-			{
-				value: "4184",
-				label: "Cuchumbaya"
-			},
-			{
-				value: "4182",
-				label: "Moquegua"
-			},
-			{
-				value: "4185",
-				label: "Samegua"
-			},
-			{
-				value: "4186",
-				label: "San Cristobal"
-			},
-			{
-				value: "4187",
-				label: "Torata"
-			}
-		],
-		"4219": [
-			{
-				value: "4221",
-				label: "Chacayan"
-			},
-			{
-				value: "4222",
-				label: "Goyllarisquizga"
-			},
-			{
-				value: "4223",
-				label: "Paucar"
-			},
-			{
-				value: "4224",
-				label: "San Pedro de Pillao"
-			},
-			{
-				value: "4225",
-				label: "Santa Ana de Tusi"
-			},
-			{
-				value: "4226",
-				label: "Tapuc"
-			},
-			{
-				value: "4227",
-				label: "Vilcabamba"
-			},
-			{
-				value: "4220",
-				label: "Yanahuanca"
-			}
-		],
-		"4228": [
-			{
-				value: "4230",
-				label: "Chontabamba"
-			},
-			{
-				value: "4231",
-				label: "Huancabamba"
-			},
-			{
-				value: "4229",
-				label: "Oxapampa"
-			},
-			{
-				value: "4232",
-				label: "Palcazu"
-			},
-			{
-				value: "4233",
-				label: "Pozuzo"
-			},
-			{
-				value: "4234",
-				label: "Puerto Bermudez"
-			},
-			{
-				value: "4235",
-				label: "Villa Rica"
-			}
-		],
-		"4205": [
-			{
-				value: "4206",
-				label: "Chaupimarca"
-			},
-			{
-				value: "4207",
-				label: "Huachon"
-			},
-			{
-				value: "4208",
-				label: "Huariaca"
-			},
-			{
-				value: "4209",
-				label: "Huayllay"
-			},
-			{
-				value: "4210",
-				label: "Ninacaca"
-			},
-			{
-				value: "4211",
-				label: "Pallanchacra"
-			},
-			{
-				value: "4212",
-				label: "Paucartambo"
-			},
-			{
-				value: "4213",
-				label: "San Fco.De Asis de Yarusyacan"
-			},
-			{
-				value: "4214",
-				label: "Simon Bolivar"
-			},
-			{
-				value: "4215",
-				label: "Ticlacayan"
-			},
-			{
-				value: "4216",
-				label: "Tinyahuarco"
-			},
-			{
-				value: "4217",
-				label: "Vicco"
-			},
-			{
-				value: "4218",
-				label: "Yanacancha"
-			}
-		],
-		"4247": [
-			{
-				value: "4248",
-				label: "Ayabaca"
-			},
-			{
-				value: "4249",
-				label: "Frias"
-			},
-			{
-				value: "4250",
-				label: "Jilili"
-			},
-			{
-				value: "4251",
-				label: "Lagunas"
-			},
-			{
-				value: "4252",
-				label: "Montero"
-			},
-			{
-				value: "4253",
-				label: "Pacaipampa"
-			},
-			{
-				value: "4254",
-				label: "Paimas"
-			},
-			{
-				value: "4255",
-				label: "Sapillica"
-			},
-			{
-				value: "4256",
-				label: "Sicchez"
-			},
-			{
-				value: "4257",
-				label: "Suyo"
-			}
-		],
-		"4258": [
-			{
-				value: "4260",
-				label: "Canchaque"
-			},
-			{
-				value: "4261",
-				label: "El Carmen de la Frontera"
-			},
-			{
-				value: "4259",
-				label: "Huancabamba"
-			},
-			{
-				value: "4262",
-				label: "Huarmaca"
-			},
-			{
-				value: "4263",
-				label: "Lalaquiz"
-			},
-			{
-				value: "4264",
-				label: "San Miguel de El Faique"
-			},
-			{
-				value: "4265",
-				label: "Sondor"
-			},
-			{
-				value: "4266",
-				label: "Sondorillo"
-			}
-		],
-		"4267": [
-			{
-				value: "4269",
-				label: "Buenos Aires"
-			},
-			{
-				value: "4270",
-				label: "Chalaco"
-			},
-			{
-				value: "4268",
-				label: "Chulucanas"
-			},
-			{
-				value: "4271",
-				label: "La Matanza"
-			},
-			{
-				value: "4272",
-				label: "Morropon"
-			},
-			{
-				value: "4273",
-				label: "Salitral"
-			},
-			{
-				value: "4274",
-				label: "San Juan de Bigote"
-			},
-			{
-				value: "4275",
-				label: "Santa Catalina de Mossa"
-			},
-			{
-				value: "4276",
-				label: "Santo Domingo"
-			},
-			{
-				value: "4277",
-				label: "Yamango"
-			}
-		],
-		"4278": [
-			{
-				value: "4280",
-				label: "Amotape"
-			},
-			{
-				value: "4281",
-				label: "Arenal"
-			},
-			{
-				value: "4282",
-				label: "Colan"
-			},
-			{
-				value: "4283",
-				label: "La Huaca"
-			},
-			{
-				value: "4279",
-				label: "Paita"
-			},
-			{
-				value: "4284",
-				label: "Tamarindo"
-			},
-			{
-				value: "4285",
-				label: "Vichayal"
-			}
-		],
-		"4237": [
-			{
-				value: "4239",
-				label: "Castilla"
-			},
-			{
-				value: "4240",
-				label: "Catacaos"
-			},
-			{
-				value: "4241",
-				label: "Cura Mori"
-			},
-			{
-				value: "4242",
-				label: "El Tallan"
-			},
-			{
-				value: "4243",
-				label: "La Arena"
-			},
-			{
-				value: "4244",
-				label: "La Union"
-			},
-			{
-				value: "4245",
-				label: "Las Lomas"
-			},
-			{
-				value: "4238",
-				label: "Piura"
-			},
-			{
-				value: "4246",
-				label: "Tambo Grande"
-			}
-		],
-		"4302": [
-			{
-				value: "4304",
-				label: "Bellavista de la Union"
-			},
-			{
-				value: "4305",
-				label: "Bernal"
-			},
-			{
-				value: "4306",
-				label: "Cristo Nos Valga"
-			},
-			{
-				value: "4308",
-				label: "Rinconada Llicuar"
-			},
-			{
-				value: "4303",
-				label: "Sechura"
-			},
-			{
-				value: "4307",
-				label: "Vice"
-			}
-		],
-		"4286": [
-			{
-				value: "4288",
-				label: "Bellavista"
-			},
-			{
-				value: "4289",
-				label: "Ignacio Escudero"
-			},
-			{
-				value: "4290",
-				label: "Lancones"
-			},
-			{
-				value: "4291",
-				label: "Marcavelica"
-			},
-			{
-				value: "4292",
-				label: "Miguel Checa"
-			},
-			{
-				value: "4293",
-				label: "Querecotillo"
-			},
-			{
-				value: "4294",
-				label: "Salitral"
-			},
-			{
-				value: "4287",
-				label: "Sullana"
-			}
-		],
-		"4295": [
-			{
-				value: "4297",
-				label: "El Alto"
-			},
-			{
-				value: "4298",
-				label: "La Brea"
-			},
-			{
-				value: "4299",
-				label: "Lobitos"
-			},
-			{
-				value: "4300",
-				label: "Los Organos"
-			},
-			{
-				value: "4301",
-				label: "Mancora"
-			},
-			{
-				value: "4296",
-				label: "Pariqas"
-			}
-		],
-		"4326": [
-			{
-				value: "4328",
-				label: "Achaya"
-			},
-			{
-				value: "4329",
-				label: "Arapa"
-			},
-			{
-				value: "4330",
-				label: "Asillo"
-			},
-			{
-				value: "4327",
-				label: "Azangaro"
-			},
-			{
-				value: "4331",
-				label: "Caminaca"
-			},
-			{
-				value: "4332",
-				label: "Chupa"
-			},
-			{
-				value: "4333",
-				label: "Jose Domingo Choquehuanca"
-			},
-			{
-				value: "4334",
-				label: "Muqani"
-			},
-			{
-				value: "4335",
-				label: "Potoni"
-			},
-			{
-				value: "4336",
-				label: "Saman"
-			},
-			{
-				value: "4337",
-				label: "San Anton"
-			},
-			{
-				value: "4338",
-				label: "San Jose"
-			},
-			{
-				value: "4339",
-				label: "San Juan de Salinas"
-			},
-			{
-				value: "4340",
-				label: "Santiago de Pupuja"
-			},
-			{
-				value: "4341",
-				label: "Tirapata"
-			}
-		],
-		"4342": [
-			{
-				value: "4344",
-				label: "Ajoyani"
-			},
-			{
-				value: "4345",
-				label: "Ayapata"
-			},
-			{
-				value: "4346",
-				label: "Coasa"
-			},
-			{
-				value: "4347",
-				label: "Corani"
-			},
-			{
-				value: "4348",
-				label: "Crucero"
-			},
-			{
-				value: "4349",
-				label: "Ituata"
-			},
-			{
-				value: "4343",
-				label: "Macusani"
-			},
-			{
-				value: "4350",
-				label: "Ollachea"
-			},
-			{
-				value: "4351",
-				label: "San Gaban"
-			},
-			{
-				value: "4352",
-				label: "Usicayos"
-			}
-		],
-		"4353": [
-			{
-				value: "4355",
-				label: "Desaguadero"
-			},
-			{
-				value: "4356",
-				label: "Huacullani"
-			},
-			{
-				value: "4354",
-				label: "Juli"
-			},
-			{
-				value: "4357",
-				label: "Kelluyo"
-			},
-			{
-				value: "4358",
-				label: "Pisacoma"
-			},
-			{
-				value: "4359",
-				label: "Pomata"
-			},
-			{
-				value: "4360",
-				label: "Zepita"
-			}
-		],
-		"4361": [
-			{
-				value: "4363",
-				label: "Capazo"
-			},
-			{
-				value: "4366",
-				label: "Conduriri"
-			},
-			{
-				value: "4362",
-				label: "Ilave"
-			},
-			{
-				value: "4364",
-				label: "Pilcuyo"
-			},
-			{
-				value: "4365",
-				label: "Santa Rosa"
-			}
-		],
-		"4367": [
-			{
-				value: "4369",
-				label: "Cojata"
-			},
-			{
-				value: "4368",
-				label: "Huancane"
-			},
-			{
-				value: "4370",
-				label: "Huatasani"
-			},
-			{
-				value: "4371",
-				label: "Inchupalla"
-			},
-			{
-				value: "4372",
-				label: "Pusi"
-			},
-			{
-				value: "4373",
-				label: "Rosaspata"
-			},
-			{
-				value: "4374",
-				label: "Taraco"
-			},
-			{
-				value: "4375",
-				label: "Vilque Chico"
-			}
-		],
-		"4376": [
-			{
-				value: "4378",
-				label: "Cabanilla"
-			},
-			{
-				value: "4379",
-				label: "Calapuja"
-			},
-			{
-				value: "4377",
-				label: "Lampa"
-			},
-			{
-				value: "4380",
-				label: "Nicasio"
-			},
-			{
-				value: "4381",
-				label: "Ocuviri"
-			},
-			{
-				value: "4382",
-				label: "Palca"
-			},
-			{
-				value: "4383",
-				label: "Paratia"
-			},
-			{
-				value: "4384",
-				label: "Pucara"
-			},
-			{
-				value: "4385",
-				label: "Santa Lucia"
-			},
-			{
-				value: "4386",
-				label: "Vilavila"
-			}
-		],
-		"4387": [
-			{
-				value: "4389",
-				label: "Antauta"
-			},
-			{
-				value: "4388",
-				label: "Ayaviri"
-			},
-			{
-				value: "4390",
-				label: "Cupi"
-			},
-			{
-				value: "4391",
-				label: "Llalli"
-			},
-			{
-				value: "4392",
-				label: "Macari"
-			},
-			{
-				value: "4393",
-				label: "Nuqoa"
-			},
-			{
-				value: "4394",
-				label: "Orurillo"
-			},
-			{
-				value: "4395",
-				label: "Santa Rosa"
-			},
-			{
-				value: "4396",
-				label: "Umachiri"
-			}
-		],
-		"4397": [
-			{
-				value: "4399",
-				label: "Conima"
-			},
-			{
-				value: "4400",
-				label: "Huayrapata"
-			},
-			{
-				value: "4398",
-				label: "Moho"
-			},
-			{
-				value: "4401",
-				label: "Tilali"
-			}
-		],
-		"4310": [
-			{
-				value: "4312",
-				label: "Acora"
-			},
-			{
-				value: "4313",
-				label: "Amantani"
-			},
-			{
-				value: "4314",
-				label: "Atuncolla"
-			},
-			{
-				value: "4315",
-				label: "Capachica"
-			},
-			{
-				value: "4316",
-				label: "Chucuito"
-			},
-			{
-				value: "4317",
-				label: "Coata"
-			},
-			{
-				value: "4318",
-				label: "Huata"
-			},
-			{
-				value: "4319",
-				label: "Maqazo"
-			},
-			{
-				value: "4320",
-				label: "Paucarcolla"
-			},
-			{
-				value: "4321",
-				label: "Pichacani"
-			},
-			{
-				value: "4322",
-				label: "Plateria"
-			},
-			{
-				value: "4311",
-				label: "Puno"
-			},
-			{
-				value: "4323",
-				label: "San Antonio"
-			},
-			{
-				value: "4324",
-				label: "Tiquillaca"
-			},
-			{
-				value: "4325",
-				label: "Vilque"
-			}
-		],
-		"4402": [
-			{
-				value: "4404",
-				label: "Ananea"
-			},
-			{
-				value: "4405",
-				label: "Pedro Vilca Apaza"
-			},
-			{
-				value: "4403",
-				label: "Putina"
-			},
-			{
-				value: "4406",
-				label: "Quilcapuncu"
-			},
-			{
-				value: "4407",
-				label: "Sina"
-			}
-		],
-		"4408": [
-			{
-				value: "4410",
-				label: "Cabana"
-			},
-			{
-				value: "4411",
-				label: "Cabanillas"
-			},
-			{
-				value: "4412",
-				label: "Caracoto"
-			},
-			{
-				value: "4409",
-				label: "Juliaca"
-			}
-		],
-		"4413": [
-			{
-				value: "4422",
-				label: "Alto Inambari"
-			},
-			{
-				value: "4415",
-				label: "Cuyocuyo"
-			},
-			{
-				value: "4416",
-				label: "Limbani"
-			},
-			{
-				value: "4417",
-				label: "Patambuco"
-			},
-			{
-				value: "4418",
-				label: "Phara"
-			},
-			{
-				value: "4419",
-				label: "Quiaca"
-			},
-			{
-				value: "4420",
-				label: "San Juan del Oro"
-			},
-			{
-				value: "4414",
-				label: "Sandia"
-			},
-			{
-				value: "4421",
-				label: "Yanahuaya"
-			}
-		],
-		"4423": [
-			{
-				value: "4425",
-				label: "Anapia"
-			},
-			{
-				value: "4426",
-				label: "Copani"
-			},
-			{
-				value: "4427",
-				label: "Cuturapi"
-			},
-			{
-				value: "4428",
-				label: "Ollaraya"
-			},
-			{
-				value: "4429",
-				label: "Tinicachi"
-			},
-			{
-				value: "4430",
-				label: "Unicachi"
-			},
-			{
-				value: "4424",
-				label: "Yunguyo"
-			}
-		],
-		"4439": [
-			{
-				value: "4441",
-				label: "Alto Biavo"
-			},
-			{
-				value: "4442",
-				label: "Bajo Biavo"
-			},
-			{
-				value: "4440",
-				label: "Bellavista"
-			},
-			{
-				value: "4443",
-				label: "Huallaga"
-			},
-			{
-				value: "4444",
-				label: "San Pablo"
-			},
-			{
-				value: "4445",
-				label: "San Rafael"
-			}
-		],
-		"4446": [
-			{
-				value: "4448",
-				label: "Agua Blanca"
-			},
-			{
-				value: "4447",
-				label: "San Jose de Sisa"
-			},
-			{
-				value: "4449",
-				label: "San Martin"
-			},
-			{
-				value: "4450",
-				label: "Santa Rosa"
-			},
-			{
-				value: "4451",
-				label: "Shatoja"
-			}
-		],
-		"4452": [
-			{
-				value: "4454",
-				label: "Alto Saposoa"
-			},
-			{
-				value: "4455",
-				label: "El Eslabon"
-			},
-			{
-				value: "4456",
-				label: "Piscoyacu"
-			},
-			{
-				value: "4457",
-				label: "Sacanche"
-			},
-			{
-				value: "4453",
-				label: "Saposoa"
-			},
-			{
-				value: "4458",
-				label: "Tingo de Saposoa"
-			}
-		],
-		"4459": [
-			{
-				value: "4461",
-				label: "Alonso de Alvarado"
-			},
-			{
-				value: "4462",
-				label: "Barranquita"
-			},
-			{
-				value: "4463",
-				label: "Caynarachi"
-			},
-			{
-				value: "4464",
-				label: "Cuqumbuqui"
-			},
-			{
-				value: "4460",
-				label: "Lamas"
-			},
-			{
-				value: "4465",
-				label: "Pinto Recodo"
-			},
-			{
-				value: "4466",
-				label: "Rumisapa"
-			},
-			{
-				value: "4467",
-				label: "San Roque de Cumbaza"
-			},
-			{
-				value: "4468",
-				label: "Shanao"
-			},
-			{
-				value: "4469",
-				label: "Tabalosos"
-			},
-			{
-				value: "4470",
-				label: "Zapatero"
-			}
-		],
-		"4471": [
-			{
-				value: "4473",
-				label: "Campanilla"
-			},
-			{
-				value: "4474",
-				label: "Huicungo"
-			},
-			{
-				value: "4472",
-				label: "Juanjui"
-			},
-			{
-				value: "4475",
-				label: "Pachiza"
-			},
-			{
-				value: "4476",
-				label: "Pajarillo"
-			}
-		],
-		"4432": [
-			{
-				value: "4434",
-				label: "Calzada"
-			},
-			{
-				value: "4435",
-				label: "Habana"
-			},
-			{
-				value: "4436",
-				label: "Jepelacio"
-			},
-			{
-				value: "4433",
-				label: "Moyobamba"
-			},
-			{
-				value: "4437",
-				label: "Soritor"
-			},
-			{
-				value: "4438",
-				label: "Yantalo"
-			}
-		],
-		"4477": [
-			{
-				value: "4479",
-				label: "Buenos Aires"
-			},
-			{
-				value: "4480",
-				label: "Caspisapa"
-			},
-			{
-				value: "4478",
-				label: "Picota"
-			},
-			{
-				value: "4481",
-				label: "Pilluana"
-			},
-			{
-				value: "4482",
-				label: "Pucacaca"
-			},
-			{
-				value: "4483",
-				label: "San Cristobal"
-			},
-			{
-				value: "4484",
-				label: "San Hilarion"
-			},
-			{
-				value: "4485",
-				label: "Shamboyacu"
-			},
-			{
-				value: "4486",
-				label: "Tingo de Ponasa"
-			},
-			{
-				value: "4487",
-				label: "Tres Unidos"
-			}
-		],
-		"4488": [
-			{
-				value: "4490",
-				label: "Awajun"
-			},
-			{
-				value: "4491",
-				label: "Elias Soplin Vargas"
-			},
-			{
-				value: "4492",
-				label: "Nueva Cajamarca"
-			},
-			{
-				value: "4493",
-				label: "Pardo Miguel"
-			},
-			{
-				value: "4494",
-				label: "Posic"
-			},
-			{
-				value: "4489",
-				label: "Rioja"
-			},
-			{
-				value: "4495",
-				label: "San Fernando"
-			},
-			{
-				value: "4496",
-				label: "Yorongos"
-			},
-			{
-				value: "4497",
-				label: "Yuracyacu"
-			}
-		],
-		"4498": [
-			{
-				value: "4500",
-				label: "Alberto Leveau"
-			},
-			{
-				value: "4501",
-				label: "Cacatachi"
-			},
-			{
-				value: "4502",
-				label: "Chazuta"
-			},
-			{
-				value: "4503",
-				label: "Chipurana"
-			},
-			{
-				value: "4504",
-				label: "El Porvenir"
-			},
-			{
-				value: "4505",
-				label: "Huimbayoc"
-			},
-			{
-				value: "4506",
-				label: "Juan Guerra"
-			},
-			{
-				value: "4507",
-				label: "La Banda de Shilcayo"
-			},
-			{
-				value: "4508",
-				label: "Morales"
-			},
-			{
-				value: "4509",
-				label: "Papaplaya"
-			},
-			{
-				value: "4510",
-				label: "San Antonio"
-			},
-			{
-				value: "4511",
-				label: "Sauce"
-			},
-			{
-				value: "4512",
-				label: "Shapaja"
-			},
-			{
-				value: "4499",
-				label: "Tarapoto"
-			}
-		],
-		"4513": [
-			{
-				value: "4515",
-				label: "Nuevo Progreso"
-			},
-			{
-				value: "4516",
-				label: "Polvora"
-			},
-			{
-				value: "4517",
-				label: "Shunte"
-			},
-			{
-				value: "4514",
-				label: "Tocache"
-			},
-			{
-				value: "4518",
-				label: "Uchiza"
-			}
-		],
-		"4531": [
-			{
-				value: "4533",
-				label: "Cairani"
-			},
-			{
-				value: "4534",
-				label: "Camilaca"
-			},
-			{
-				value: "4532",
-				label: "Candarave"
-			},
-			{
-				value: "4535",
-				label: "Curibaya"
-			},
-			{
-				value: "4536",
-				label: "Huanuara"
-			},
-			{
-				value: "4537",
-				label: "Quilahuani"
-			}
-		],
-		"4538": [
-			{
-				value: "4540",
-				label: "Ilabaya"
-			},
-			{
-				value: "4541",
-				label: "Ite"
-			},
-			{
-				value: "4539",
-				label: "Locumba"
-			}
-		],
-		"4520": [
-			{
-				value: "4522",
-				label: "Alto de la Alianza"
-			},
-			{
-				value: "4523",
-				label: "Calana"
-			},
-			{
-				value: "4524",
-				label: "Ciudad Nueva"
-			},
-			{
-				value: "4530",
-				label: "Cor Gregorio Albarrac\u00edn"
-			},
-			{
-				value: "4525",
-				label: "Inclan"
-			},
-			{
-				value: "4526",
-				label: "Pachia"
-			},
-			{
-				value: "4527",
-				label: "Palca"
-			},
-			{
-				value: "4528",
-				label: "Pocollay"
-			},
-			{
-				value: "4529",
-				label: "Sama"
-			},
-			{
-				value: "4521",
-				label: "Tacna"
-			}
-		],
-		"4542": [
-			{
-				value: "4544",
-				label: "Chucatamani"
-			},
-			{
-				value: "4545",
-				label: "Estique"
-			},
-			{
-				value: "4546",
-				label: "Estique-Pampa"
-			},
-			{
-				value: "4547",
-				label: "Sitajara"
-			},
-			{
-				value: "4548",
-				label: "Susapaya"
-			},
-			{
-				value: "4543",
-				label: "Tarata"
-			},
-			{
-				value: "4549",
-				label: "Tarucachi"
-			},
-			{
-				value: "4550",
-				label: "Ticaco"
-			}
-		],
-		"4559": [
-			{
-				value: "4561",
-				label: "Casitas"
-			},
-			{
-				value: "4560",
-				label: "Zorritos"
-			}
-		],
-		"4552": [
-			{
-				value: "4554",
-				label: "Corrales"
-			},
-			{
-				value: "4555",
-				label: "La Cruz"
-			},
-			{
-				value: "4556",
-				label: "Pampas de Hospital"
-			},
-			{
-				value: "4557",
-				label: "San Jacinto"
-			},
-			{
-				value: "4558",
-				label: "San Juan de la Virgen"
-			},
-			{
-				value: "4553",
-				label: "Tumbes"
-			}
-		],
-		"4562": [
-			{
-				value: "4564",
-				label: "Aguas Verdes"
-			},
-			{
-				value: "4565",
-				label: "Matapalo"
-			},
-			{
-				value: "4566",
-				label: "Papayal"
-			},
-			{
-				value: "4563",
-				label: "Zarumilla"
-			}
-		],
-		"4575": [
-			{
-				value: "4576",
-				label: "Raymondi"
-			},
-			{
-				value: "4577",
-				label: "Sepahua"
-			},
-			{
-				value: "4578",
-				label: "Tahuania"
-			},
-			{
-				value: "4579",
-				label: "Yurua"
-			}
-		],
-		"4568": [
-			{
-				value: "4569",
-				label: "Calleria"
-			},
-			{
-				value: "4570",
-				label: "Campoverde"
-			},
-			{
-				value: "4571",
-				label: "Iparia"
-			},
-			{
-				value: "4572",
-				label: "Masisea"
-			},
-			{
-				value: "4574",
-				label: "Nueva Requena"
-			},
-			{
-				value: "4573",
-				label: "Yarinacocha"
-			}
-		],
-		"4580": [
-			{
-				value: "4583",
-				label: "Curimana"
-			},
-			{
-				value: "4582",
-				label: "Irazola"
-			},
-			{
-				value: "4581",
-				label: "Padre Abad"
-			}
-		],
-		"4584": [
-			{
-				value: "4585",
-				label: "Purus"
-			}
-		]
+		id: "250401", name: "Purus", province_id: "2504", department_id: "25"
 	}
+];

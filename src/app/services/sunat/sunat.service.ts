@@ -2,8 +2,6 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom, Observable} from "rxjs";
 import {Ruc} from 'src/app/models/frontend/ruc'
-import {provincias} from "../../models/backend/ubigeo";
-import {ControlItem} from "../../models/frontend";
 
 @Injectable({
 	providedIn: 'root'
@@ -12,8 +10,6 @@ export class SunatService {
 	// NO se usa
 	private API_RUC_URL:string = "https://api.apis.net.pe/v2/sunat/ruc?numero=";
 
-	//private apiUrl = 'https://api.apifacturacion.com';
-	//private apiUrl = 'https://localhost:7026'; // apigre
 	private apiUrl = 'https://localhost:7058'; // northwind
 	private  httpClient = inject(HttpClient);
 	constructor() {

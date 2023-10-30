@@ -5,6 +5,8 @@ import {Vehiculo} from "./vehiculo";
 import {Observacion} from "./observacion";
 import {OrderDetails} from "./orderDetails";
 import {EmisionSunat} from "./EmisionSunat";
+import {ProductoItem} from "./productoItem";
+import {DocumentoRelacionado} from "./documentoRelacionado";
 export interface Order {
 	fechaEmision: string;
 	horaEmision?: string | null;
@@ -22,19 +24,21 @@ export interface Order {
 	numeroPrecinto?: string;
 	motivoTrasladoId: number;
 	motivoTrasladoOtros: string;
-	indicadorTransbordoProgramado: boolean;
 	puntoPartida: Direccion;
 	puntoLlegada: Direccion;
 	fechaInicioTraslado: string;
 	codigoPuertoOAeropuerto?: string | null;
-	orderDetails: OrderDetails[]; // Ajusta esta definición según la estructura real
+	orderDetails: ProductoItem[]; // Ajusta esta definición según la estructura real
 	vehiculos: Vehiculo[];
 	conductores: Contribuyente[];
-	documentoRelacionado?: number | null | undefined; // Ajusta esta definición según la estructura real
+	documentoRelacionado?: DocumentoRelacionado | null | undefined; // Ajusta esta definición según la estructura real
 	indicadorTrasladoVehículosCategoríaM1oL: boolean;
 	indRegistrarVehiculosConductoresDelTransportista: boolean;
 	indicadorTrasladoTotalMercanciasDAMoDS: boolean;
 	transbordo: boolean;
-	observaciones: Observacion[],
+	observaciones: Observacion[];
  	emisionSunat: EmisionSunat;
+	indicadorRetornoEnvasesVacios: boolean;
+	indicadorRetornoVehiculoVacio: boolean;
+	indicadorTransbordoProgramado: boolean;
 }

@@ -3,7 +3,7 @@ export interface Contribuyente {
 	tipoDocumentoIdentidadId: number;
 	nombreComercial?: string | null;
 	nombreLegal: string;
-	ubigeoId: number;
+	ubigeoId: string | null;
 	direccion?: string | null;
 	urbanizacion?: string | null;
 	provincia?: string | null;

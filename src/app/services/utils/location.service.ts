@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ControlItem} from "../../models/frontend";
-import {provincias} from "../../models/backend/ubigeo";
-import {distritos} from "../../models/backend/ubigeo/distrito";
+import {Distritos, Provincias} from "../../models/backend/ubigeo";
 
 @Injectable({
 	providedIn: 'root'
@@ -11,13 +10,21 @@ export class LocationService {
 	constructor() {
 	}
 
-	getProvincia = (key: string): ControlItem[] => {
-		return provincias[key];
+	getProvincias = (key: string): ControlItem[] => {
+		let provinciasOriginal = Provincias.filter(x => x.department_id == key);
+
+		return provinciasOriginal.map(item => ({
+			value: item.id,
+			label: item.name
+		}));
 	}
 
-	getDistrito = (key: string): ControlItem[] => {
-		return distritos[key];
+	getDistritos = (key: string): ControlItem[] => {
+		let distritosOriginal = Distritos.filter(it => it.province_id  == key);
+
+		return distritosOriginal.map(item => ({
+			value: item.id,
+			label: item.name
+		}));
 	}
-
-
 }

@@ -19,6 +19,10 @@
 	}
 }
 
+mat-option {
+	font-size: 14px !important;
+}
+
 :host-context(.form-field_error) {
 	input {
 		border: 1px solid $error;

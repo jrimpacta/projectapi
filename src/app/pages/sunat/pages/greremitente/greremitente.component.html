@@ -20,21 +20,20 @@
 
 			<div class="row">
 				<div class="col-md-3">
-					<img src="../../../../../assets/LogoImpacta.png" class="cpe-logo" style="max-width: 250px;"
-						 alt="Logo de empresa">
+					<img src="../../../../../assets/LogoImpacta.png" class="img-fluid" alt="Logo de empresa">
 				</div>
 				<div class="col-md-5">
 					<div class="cpe-datos-contribuyente">
 						<h2>Asociación Civil Impacta Salud y Educación</h2>
 
-						<p style="line-height: 1">
+						<p style="line-height: 1; font-size: 12px;">
 							<span style="font-weight: bold">Barranco:</span> <br>
 							Av. Almirante Miguel Grau N°1010, Código postal 15063; Lima - Perú. <br>
 							Telf.: (511) 2067800 <br>
 							Jr. Centenario N°170, Código postal 15063; Lima - Perú
 						</p>
 
-						<p style="line-height: 1">
+						<p style="line-height: 1; font-size: 12px;">
 							<span style="font-weight: bold">San Miguel:</span><br>
 							Cal. Putumayo N°177 Urb. Pando, Código postal 15088; Lima - Perú. <br>
 							Telf.: (511) 5621600 <br>
@@ -106,7 +105,7 @@
 						</app-form-field>
 					</div>
 
-					<div class="col-md-3	">
+					<div class="col-md-3">
 						<app-form-field label="Documento de identidad" class="row-items_inColumn"
 										[required]="true"
 										[control]="form.controls['docIdentidad']"
@@ -182,7 +181,6 @@
 
 				<div class="col-md-3">
 					<app-form-field label="Seguimiento retornos"
-									[required]="false"
 									[control]="form.controls['controlRetornos']"
 									[isInline]="isInline">
 						<div class="card">
@@ -194,12 +192,14 @@
 				</div>
 
 				<div class="col-md-3">
-					<app-form-field label="Tipo de transporte"
+					<app-form-field label="Tipo de transporte" (change)="HideControls()"
 									[control]="form.controls['controlVehiculos']"
 									[isInline]="isInline">
 						<div class="card">
 							<div class="card-body">
-								<app-radios formControlName="controlVehiculos" [items]="controlVehiculos"></app-radios>
+								<app-radios formControlName="controlVehiculos"
+											(click)="HideControls()"
+											[items]="controlVehiculos"></app-radios>
 							</div>
 						</div>
 					</app-form-field>
@@ -212,7 +212,7 @@
 			<!-- Motivo del traslado section -->
 			<div class="row">
 				<div class="col-md-6">
-					<app-form-field label="Motivo del traslado" class="row-items_inColumn-2"
+					<app-form-field label="Motivo del traslado"
 									[required]="true"
 									[control]="form.controls['controlMotivos']"
 									[isInline]="isInline">
@@ -222,7 +222,7 @@
 				</div>
 
 				<div class="col-md-3">
-					<app-form-field label="Tipo de transporte" class="row-items_inColumn"
+					<app-form-field label="Tipo de transporte"
 									[required]="true"
 									[control]="form.controls['controlTipoTransporte']"
 									[isInline]="isInline">
@@ -307,7 +307,7 @@
 			</div>
 			<!-- End Transportista section-->
 
-			<div class="row">
+			<div class="row" *ngIf="showVehiculosControls">
 				<div class="col-md-6">
 					<div
 						class="dark-divider dark-divider-horizontal dark-divider-with-text dark-divider-with-text-center dark-divider-plain"
@@ -349,19 +349,23 @@
 								</div>
 
 								<div class="row">
-									<app-form-field class="col-md-6"
-													[control]="form.controls['controlVehiculoAutorizacion']"
-													[isInline]="isInline">
-										<app-input formControlName="controlVehiculoAutorizacion"
-												   placeholder="Número de autorización especial"></app-input>
-									</app-form-field>
+									<div class="col-md-6">
+										<app-form-field
+														[control]="form.controls['controlVehiculoAutorizacion']"
+														[isInline]="isInline">
+											<app-input formControlName="controlVehiculoAutorizacion"
+													   placeholder="Número de autorización especial"></app-input>
+										</app-form-field>
+									</div>
 
-									<app-form-field class="col-md-6"
-													[control]="form.controls['controlVehiculoMarca']"
-													[isInline]="isInline">
-										<app-input formControlName="controlVehiculoMarca"
-												   placeholder="Marca del vehículo"></app-input>
-									</app-form-field>
+									<div class="col-md-6">
+										<app-form-field
+											[control]="form.controls['controlVehiculoMarca']"
+											[isInline]="isInline">
+											<app-input formControlName="controlVehiculoMarca"
+													   placeholder="Marca del vehículo"></app-input>
+										</app-form-field>
+									</div>
 								</div>
 
 								<div class="col-md-12">
@@ -419,7 +423,7 @@
 								<div class="col-md-10">
 									<div class="row">
 										<div class="col-md-6">
-											<app-form-field label="Tipo de documento de identidad"
+											<app-form-field label="Documento de identidad"
 															[required]="true"
 															[control]="form.controls['controlDNIConductor']"
 															[isInline]="isInline">
@@ -501,7 +505,8 @@
 									[required]="true"
 									[control]="form.controls['controlPartidaDepartamento']"
 									[isInline]="isInline">
-						<app-select formControlName="controlPartidaDepartamento" (changed)="onChangeDepartamentoPartida()"
+						<app-select formControlName="controlPartidaDepartamento"
+									(changed)="onChangeDepartamentoPartida()"
 									[items]="departamentosPartida"></app-select>
 					</app-form-field>
 				</div>
@@ -555,7 +560,8 @@
 									[required]="true"
 									[control]="form.controls['controlLlegadaDepartamento']"
 									[isInline]="isInline">
-						<app-select formControlName="controlLlegadaDepartamento" (changed)="onChangeDepartamentoLlegada()"
+						<app-select formControlName="controlLlegadaDepartamento"
+									(changed)="onChangeDepartamentoLlegada()"
 									[items]="departamentosLlegada"></app-select>
 					</app-form-field>
 				</div>
@@ -594,12 +600,11 @@
 
 			<!-- Items -->
 			<div class="container-dashed">
-				<app-producto></app-producto>
+				<app-producto *ngIf="itemsExists"></app-producto>
 
 				<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-					<app-button appForm>Agregar ítem</app-button>
+					<app-button appForm (click)="AddItem()">Agregar ítem</app-button>
 				</div>
-
 			</div>
 			<br>
 			<!-- End Items -->
@@ -639,12 +644,21 @@
 			<!--Peso Bruto Total-->
 
 			<!-- Main Buttons -->
-			<div style="display: flex; justify-content: end;">
-				<app-button class="success" type="button">Guardar borrador</app-button>
-				<app-button class="success" type="submit">Emitir Guía de Remisión Remitente</app-button>
+			<div class="row">
+
+				<div class="offset-md-6 offset-xs-0 col-md-3">
+					<div class="d-grid gap-2">
+						<button class="btn btn-warning btn-sm text-white" type="button">Guardar borrador</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="d-grid gap-2">
+						<button class="btn btn-primary btn-sm" type="submit">Emitir Guía de Remisión</button>
+					</div>
+				</div>
 			</div>
 			<!-- End Main Buttons -->
 		</div>
 	</form>
 </div>
-

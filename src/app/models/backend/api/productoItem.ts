@@ -1,5 +1,6 @@
 export interface ProductoItem {
 	ProductoId: number,
+	CodigoProducto: string,
 	UnidadMedidaId: number,
 	CantidadItem: number,
 	DescripcionDetallada: string,

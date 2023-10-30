@@ -42,14 +42,10 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 		const filterValue = (event.target as HTMLInputElement).value;
 		this.dataSource.filter = filterValue.trim().toLowerCase();
 	}
-	dataSource =
-		new MatTableDataSource<GreList>(this.data);
+	dataSource = new MatTableDataSource<GreList>(this.data);
 
 	getCpe = (id: number) => {
 		console.log(id);
-
-
-
 	}
 
 	getData = () => {

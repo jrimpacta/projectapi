@@ -1,13 +1,12 @@
 import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ControlItem} from "src/app/models/frontend";
 import {markFormGroupTouched, regex, regexErrors} from 'src/app/shared/utils';
 import {NotificationService, SunatService, ContribuyenteService} from 'src/app/services';
 import {catalogo06, catalogo18, catalogo20, catalogo65} from "src/app/models/backend/catalogos";
 import {emisores} from "src/app/models/backend/gobierno";
-import {serieCorrelativo} from "src/app/models/backend/documentos";
+import {SeriesCorrelativo} from "src/app/models/backend/documentos";
 import {ThemePalette} from '@angular/material/core';
-import {departamentosBadWay} from "src/app/models/backend/ubigeo";
 
 import {LocationService} from "src/app/services/utils/location.service";
 
@@ -17,7 +16,11 @@ import {environment} from "../../../../../environments/environment";
 import {collection, getFirestore} from "@angular/fire/firestore";
 
 import {ContribuyenteDTO} from 'src/app/models/backend/cpe/gre';
-import {Contribuyente, Order} from "src/app/models/backend/api";
+import {Contribuyente, DocumentoRelacionado, Order, Serie, Vehiculo} from "src/app/models/backend/api";
+import {Subscription, switchScan} from "rxjs";
+import {Departamentos} from "../../../../models/backend/ubigeo";
+import {ProductoService} from "../../services/producto.service";
+import {ProductoItem} from "../../../../models/backend/api/productoItem";
 
 export interface ChipColor {
 	name: string;
@@ -34,6 +37,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 	form!: FormGroup;
 	isInline!: boolean;
+	itemsExists: boolean = false;
+    items!:ProductoItem[];
 	regexErrors = regexErrors;
 	showSpinner = false;
 	showSpinnerRUC = false;
@@ -60,6 +65,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	notification: NotificationService = inject(NotificationService);
 	locationService: LocationService = inject(LocationService);
 	contribuyenteService: ContribuyenteService = inject(ContribuyenteService);
+    itemService:ProductoService = inject(ProductoService);
 
 	// Variables de conductor y vehículo
 	agregarVehiculo: boolean = false;
@@ -69,14 +75,14 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 		this.isInline = false;
 
-		this.serieCorrelativo = serieCorrelativo.items;
+		this.serieCorrelativo = SeriesCorrelativo;
 		this.motivos = catalogo20.items;
 		this.documentosIdentidad = catalogo06.items;
-		this.emisores = emisores.items;
+		this.emisores = emisores;
 		this.unidadMedida = catalogo65.items;
 
-		this.departamentosPartida = departamentosBadWay.items;
-		this.departamentosLlegada = departamentosBadWay.items;
+		this.departamentosPartida = Departamentos;
+		this.departamentosLlegada = Departamentos;
 		// Por validar
 		this.retornos = [
 			{label: 'Retorno de Vehículo Vacío', value: 'r1'},
@@ -94,16 +100,14 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 	}
 
+    private  itemSubscription! : Subscription;
 	ngOnInit(): void {
 		this.form = this.fb.group({
 			tipoSerie: [null, {
 				updateOn: 'change',
 				validators: []
 			}], numSerieCorrelativo: [null, {
-				updateOn: '',
-				validators: [
-					Validators.required,
-				]
+				updateOn: ''
 			}], docIdentidad: [null, {
 				updateOn: 'change',
 				validators: [
@@ -136,17 +140,18 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				]
 			}], controlRetornos: [null, {
 				updateOn: 'change',
-				validators: [
-					Validators.required
-				]
+				validators: []
+			}], controlNumBultos: [null, {
+				updateOn: 'change'
 			}], controlVehiculos: [null, {
-				updateOn: 'change',
-				validators: [
-					Validators.required
-				]
+				validators: []
 			}], controlMotivos: [null, {
 				updateOn: 'change',
-				validators: []
+				validators: [
+					Validators.minLength(4),
+					Validators.maxLength(500),
+					Validators.required
+				]
 			}], controlTipoTransporte: [null, {
 				updateOn: 'change',
 				validators: []
@@ -256,6 +261,15 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			}], controlPesoBrutoTotal: [null, {
 				updateOn: 'blur',
 				validators: []
+			}], controlDocRelacionado: [null, {
+				updateOn: 'blur',
+				validators: []
+			}], controlNumPrecinto: [null, {
+				updateOn: 'blur',
+				validators: []
+			}], controlObservacion: [null, {
+				updateOn: 'blur',
+				validators: []
 			}]
 		});
 
@@ -264,6 +278,12 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		this.onTransportistaMatch();
 		this.onConductorMatch();
 		this.onPatchValue();
+
+        this.items = this.itemService.getItems();
+
+        this.itemSubscription = this.itemService.itemsSubject.subscribe( () => {
+            this.items = this.itemService.getItems();
+        } );
 	}
 
 	contribuyenteDetailsSignal = signal<any>({});
@@ -375,10 +395,10 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 	onPatchValue = (): void => {
 		this.form.patchValue({
-			tipoSerie: "01",
+			tipoSerie: 6,
 			docIdentidad: 4,
 			controlTipoTransporte: 1,
-			unidadMedidaTotal: "U",
+			unidadMedidaTotal: 90,
 			controlDNIConductor: 2
 			// TO DO
 			//controlPartidaDepartamento: '3926',
@@ -387,7 +407,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	}
 
 	onSubmit = async () => {
-		if (!this.form.valid) {
+		if (this.form.valid) {
 			markFormGroupTouched(this.form);
 
 			this.showSpinner = true;
@@ -400,7 +420,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			const _fechaInicioTraslado = new Date(this.form.get('controlEntregaTransportista')?.value).toISOString();
 			let retornos = [];
 
-			switch (this.form.get('controlFechaEmision')?.value) {
+			switch (this.form.get('controlRetornos')?.value) {
 				case "r1": { // Retorno de Vehículo Vacío
 					retornos = [true, false, false]
 					break;
@@ -419,6 +439,88 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				}
 			}
 
+			let vehiculos = [];
+			switch (this.form.get('controlVehiculos')?.value) {
+				case "v1": { // Retorno de Vehículo Vacío
+					vehiculos = [true, false, false]
+					break;
+				}
+				case "v2": { // Retorno con Envases Vacíos
+					vehiculos = [false, true, false]
+					break;
+				}
+				case "v3": { // Transbordo Programado
+					vehiculos = [false, false, true]
+					break;
+				}
+				default: {
+					vehiculos = [false, false, false];
+					break;
+				}
+			}
+
+			let tipoSerie : string = "";
+			switch (this.form.get('tipoSerie')?.value) {
+				case 'EG02': case 'EG06': {
+					tipoSerie = Serie.App;
+					break;
+				}
+				case 'EG05': case 'EG07': {
+					tipoSerie = Serie.Portal;
+					break;
+				}
+				default: {
+					tipoSerie = Serie.API;
+					break;
+				}
+			}
+
+			let drelValue = this.form.get('controlDocRelacionado')?.value;
+			let docRelacionado : DocumentoRelacionado | null;
+
+			console.log(drelValue);
+			if (drelValue != null) {
+				docRelacionado = {
+					NroDocumento: drelValue,
+					TipoDocumentoId: 4,
+					IdentificadorPago: ''
+				};
+			} else {
+				docRelacionado = null;
+			}
+
+			let conductores : Contribuyente[] = [];
+			let vehiculosData : Vehiculo[] = [];
+
+			if (vehiculos[2]) {
+				conductores.push( {
+					codigoIdentificacion: this.form.get('controlDocConductor')?.value,
+					tipoDocumentoIdentidadId: this.form.get('controlDNIConductor')?.value,
+					nombreComercial: "",
+					nombreLegal: this.form.get('controlNombreConductor')?.value,
+					ubigeoId: "",
+					direccion: "",
+					urbanizacion: "",
+					provincia: "",
+					departamento: "",
+					distrito: "",
+					pais: "",
+					correoElectronico: "",
+					registroMTC: "",
+					licenciaConducir: this.form.get('controlConductorLicencia')?.value
+				});
+
+				vehiculosData.push({
+					nroPlacaVehiculo: this.form.get('controlVehiculoPlaca')?.value,
+					tuCoCHV: this.form.get('controlVehiculoHabilitacion')?.value,
+					autorizacionEspecial: this.form.get('controlVehiculoAutorizacion')?.value,
+					marcaVehiculo: this.form.get('controlVehiculoMarca')?.value,
+					entidadEmisora: this.form.get('controlVehiculoEmisor')?.value
+				});
+			}
+
+
+
 			const guia: Order = {
 				fechaEmision: _fechaEmision,
 				horaEmision: null,
@@ -428,8 +530,8 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 					tipoDocumentoIdentidadId: 4,
 					nombreComercial: "Asociación Civil Impacta Salud Y Educación",
 					nombreLegal: "ASOCIACION CIVIL IMPACTA SALUD Y EDUCACION",
-					ubigeoId: 1252,
-					direccion: "AV. GRAU ALMIRANTE MIGUEL NRO. 1010",
+					ubigeoId: '150104',
+					direccion: "AV. GRAU, ALMIRANTE MIGUEL NR O. 1010",
 					urbanizacion: "",
 					provincia: "LIMA",
 					departamento: "LIMA",
@@ -439,115 +541,84 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 					registroMTC: "",
 					licenciaConducir: ""
 				},
-				tipoDocumentoId: 2,
+				tipoDocumentoId: 6, // GRE Remitente
 				destinatario: {
 					codigoIdentificacion: this.form.get('docContribuyente')?.value,
 					tipoDocumentoIdentidadId: Number(this.form.get('docIdentidad')?.value),
 					nombreComercial: "",
 					nombreLegal: this.form.get('nomContribuyente')?.value,
-					ubigeoId: 1,
+					ubigeoId: this.contribuyenteDetailsSignal().ubigeo,
 					direccion: this.contribuyenteDetailsSignal().direccion,
 					urbanizacion: "",
 					provincia: this.contribuyenteDetailsSignal().provincia,
 					departamento: this.contribuyenteDetailsSignal().departamento,
 					distrito: this.contribuyenteDetailsSignal().distrito,
-					pais: this.contribuyenteDetailsSignal().ubigeo,
+					pais: "",
 					correoElectronico: "",
 					registroMTC: "",
 					licenciaConducir: ""
 				},
 				transportista: {
 					codigoIdentificacion: this.form.get('controlRUCTransportista')?.value,
-					tipoDocumentoIdentidadId: 4,
+					tipoDocumentoIdentidadId: 4, // Siempre RUC
 					nombreComercial: "",
 					nombreLegal: this.form.get('controlNomTransportista')?.value,
-					ubigeoId: 1,
+					ubigeoId: this.transportistaDetailsSignal().ubigeo,
 					direccion: this.transportistaDetailsSignal().direccion,
 					urbanizacion: "",
 					provincia: this.transportistaDetailsSignal().provincia,
 					departamento: this.transportistaDetailsSignal().departamento,
 					distrito: this.transportistaDetailsSignal().distrito,
-					pais: this.transportistaDetailsSignal().ubigeo,
+					pais: "",
 					correoElectronico: "",
-					registroMTC: "",
+					registroMTC: this.form.get('controlMTCTransportista')?.value,
 					licenciaConducir: ""
 				},
-				serieCorrelativo: {
+				serieCorrelativo: { // Se debe contar los documentos aceptados por sunat y sumar uno
 					fechaCreacion: new Date().toISOString(),
-					serieCorrelativo: "",
-					serie: "",
-					descripcion: "",
-					contadorCorrelativo: 1,
+					serieCorrelativo: `${this.form.get('tipoSerie')?.value}-${this.form.get('numSerieCorrelativo')?.value}`,
+					serieId: this.form.get('tipoSerie')?.value,
+					descripcion: tipoSerie,
+					contadorCorrelativo: 1, // TO DO
 				},
 				unidadMedidaPesoBrutoId: Number(this.form.get('unidadMedidaTotal')?.value),
 				pesoBrutoTotalCarga: Number(this.form.get('controlPesoBrutoTotal')?.value),
-				numeroDAMoDS: "",
-				numeroContenedor: "",
-				numeroBultos: "",
-				numeroPrecinto: "",
-				motivoTrasladoId: 8,
-				motivoTrasladoOtros: "",
-				indicadorTransbordoProgramado: false,
+				numeroDAMoDS: "", // La empresa no lo necesita
+				numeroContenedor: "", // La empresa no lo necesita
+				numeroBultos: this.form.get('controlNumBultos')?.value,
+				numeroPrecinto: this.form.get('controlNumPrecinto')?.value,
+				motivoTrasladoId: this.form.get('controlMotivos')?.value,
+				motivoTrasladoOtros: "", // TO DO
+
 				puntoPartida: {
-					departamento: "",
-					provincia: "",
-					distrito: "",
-					ubigeoId: 55,
+					departamento: this.form.get('controlPartidaDepartamento')?.value,
+					provincia: this.form.get('controlPartidaProvincia')?.value,
+					distrito: this.form.get('controlPartidaDistrito')?.value,
+					ubigeoId: this.form.get('controlPartidaDistrito')?.value,
 					direccionCompleta: this.form.get('controlPartidaPunto')?.value,
 					codigoEstablecimiento: "",
 				},
 				puntoLlegada: {
-					departamento: "",
-					provincia: "",
-					distrito: "",
-					ubigeoId: 55,
+                    departamento: this.form.get('controlLlegadaDepartamento')?.value,
+                    provincia: this.form.get('controlLlegadaProvincia')?.value,
+                    distrito: this.form.get('controlLlegadaDistrito')?.value,
+                    ubigeoId: this.form.get('controlLlegadaDistrito')?.value,
 					direccionCompleta: this.form.get('controlLlegadaPunto')?.value,
 					codigoEstablecimiento: "",
 				},
 				fechaInicioTraslado: _fechaInicioTraslado,
-				codigoPuertoOAeropuerto: null,
-				orderDetails: [
-					{
-						productId: 0,
-						unitPrice: 0,
-						quantity: 0
-					}
-				],
-				vehiculos: [
-					{
-						nroPlacaVehiculo: this.form.get('controlVehiculoPlaca')?.value,
-						tuCoCHV: this.form.get('controlVehiculoHabilitacion')?.value,
-						autorizacionEspecial: this.form.get('controlVehiculoAutorizacion')?.value,
-						marcaVehiculo: this.form.get('controlVehiculoMarca')?.value,
-						entidadEmisora: this.form.get('controlVehiculoEmisor')?.value,
-					}
-				],
-				conductores: [
-					{
-						codigoIdentificacion: this.form.get('controlDocConductor')?.value,
-						tipoDocumentoIdentidadId: 2,
-						nombreComercial: "",
-						nombreLegal: this.form.get('controlNombreConductor')?.value,
-						ubigeoId: 1,
-						direccion: "",
-						urbanizacion: "",
-						provincia: "",
-						departamento: "",
-						distrito: "",
-						pais: "",
-						correoElectronico: "",
-						registroMTC: "",
-						licenciaConducir: this.form.get('controlConductorLicencia')?.value
-					}
-				],
-				documentoRelacionado: null,
-				indicadorTrasladoVehículosCategoríaM1oL: false,
-				indRegistrarVehiculosConductoresDelTransportista: false,
-				indicadorTrasladoTotalMercanciasDAMoDS: false,
-				transbordo: false,
+				codigoPuertoOAeropuerto: null, // La empresa no lo necesita
+				orderDetails: this.items,
+				vehiculos: vehiculosData,
+				conductores: conductores,
+				documentoRelacionado: docRelacionado,
+				indicadorTrasladoVehículosCategoríaM1oL: vehiculos[0],
+				indicadorTrasladoTotalMercanciasDAMoDS: vehiculos[1],
+				indRegistrarVehiculosConductoresDelTransportista: vehiculos[2],
+				transbordo: retornos[2],
 				observaciones: [
 					{
-						detalle: "Sin detalles"
+						detalle: this.form.get('controlObservacion')?.value
 					}
 				],
 				emisionSunat: {
@@ -566,7 +637,10 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 					numeroTicket: null,
 					xmlFirmado: null,
 					codigoQR: null
-				}
+				},
+				indicadorRetornoEnvasesVacios: retornos[0],
+				indicadorRetornoVehiculoVacio: retornos[1],
+				indicadorTransbordoProgramado: retornos[2]
 			};
 
 			console.log(guia);
@@ -577,13 +651,13 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			this.notification.error(`Debe completar los campos requeridos antes de enviar.`);
 		}
 	}
+
 	app = initializeApp(environment.firebase.config);
 	db = getFirestore(this.app);
 	userProfileCollection = collection(getFirestore(this.app), 'test');
 
 	ngOnDestroy(): void {
-
-
+        this.itemSubscription.unsubscribe();
 	}
 
 	completeCorrelativo = (): void => {
@@ -608,25 +682,25 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	}
 
 	onChangeDepartamentoPartida = () => {
-		const value = this.form.get('controlPartidaDepartamento');
-		this.provinciasPartida = this.locationService.getProvincia(value?.value);
+		const value = this.form.get('controlPartidaDepartamento')?.value;
+		this.provinciasPartida = this.locationService.getProvincias(value);
 		this.distritosPartida = [];
 	}
 
 	onChangeProvinciaPartida = () => {
-		const value = this.form.get('controlPartidaProvincia');
-		this.distritosPartida = this.locationService.getDistrito(value?.value);
+		const value = this.form.get('controlPartidaProvincia')?.value;
+		this.distritosPartida = this.locationService.getDistritos(value);
 	}
 
 	onChangeDepartamentoLlegada = () => {
-		const value = this.form.get('controlLlegadaDepartamento');
-		this.provinciasLlegada = this.locationService.getProvincia(value?.value);
+		const value = this.form.get('controlLlegadaDepartamento')?.value;
+		this.provinciasLlegada = this.locationService.getProvincias(value);
 		this.distritosLlegada = [];
 	}
 
 	onChangeProvinciaLlegada = () => {
-		const value = this.form.get('controlLlegadaProvincia');
-		this.distritosLlegada = this.locationService.getDistrito(value?.value);
+		const value = this.form.get('controlLlegadaProvincia')?.value;
+		this.distritosLlegada = this.locationService.getDistritos(value);
 	}
 
 	onVehiculoAgreggate = () => {
@@ -635,5 +709,15 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 	onConductorAgreggate = () => {
 		this.agregarConductor = !this.agregarConductor;
+	}
+
+	AddItem = () => {
+		this.itemsExists = true;
+	}
+
+	showVehiculosControls: boolean = false;
+	HideControls = () => {
+		let value = this.form.get("controlVehiculos")?.value;
+		this.showVehiculosControls = value == 'v3';
 	}
 }

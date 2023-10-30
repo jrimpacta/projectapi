@@ -1,6 +1,6 @@
 .app-button {
 	padding: 5px 20px;
-	background: transparent;
+	background: $base-light;
 	border-radius: 10px;
 	border: 1px solid $primary;
 	transition: 0.25s;
@@ -10,8 +10,9 @@
 
 	&:hover, &:focus {
 		background: $primary;
-		border: 2px solid $primary;
+		border: 1px solid $primary;
 		color: $on-primary;
+		transition: 0.5s ease;
 	}
 }
 
@@ -27,7 +28,7 @@
 
 	&:hover, &:focus {
 		background: $error;
-		border: 2px solid $error;
+		border: 1px solid $error;
 		color: $on-primary;
 	}
 }

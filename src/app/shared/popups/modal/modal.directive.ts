@@ -22,10 +22,9 @@ export class ModalDirective {
 		const dialogRef = this.dialog.open(
 			ModalComponent, {
 				width: '65em',
-				height: '95%',
-				data: {name: this.routePdf}
+				height: '95%'
+				//data: {name: this.routePdf}
 			},
-
 		);
 
 		dialogRef.afterClosed().subscribe(result => {

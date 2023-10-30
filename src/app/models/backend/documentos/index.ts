@@ -1,1 +1,1 @@
-export { serieCorrelativo } from './series';
+export { SeriesCorrelativo } from './series';

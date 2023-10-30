@@ -3,11 +3,20 @@
 .select {
 	line-height: 36px;
 	padding: 0 15px 0 15px;
+	background: $base-light;
 
 	&_disable {
 		background: rgba(0,0,0,.05);
 		border: 1px solid rgba(0,0,0,.15);
 	}
+}
+
+mat-select {
+	font-size: 14px !important;
+}
+
+mat-option {
+	font-size: 14px !important;
 }
 
 :host-context(.form-field_error) {

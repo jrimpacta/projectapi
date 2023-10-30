@@ -1,7 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-
+import {firstValueFrom, Observable} from "rxjs";
 @Injectable({
 	providedIn: 'root'
 })
@@ -12,7 +11,10 @@ export class ModalService {
 	constructor() {
 	}
 
-	getPdf(Id:number): Observable<string> {
-		return this.httpClient.get<string>(`${this.apiUrl}/guia/cpe/${Id}`);
+	getPdf(Id:number) {
+
+		return firstValueFrom(
+			this.httpClient.get<any>(`${this.apiUrl}/cpe/${Id}`)
+		);
 	}
 }

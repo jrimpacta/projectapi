@@ -1,2 +1,3 @@
-export { Departamento, departamentosBadWay } from './departamento';
-export { provincias } from './provincia';
+export { Departamentos } from './departamento';
+export { Provincias } from './provincia';
+export { Distritos } from './distrito';

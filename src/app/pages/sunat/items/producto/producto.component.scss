@@ -1,3 +1,5 @@
+@import "../../../../../styles/colors";
+
 /* Estilos para la tabla */
 .styled-table {
 	width: 96%;
@@ -10,19 +12,22 @@
 	padding-inline: 10px;
 	text-align: left;
 	border-bottom: 1px solid #ddd;
+	//background: $base-page;
 }
 
 /* Estilos para las filas impares */
 .styled-table tr:nth-child(odd) {
-	background-color: #f2f2f2;
+	//background-color: #f2f2f2;
+	background: $base-page;
 }
 
 /* Estilos para filas al pasar el mouse por encima */
 .styled-table tr:hover {
-	background-color: #ddd;
+	background-color: #ec2f2f;
+	color: $base;
 }
 
-/* Estilos para la primera columna (Nombre) */
+/* Estilos para la última columna (Control borrar) */
 .styled-table td:last-child {
 	font-weight: bold;
 	width: 5%;

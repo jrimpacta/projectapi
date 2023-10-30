@@ -10,6 +10,7 @@ export class ProductoService {
 	private itemsTest: ProductoItem[] = [
 		{
 			ProductoId : 1,
+			CodigoProducto: "140201-0773",
 			UnidadMedidaId : 1,
 			CantidadItem : 12.5,
 			DescripcionDetallada : "opopopo 123...",
@@ -20,6 +21,7 @@ export class ProductoService {
 			lineaCounter : 0,
 		}, {
 			ProductoId : 1,
+			CodigoProducto: "140201-0774",
 			UnidadMedidaId : 1,
 			CantidadItem : 12.5,
 			DescripcionDetallada : "Descripción 123...",
@@ -30,6 +32,7 @@ export class ProductoService {
 			lineaCounter : 0,
 		}, {
 			ProductoId : 1,
+			CodigoProducto: "140201-0775",
 			UnidadMedidaId : 1,
 			CantidadItem : 12.5,
 			DescripcionDetallada : "Descripción 3...",
