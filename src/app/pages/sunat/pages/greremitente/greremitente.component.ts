@@ -79,7 +79,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		this.motivos = catalogo20.items;
 		this.documentosIdentidad = catalogo06.items;
 		this.emisores = emisores;
-		this.unidadMedida = catalogo65.items;
+		this.unidadMedida = catalogo65;
 
 		this.departamentosPartida = Departamentos;
 		this.departamentosLlegada = Departamentos;

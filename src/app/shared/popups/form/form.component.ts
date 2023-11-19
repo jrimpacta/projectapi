@@ -32,7 +32,7 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 
 	unidadMedida!: ControlItem[];
 	constructor(private fb: FormBuilder) {
-		this.unidadMedida = catalogo65.items;
+		this.unidadMedida = catalogo65;
 	}
 
 	ngOnInit(): void {

@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, inject, OnInit, Output, signal, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, inject, OnInit, Output, signal, ViewChild} from '@angular/core';
 import {ContribuyenteService, DateService} from "src/app/services";
 import {GreList} from "src/app/models/backend/cpe/gre/grelist";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
     selector: 'app-grelist',
@@ -19,6 +20,7 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 	data! : GreList[];
 
 	@Output() idCpe!:number;
+	@Output() idCpeEmitter: EventEmitter<number> = new EventEmitter<number>();
 
 	@ViewChild(MatPaginator) paginator!: MatPaginator;
 	@ViewChild(MatSort) sort!: MatSort;
@@ -45,7 +47,9 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 	dataSource = new MatTableDataSource<GreList>(this.data);
 
 	getCpe = (id: number) => {
-		console.log(id);
+		//console.log( id);
+
+
 	}
 
 	getData = () => {
@@ -54,5 +58,7 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 		});
 	}
 
+	constructor(private dialog: MatDialog) {
+	}
 
 }

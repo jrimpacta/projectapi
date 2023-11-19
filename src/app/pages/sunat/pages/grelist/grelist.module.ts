@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ButtonsModule, ControlsModule, PopupsModule} from "../../../../shared";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import { MatDialogModule} from "@angular/material/dialog";
 
 registerLocaleData(es);
 @NgModule({
@@ -35,7 +36,8 @@ registerLocaleData(es);
 		ControlsModule,
 		ReactiveFormsModule,
 		MatInputModule,
-		PopupsModule
+		PopupsModule,
+		MatDialogModule
 	],
 	providers: [
 		{
