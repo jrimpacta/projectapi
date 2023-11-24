@@ -1,66 +1,67 @@
 <div class="mat-elevation-z8">
-	<mat-form-field >
+	<mat-form-field>
 		<mat-label>Filtro</mat-label>
 		<input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input autocomplete="off">
 	</mat-form-field>
-<table mat-table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="fechaEmision">
-        <th mat-header-cell *matHeaderCellDef> Fecha de emisión </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechaEmision}} </td>
-    </ng-container>
+	<table mat-table [dataSource]="dataSource">
+		<ng-container matColumnDef="fechaEmision">
+			<th mat-header-cell *matHeaderCellDef> Fecha de emisión</th>
+			<td mat-cell *matCellDef="let element"> {{element.fechaEmision}} </td>
+		</ng-container>
 
-    <ng-container matColumnDef="fechaTraslado">
-        <th mat-header-cell *matHeaderCellDef> Inicio traslado </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechaTraslado}} </td>
-    </ng-container>
+		<ng-container matColumnDef="fechaTraslado">
+			<th mat-header-cell *matHeaderCellDef> Inicio traslado</th>
+			<td mat-cell *matCellDef="let element"> {{element.fechaTraslado}} </td>
+		</ng-container>
 
-    <ng-container matColumnDef="destinatario">
-        <th mat-header-cell *matHeaderCellDef> Destinatario </th>
-        <td mat-cell *matCellDef="let element"> {{element.destinatario}} </td>
-    </ng-container>
+		<ng-container matColumnDef="destinatario">
+			<th mat-header-cell *matHeaderCellDef> Destinatario</th>
+			<td mat-cell *matCellDef="let element"> {{element.destinatario}} </td>
+		</ng-container>
 
-    <ng-container matColumnDef="transportista">
-        <th mat-header-cell *matHeaderCellDef> Transportista </th>
-        <td mat-cell *matCellDef="let element"> {{element.transportista}} </td>
-    </ng-container>
+		<ng-container matColumnDef="transportista">
+			<th mat-header-cell *matHeaderCellDef> Transportista</th>
+			<td mat-cell *matCellDef="let element"> {{element.transportista}} </td>
+		</ng-container>
 
-	<ng-container matColumnDef="unidadMedida">
-		<th mat-header-cell *matHeaderCellDef> Unidad de medida </th>
-		<td mat-cell *matCellDef="let element"> {{element.unidadMedida}} </td>
-	</ng-container>
+		<ng-container matColumnDef="unidadMedida">
+			<th mat-header-cell *matHeaderCellDef> Unidad de medida</th>
+			<td mat-cell *matCellDef="let element"> {{element.unidadMedida}} </td>
+		</ng-container>
 
-	<ng-container matColumnDef="pesoTotal">
-		<th mat-header-cell *matHeaderCellDef> Peso bruto </th>
-		<td mat-cell *matCellDef="let element"> {{element.pesoTotal}} </td>
-	</ng-container>
+		<ng-container matColumnDef="pesoTotal">
+			<th mat-header-cell *matHeaderCellDef> Peso bruto</th>
+			<td mat-cell *matCellDef="let element"> {{element.pesoTotal}} </td>
+		</ng-container>
 
-	<ng-container matColumnDef="motivo">
-		<th mat-header-cell *matHeaderCellDef> Motivo de traslado </th>
-		<td mat-cell *matCellDef="let element"> {{element.motivo}} </td>
-	</ng-container>
+		<ng-container matColumnDef="motivo">
+			<th mat-header-cell *matHeaderCellDef> Motivo de traslado</th>
+			<td mat-cell *matCellDef="let element"> {{element.motivo}} </td>
+		</ng-container>
 
-	<ng-container matColumnDef="acciones">
-		<th mat-header-cell *matHeaderCellDef>
-			<app-button [routerLink]="['../greremitente']">Nuevo</app-button>
-		</th>
-		<td mat-cell *matCellDef="let element">
-			<mat-icon
-					  matTooltip="Ver"
-					  class="search" appModal [id]="element.id"
-					  fontIcon="search" (click)="getCpe(element.id)"></mat-icon>
-			<mat-icon routerLink="/edit/{{ element.id }}" matTooltip="Editar" class="edit" fontIcon="edit"></mat-icon>
-			<mat-icon matTooltip="Borrar" class="delete" fontIcon="delete"></mat-icon>
-		</td>
-	</ng-container>
+		<ng-container matColumnDef="acciones">
+			<th mat-header-cell *matHeaderCellDef>
+				<app-button [routerLink]="['../greremitente']">Nuevo</app-button>
+			</th>
+			<td mat-cell *matCellDef="let element">
+				<mat-icon
+					matTooltip="Ver"
+					class="search" appModal [id]="element.id"
+					fontIcon="search" (click)="getCpe(element.id)"></mat-icon>
+				<mat-icon routerLink="/edit/{{ element.id }}" matTooltip="Editar" class="edit"
+						  fontIcon="edit"></mat-icon>
+				<mat-icon matTooltip="Borrar" class="delete" fontIcon="delete"></mat-icon>
+			</td>
+		</ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
 
-<mat-paginator [pageSizeOptions]="[5, 10, 20]"
-			   showFirstLastButtons
-			   aria-label="Selecciona la página">
-</mat-paginator>
+	<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+				   showFirstLastButtons
+				   aria-label="Selecciona la página">
+	</mat-paginator>
 
 </div>
