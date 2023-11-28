@@ -18,6 +18,12 @@ const routes: Routes = [
 				loadChildren: () =>
 					import("./pages/shared/shared.module")
 						.then(m => m.SharedModule)
+			},
+			{
+				path: "sunat",
+				loadChildren: () =>
+					import("../../pages/sunat/sunat.module")
+						.then(m => m.SunatModule)
 			}
 		]
 	}

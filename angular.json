@@ -28,10 +28,11 @@
 						"assets": [
 							"src/favicon.ico",
 							"src/assets",
+							"src/web.config",
 							{
 								"glob": "**/*",
-								"input": "./node_modules/pspdfkit/dist/pspdfkit-lib/",
-								"output": "./assets/pspdfkit-lib/"
+								"input": "./node_modules/bootstrap-icons/",
+								"output": "/"
 							}
 						],
 						"styles": [
@@ -57,7 +58,13 @@
 									"maximumError": "4mb"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.ts"
+								}
+							]
 						},
 						"development": {
 							"buildOptimizer": false,

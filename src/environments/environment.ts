@@ -1,6 +1,7 @@
 export const environment = {
 	production: true,
 	name: 'prod',
+	apiHost: 'https://intranetadmin.impactaperu.org/greapi/',
 	firebase: {
 		config: {
 			projectId: 'impactaapi-15704',

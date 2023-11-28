@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {ControlItem} from "../../models/frontend";
-import {Distritos, Provincias} from "../../models/backend/ubigeo";
+import {ControlItem} from "src/app/models/frontend";
+import {Distritos, Provincias} from "src/app/models/backend/ubigeo";
 
 @Injectable({
 	providedIn: 'root'

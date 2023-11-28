@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom, Observable} from "rxjs";
 import {Ruc} from 'src/app/models/frontend/ruc'
+import {environment} from "src/environments/environment";
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,8 @@ export class SunatService {
 	// NO se usa
 	private API_RUC_URL:string = "https://api.apis.net.pe/v2/sunat/ruc?numero=";
 
-	private apiUrl = 'https://localhost:7058'; // northwind
+	//private apiUrl = 'https://localhost:7058'; // northwind
+	private apiUrl = `${environment.apiHost}`; // northwind
 	private  httpClient = inject(HttpClient);
 	constructor() {
 	}
@@ -64,7 +66,7 @@ export class SunatService {
 		const body = new URLSearchParams();
 		body.set('token', token);
 
-		const url = `${this.apiUrl}/sunat/ruc/${ruc}`;
+		const url = `${this.apiUrl}sunat/ruc/${ruc}`;
 
 		return firstValueFrom(
 			this.httpClient.post<any>( url, body.toString())

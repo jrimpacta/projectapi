@@ -2,14 +2,14 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, provideHttpClient} from '@angular/common/http';
 
-import { NotificationModule } from './services';
-import { HeaderComponent } from './components/header/header.component';
+import {NotificationModule} from './services';
+import {HeaderComponent} from './components/header/header.component';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import es from '@angular/common/locales/es';
-import { registerLocaleData } from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 
 // BEGIN FIREBASE
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
@@ -38,6 +38,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
 	}
 }
 registerLocaleData(es);
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -75,6 +76,9 @@ registerLocaleData(es);
 			provide: HTTP_INTERCEPTORS,
 			useClass: AuthInterceptor,
 			multi: true
+		}, {
+			provide: LocationStrategy,
+			useClass: HashLocationStrategy
 		}
 	],
 	bootstrap: [AppComponent]

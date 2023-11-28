@@ -1,30 +1,53 @@
-import { Component } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import Swal from 'sweetalert2'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gre',
   templateUrl: './gre.component.html',
   styleUrls: ['./gre.component.scss']
 })
-export class GreComponent {
+export class GreComponent implements OnInit {
+
+	serieCorrelativo!:String;
+	id!:number | null | undefined;
+	activatedRoute = inject(ActivatedRoute);
+	constructor(private router: Router) {
+		this.serieCorrelativo = "T001-00000001";
+	}
+
+	ngOnInit() {
+		this.activatedRoute.params.subscribe(params => {
+
+		});
+	}
 	ShowAlert = () => {
 		Swal.fire({
-			title: "Tu Guía de Remisión T001-00000001 se genero con éxito.",
-			//html: "<p>Podras encontrar todos tus documentos en la sección de documentos</p>",
-			timer: 8000,
+			title: `Tu Guía de Remisión ${this.serieCorrelativo} se genero con éxito.`,
+			timer: 12000,
 			timerProgressBar: true,
 			icon: "success",
 			showCancelButton: false,
 			showConfirmButton: false,
 			showCloseButton: false,
 			showLoaderOnConfirm: true,
+			//width: '50%',
 			html: `
-
-				<button id="btnImprimir" class="btn btn-warning btn-sm text-white">
-				<i class="fa fa-home"></i>Imprimirsssssss</button>
-				<button id="btnCompartir" class="btn btn-primary btn-sm text-white">Compartir</button>
-				<button id="btnDescargarXML" class="btn btn-primary btn-sm text-white">Descargar XML</button>
-				<button id="btnEmitirOtro" class="btn btn-warning btn-sm text-white">Emitir otro</button>
+				<link rel="stylesheet" href="../../../../../assets/bootstrap-icons/font/bootstrap-icons.css">
+				<div class="d-flex justify-content-between">
+				  <button id="btnImprimir" class="btn btn-outline-primary btn-sm">
+					<i class="bi bi-printer"></i> Imprimir
+				  </button>
+				  <button id="btnCompartir" class="btn btn-outline-success btn-sm">
+					<i class="bi bi-share"></i> Compartir
+				  </button>
+				  <button id="btnDescargar" class="btn btn-outline-danger btn-sm">
+					<i class="bi bi-file-earmark-arrow-down"></i> Descargar
+				  </button>
+				  <button id="btnEmitirOtro" class="btn btn-outline-primary btn-sm">
+					<i class="bi bi-box-arrow-up"></i> Emitir otro
+				  </button>
+				</div>
 			  `,
 			didOpen: () => {
 			},
@@ -43,9 +66,9 @@ export class GreComponent {
 			btnCompartir.addEventListener('click', () => this.compartir());
 		}
 
-		const btnDescargarXML = document.getElementById('btnDescargarXML');
-		if (btnDescargarXML) {
-			btnDescargarXML.addEventListener('click', () => this.descargarXML());
+		const btnDescargar = document.getElementById('btnDescargar');
+		if (btnDescargar) {
+			btnDescargar.addEventListener('click', () => this.descargar());
 		}
 
 		const btnEmitirOtro = document.getElementById('btnEmitirOtro');
@@ -62,11 +85,12 @@ export class GreComponent {
 		console.log('Compartiendo...');
 	}
 
-	descargarXML() {
+	descargar() {
 		console.log('Descargando XML...');
 	}
 
 	emitirOtro = () => {
-		console.log('Emitir otro...');
+		Swal.close();
+		this.router.navigate(['/sunat/greremitente']);
 	}
 }

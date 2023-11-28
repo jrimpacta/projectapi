@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 import {GreremitenteRoutingModule} from './greremitente-routing.module';
 import {GreremitenteComponent} from './greremitente.component';
@@ -17,21 +17,22 @@ import {SunatModule} from "../../sunat.module";
 	declarations: [
 		GreremitenteComponent
 	],
-    imports: [
-        CommonModule,
-        GreremitenteRoutingModule,
-        ButtonsModule,
-        ControlsModule,
-        ReactiveFormsModule,
-        IndicatorsModule,
-        MatGridListModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatChipsModule,
-        MatIconModule,
-        PopupsModule,
-        SunatModule
-    ]
+	imports: [
+		CommonModule,
+		GreremitenteRoutingModule,
+		ButtonsModule,
+		ControlsModule,
+		ReactiveFormsModule,
+		IndicatorsModule,
+		MatGridListModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatChipsModule,
+		MatIconModule,
+		PopupsModule,
+		SunatModule,
+		NgOptimizedImage
+	]
 })
 export class GreremitenteModule {
 }

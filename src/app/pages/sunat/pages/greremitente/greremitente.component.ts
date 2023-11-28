@@ -21,6 +21,8 @@ import {Subscription, switchScan} from "rxjs";
 import {Departamentos} from "../../../../models/backend/ubigeo";
 import {ProductoService} from "../../services/producto.service";
 import {ProductoItem} from "../../../../models/backend/api/productoItem";
+import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 export interface ChipColor {
 	name: string;
@@ -71,7 +73,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	agregarVehiculo: boolean = false;
 	agregarConductor: boolean = false;
 
-	constructor(private fb: FormBuilder) {
+	constructor(private fb: FormBuilder, private router: Router) {
 
 		this.isInline = false;
 
@@ -409,12 +411,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	onSubmit = async () => {
 		if (this.form.valid) {
 			markFormGroupTouched(this.form);
-
-			this.showSpinner = true;
-			await new Promise((f: any) => setTimeout(f, 350));
-			this.showSpinner = false;
-
-			console.log(this.form.value);
+			console.log(this.form.value); // Just for test
 
 			const _fechaEmision = new Date(this.form.get('controlFechaEmision')?.value).toISOString();
 			const _fechaInicioTraslado = new Date(this.form.get('controlEntregaTransportista')?.value).toISOString();
@@ -644,11 +641,29 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			};
 
 			console.log(guia);
-			const response = this.contribuyenteService.add(guia);
-			console.log("resultado: " + JSON.stringify(response));
-
+			//const response = this.contribuyenteService.add(guia);
+			this.showSpinner = true;
+			await this.agregarGuia(guia);
+			this.showSpinner = false;
 		} else {
 			this.notification.error(`Debe completar los campos requeridos antes de enviar.`);
+		}
+	}
+
+	async agregarGuia(guia: Order): Promise<void> {
+		try {
+			const response = await this.contribuyenteService.add(guia).then();
+			console.log('Respuesta exitosa:', response);
+			this.router.navigate(['/sunat/remitentelist']);
+			this.ShowAlertSuccess();
+		} catch (error) {
+			console.error('Error en la solicitud:', error);
+			await Swal.fire({
+				icon: "error",
+				title: "Error inesperado ",
+				text: "Ha ocurrido un error inesperado!",
+				footer: '<a href="#">¿Ir al inicio?</a>'
+			});
 		}
 	}
 
@@ -720,4 +735,80 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 		let value = this.form.get("controlVehiculos")?.value;
 		this.showVehiculosControls = value == 'v3';
 	}
+
+	// Exclusivo de swet alert
+	ShowAlertSuccess = () => {
+		Swal.fire({
+			title: `Tu Guía de Remisión ${this.serieCorrelativo} se genero con éxito.`,
+			timer: 12000,
+			timerProgressBar: true,
+			icon: "success",
+			showCancelButton: false,
+			showConfirmButton: false,
+			showCloseButton: false,
+			showLoaderOnConfirm: true,
+			//width: '50%',
+			html: `
+				<link rel="stylesheet" href="../../../../../assets/bootstrap-icons/font/bootstrap-icons.css">
+				<div class="d-flex justify-content-between">
+				  <button id="btnImprimir" class="btn btn-outline-primary btn-sm">
+					<i class="bi bi-printer"></i> Imprimir
+				  </button>
+				  <button id="btnCompartir" class="btn btn-outline-success btn-sm">
+					<i class="bi bi-share"></i> Compartir
+				  </button>
+				  <button id="btnDescargar" class="btn btn-outline-danger btn-sm">
+					<i class="bi bi-file-earmark-arrow-down"></i> Descargar
+				  </button>
+				  <button id="btnEmitirOtro" class="btn btn-outline-primary btn-sm">
+					<i class="bi bi-box-arrow-up"></i> Emitir otro
+				  </button>
+				</div>
+			  `,
+			didOpen: () => {
+			},
+			willClose: () => {
+			}
+		}).then((result) => {
+
+		});
+		const btnImprimir = document.getElementById('btnImprimir');
+		if (btnImprimir) {
+			btnImprimir.addEventListener('click', () => this.imprimir());
+		}
+
+		const btnCompartir = document.getElementById('btnCompartir');
+		if (btnCompartir) {
+			btnCompartir.addEventListener('click', () => this.compartir());
+		}
+
+		const btnDescargar = document.getElementById('btnDescargar');
+		if (btnDescargar) {
+			btnDescargar.addEventListener('click', () => this.descargar());
+		}
+
+		const btnEmitirOtro = document.getElementById('btnEmitirOtro');
+		if (btnEmitirOtro) {
+			btnEmitirOtro.addEventListener('click', () => this.emitirOtro());
+		}
+	}
+
+	imprimir() {
+		console.log('Descargando PDF...');
+	}
+
+	compartir() {
+		console.log('Compartiendo...');
+	}
+
+	descargar() {
+		console.log('Descargando XML...');
+	}
+
+	emitirOtro = () => {
+		Swal.close();
+		this.router.navigate(['/sunat/greremitente']);
+	}
+
+
 }

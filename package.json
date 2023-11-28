@@ -4,7 +4,7 @@
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
-		"build": "ng build",
+		"build": "ng build --configuration production",
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test"
 	},
@@ -23,6 +23,7 @@
 		"@angular/platform-browser-dynamic": "^16.1.0",
 		"@angular/router": "^16.1.0",
 		"bootstrap": "^5.3.2",
+		"bootstrap-icons": "^1.11.2",
 		"firebase": "^10.3.1",
 		"ngx-image-cropper": "^7.0.2",
 		"pspdfkit": "^2023.4.3",

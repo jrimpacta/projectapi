@@ -1,6 +1,7 @@
 export const environment = {
 	production: false,
 	name: 'dev',
+	apiHost: 'https://localhost:7058/',
 	firebase: {
 		config: {
 			projectId: 'impactaapi-15704',

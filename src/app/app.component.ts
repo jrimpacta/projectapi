@@ -34,6 +34,8 @@ export class AppComponent {
 
 
 	}
+
+	//  ng build --configuration=production --base-href "/greweb/"
 	app = initializeApp(environment.firebase.config);
 	userProfileCollection = collection(getFirestore(this.app), 'test');
 	listar = async () => {
