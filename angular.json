@@ -86,19 +86,19 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-						"production": {
-							"browserTarget": "ImpactaAPIGre:build:production"
+            "production": {
+              "buildTarget": "ImpactaAPIGre:build:production"
 						},
-						"development": {
-							"browserTarget": "ImpactaAPIGre:build:development"
+            "development": {
+              "buildTarget": "ImpactaAPIGre:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-					"options": {
-						"browserTarget": "ImpactaAPIGre:build"
+          "options": {
+            "buildTarget": "ImpactaAPIGre:build"
 					}
 				},
 				"test": {
