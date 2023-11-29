@@ -13,6 +13,10 @@ const routes: Routes = [
 				path: 'sunat',
 				loadChildren: () => import('./pages/sunat/sunat.module')
 					.then(m => m.SunatModule)
+			}, {
+				path: 'profile',
+				loadChildren: () => import('./pages/profile/profile.module')
+					.then(m => m.ProfileModule)
 			}
 		]
 	}
