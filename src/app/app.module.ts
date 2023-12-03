@@ -9,7 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import es from '@angular/common/locales/es';
-import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, NgOptimizedImage, registerLocaleData} from '@angular/common';
 
 // BEGIN FIREBASE
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
@@ -25,7 +25,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MatNativeDateModule, MatDateFormats, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 const APP_DATE_FORMATS: MatDateFormats = {
 	parse: {
 		dateInput: {day: 'numeric', month: 'numeric', year: 'numeric'}
@@ -56,7 +58,11 @@ registerLocaleData(es);
 		provideStorage(() => getStorage()),
 		BrowserAnimationsModule,
 		MatNativeDateModule,
-		NotificationModule.forRoot()
+		NotificationModule.forRoot(),
+		MatToolbarModule,
+		MatButtonModule,
+		MatIconModule,
+		NgOptimizedImage
 	],
 	providers: [
 		ScreenTrackingService,

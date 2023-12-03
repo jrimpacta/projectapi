@@ -79,10 +79,27 @@ export class SunatService {
 		const body = new URLSearchParams();
 		body.set('token', token);
 
-		const url = `${this.apiUrl}/sunat/dni/${dni}`;
+		const url = `${this.apiUrl}sunat/dni/${dni}`;
 
 		return firstValueFrom(
 			this.httpClient.post<any>( url, body.toString())
 		);
+	}
+
+	getCorrelativo = () => {
+		return firstValueFrom(
+			this.httpClient.get(`${environment.apiHost}guia/GetCorrelativo`, {
+				...this.createHeaders(),
+				responseType: 'text'
+			})
+		);
+	}
+
+	private createHeaders(): { headers: HttpHeaders } {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+
+		return { headers };
 	}
 }

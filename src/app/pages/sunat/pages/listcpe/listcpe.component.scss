@@ -6,3 +6,8 @@
 	background-image: url('../../../../../assets/cpe.webp');
 	background-size: cover;
 }
+
+.disabled {
+	opacity: 0.5; /* Ajusta la opacidad para indicar que está deshabilitado */
+	pointer-events: none; /* Desactiva eventos del mouse */
+}

@@ -77,16 +77,10 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 
 	onPatchValue = (): void => {
 		this.formItem.patchValue({
-
-			// TO DO
-			//controlPartidaDepartamento: '3926',
-			//controlLlegadaDepartamento: '3926'
 		});
 	}
 	item!: ProductoItem;
 	onSubmit = async () => {
-
-
 		if (this.formItem.valid) {
 			const value = {...this.formItem.value};
 			this.propagateChanged(value);
@@ -106,16 +100,7 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 			};
 
 			this.itemsService.addItem(this.item);
-
-			//this.register.emit(value);
-			//markFormGroupTouched(this.form);
-			console.log("Form enviado!!");
-			//this.showSpinner = true;
-			//await new Promise((f: any) => setTimeout(f, 1000));
-			//this.showSpinner = false;
-			console.log("Presionó el botón de submit");
-
-
+			console.log("Form enviado");
 		}
 	}
 	private propagateChanged:any = ():void => {}

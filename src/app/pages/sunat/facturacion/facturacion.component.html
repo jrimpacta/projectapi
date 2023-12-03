@@ -1,1 +1,67 @@
-<p>facturacion works!</p>
+<div class="container">
+	<div class="row">
+		<!-- Tarjeta con la tabla (col-8) -->
+		<div class="offset-md-2 offset-sm-0 col-md-8 col-sm-12">
+			<div class="card">
+				<div class="card-body">
+					<h3 class="card-title">
+						<i class="bi bi-printer"></i> Información de su comprobante electrónico</h3>
+
+					<!-- Tabla dentro del card -->
+					<table class="table table-bordered">
+						<tbody>
+						<!-- Fila 1 -->
+						<tr>
+							<th>Razón Social</th>
+							<td>DISTRIBUIDORA NORTE PACASMAYO SRL</td>
+						</tr>
+						<!-- Fila 2 -->
+						<tr>
+							<th>RUC del destinatario</th>
+							<td>20131644852</td>
+						</tr>
+						<!-- Fila 3 -->
+						<tr>
+							<th>Tipo de documento</th>
+							<td>GUIA DE REMISION REMITENTE</td>
+						</tr>
+						<!-- Fila 4 -->
+						<tr>
+							<th>Folio del documento</th>
+							<td>T133-00118864</td>
+						</tr>
+						<!-- Fila 5 -->
+						<tr>
+							<th>Fecha de emisión</th>
+							<td>06/01/2023</td>
+						</tr>
+						<!-- Fila 6 botones-->
+						<tr>
+							<td colspan="2" class="text-r">
+								<div class="d-flex justify-content-between btn-group">
+									<button id="btnImprimir" class="btn btn-outline-primary btn-sm">
+										<i class="bi bi-printer"></i> Imprimir
+									</button>
+									<button id="btnCompartir" class="btn btn-outline-success btn-sm">
+										<i class="bi bi-share"></i> Compartir
+									</button>
+									<button
+										appModal [id]="idcpe"
+	 									class="btn btn-outline-danger btn-sm">
+										<i class="bi bi-file-earmark-arrow-down"></i> Descargar
+									</button>
+									<button id="btnEmitirOtro" class="btn btn-outline-primary btn-sm">
+										<i class="bi bi-box-arrow-up"></i> Emitir otro
+									</button>
+								</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

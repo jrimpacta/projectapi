@@ -1,0 +1,60 @@
+<div class="form">
+	<div class="form__container">
+		<div class="text-center"> <!-- Contenedor adicional para centrar la imagen -->
+			<img src="assets/LogoImpacta.png" class="card-img-top mx-auto d-block" style="max-width: 200px;" alt="Imagen de ejemplo">
+		</div>
+		<form [formGroup]="form" (ngSubmit)="signUp()">
+			<div>
+				<mat-form-field>
+					<mat-label>Ingrese su nombre(s)</mat-label>
+					<input matInput formControlName="names" />
+					<mat-error>Este campo es requerido</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div>
+				<mat-form-field>
+					<mat-label>Ingrese sus apellidos</mat-label>
+					<input matInput formControlName="lastName" />
+					<mat-error>Este campo es requerido</mat-error>
+				</mat-form-field>
+			</div>
+			<div>
+				<mat-form-field>
+					<mat-label>Ingrese su correo electrónico</mat-label>
+					<input matInput formControlName="email" />
+					<mat-error *ngIf="isEmailValid as messsage">{{ messsage }}</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div>
+				<mat-form-field>
+					<mat-label>Ingrese su contraseña</mat-label>
+					<input
+						matInput
+						[type]="hide ? 'password' : 'text'"
+						formControlName="password"
+					/>
+					<button
+						mat-icon-button
+						matSuffix
+						(click)="hide = !hide"
+						[attr.aria-label]="'Ocultar contraseña'"
+						[attr.aria-pressed]="hide"
+					>
+						<mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+					</button>
+					<mat-error>Este campo es requerido</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div>
+				<button mat-flat-button color="accent" type="submit">Registrarse</button>
+			</div>
+		</form>
+		<hr />
+		<span class="small-text log-in-redirect"
+		>¿Ya tienes una cuenta? <a routerLink="/profile/signinall">Inicia sesión</a></span
+		>
+	</div>
+</div>

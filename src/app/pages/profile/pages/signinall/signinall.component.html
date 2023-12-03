@@ -1,0 +1,47 @@
+<div class="form">
+	<div class="form__container text-center">
+		<div class="text-center"> <!-- Contenedor adicional para centrar la imagen -->
+			<img src="assets/LogoImpacta.png" class="card-img-top mx-auto d-block" style="max-width: 200px;" alt="Imagen de ejemplo">
+		</div>
+		<form [formGroup]="form" (ngSubmit)="signIn()">
+			<div>
+				<mat-form-field>
+					<mat-label>Correo electrónico</mat-label>
+					<input matInput formControlName="userName"/>
+					<mat-error *ngIf="isEmailValid as messsage">{{ messsage }}</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div>
+				<mat-form-field>
+					<mat-label>Contraseña</mat-label>
+					<input
+						matInput
+						[type]="hide ? 'password' : 'text'"
+						formControlName="password"
+					/>
+					<button
+						mat-icon-button
+						matSuffix
+						(click)="hide = !hide"
+						[attr.aria-label]="'Hide password'"
+						[attr.aria-pressed]="hide"
+					>
+						<mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+					</button>
+					<mat-error>Este campo es obligatorio</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div>
+				<button mat-flat-button color="accent" type="submit">Acceder</button>
+			</div>
+		</form>
+		<hr/>
+		<span class="small-text providers">¿Tienes un cuenta de gmail?</span>
+		<app-buttton-providers />
+		<span class="small-text log-in-redirect">¿Aún no tienes cuenta?
+      <a routerLink="/profile/signup">Registrate</a></span
+		>
+	</div>
+</div>

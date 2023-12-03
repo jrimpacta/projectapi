@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-facturacion',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./facturacion.component.scss']
 })
 export class FacturacionComponent {
-
+	idcpe!: number;
+	constructor() {
+		this.idcpe = 5;
+	}
 }

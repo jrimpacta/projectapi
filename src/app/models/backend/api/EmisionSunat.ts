@@ -14,4 +14,9 @@ export interface EmisionSunat {
 	numeroTicket?: string | null;
 	xmlFirmado?: string | null;
 	codigoQR?: string | null;
+	userEmail: string | null;
+	userFullName: string | null;
+	userPhoto: string | null;
+	privateIP: string | null;
+	publicIP: string | null;
 }

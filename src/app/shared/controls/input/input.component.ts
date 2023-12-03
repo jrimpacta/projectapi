@@ -19,12 +19,14 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
 	value:string;
 	isDisabled: boolean;
+	@Input() isReadOnly: boolean = false;
 	ngOnInit(): void {
 	}
 
 	constructor() {
 		this.value = '';
 		this.isDisabled = false;
+		this.isReadOnly = false;
 	}
 
 	private propagateChanged: any = () => {}

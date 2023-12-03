@@ -394,10 +394,23 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			});
 		}
 	}
+	isReadOnly: boolean = true;
+	onPatchValue = async () => {
+		let numeroCorrelativo = "";
 
-	onPatchValue = (): void => {
+		await this.sunatService.getCorrelativo()
+			.then((result) => {
+				// Aquí puedes manipular el resultado según tus necesidades
+				console.log("Valor: " + result);
+				numeroCorrelativo = result;
+			})
+			.catch((error) => {
+				console.error('Error al obtener el correlativo:', error);
+			});
+
 		this.form.patchValue({
 			tipoSerie: 6,
+			numSerieCorrelativo: numeroCorrelativo,
 			docIdentidad: 4,
 			controlTipoTransporte: 1,
 			unidadMedidaTotal: 90,
@@ -516,8 +529,6 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				});
 			}
 
-
-
 			const guia: Order = {
 				fechaEmision: _fechaEmision,
 				horaEmision: null,
@@ -576,7 +587,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 					serieCorrelativo: `${this.form.get('tipoSerie')?.value}-${this.form.get('numSerieCorrelativo')?.value}`,
 					serieId: this.form.get('tipoSerie')?.value,
 					descripcion: tipoSerie,
-					contadorCorrelativo: 1, // TO DO
+					contadorCorrelativo: 1, // TODO
 				},
 				unidadMedidaPesoBrutoId: Number(this.form.get('unidadMedidaTotal')?.value),
 				pesoBrutoTotalCarga: Number(this.form.get('controlPesoBrutoTotal')?.value),
@@ -585,7 +596,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				numeroBultos: this.form.get('controlNumBultos')?.value,
 				numeroPrecinto: this.form.get('controlNumPrecinto')?.value,
 				motivoTrasladoId: this.form.get('controlMotivos')?.value,
-				motivoTrasladoOtros: "", // TO DO
+				motivoTrasladoOtros: "", // TODO
 
 				puntoPartida: {
 					departamento: this.form.get('controlPartidaDepartamento')?.value,
@@ -633,7 +644,12 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 					motivoBaja: null,
 					numeroTicket: null,
 					xmlFirmado: null,
-					codigoQR: null
+					codigoQR: null,
+					userEmail: localStorage.getItem('userEmail'),
+					userFullName: localStorage.getItem('userFullName'),
+					userPhoto: localStorage.getItem('userPhoto'),
+					privateIP: '192.168.1.1', // TODO
+					publicIP: '10.10.0.1' // TODO
 				},
 				indicadorRetornoEnvasesVacios: retornos[0],
 				indicadorRetornoVehiculoVacio: retornos[1],

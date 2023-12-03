@@ -72,7 +72,7 @@
 														[control]="form.controls['numSerieCorrelativo']"
 														[isInline]="isInline">
 											<app-input formControlName="numSerieCorrelativo"
-													   (changed)="completeCorrelativo()"
+													   [isReadOnly]="isReadOnly"
 													   placeholder="Ingrese el número de correlativo"></app-input>
 										</app-form-field>
 									</div>

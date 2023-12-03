@@ -29,9 +29,6 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 		this.getData();
 	}
 	ngAfterViewInit() {
-		//let response = await this.contribuyenteServices.all();
-		console.log("ng table");
-		//this.dataSource = new MatTableDataSource<GreList>(response);
 		this.getData();
 		this.dataSource.paginator = this.paginator;
 		this.paginator._intl.itemsPerPageLabel = 'Ítems por página';
@@ -47,9 +44,6 @@ export class GrelistComponent implements OnInit, AfterViewInit  {
 	dataSource = new MatTableDataSource<GreList>(this.data);
 
 	getCpe = (id: number) => {
-		//console.log( id);
-
-
 	}
 
 	getData = () => {

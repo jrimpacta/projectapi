@@ -1,8 +1,37 @@
+<!--
 <div class="header">
     <div class="header__title">Impacta API</div>
     <div class="header__navigation">
-        <div class="app-a" routerLink="demo" routerLinkActive="app-a__active">Guía de estilos</div>
+        <div class="app-a" routerLink='demo' routerLinkActive="app-a__active">Guía de estilos</div>
     </div>
 
 
 </div>
+-->
+<p>
+    <mat-toolbar style="background-color: #0277bd; color: #e0e0e0">
+        <mat-toolbar-row>
+        <button mat-icon-button class="example-icon" aria-label="Botón de menú">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <img ngSrc="assets/LogoImpacta.png" class="img-fluid" alt="Logo de empresa" height="45" width="120" priority>
+            <span class="example-spacer"></span>
+            <span class="example-spacer"></span> <!-- Espaciador adicional para separar el logo y los botones -->
+            <span class="fill-remaining-space"></span>
+
+		<p style="margin: 15px" *ngIf="isLogged">{{displayName}}</p>
+
+		<img [src]="src" [width]="45" [height]="45" class="hy-profile-image" *ngIf="isLogged" />
+
+        <button
+                *ngIf="isLogged"
+                mat-icon-button (click)="logout()"
+                class="example-icon"
+                aria-label="Icono para cerrar sesión">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p>
+
+

@@ -15,7 +15,7 @@ export interface Order {
 	tipoDocumentoId: number;
 	destinatario: Contribuyente;
 	transportista: Contribuyente;
-	serieCorrelativo?: SerieCorrelativo | null; // TO DO
+	serieCorrelativo?: SerieCorrelativo | null; // TODO
 	unidadMedidaPesoBrutoId: number;
 	pesoBrutoTotalCarga: number;
 	numeroDAMoDS?: string;

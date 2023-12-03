@@ -4,6 +4,7 @@
 	[value]="value"
 	[placeholder]="placeholder || ''"
 	[attr.disabled]="isDisabled ? true : null"
+	[attr.readonly]="isReadOnly ? true : null"
 	(keyup)="onKeyup($event)"
 	(blur)="onBlur()"
 >

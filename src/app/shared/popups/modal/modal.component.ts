@@ -28,11 +28,13 @@ export class ModalComponent implements OnInit, ControlValueAccessor {
 		const response : any = await this.modalService.getPdf(this.id);
 		this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
 			"data:application/pdf;base64," + response["pdfEnterprise"]);
+		console.log(response["pdfEnterprise"]);
 	}
 
 	constructor(private sanitizer: DomSanitizer, @Inject(MAT_DIALOG_DATA) public data: any) {
 		this.id = this.data.id;
 		console.log('ID recibido en el diálogo:', this.id);
+
 	}
 
 	private propagateChanged:any = ():void => {}
