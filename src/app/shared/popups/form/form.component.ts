@@ -87,7 +87,7 @@ export class FormComponent implements OnInit, ControlValueAccessor {
 			this.register.emit(value);
 
 			this.item = {
-				ProductoId : Math.floor(Math.random() * 25),
+				ProductoId : Math.floor(Math.random() * 25), // TODO
 				CodigoProducto : this.formItem.get("CodigoProducto")?.value,
 				UnidadMedidaId : this.formItem.get("unidadMedidaItem")?.value,
 				CantidadItem : this.formItem.get("CantidadItem")?.value,

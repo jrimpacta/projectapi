@@ -73,6 +73,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	agregarVehiculo: boolean = false;
 	agregarConductor: boolean = false;
 
+
 	constructor(private fb: FormBuilder, private router: Router) {
 
 		this.isInline = false;
@@ -397,10 +398,10 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 	isReadOnly: boolean = true;
 	onPatchValue = async () => {
 		let numeroCorrelativo = "";
+		let valueTipoSerie = this.form.get('tipoSerie')?.value;
 
 		await this.sunatService.getCorrelativo()
 			.then((result) => {
-				// Aquí puedes manipular el resultado según tus necesidades
 				console.log("Valor: " + result);
 				numeroCorrelativo = result;
 			})
@@ -419,6 +420,11 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 			//controlPartidaDepartamento: '3926',
 			//controlLlegadaDepartamento: '3926'
 		});
+	}
+
+	getTipoSerie(serieId: number): string {
+		const serie = this.serieCorrelativo.find((u) => u.value === serieId);
+		return serie ? serie.label : '';
 	}
 
 	onSubmit = async () => {
@@ -501,6 +507,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 
 			let conductores : Contribuyente[] = [];
 			let vehiculosData : Vehiculo[] = [];
+			let valueTipoSerie = this.getTipoSerie(this.form.get('tipoSerie')?.value);
 
 			if (vehiculos[2]) {
 				conductores.push( {
@@ -584,7 +591,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				},
 				serieCorrelativo: { // Se debe contar los documentos aceptados por sunat y sumar uno
 					fechaCreacion: new Date().toISOString(),
-					serieCorrelativo: `${this.form.get('tipoSerie')?.value}-${this.form.get('numSerieCorrelativo')?.value}`,
+					serieCorrelativo: `${valueTipoSerie}-${this.form.get('numSerieCorrelativo')?.value}`, // TODO
 					serieId: this.form.get('tipoSerie')?.value,
 					descripcion: tipoSerie,
 					contadorCorrelativo: 1, // TODO
@@ -626,7 +633,7 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 				transbordo: retornos[2],
 				observaciones: [
 					{
-						detalle: this.form.get('controlObservacion')?.value
+						detalle: this.form.get('controlObservacion')?.value ?? ''
 					}
 				],
 				emisionSunat: {
@@ -637,17 +644,17 @@ export class GreremitenteComponent implements OnInit, OnDestroy {
 					enviadoEmailCliente: false,
 					estadoSunat: null,
 					cdrSunat: null,
-					eliminado: null,
-					anulado: null,
-					envioAutomatico: null,
+					eliminado: false,
+					anulado: false,
+					envioAutomatico: false,
 					comunicacionBaja: false,
 					motivoBaja: null,
 					numeroTicket: null,
 					xmlFirmado: null,
 					codigoQR: null,
 					userEmail: localStorage.getItem('userEmail'),
-					userFullName: localStorage.getItem('userFullName'),
-					userPhoto: localStorage.getItem('userPhoto'),
+					userFullName: localStorage.getItem('displayName'),
+					userPhoto: localStorage.getItem('photoURL'),
 					privateIP: '192.168.1.1', // TODO
 					publicIP: '10.10.0.1' // TODO
 				},

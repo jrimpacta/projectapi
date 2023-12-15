@@ -44,7 +44,14 @@ export class ContribuyenteService {
 	}
 
 	getAllCont(): Observable<GreList[]> {
-		return this.httpClient.get<GreList[]>(`${this.apiUrl}/allFiltered`);
+		const storedUserEmail = localStorage.getItem('userEmail');
+		/*if (storedUserEmail && storedUserEmail !== '') {
+			this.src = storedUserEmail;
+		} else {
+			this.src = "assets/blank-profile.png";
+		}*/
+
+		return this.httpClient.get<GreList[]>(`${this.apiUrl}/allFilteredForUser/${storedUserEmail}`);
 	}
 
 	search = (codigoIdentificacion : string) => {

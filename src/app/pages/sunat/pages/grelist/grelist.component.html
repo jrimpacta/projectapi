@@ -51,7 +51,7 @@
 					fontIcon="search" (click)="getCpe(element.id)"></mat-icon>
 				<mat-icon routerLink="/edit/{{ element.id }}" matTooltip="Editar" class="edit"
 						  fontIcon="edit"></mat-icon>
-				<mat-icon matTooltip="Borrar" class="delete" fontIcon="delete"></mat-icon>
+				<mat-icon matTooltip="Borrar" class="delete" (click)="deleteCpe(element.id)" fontIcon="delete"></mat-icon>
 			</td>
 		</ng-container>
 

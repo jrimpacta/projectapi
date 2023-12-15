@@ -95,6 +95,15 @@ export class SunatService {
 		);
 	}
 
+	getEliminarCpe = (idCpe: string) => {
+		return firstValueFrom(
+			this.httpClient.get(`${environment.apiHost}guia/DeleteGRE/${idCpe}`, {
+				...this.createHeaders(),
+				responseType: 'text'
+			})
+		);
+	}
+
 	private createHeaders(): { headers: HttpHeaders } {
 		const headers = new HttpHeaders({
 			'Content-Type': 'application/json',

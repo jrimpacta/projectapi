@@ -2,8 +2,8 @@ import {Component, Input, inject, OnInit, OnDestroy} from '@angular/core';
 import {ProductoItem} from "src/app/models/backend/api/productoItem";
 import { ProductoService } from "../../services/producto.service";
 import {Subscription} from "rxjs";
-import {ControlItem} from "../../../../models/frontend";
-import {catalogo65} from "../../../../models/backend/catalogos";
+import {ControlItem} from "src/app/models/frontend";
+import {catalogo65} from "src/app/models/backend/catalogos";
 
 @Component({
 	selector: 'app-producto',

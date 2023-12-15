@@ -28,6 +28,8 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {FooterComponent} from "./components/footer/footer.component";
 const APP_DATE_FORMATS: MatDateFormats = {
 	parse: {
 		dateInput: {day: 'numeric', month: 'numeric', year: 'numeric'}
@@ -62,7 +64,9 @@ registerLocaleData(es);
 		MatToolbarModule,
 		MatButtonModule,
 		MatIconModule,
-		NgOptimizedImage
+		NgOptimizedImage,
+		MatTooltipModule,
+		FooterComponent
 	],
 	providers: [
 		ScreenTrackingService,
