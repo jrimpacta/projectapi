@@ -8,7 +8,7 @@ export const loginGuard = () => {
     if (localStorage.getItem('userEmail')) {
         return true;
     } else {
-        router.navigate(['/profile/signinall']);
+        router.navigate(['/profile/signin']);
         return false
     }
 }

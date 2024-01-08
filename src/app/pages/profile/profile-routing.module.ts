@@ -12,7 +12,7 @@ const routes: Routes = [
 		path: 'id',
 		loadChildren: () => import('./pages/display/display.module').then(m => m.DisplayModule)
 	}, {
-		path: 'signin',
+		path: 'signinsgi',
 		loadChildren: () => import('./pages/signin/signin.module').then(m => m.SigninModule)
 	}, {
 		path: 'signinall',
@@ -20,6 +20,9 @@ const routes: Routes = [
 	}, {
 		path: 'signup',
 		loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule)
+	}, {
+		path: 'signin',
+		loadChildren: () => import('./pages/signinimpacta/signinimpacta.module').then(m => m.SigninimpactaModule)
 	}
 ];
 

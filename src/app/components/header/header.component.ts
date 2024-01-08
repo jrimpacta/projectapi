@@ -38,7 +38,7 @@ export class HeaderComponent {
 	}
 
     logout = async () => {
-        await this.router.navigate(["/profile/signinall"]); // En caso de usuarios comunes
+        await this.router.navigate(["/profile/signin"]); // En caso de usuarios comunes
         localStorage.clear();
 		//this.authService.logOut();
 		this.profileView();

@@ -1,6 +1,6 @@
 import {Injectable, inject} from '@angular/core';
 import {
-	Auth,
+	//Auth,
 	AuthProvider,
 	GithubAuthProvider,
 	GoogleAuthProvider,
@@ -8,7 +8,9 @@ import {
 	authState,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-	signInWithPopup, user, updateProfile, User
+	signInWithPopup, user, updateProfile, User,
+	getAuth,
+	OAuthProvider
 } from '@angular/fire/auth';
 import {UserRegister, UserSignIn} from "../../models/backend/api/auth/userSignIn";
 import {environment} from "../../../environments/environment";
@@ -22,7 +24,8 @@ import firebase from "firebase/compat";
 	providedIn: 'root'
 })
 export class AuthService {
-	private auth: Auth = inject(Auth);
+	//private auth: Auth = inject(Auth);
+	private auth = getAuth();
 	private httpClient = inject(HttpClient);
 
 	//readonly authState$ = authState(this.auth);
@@ -76,6 +79,46 @@ export class AuthService {
 
 	// providers
 
+	signInWithMicrosoftProvider(): Promise<UserCredential> {
+		const provider = new OAuthProvider('microsoft.com');
+		console.log('llegó al provider: ' + provider);
+		const auth = getAuth();
+
+		/*
+		let email: string  | null | undefined = "";
+		let displayName: string  | null | undefined = "";
+		let photoURL: string  | null | undefined = "";
+
+		const unsubscribe = this.auth.onAuthStateChanged((userInfo) => {
+			if (userInfo) {
+				email = userInfo.email;
+				displayName = userInfo.displayName;
+				photoURL = userInfo.photoURL;
+			} else {
+				console.log('No se encontró datos del usuario');
+			}
+			unsubscribe();
+
+			typeof email === "string" ? localStorage.setItem("userEmail", email) : null;
+			typeof displayName === "string" ? localStorage.setItem("displayName", displayName) : null;
+			typeof photoURL === "string" ? localStorage.setItem("photoURL", photoURL) : null;
+		});*/
+
+		return this.callPopUpMicrosoft(provider);
+	}
+
+	async callPopUpMicrosoft( provider: AuthProvider): Promise<UserCredential> {
+		try {
+			const result = await signInWithPopup(this.auth, provider);
+			const credential = OAuthProvider.credentialFromResult(result);
+			const accessToken = credential?.accessToken;
+			const idToken = credential?.idToken;
+			return result;
+		} catch (error: any) {
+			return error;
+		}
+	}
+
 	signInWithGoogleProvider(): Promise<UserCredential> {
 		const provider = new GoogleAuthProvider();
 		let email: string  | null | undefined = "";
@@ -116,6 +159,8 @@ export class AuthService {
 			return error;
 		}
 	}
+
+
 
 	signInImpacta = async (user: UserSignIn) => {
 		const body = JSON.stringify(user);
